@@ -19,7 +19,7 @@
 局部变量, 分配到线程栈内存中,"> 
     <meta name="author" content="John Doe"> 
     <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
-    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="icon" href="/img/hb.jpg"> 
     
     
 <link rel="stylesheet" href="/css/diaspora.css">
@@ -63,7 +63,7 @@
         <div class="stuff">
             <span>三月 20, 2020</span>
             
-  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/diary/" rel="tag">diary</a></li></ul>
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/kenzo/" rel="tag">kenzo</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/thread/" rel="tag">thread</a></li></ul>
 
 
         </div>
@@ -156,12 +156,16 @@
 
     </div>
     
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">线程问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="toc-number">1.1.</span> <span class="toc-text">线程安全</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95"><span class="toc-number">1.1.1.</span> <span class="toc-text">解决方法:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.2.</span> <span class="toc-text">概念</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E6%BA%90%E7%A0%81"><span class="toc-number">1.2.</span> <span class="toc-text">项目源码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#lock"><span class="toc-number">1.2.1.</span> <span class="toc-text">lock</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#guard"><span class="toc-number">1.2.2.</span> <span class="toc-text">guard</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A1%B9%E7%9B%AE%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.3.</span> <span class="toc-text">项目实例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%97%AE%E9%A2%98"><span class="toc-number">1.4.</span> <span class="toc-text">问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%B6%E4%BB%96"><span class="toc-number">1.5.</span> <span class="toc-text">其他</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#volatile-%E5%85%B3%E9%94%AE%E5%AD%97-%E6%8C%A5%E5%8F%91%E6%80%A7"><span class="toc-number">1.5.1.</span> <span class="toc-text">volatile 关键字(挥发性)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#uml-%E7%AE%AD%E5%A4%B4%E8%AF%A6%E8%A7%A3"><span class="toc-number">1.5.2.</span> <span class="toc-text">uml 箭头详解</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%BB%E9%94%81%E5%9B%BE%E8%A7%A3"><span class="toc-number">1.5.3.</span> <span class="toc-text">死锁图解</span></a></li></ol></li></ol></li></ol>	
+        </div>
+    
 </div>
 
 
     </div>
 </div>
-</body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
 
 
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
