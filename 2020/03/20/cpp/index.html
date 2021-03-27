@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>c 艹 从入门到 mfc 到 qt - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+简介: cpp 简要指北
+
+c艹指南
+简单入门：
+
+
+iterator.second123456789101112131415std::map&amp;lt;X, Y&amp;gt;实际储存了一串std::pai,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">c 艹 从入门到 mfc 到 qt</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">c 艹 从入门到 mfc 到 qt</h1>
+        <div class="stuff">
+            <span>三月 20, 2020</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/diary/" rel="tag">diary</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>简介: cpp 简要指北</p>
+</blockquote>
+<h1 id="c艹指南"><a href="#c艹指南" class="headerlink" title="c艹指南"></a>c艹指南</h1><ul>
+<li><p>简单入门：</p>
+<span id="more"></span></li>
+</ul>
+<h2 id="iterator-second"><a href="#iterator-second" class="headerlink" title="iterator.second"></a>iterator.second</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;X, Y&gt;实际储存了一串std::pair&lt;const X, Y&gt;</span><br><span class="line"></span><br><span class="line">std::map&lt;std::string, int&gt; m &#x3D; &#x2F;* fill it *&#x2F;;</span><br><span class="line">auto it &#x3D; m.begin();</span><br><span class="line"></span><br><span class="line">这里，如果你用*it，那么你将得到map第一个元素的std::pair：</span><br><span class="line"></span><br><span class="line">现在你可以接收std::pair的两个元素：</span><br><span class="line"></span><br><span class="line">(*it).first会得到key，</span><br><span class="line"></span><br><span class="line">(*it).second会得到value。</span><br><span class="line"></span><br><span class="line">这等同于it-&gt;first和it-&gt;second。</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="c-amp-h文件-h文件里不要定义变量，可以声明！！"><a href="#c-amp-h文件-h文件里不要定义变量，可以声明！！" class="headerlink" title=".c&amp;.h文件 .h文件里不要定义变量，可以声明！！"></a><a target="_blank" rel="noopener" href="https://www.cnblogs.com/laojie4321/archive/2012/03/30/2425015.html">.c&amp;.h文件</a> .h文件里不要定义变量，可以声明！！</h2><ul>
+<li><p>一个经典错误。3a222<br>在a.h头文件中定义变量temp并初始化，即显式初始化。int temp = 0；</p>
+<p>a.c b.c文件中都包含了a.h头文件，则在编译时会出现：multiple definition of `a’的错误。</p>
+<p>a.h中定义变量temp，不初始化为0即为不显示初始化。</p>
+<p>不显示初始化不出错原因：<br>—— 不显式的初始化，在C语言中（C++中不是这样的），则先假定为声明，多次声明是没错的，最后才是定义。</p>
+</li>
+<li><p>强符号和弱符号</p>
+</li>
+<li><p>命名空间</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">  bool:         所占字节数：1    最大值：1        最小值：0</span><br><span class="line">  char:         所占字节数：1    最大值：        最小值：?</span><br><span class="line">  signed char:     所占字节数：1    最大值：        最小值：?</span><br><span class="line">  unsigned char:     所占字节数：1    最大值：?        最小值：</span><br><span class="line">  wchar_t:     所占字节数：4    最大值：2147483647        最小值：-2147483648</span><br><span class="line">  short:         所占字节数：2    最大值：32767        最小值：-32768</span><br><span class="line">  int:         所占字节数：4    最大值：2147483647    最小值：-2147483648</span><br><span class="line">  unsigned:     所占字节数：4    最大值：4294967295    最小值：0</span><br><span class="line">  long:         所占字节数：8    最大值：9223372036854775807    最小值：-9223372036854775808</span><br><span class="line">  unsigned long:     所占字节数：8    最大值：18446744073709551615    最小值：0</span><br><span class="line">  double:     所占字节数：8    最大值：1.79769e+308    最小值：2.22507e-308</span><br><span class="line">  long double:     所占字节数：16    最大值：1.18973e+4932    最小值：3.3621e-4932</span><br><span class="line">  float:         所占字节数：4    最大值：3.40282e+38    最小值：1.17549e-38</span><br><span class="line">  size_t:     所占字节数：8    最大值：18446744073709551615    最小值：0</span><br><span class="line">string:     所占字节数：24</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Extern"><a href="#Extern" class="headerlink" title="Extern"></a>Extern</h2><p>用extern来声明在别的文件中已经存在的变量和函数，而且格式必须严格一致（比如数组不等价于指针）</p>
+<p>区分声明与定义</p>
+<p><em><strong>*1、一种是需要建立存储空间的。例如：int a 在声明的时候就已经建立了存储空间。*</strong></em></p>
+<p><em><strong>*2、另一种是不需要建立存储空间的。 例如：extern int a 其中变量a是在别的文件中定义的*</strong></em></p>
+<p>声明是向编译器介绍名字－－标识符。它告诉编译器“这个函数或变量在某处可找到，它的模样象什么”。</p>
+<p>而定义是说：“在这里建立变量”或“在这里建立函数”。它为名字分配存储空间。无论定义的是函数还是变量，编译器都要为它们在定义点分配存储空间。对于变量，编译器确定变量的大小，然后在内存中开辟空间来保存其数据，对于函数，编译器会生成代码，这些代码最终也要占用一定的内存。</p>
+<ul>
+<li><p>auto自动判断变量类型</p>
+</li>
+<li><p>static    <strong>static</strong> 存储类指示编译器在程序的生命周期内保持局部变量的存在，而不需要在每次它进入和离开作用域时进行创建和销毁。因此，使用 static 修饰局部变量可以在函数调用之间保持局部变量的值。</p>
+</li>
+</ul>
+<h2 id="传参"><a href="#传参" class="headerlink" title="传参"></a>传参</h2><table>
+<thead>
+<tr>
+<th align="left">调用类型</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-function-call-by-value.html">传值调用</a></td>
+<td align="left">该方法把参数的实际值复制给函数的形式参数。在这种情况下，修改函数内的形式参数对实际参数没有影响。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-function-call-by-pointer.html">指针调用</a></td>
+<td align="left">该方法把参数的地址复制给形式参数。在函数内，该地址用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</td>
+</tr>
+<tr>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/cplusplus/cpp-function-call-by-reference.html">引用调用</a></td>
+<td align="left">该方法把参数的引用复制给形式参数。在函数内，该引用用于访问调用中要用到的实际参数。这意味着，修改形式参数会影响实际参数。</td>
+</tr>
+</tbody></table>
+<ul>
+<li>参数可以有默认值</li>
+</ul>
+<h2 id="lambda表达式"><a href="#lambda表达式" class="headerlink" title="lambda表达式"></a>lambda表达式</h2><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[capture](parameters)-&gt;return_type&#123;body&#125;</span><br></pre></td></tr></table></figure>
+
+<p>大家可能会想<code>lambda</code>表达式最前面的方括号的意义何在？其实这是<code>lambda</code>表达式一个很要的功能，就是闭包。这里我们先讲一下<code>lambda</code>表达式的大致原理：每当你定义一个<code>lambda</code>表达式后，编译器会自动生成一个匿名类（这个类当然重载了<code>()</code>运算符），我们称为闭包类型（closure type）。那么在运行时，这个<code>lambda</code>表达式就会返回一个匿名的闭包实例，其实一个右值。所以，我们上面的<code>lambda</code>表达式的结果就是一个个闭包。闭包的一个强大之处是其可以通过传值或者引用的方式捕捉其封装作用域内的变量，前面的方括号就是用来定义捕捉模式以及变量，我们又将其称为<code>lambda</code>捕捉块。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">auto</span> add_x = [x](<span class="keyword">int</span> a) &#123; <span class="keyword">return</span> a + x; &#125;;  <span class="comment">// 复制捕捉x</span></span><br><span class="line">    <span class="keyword">auto</span> multiply_x = [&amp;x](<span class="keyword">int</span> a) &#123; <span class="keyword">return</span> a * x; &#125;;  <span class="comment">// 引用捕捉x</span></span><br><span class="line">    </span><br><span class="line">    cout &lt;&lt; <span class="built_in">add_x</span>(<span class="number">10</span>) &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; <span class="built_in">multiply_x</span>(<span class="number">10</span>) &lt;&lt; endl;</span><br><span class="line">    <span class="comment">// 输出：20 100</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>函数返回数组，返回类型为指针，返回的数组要定义成静态数组</li>
+<li>引用！=指针</li>
+<li>cout&lt;&lt; cin&gt;&gt;</li>
+<li>ifndef endif</li>
+<li>vector转数组：&amp;vector[0]传参</li>
+<li><code>explicit</code>的作用是用来声明类构造函数是显示调用的，而非隐式调用，所以只用于修饰单参构造函数。因为无参构造函数和多参构造函数本身就是显示调用的。再加上<code>explicit</code>关键字也没有什么意义。</li>
+<li>~ ：析构函数</li>
+<li>template &lt;typename&gt; … 模板（泛型编程）</li>
+<li>&amp;&amp; r-value reference</li>
+</ul>
+<h2 id="虚函数"><a href="#虚函数" class="headerlink" title="虚函数"></a>虚函数</h2><p>➢ 编译程序为有虚函数的类创建一个虚函数入口地址表VFT， </p>
+<p>➢ 表首地址存放在对象的起始单元中。</p>
+<p>➢ 当对象调用虚函数时，通过其起始单元得到VFT首址，</p>
+<p>动态绑定到相应的函数成员。</p>
+<h2 id="原型-声明-定义"><a href="#原型-声明-定义" class="headerlink" title="原型 声明 定义"></a>原型 声明 定义</h2><p>声明: 指出存储类型, 给存储单元指定名称, 声明是向编译器介绍名字和模样</p>
+<p>​    声明分为两种: 需要建立存储空间的如<code>int a</code>; 不需要建立存储空间的如<code>extern int a</code></p>
+<p>定义: 分配内存空间, 定义是说”在这里建立变量(函数)” –&gt; 建立空间</p>
+<p><strong>基本类型变量的声明和定义是同时产生的, 对于对象来说则是分开的</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A a; <span class="comment">//对象声明</span></span><br><span class="line">a = <span class="keyword">new</span> <span class="built_in">A</span>(); <span class="comment">//对象定义(初始化)</span></span><br></pre></td></tr></table></figure>
+
+<p>所谓定义就是（编译器）创建一个对象，为这个对象分配一块内存，并给它取上一个名字，这个名字就是就是我们经常所说的变量名或对象名。</p>
+<p>声明有2重含义：</p>
+<p>（1） 告诉编译器，这个名字已经匹配到一块内存上，下面的代码用到变量或者对象是在别的地方定义的。声明可以出现多次。</p>
+<p>（2） 告诉编译器，这个名字已经被预定了，别的地方再也不能用它来作为变量名或对象名。</p>
+<p><em><strong>*定义和声明的最重要区别就是：*</strong></em></p>
+<p><em><strong>*定义创建对象并为这个对象分配了内存，声明没有分配内存。*</strong></em></p>
+<p>函数原型: 在<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1">计算机编程</a>中，<strong>函数原型</strong>（英语：<strong>Function prototype</strong>）或<strong>函数接口</strong>（英语：<strong>Function interface</strong>）是用于指定函数的名称和<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E7%B1%BB%E5%9E%8B%E7%89%B9%E5%BE%81">类型特征</a>（<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%85%83%E6%95%B0">元数</a>，参数的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E8%B3%87%E6%96%99%E9%A1%9E%E5%9E%8B">数据类型</a>和返回值类型）的一种省略了函数体的<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%90%E7%A8%8B%E5%BA%8F">函数</a><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/w/index.php?title=%E5%A3%B0%E6%98%8E&action=edit&redlink=1">声明</a>。</p>
+<h2 id="strcut和class的区别"><a href="#strcut和class的区别" class="headerlink" title="strcut和class的区别"></a>strcut和class的区别</h2><ol>
+<li>默认的继承访问权。class默认的是private,strcut默认的是public。</li>
+<li>默认访问权限：struct作为数据结构的实现体，它默认的数据访问控制是public的，而class作为对象的实现体，它默认的成员变量访问控制是private的。</li>
+<li>“class”这个关键字还用于定义模板参数，就像“typename”。但关建字“struct”不用于定义模板参数</li>
+<li>class和struct在使用大括号{ }上的区别<br>关于使用大括号初始化<br>1.）class和struct如果定义了构造函数的话，都不能用大括号进行初始化<br>2.）如果没有定义构造函数，struct可以用大括号初始化。<br>3.）如果没有定义构造函数，且所有成员变量全是public的话，class可以用大括号初始化</li>
+<li>(<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/409f931c17d9">https://www.jianshu.com/p/409f931c17d9</a>)</li>
+</ol>
+<h2 id="namespace"><a href="#namespace" class="headerlink" title="namespace"></a>namespace</h2><ol>
+<li>类的头文件应该是自己形成一个命名空间, 然后 cpp <strong>文件因为是相当于在类外进行定义</strong>所以要使用命名空间指明函数定义</li>
+</ol>
+<h2 id="explicit-implicit"><a href="#explicit-implicit" class="headerlink" title="explicit implicit"></a>explicit implicit</h2><p>上面的代码中, “CxString string2 = 10;” 这句为什么是可以的呢? 在C++中, 如果的构造函数只有一个参数时, 那么在编译的时候就会有一个缺省的转换操作:将该构造函数对应数据类型的数据转换为该类对象. 也就是说 “CxString string2 = 10;” 这段代码, 编译器自动将整型转换为CxString类对象, 实际上等同于下面的操作:</p>
+<p><code>CxString string2(10);</code></p>
+<p>当使用 explicit 关键字修饰构造函数以后, 就能避免这种操作</p>
+<p>默认情况下构造函数都是 implicit 的</p>
+<h2 id="friend-友元"><a href="#friend-友元" class="headerlink" title="friend 友元"></a>friend 友元</h2><p>原则上, 类的私有（private）和受保护（protected）成员不能从声明它们的同一类外部访问。但是, 此规则不适用于友元 “friends”。</p>
+<p>以friend关键字修饰的函数或类称为友元函数或友元类。</p>
+<p><strong>友元函数</strong>是可以直接访问类的私有成员的非成员函数。它是定义在类外的普通函数，它不属于任何类，但需要在类的定义中加以声明，声明时只需在友元的名称前加上关键字friend，其格式如下：</p>
+<p>  <code> friend 类型 函数名(形式参数);</code></p>
+<p><strong>友元类</strong>的所有成员函数都是另一个类的友元函数，都可以访问另一个类中的隐藏信息（包括私有成员和保护成员）。    </p>
+<p>　　当希望一个类可以存取另一个类的私有成员时，可以将该类声明为另一类的友元类。定义友元类的语句格式如下：</p>
+<p><code>friend class 类名;</code></p>
+<p>其中：friend和class是关键字，类名必须是程序中的一个已定义过的类。</p>
+<p><strong>使用友元类时注意</strong>：</p>
+<p>　　1、友元关系不能被继承。</p>
+<p>　　2、友元关系是单向的，不具有交换性。若类B是类A的友元，类A不一定是类B的友元，要看在类中是否有相应的声明。</p>
+<p>　　3、友元关系具有非传递性。若类B是类A的友元，类C是B的友元，类C不一定是类A的友元，同样要看类中是否有相应的申明。</p>
+<h2 id="public-protect-private"><a href="#public-protect-private" class="headerlink" title="public protect private"></a>public protect private</h2><p><strong>继承无法访问父变量的 private 成员</strong></p>
+<p><strong>访问权限</strong></p>
+<p><strong>private</strong>：私有成员</p>
+<p>仅可被本类的函数成员访问</p>
+<p>不能被派生类、其它类和普通函数访问</p>
+<p><strong>protected</strong>：受保护成员</p>
+<p>可被本类和派生类的函数成员访问</p>
+<p>不能被其它类函数成员和普通函数访问</p>
+<p><strong>public</strong>：公有成员</p>
+<p>可被任何函数成员和普通函数访问</p>
+<p><strong>继承权限</strong><br><strong>public继承</strong><br>派生类通过public继承，基类的各种权限不变 。<br>派生类的成员函数，可以访问基类的public成员、protected成员，但是无法访问基类的private成员。<br>派生类的实例变量，可以访问基类的public成员，但是无法访问protected、private成员，仿佛基类的成员之间加到了派生类一般。<br>可以将public继承看成派生类将基类的public,protected成员囊括到派生类，但是不包括private成员。</p>
+<p><strong>protected继承</strong><br> 派生类通过protected继承，基类的public成员在派生类中的权限变成了protected 。protected和private不变。<br>派生类的成员函数，可以访问基类的public成员、protected成员，但是无法访问基类的private成员。<br>派生类的实例变量，无法访问基类的任何成员，因为基类的public成员在派生类中变成了protected。<br>可以将protected继承看成派生类将基类的public,protected成员囊括到派生类，全部作为派生类的protected成员，但是不包括private成员。<br>private成员是基类内部的隐私，除了友元，所有人员都不得窥探。派生类的友元，都不能访问</p>
+<p><strong>private继承</strong><br>派生类通过private继承，基类的所有成员在派生类中的权限变成了private。<br>派生类的成员函数，可以访问基类的public成员、protected成员，但是无法访问基类的private成员。<br>派生类的实例变量，无法访问基类的任何成员，因为基类的所有成员在派生类中变成了private。<br>可以将private继承看成派生类将基类的public,protected成员囊括到派生类，全部作为派生类的private成员，但是不包括private成员。<br>private成员是基类内部的隐私，除了友元，所有人员都不得窥探。派生类的友元，都不能访问</p>
+<p><strong>总结：继承修饰符，就像是一种筛子，将基类的成员筛到派生类。public、protected、private，就是筛子的眼。</strong><br><strong>通过public继承，所有基类成员（除了private），public、protected都到了派生类里面，public筛眼比较大，不会改变访问权限。</strong><br><strong>通过protected继承，所有基类成员（除了private），public、protected都到了派生类里面，protected筛眼大小适中，所有过来的成员都变成了protected。</strong><br><strong>通过private继承，所有基类成员（除了private），public、protected都到了派生类里面，private筛眼最小，所有过来的成员都变成了private。</strong></p>
+<h2 id="隐式转换和显式转换"><a href="#隐式转换和显式转换" class="headerlink" title="隐式转换和显式转换"></a>隐式转换和显式转换</h2><p>隐式转换: 比如 double = int, 或者调用构造函数的那种(见explicit implicit)</p>
+<p>显式转换: 又称强制类型转换. 比如 int(), static_cast</p>
+<h2 id="默认构造函数-析构函数-拷贝构造函数-拷贝运算符-编译器提供"><a href="#默认构造函数-析构函数-拷贝构造函数-拷贝运算符-编译器提供" class="headerlink" title="默认构造函数, 析构函数, 拷贝构造函数, 拷贝运算符(编译器提供)"></a>默认构造函数, 析构函数, 拷贝构造函数, 拷贝运算符(编译器提供)</h2><h3 id="默认构造函数"><a href="#默认构造函数" class="headerlink" title="默认构造函数"></a>默认构造函数</h3><p>在这个程序片段中Bar的成员foo含有默认构造函数，它初始化自己的类成员val为0而Bar本身并没有定义默认的构造函数，这个构造函数的目的是为了初始化它的成员变量foo，实际上就是调用Bar::foo的默认构造函数，但它并不会做一丁点关于另外一个变量str的初始化和赋值工作，初始化Bar::foo是编译器的责任，二初始化str是程序员的责任</p>
+<p>大概意思就是: 如果类内的成员有构造函数, 那么编译器生成的默认构造函数中就会调用这个成员的默认构造函数, 如果父类有默认构造函数, 就会调用父类的默认构造函数, 如果 class 里有虚函数, 或者带有虚基类, 会生成 vtbl. 否则就会生成 trival 构造函数(不做任何事情)</p>
+<h3 id="默认析构函数"><a href="#默认析构函数" class="headerlink" title="默认析构函数"></a>默认析构函数</h3><p>情况同默认构造函数</p>
+<p>对于编译器提供的默认析构函数，不管是无用的，还是非无用的，它们都不会自动清除对象里面所包含的资源。</p>
+<h3 id="拷贝构造函数"><a href="#拷贝构造函数" class="headerlink" title="拷贝构造函数"></a>拷贝构造函数</h3><p>浅拷贝(指针)</p>
+<h3 id="拷贝运算符"><a href="#拷贝运算符" class="headerlink" title="拷贝运算符"></a>拷贝运算符</h3><p>浅拷贝</p>
+<h2 id="返回引用"><a href="#返回引用" class="headerlink" title="返回引用"></a>返回引用</h2><p>当返回的值不是引用型时，编译器会专门给返回值分配出一块内存的</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">T function1()&#123;</span><br><span class="line">2     T t(0);</span><br><span class="line">3     return t;</span><br><span class="line">4 &#125;</span><br><span class="line">5 T x&#x3D;function1();</span><br></pre></td></tr></table></figure>
+
+<p>这里的过程是：<br>1.创建命名对象t<br>2.拷贝构造一个无名的临时对象，并返回这个临时对象<br>3.由临时对象拷贝构造对象x<br>4.T x=function1();这句语句结束时，析构临时对象<br>这里一共生成了3个对象，一个命名对象t，一个临时对象作为返回值，一个命名对象x。</p>
+<p>返回引用, 其实就是返回了一个对象的引用, 新对象 = 返回的引用, 调用了拷贝构造函数</p>
+<h2 id="copy-amp-swap"><a href="#copy-amp-swap" class="headerlink" title="copy&amp;swap"></a>copy&amp;swap</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Widget&amp; Widget::<span class="keyword">operator</span>=(<span class="keyword">const</span> Widget &amp; rhs)&#123;</span><br><span class="line">  Widget <span class="built_in">tmp</span>(rhs);<span class="comment">//这个变量会被自动销毁(局部变量</span></span><br><span class="line">  <span class="built_in">swap</span>(tmp);</span><br><span class="line">  <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="虚基类"><a href="#虚基类" class="headerlink" title="虚基类"></a>虚基类</h2><p>虚继承: 避免继承多次同一个基类</p>
+<p>在虚继承中，虚基类是由最终的派生类初始化的，换句话说，最终派生类的构造函数必须要调用虚基类的构造函数。对最终的派生类来说，<a target="_blank" rel="noopener" href="http://www.gfgb120.com/">虚基类是间接基类</a>，而不是直接基类。这跟普通继承不同，在普通继承中，派生类构造函数中只能调用直接基类的构造函数，不能调用间接基类的</p>
+<p><strong>在那之前，所有虚基类的构造函数必须被调用，按照声明的继承顺序从左往右，从最深到最浅的顺序</strong></p>
+<h2 id="静态数据成员"><a href="#静态数据成员" class="headerlink" title="静态数据成员"></a>静态数据成员</h2><p>静态成员变量必须要在类外部定义, 因为要在对象创建之前就分配内存</p>
+<h2 id="缺省参数"><a href="#缺省参数" class="headerlink" title="缺省参数"></a>缺省参数</h2><p>带缺省值的参数必须放在参数列表的最后面。因为传参是从右向左的。<br>缺省参数不能同时在函数声明和定义中出现，只能二者留其一。</p>
+<h2 id="默认访问权限"><a href="#默认访问权限" class="headerlink" title="默认访问权限"></a>默认访问权限</h2><p>struct, union: public</p>
+<p>class: private</p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>在构造函数体前初始化：只读成员、引用成员、对象成员, 包括在声明时初始化和在列表中初始化, 静态变量只能在类外初始化</p>
+<h2 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h2><p>从小到大可以分为五级：</p>
+<p>① 作用于表达式内 (常量) </p>
+<p>② 作用于函数成员内 (函数参数、局部变量、局部类型) </p>
+<p>③ 作用于类或派生类内 (数据/函数/类型 成员) </p>
+<p>④ 作用于基类内 (数据/函数/类型 成员) </p>
+<p>⑤ 作用于虚基类内 (数据/函数/类型 成员)</p>
+<p>虚基类 》基类 》类 /派生类 》成员函数 》表达式内</p>
+<h2 id="成员指针"><a href="#成员指针" class="headerlink" title="成员指针"></a>成员指针</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Class Student &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="keyword">int</span> number;</span><br><span class="line">……</span><br><span class="line">&#125;；</span><br><span class="line"></span><br><span class="line"><span class="function">Student <span class="title">xu</span><span class="params">(<span class="number">123</span>,<span class="string">&quot;Xuxiangyang&quot;</span>,<span class="number">100</span>)</span></span>;</span><br><span class="line"><span class="function">Student <span class="title">zhang</span><span class="params">(<span class="number">456</span>,”Zhangsan”,<span class="number">99</span>)</span></span>;</span><br><span class="line"><span class="keyword">int</span> *p=&amp;xu.number; <span class="comment">// p 指向对象 xu中的number</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Student::*q = &amp;Student::number; <span class="comment">// q 数据成员指针</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//int Student::*q; q= &amp;Student::number;</span></span><br><span class="line">cout &lt;&lt; xu.*q&lt;&lt;endl; <span class="comment">// cout &lt;&lt; xu.number &lt;&lt;endl; </span></span><br><span class="line">cout &lt;&lt; zhang.*q &lt;&lt;endl;</span><br><span class="line"><span class="keyword">int</span> *p=&amp;Student::number; <span class="comment">//无法从 Student::* 转换为 int ***</span></span><br></pre></td></tr></table></figure>
+
+<p>对于普通指针变量来说，其值是它所指向的地址，0表示空指针。<br>而对于数据成员指针变量来说，其值是数据成员所在地址相对于对象起始地址的偏移值，空指针用-1表示</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">X</span> &#123;</span></span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">    <span class="keyword">int</span> b;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> VALUE_OF_PTR(p)     (*(long*)&amp;p)</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> X::*p = <span class="number">0</span>;  <span class="comment">// VALUE_OF_PTR(p) == -1</span></span><br><span class="line">    p = &amp;X::a;      <span class="comment">// VALUE_OF_PTR(p) == 0</span></span><br><span class="line">    p = &amp;X::b;      <span class="comment">// VALUE_OF_PTR(p) == 4</span></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="–-重载"><a href="#–-重载" class="headerlink" title="++(–)重载"></a>++(–)重载</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/aaqian1/article/details/85954206">https://blog.csdn.net/aaqian1/article/details/85954206</a></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Three <span class="keyword">operator</span>--();	<span class="comment">//声明自减运算符--重载成员函数(前缀方式)</span></span><br><span class="line">Three <span class="keyword">operator</span>--(<span class="keyword">int</span>); <span class="comment">//声明自减运算符--重载成员函数(后缀方式)</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+
+
+<h1 id="堆与栈"><a href="#堆与栈" class="headerlink" title="堆与栈"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/hairetz/article/details/4141043">堆与栈</a></h1><h2 id="一、预备知识—程序的内存分配"><a href="#一、预备知识—程序的内存分配" class="headerlink" title="一、预备知识—程序的内存分配"></a>一、预备知识—程序的内存分配</h2><p> 一个由C/C++编译的程序占用的内存分为以下几个部分 </p>
+<ol>
+<li>栈区（stack）—  由编译器自动分配释放  ，存放函数的参数值，局部变量的值等。其操作方式类似于数据结构中的栈。 </li>
+<li><strong>堆区</strong>（heap） —  一般由程序员分配释放，  若程序员不释放，程序结束时可能由OS回收  。注意它与数据结构中的堆是两回事，分配方式倒是类似于链表，呵呵。 </li>
+<li>全局区（静态区)（static）— 全局变量和静态变量的存储是放在一块的，初始化的全局变量和静态变量在一块区域，  未初始化的全局变量和未初始化的静态变量在相邻的另一块区域。  -  程序结束后由系统释放。 </li>
+<li>文字常量区  —常量字符串就是放在这里的。程序结束后由系统释放 </li>
+<li>程序代码区—存放函数体的二进制代码。  </li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//main.cpp  </span></span><br><span class="line"><span class="keyword">int</span>  a  =  <span class="number">0</span>;  全局初始化区  </span><br><span class="line"><span class="keyword">char</span>  *p1;  全局未初始化区  </span><br><span class="line"><span class="built_in">main</span>()  </span><br><span class="line">&#123;  </span><br><span class="line">  <span class="keyword">int</span>  b;  栈  </span><br><span class="line">  <span class="keyword">char</span>  s[]  =  <span class="string">&quot;abc&quot;</span>;  栈  </span><br><span class="line">  <span class="keyword">char</span>  *p2;  栈  </span><br><span class="line">  <span class="keyword">char</span>  *p3  =  <span class="string">&quot;123456&quot;</span>;  <span class="number">123456</span>/<span class="number">0</span>在常量区，p3在栈上。  </span><br><span class="line">  <span class="keyword">static</span>  <span class="keyword">int</span>  c  =<span class="number">0</span>；  全局（静态）初始化区  </span><br><span class="line">  p1  =  (<span class="keyword">char</span>  *)<span class="built_in">malloc</span>(<span class="number">10</span>);  </span><br><span class="line">  p2  =  (<span class="keyword">char</span>  *)<span class="built_in">malloc</span>(<span class="number">20</span>);  </span><br><span class="line">  <span class="comment">//分配得来得10和20字节的区域就在堆区。  </span></span><br><span class="line">  <span class="built_in">strcpy</span>(p1,  <span class="string">&quot;123456&quot;</span>);  <span class="comment">//123456/0放在常量区，编译器可能会将它与p3所指向的&quot;123456&quot;优化成一个地方。  </span></span><br><span class="line">&#125;  </span><br></pre></td></tr></table></figure>
+
+<h2 id="二、堆和栈的理论知识"><a href="#二、堆和栈的理论知识" class="headerlink" title="二、堆和栈的理论知识"></a>二、堆和栈的理论知识</h2><h3 id="2-1申请方式"><a href="#2-1申请方式" class="headerlink" title="2.1申请方式"></a>2.1申请方式</h3><ul>
+<li>stack:<br>由系统自动分配。 例如，声明在函数中一个局部变量  int  b;  系统自动在栈中为b开辟空间  </li>
+<li>heap:<br>需要程序员自己申请，并指明大小，在c中malloc函数<br>如p1  =  (char  *)malloc(10);<br>在C++中用new运算符<br>如p2  =  new  char[10];<br><strong>但是注意p1、p2本身是在栈中的。</strong>  </li>
+</ul>
+<h3 id="2-2-申请后系统的响应"><a href="#2-2-申请后系统的响应" class="headerlink" title="2.2  申请后系统的响应"></a>2.2  申请后系统的响应</h3><ul>
+<li>栈：只要栈的剩余空间大于所申请空间，系统将为程序提供内存，否则将报异常提示栈溢 出。  </li>
+<li>堆：首先应该知道操作系统有一个记录空闲内存地址的链表，当系统收到程序的申请时，会遍历该链表，寻找第一个空间大于所申请空间的堆结点，然后将该结点从空闲结点链表中删除，并将该结点的空间分配给程序，另外，对于大多数系统，会在这块内存空间中的首地址处记录本次分配的大小，这样，代码中的delete语句才能正确的释放本内存空间。<br>另外，由于找到的堆结点的大小不一定正好等于申请的大小，系统会自动的将多余的那部 分重新放入空闲链表中。  </li>
+</ul>
+<h3 id="2-3申请大小的限制"><a href="#2-3申请大小的限制" class="headerlink" title="2.3申请大小的限制"></a>2.3申请大小的限制</h3><ul>
+<li>栈：在Windows下,栈是向低地址扩展的数据结构，是一块连续的内存的区域。这句话的意思是栈顶的地址和栈的最大容量是系统预先规定好的，在WINDOWS下，栈的大小是2M（也有的说是1M，总之是一个编译时就确定的常数），如果申请的空间超过栈的剩余空间时，将提示overflow。因此，能从栈获得的空间较小。  </li>
+<li>堆：堆是向高地址扩展的数据结构，是不连续的内存区域。这是由于系统是用链表来存储空闲内存地址的，自然是不连续的，而链表的遍历方向是由低地址向高地址。堆的大小受限于计算机系统中有效的虚拟内存。由此可见，堆获得的空间比较灵活，也比较大。  </li>
+</ul>
+<h3 id="2-4申请效率的比较："><a href="#2-4申请效率的比较：" class="headerlink" title="2.4申请效率的比较："></a>2.4申请效率的比较：</h3><ul>
+<li>栈由系统自动分配，速度较快。但程序员是无法控制的。  </li>
+<li>堆是由new分配的内存，一般速度比较慢，而且容易产生内存碎片,不过用起来最方便.<br>另外，在WINDOWS 下，最好的方式是用VirtualAlloc分配内存，他不是在堆，也不是在栈, 是直接在进程的地址空间中保留一块内存，虽然用起来最不方便。但是速度快，也最灵活。 </li>
+</ul>
+<h3 id="2-5堆和栈中的存储内容"><a href="#2-5堆和栈中的存储内容" class="headerlink" title="2.5堆和栈中的存储内容"></a>2.5堆和栈中的存储内容</h3><ul>
+<li>栈：在函数调用时，第一个进栈的是主函数中的下一条指令（函数调用语句的下一条可执行语句）的地址，然后是函数的各个参数，在大多数的C编译器中，参数是由右往左入栈的，然后是函数中的局部变量。注意静态变量是不入栈的。<br>当本次函数调用结束后，局部变量先出栈，然后是参数，最后栈顶指针指向最开始存的地址，也就是主函数中的下一条指令，程序由该点继续运行。  </li>
+<li>堆：一般是在堆的头部用一个字节存放堆的大小。堆中的具体内容由程序员安排。  </li>
+</ul>
+<h3 id="2-6存取效率的比较"><a href="#2-6存取效率的比较" class="headerlink" title="2.6存取效率的比较"></a>2.6存取效率的比较</h3><p> char  s1[]  =  “aaaaaaaaaaaaaaa”;<br> char  *s2  =  “bbbbbbbbbbbbbbbbb”;<br> aaaaaaaaaaa是在运行时刻赋值的；<br> 而bbbbbbbbbbb是在编译时就确定的；<br> 但是，在以后的存取中，在栈上的数组比指针所指向的字符串(例如堆)快。<br> 比如： </p>
+ <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span>  <span class="title">main</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function"> </span>&#123;  </span><br><span class="line">   <span class="keyword">char</span>  a  =  <span class="number">1</span>;  </span><br><span class="line">   <span class="keyword">char</span>  c[]  =  <span class="string">&quot;1234567890&quot;</span>;</span><br><span class="line">   <span class="keyword">char</span>  *p  =<span class="string">&quot;1234567890&quot;</span>; </span><br><span class="line">   a  =  c[<span class="number">1</span>];  </span><br><span class="line">   a  =  p[<span class="number">1</span>];  </span><br><span class="line">   <span class="keyword">return</span>;  </span><br><span class="line"> &#125; </span><br></pre></td></tr></table></figure>
+
+<p> 对应的汇编代码 </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">10:  a  &#x3D;  c[1];  </span><br><span class="line">00401067  8A  4D  F1  mov  cl,byte  ptr  [ebp-0Fh]  </span><br><span class="line">0040106A  88  4D  FC  mov  byte  ptr  [ebp-4],cl  </span><br><span class="line">11:  a  &#x3D;  p[1];  </span><br><span class="line">0040106D  8B  55  EC  mov  edx,dword  ptr  [ebp-14h]  </span><br><span class="line">00401070  8A  42  01  mov  al,byte  ptr  [edx+1]  </span><br><span class="line">00401073  88  45  FC  mov  byte  ptr  [ebp-4],al  </span><br></pre></td></tr></table></figure>
+
+
+<p>第一种在读取时直接就把字符串中的元素读到寄存器cl中，而第二种则要先把指针值读到edx中，再根据edx读取字符，显然慢了。  </p>
+<h3 id="2-7小结："><a href="#2-7小结：" class="headerlink" title="2.7小结："></a>2.7小结：</h3><p>堆和栈的区别可以用如下的比喻来看出：<br>使用栈就象我们去饭馆里吃饭，只管点菜（发出申请）、付钱、和吃（使用），吃饱了就走，不必理会切菜、洗菜等准备工作和洗碗、刷锅等扫尾工作，他的好处是快捷，但是自由度小。<br>使用堆就象是自己动手做喜欢吃的菜肴，比较麻烦，但是比较符合自己的口味，而且自由度大。  (经典！) </p>
+<h1 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a><a target="_blank" rel="noopener" href="https://blog.csdn.net/ydar95/article/details/69822540">类型转换</a></h1><blockquote>
+<p>const_cast , static_cast , dynamic_cast , reinterpret_cast</p>
+</blockquote>
+<h2 id="1-C风格的强制转换"><a href="#1-C风格的强制转换" class="headerlink" title="1. C风格的强制转换"></a>1. C风格的强制转换</h2><p>C风格的强制转换(Type Cast)容易理解,不管什么类型的转换都可以使用使用下面的方式.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">TypeName b = (TypeName)a;<span class="number">1</span></span><br></pre></td></tr></table></figure>
+
+<p>当然,C++也是支持C风格的强制转换,但是C风格的强制转换可能带来一些隐患,让一些问题难以察觉.所以C++提供了一组可以用在不同场合的强制转换的函数.</p>
+<h2 id="2-C-四种强制转换类型函数"><a href="#2-C-四种强制转换类型函数" class="headerlink" title="2. C++ 四种强制转换类型函数"></a>2. C++ 四种强制转换类型函数</h2><h3 id="2-1-const-cast"><a href="#2-1-const-cast" class="headerlink" title="2.1 const_cast"></a>2.1 const_cast</h3><p>1、常量指针被转化成非常量的指针，并且仍然指向原来的对象；<br>2、常量引用被转换成非常量的引用，并且仍然指向原来的对象；<br>3、const_cast一般用于修改指针。如const char *p形式。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="comment">// 原始数组</span></span><br><span class="line">    <span class="keyword">int</span> ary[<span class="number">4</span>] = &#123; <span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span> &#125;;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">        std::cout &lt;&lt; ary[i] &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 常量化数组指针</span></span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span>*c_ptr = ary;</span><br><span class="line">    <span class="comment">//c_ptr[1] = 233;   //error</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过const_cast&lt;Ty&gt; 去常量</span></span><br><span class="line">    <span class="keyword">int</span> *ptr = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(c_ptr);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 修改数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">        ptr[i] += <span class="number">1</span>;    <span class="comment">//pass</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 打印修改后的数据</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">        std::cout &lt;&lt; ary[i] &lt;&lt; <span class="string">&quot;\t&quot;</span>;</span><br><span class="line">    std::cout &lt;&lt; std::endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*  out print</span></span><br><span class="line"><span class="comment">    1   2   3   4</span></span><br><span class="line"><span class="comment">    2   3   4   5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>注意:对于在定义为常量的参数,使用const_cast可能会有不同的效果.类似代码如下</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> <span class="keyword">int</span> c_val = <span class="number">233</span>;  <span class="comment">//声明为常量类型</span></span><br><span class="line">    <span class="keyword">int</span> &amp;use_val = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>&amp;&gt;(c_val); <span class="comment">//使用去const 引用</span></span><br><span class="line">    <span class="keyword">int</span> *ptr_val = <span class="keyword">const_cast</span>&lt;<span class="keyword">int</span>*&gt;(&amp;c_val);<span class="comment">//使用去const 指针</span></span><br><span class="line"></span><br><span class="line">    use_val = <span class="number">666</span>;  <span class="comment">//未定义行为</span></span><br><span class="line">    std::cout &lt;&lt; c_val &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; use_val &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; *ptr_val &lt;&lt; std::endl;</span><br><span class="line">    *ptr_val = <span class="number">110</span>; <span class="comment">//未定义行为</span></span><br><span class="line">    std::cout &lt;&lt; c_val &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; use_val &lt;&lt; <span class="string">&quot;\t&quot;</span> &lt;&lt; *ptr_val &lt;&lt; std::endl;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* 在 vs2017 下 输出为</span></span><br><span class="line"><span class="comment">    233 666 666</span></span><br><span class="line"><span class="comment">    233 110 110</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>未定义行为:C++标准对此类行为没有做出明确规定.同一份代码在使用不同的编译器会有不同的效果.在 vs2017 下, 虽然代码中 <em>c_val , use_val , ptr_val</em> 看到的地址是一样的.但是c_val的值并没有改变.有可能在某种编译器实现后,这一份代码的<em>c_val</em> 会被改变.也有可能编译器对这类行为直接 <em>error</em> 或 <em>warning</em>.</p>
+<h3 id="2-2-static-cast"><a href="#2-2-static-cast" class="headerlink" title="2.2 static_cast"></a>2.2 static_cast</h3><ol>
+<li>static_cast 作用和C语言风格强制转换的效果基本一样，由于没有运行时类型检查来保证转换的安全性，所以这类型的强制转换和C语言风格的强制转换都有安全隐患。</li>
+<li>用于类层次结构中基类（父类）和派生类（子类）之间指针或引用的转换。注意：进行上行转换（把派生类的指针或引用转换成基类表示）是安全的；进行下行转换（把基类指针或引用转换成派生类表示）时，由于没有动态类型检查，所以是不安全的。</li>
+<li>用于基本数据类型之间的转换，如把int转换成char，把int转换成enum。这种转换的安全性需要开发者来维护。</li>
+<li>static_cast不能转换掉原有类型的const、volatile、或者 __unaligned属性。(前两种可以使用const_cast 来去除)</li>
+<li>在c++ primer 中说道：c++ 的任何的隐式转换都是使用 <em>static_cast</em> 来实现。</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 常规的使用方法 */</span></span><br><span class="line"><span class="keyword">float</span> f_pi=<span class="number">3.141592f</span></span><br><span class="line"><span class="keyword">int</span>   i_pi=<span class="keyword">static_cast</span>&lt;<span class="keyword">int</span>&gt;(f_pi); <span class="comment">/// i_pi 的值为 3</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/* class 的上下行转换 */</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line">    <span class="comment">// something</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span>:</span><span class="keyword">public</span> Base&#123;</span><br><span class="line">    <span class="comment">// something</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  上行 Sub -&gt; Base</span></span><br><span class="line"><span class="comment">//编译通过，安全</span></span><br><span class="line">Sub sub;</span><br><span class="line">Base *base_ptr = <span class="keyword">static_cast</span>&lt;Base*&gt;(&amp;sub);  </span><br><span class="line"></span><br><span class="line"><span class="comment">//  下行 Base -&gt; Sub</span></span><br><span class="line"><span class="comment">//编译通过，不安全</span></span><br><span class="line">Base base;</span><br><span class="line">Sub *sub_ptr = <span class="keyword">static_cast</span>&lt;Sub*&gt;(&amp;base);    </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-dynamic-cast"><a href="#2-3-dynamic-cast" class="headerlink" title="2.3 dynamic_cast"></a>2.3 dynamic_cast</h3><p><em>dynamic_cast</em>强制转换,应该是这四种中最特殊的一个,因为他涉及到面向对象的多态性和程序运行时的状态,也与编译器的属性设置有关.所以不能完全使用C语言的强制转换替代,它也是最常有用的,最不可缺少的一种强制转换.</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Base</span>&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Base</span>() &#123;&#125;</span><br><span class="line">    ~<span class="built_in">Base</span>() &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;I&#x27;m Base&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">i_am_virtual_foo</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Sub</span>:</span> <span class="keyword">public</span> Base&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Sub</span>() &#123;&#125;</span><br><span class="line">    ~<span class="built_in">Sub</span>() &#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">print</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot;I&#x27;m Sub&quot;</span> &lt;&lt; endl;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="keyword">void</span> <span class="title">i_am_virtual_foo</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;Sub-&gt;Base&quot;</span> &lt;&lt; endl;</span><br><span class="line">    Sub * sub = <span class="keyword">new</span> <span class="built_in">Sub</span>();</span><br><span class="line">    sub-&gt;<span class="built_in">print</span>();</span><br><span class="line">    Base* sub2base = <span class="keyword">dynamic_cast</span>&lt;Base*&gt;(sub);</span><br><span class="line">    <span class="keyword">if</span> (sub2base != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        sub2base-&gt;<span class="built_in">print</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;&lt;sub-&gt;base&gt; sub2base val is: &quot;</span> &lt;&lt; sub2base &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    cout &lt;&lt; endl &lt;&lt; <span class="string">&quot;Base-&gt;Sub&quot;</span> &lt;&lt; endl;</span><br><span class="line">    Base *base = <span class="keyword">new</span> <span class="built_in">Base</span>();</span><br><span class="line">    base-&gt;<span class="built_in">print</span>();</span><br><span class="line">    Sub  *base2sub = <span class="keyword">dynamic_cast</span>&lt;Sub*&gt;(base);</span><br><span class="line">    <span class="keyword">if</span> (base2sub != <span class="literal">nullptr</span>) &#123;</span><br><span class="line">        base2sub-&gt;<span class="built_in">print</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    cout &lt;&lt;<span class="string">&quot;&lt;base-&gt;sub&gt; base2sub val is: &quot;</span>&lt;&lt; base2sub &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">delete</span> sub;</span><br><span class="line">    <span class="keyword">delete</span> base;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* vs2017 输出为下</span></span><br><span class="line"><span class="comment">Sub-&gt;Base</span></span><br><span class="line"><span class="comment">I&#x27;m Sub</span></span><br><span class="line"><span class="comment">I&#x27;m Base</span></span><br><span class="line"><span class="comment">&lt;sub-&gt;base&gt; sub2base val is: 00B9E080   // 注:这个地址是系统分配的,每次不一定一样</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Base-&gt;Sub</span></span><br><span class="line"><span class="comment">I&#x27;m Base</span></span><br><span class="line"><span class="comment">&lt;base-&gt;sub&gt; base2sub val is: 00000000   // VS2017的C++编译器,对此类错误的转换赋值为nullptr</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>从上边的代码和输出结果可以看出:<br>对于<em>从子类到基类的指针转换</em> ,dynamic_cast 成功转换,没有什么运行异常,且达到预期结果<br>而<em>从基类到子类的转换</em> , dynamic_cast 在转换时也没有报错,但是输出给 <em>base2sub</em> 是一个 <em>nullptr</em> ,说明dynami_cast 在程序运行时对类型转换对<em>“运行期类型信息”（Runtime type information，RTTI）</em>进行了检查.<br>这个检查主要来自<em>虚函数(virtual function)</em> 在C++的面对对象思想中，虚函数起到了很关键的作用，当一个类中拥有至少一个虚函数，那么编译器就会构建出一个虚函数表(virtual method table)来指示这些函数的地址，假如继承该类的子类定义并实现了一个同名并具有同样函数签名（function siguature）的方法重写了基类中的方法，那么虚函数表会将该函数指向新的地址。此时多态性就体现出来了：当我们将基类的指针或引用指向子类的对象的时候，调用方法时，就会顺着虚函数表找到对应子类的方法而非基类的方法。<em>因此注意下代码中 Base 和 Sub 都有声明定义的一个虚函数 ” i_am_virtual_foo” ,我这份代码的 Base 和 Sub 使用 dynami_cast 转换时检查的运行期类型信息,可以说就是这个虚函数</em></p>
+<h3 id="2-4-reinterpret-cast"><a href="#2-4-reinterpret-cast" class="headerlink" title="2.4 reinterpret_cast"></a>2.4 reinterpret_cast</h3><p>reinterpret_cast是强制类型转换符用来处理无关类型转换的，通常为操作数的位模式提供较低层次的重新解释！但是他仅仅是重新解释了给出的对象的比特模型，并没有进行二进制的转换！<br>他是用在任意的指针之间的转换，引用之间的转换，指针和足够大的int型之间的转换，整数到指针的转换，在下面的文章中将给出.<br>请看一个简单代码</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdint&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> *ptr = <span class="keyword">new</span> <span class="built_in"><span class="keyword">int</span></span>(<span class="number">233</span>);</span><br><span class="line">    <span class="keyword">uint32_t</span> ptr_addr = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">uint32_t</span>&gt;(ptr);</span><br><span class="line">    cout &lt;&lt; <span class="string">&quot;ptr 的地址: &quot;</span> &lt;&lt; hex &lt;&lt; ptr &lt;&lt; endl</span><br><span class="line">        &lt;&lt; <span class="string">&quot;ptr_addr 的值(hex): &quot;</span> &lt;&lt; hex &lt;&lt; ptr_addr &lt;&lt; endl;</span><br><span class="line">    <span class="keyword">delete</span> ptr;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">ptr 的地址: 0061E6D8</span></span><br><span class="line"><span class="comment">ptr_addr 的值(hex): 0061e6d8</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>上述代码将指针ptr的地址的值转换成了 <em>unsigned int</em> 类型的ptr_addr 的整数值.<br>提供下IBM C++ 对 reinterpret_cast 推荐使用的地方<br>A pointer to any integral type large enough to hold it （指针转向足够大的整数类型）<br>A value of integral or enumeration type to a pointer （从整形或者enum枚举类型转换为指针）<br>A pointer to a function to a pointer to a function of a different type （从指向函数的指针转向另一个不同类型的指向函数的指针）<br>A pointer to an object to a pointer to an object of a different type （从一个指向对象的指针转向另一个不同类型的指向对象的指针）<br>A pointer to a member to a pointer to a member of a different class or type, if the types of the members are both function types or object types （从一个指向成员的指针转向另一个指向类成员的指针！或者是类型，如果类型的成员和函数都是函数类型或者对象类型）</p>
+<p>下面这个例子来自 MSDN 的一个<a target="_blank" rel="noopener" href="https://msdn.microsoft.com/en-us/library/e0w9f63b(VS.80).aspx">哈希函数辅助</a></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// expre_reinterpret_cast_Operator.cpp  </span></span><br><span class="line"><span class="comment">// compile with: /EHsc  </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span>  </span></span><br><span class="line"></span><br><span class="line"><span class="comment">// Returns a hash code based on an address  </span></span><br><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">short</span> <span class="title">Hash</span><span class="params">(<span class="keyword">void</span> *p)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> val = <span class="keyword">reinterpret_cast</span>&lt;<span class="keyword">unsigned</span> <span class="keyword">int</span>&gt;(p);</span><br><span class="line">    <span class="keyword">return</span> (<span class="keyword">unsigned</span> <span class="keyword">short</span>)(val ^ (val &gt;&gt; <span class="number">16</span>));</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">20</span>; i++)</span><br><span class="line">        cout &lt;&lt; <span class="built_in">Hash</span>(a + i) &lt;&lt; endl;</span><br><span class="line">&#125;<span class="number">123456789101112131415</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="3-结尾"><a href="#3-结尾" class="headerlink" title="3. 结尾"></a>3. 结尾</h2><p>在使用强制转换的时候,请先考虑清楚我们真的需要使用强制转换和我们应该使用那种强制转换.<br>我这只是简单的介绍这四种强制转换的用途,以上是自己的理解,文章中肯定有各种问题错误,希望大家帮忙指出矫正,本文仅供参考.<br>谢谢阅读.</p>
+<h1 id="cpp-实验tips"><a href="#cpp-实验tips" class="headerlink" title="cpp 实验tips"></a>cpp 实验tips</h1><h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><h3 id="struct-中的-const-成员"><a href="#struct-中的-const-成员" class="headerlink" title="struct 中的 const 成员"></a>struct 中的 const 成员</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gj7iqelf3jj30rm0digmj.jpg" alt="截屏2020-09-29 下午2.45.05"></p>
+<h3 id="初始化-struct"><a href="#初始化-struct" class="headerlink" title="初始化 struct"></a>初始化 struct</h3><p>结构体是常用的自定义构造类型，是一种很常见的数据打包方法。结构体对象的初始化有多种方式，分为顺序初始化、指定初始化、构造函数初始化。假如有如下结构体。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct A &#123;</span><br><span class="line">	int b;</span><br><span class="line">	int c;</span><br><span class="line">&#125;;</span><br><span class="line">1234</span><br></pre></td></tr></table></figure>
+
+<p>（1）顺序初始化因为书写起来较为简约，是我们最常用的初始化方式，但相对于指定初始化，无法变更数据成员初始化顺序，灵活性较差，而且表现形式不直观，不能一眼看出 struct 各个数据成员的值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="number">1234</span></span><br><span class="line">A a = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line"><span class="comment">// 点号+赋值符号</span></span><br><span class="line">A a = &#123;.b = <span class="number">1</span>, .c = <span class="number">2</span>&#125;;</span><br><span class="line"><span class="comment">//冒号</span></span><br><span class="line">A a = &#123;b:<span class="number">1</span>, c:<span class="number">2</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="要注意后面是不是-0-if-检验"><a href="#要注意后面是不是-0-if-检验" class="headerlink" title="% /  要注意后面是不是 0 if 检验"></a>% /  要注意后面是不是 0 if 检验</h3><h3 id="null-与-nullptr-的区别"><a href="#null-与-nullptr-的区别" class="headerlink" title="null 与 nullptr 的区别"></a>null 与 nullptr 的区别</h3><h3 id="delete-和-free-的区别"><a href="#delete-和-free-的区别" class="headerlink" title="delete 和 free 的区别"></a>delete 和 free 的区别</h3><p>但是，free函数只是释放指针指向的内容，而该指针仍然指向原来指向的地方，此时，指针为野指针，如果此时操作该指针会导致不可预期的错误。安全做法是：在使用free函数释放指针指向的空间之后，将指针的值置为NULL。</p>
+<h3 id="处有未经处理的异常-0xC0000005-读取位置-0xcccccccc-时发生访问冲突"><a href="#处有未经处理的异常-0xC0000005-读取位置-0xcccccccc-时发生访问冲突" class="headerlink" title="处有未经处理的异常: 0xC0000005: 读取位置 0xcccccccc 时发生访问冲突"></a>处有未经处理的异常: 0xC0000005: 读取位置 0xcccccccc 时发生访问冲突</h3><p>具体原因是在 destroy 的时候删除了 p 本身(题目未要求删除)</p>
+<p>解决方法：在debug下，未初始化的指针的地址为0xcccccccc ， 检查下有没有什么地方使用了未初始化的指针，定位后应该是data指针没有初始化，应对其初始化：</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><h3 id="noexcept"><a href="#noexcept" class="headerlink" title="noexcept"></a>noexcept</h3><h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><h3 id="amp-amp-运算符"><a href="#amp-amp-运算符" class="headerlink" title="&amp;&amp;运算符"></a>&amp;&amp;运算符</h3><h3 id="Invalid-address-specified-to-RtlValidateHea"><a href="#Invalid-address-specified-to-RtlValidateHea" class="headerlink" title="Invalid address specified to RtlValidateHea"></a>Invalid address specified to RtlValidateHea</h3><h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><h3 id="std-move"><a href="#std-move" class="headerlink" title="std::move()"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94588204">std::move()</a></h3><p>前段时间和朋友聊天的过程中说到了右值和std::move以及项目代码里面不合时宜的使用std::move。以及前段时间，华为开源了方舟编译器，大神们讨论方舟编译器，有人贴出里面乱用std::move，看了一下它的源码，是有随意使用std::move的现象。因此，对右值引用和std::move做了一下回顾。</p>
+<p>说到<strong>右值</strong>，先看一下什么是右值，在c++中，一个值要么是右值，要么是左值，<em>左值是指表达式结束后依然存在的持久化对象，右值是指表达式结束时就不再存在的临时对象。所有的具名变量或者对象都是左值，而右值不具名。</em></p>
+<p>比如：</p>
+<p>常见的右值：“abc”,123等都是右值。</p>
+<p><strong>右值引用，</strong>用以引用一个右值，可以延长右值的生命期，比如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>&amp;&amp; i = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">int</span>&amp;&amp; j = std::<span class="built_in">move</span>(i);</span><br><span class="line"><span class="keyword">int</span>&amp;&amp; k = i;<span class="comment">//编译不过，这里i是一个左值，右值引用只能引用右值</span></span><br></pre></td></tr></table></figure>
+
+<p>可以通过下面的代码，更深入的体会左值引用和右值引用的区别：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int i;</span><br><span class="line">int&amp;&amp; j = i++;</span><br><span class="line">int&amp;&amp; k = ++i;</span><br><span class="line">int&amp; m = i++;</span><br><span class="line">int&amp; l = ++i;</span><br><span class="line"></span><br><span class="line">move.cpp: In function ‘int main()’:</span><br><span class="line">move.cpp:72:14: error: cannot bind ‘int’ lvalue to ‘int&amp;&amp;’</span><br><span class="line">  int&amp;&amp; k = ++i;</span><br><span class="line">              ^</span><br><span class="line">move.cpp:73:15: error: invalid initialization of non-const reference of type ‘int&amp;’ from an rvalue of type ‘int’</span><br><span class="line">     int&amp; m = i++;</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么需要右值引用</strong></p>
+<p>C++引入右值引用之后，可以通过右值引用，充分使用临时变量，或者即将不使用的变量即右值的资源，减少不必要的拷贝，提高效率。如下代码，均会产生临时变量：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class RValue &#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">RValue get() &#123;</span><br><span class="line">    return RValue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void put(RValue)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了充分利用右值的资源，减少不必要的拷贝，C++11引入了右值引用(&amp;&amp;)，移动构造函数，移动复制运算符以及std::move。</p>
+<p><strong>右值引用(&amp;&amp;)，移动构造函数，移动复制运算符以及std::move</strong></p>
+<p>将上面的类定义补充完整：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">ut&lt;&lt;#include &lt;iostream&gt;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct RValue &#123;</span><br><span class="line">	RValue():sources(&quot;hello!!!&quot;)&#123;&#125;</span><br><span class="line">	RValue(RValue&amp;&amp; a) &#123;</span><br><span class="line">		sources = std::move(a.sources);</span><br><span class="line">		cout&lt;&lt;&quot;&amp;&amp; RValue&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	RValue(const RValue&amp; a) &#123;</span><br><span class="line">		sources = a.sources;</span><br><span class="line">		cout&lt;&lt;&quot;&amp; RValue&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	void operator=(const RValue&amp;&amp; a) &#123;</span><br><span class="line">		sources = std::move(a.sources);</span><br><span class="line">		cout&lt;&lt;&quot;&amp;&amp; ==&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	void operator=(const RValue&amp; a) &#123;</span><br><span class="line">		sources = a.sources;</span><br><span class="line">		cout&lt;&lt;&quot;&amp; ==&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	string sources;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">RValue get() &#123;</span><br><span class="line">        RValue a;</span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void put(RValue)&#123;&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	RValue a = get();</span><br><span class="line">        cout&lt;&lt;&quot;---------------&quot;&lt;&lt;endl;</span><br><span class="line">	put(RValue());</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不过，当运行的时候却发现没有任何输出</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br></pre></td></tr></table></figure>
+
+<p>这是因为，编译器做了优化，编译的时候加上-fno-elide-constructors，去掉优化</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">g++ move.cpp -std=c++11 -fno-elide-constructors -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">---------------</span><br><span class="line">&amp;&amp; RValue</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的代码，可以看出，在没有加-fno-elide-constructors选项时，编译器做了优化，没有临时变量的生成。在加了-fno-elide-constructors选项时，get产生了两次临时变量，二put生成了一次临时变量。</p>
+<p>将get函数稍微修改一下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">RValue get() &#123;</span><br><span class="line">	RValue a;</span><br><span class="line">	return std::move(RValue());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">---------------</span><br><span class="line"></span><br><span class="line">//加编译选项</span><br><span class="line">g++ move.cpp -std=c++11 -fno-elide-constructors -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">---------------</span><br><span class="line">&amp;&amp; RValue</span><br></pre></td></tr></table></figure>
+
+<p>只是简单的修改了一下，std::move(a)，在编译器做了优化的情况下，用了std::move，反而多做了一次拷贝。</p>
+<p>其实，RValue如果在没有定义移动构造函数，重复上面的操作，生成临时变量的次数还是一样的，只不过，调用的时拷贝构造函数了而已。</p>
+<p>通过get函数可以知道，乱用std::move在编译器开启构造函数优化的场景下反而增加了不必要的拷贝。那么，std::move应该在什么场景下使用？</p>
+<p><strong>std::move使用场景</strong></p>
+<p>1、移动构造函数的原理</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjouc37bo1j30cm095my6.jpg" alt="image-20201014142110913"></p>
+<p>通过移动构造，b指向a的资源，a不再拥有资源，这里的资源，可以是动态申请的内存，网络链接，打开的文件，也可以是本例中的string。<strong>这时候访问a的行为时未定义的</strong>，比如，如果资源是动态内存，a被移动之后，再次访问a的资源，根据移动构造函数的定义，可能是空指针，如果是资源上文的string，移动之后，a的资源为空字符串（string被移动之后，为空字符串）。</p>
+<p>可以通过下面代码验证，修改main函数：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">	RValue a, b;</span><br><span class="line">	RValue a1 = std::move(a);</span><br><span class="line">	cout&lt;&lt;&quot;a.sources:&quot;&lt;&lt;a.sources&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;&quot;a1.sources:&quot;&lt;&lt;a1.sources&lt;&lt;endl;</span><br><span class="line">	RValue b1(b);</span><br><span class="line">	cout&lt;&lt;&quot;b.sources:&quot;&lt;&lt;b.sources&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;&quot;b1.sources:&quot;&lt;&lt;a1.sources&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">a.sources:</span><br><span class="line">a1.sources:hello!!!</span><br><span class="line">&amp; RValue</span><br><span class="line">b.sources:hello!!!</span><br><span class="line">b1.sources:hello!!!</span><br></pre></td></tr></table></figure>
+
+<p>通过移动构造函数之后，a的资源为空，b指向了a的资源。通过拷贝构造函数，b<strong>复制</strong>了a的资源。</p>
+<p>2、std::move的原理</p>
+<p>std::move的定义：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjoueoadnuj30hn027dh4.jpg" alt="image-20201014142341508"></p>
+<p>这里，T&amp;&amp;是通用引用，需要注意和右值引用（比如int&amp;&amp;）区分。通过move定义可以看出，move并没有”移动“什么内容，<strong>只是将传入的值转换为右值</strong>，此外没有其他动作。std::move+移动构造函数或者移动赋值运算符，才能充分起到减少不必要拷贝的意义。</p>
+<p>3、std::move的使用场景</p>
+<p>在之前的项目中看到有的同事到处使用std::move，好像觉得使用了std::move就能移动资源，提升性能一样，在我看来，std::move主要使用在以下场景：</p>
+<ul>
+<li><strong>使用前提：1 定义的类使用了资源并定义了移动构造函数和移动赋值运算符，2 该变量即将不再使用</strong></li>
+<li>使用场景</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">RValue a, b;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//对a,b坐一系列操作之后，不再使用a,b，但需要保存到智能指针或者容器之中</span></span><br><span class="line"><span class="function">unique_ptr&lt;RValue&gt; <span class="title">up</span><span class="params">(<span class="keyword">new</span> RValue(std::move(a)))</span></span>;</span><br><span class="line">vector&lt;RValue*&gt; vr;</span><br><span class="line">vr.<span class="built_in">push_back</span>(<span class="keyword">new</span> <span class="built_in">RValue</span>(std::<span class="built_in">move</span>(b)));</span><br><span class="line"></span><br><span class="line"><span class="comment">//临时容器中保存的大量的元素需要复制到目标容器之中	</span></span><br><span class="line">vector&lt;RValue&gt; vrs_temp;</span><br><span class="line">vrs_temp.<span class="built_in">push_back</span>(<span class="built_in">RValue</span>());</span><br><span class="line">vrs_temp.<span class="built_in">push_back</span>(<span class="built_in">RValue</span>());</span><br><span class="line">vrs_temp.<span class="built_in">push_back</span>(<span class="built_in">RValue</span>());</span><br><span class="line"><span class="function">vector&lt;RValue&gt; <span class="title">vrs</span><span class="params">(std::move(vrs_temp))</span></span>;</span><br><span class="line">	</span><br><span class="line">RValue c;</span><br><span class="line"><span class="built_in">put</span>(std::<span class="built_in">move</span>(c));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在没有右值引用之前，为了使用临时变量，通常定义const的左值引用，比如const string&amp;，在有了右值引用之后，为了使用右值语义，不要把参数定义为常量左值引用，否则，传递右值时调用的时拷贝构造函数</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void put(const RValue&amp; c)&#123;</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">	unique_ptr&lt;RValue&gt; up(new RValue(std::move(c)));</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">RValue c;</span><br><span class="line">put(std::move(c));</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">----------</span><br><span class="line">&amp; RValue</span><br><span class="line">----------</span><br></pre></td></tr></table></figure>
+
+<p>不使用左值常量引用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void put(RValue c)&#123;</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">	unique_ptr&lt;RValue&gt; up(new RValue(std::move(c)));</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">RValue c;</span><br><span class="line">put(std::move(c));</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">----------</span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">----------</span><br></pre></td></tr></table></figure>
+
+<p>这是因为，根据通用引用的定义，std::move(c)过程中，模板参数被推倒为const RValue&amp;，因此，调用拷贝构造函数。</p>
+<p><strong>总结</strong></p>
+<p>通过简绍右值和右值引用以及std::move和移动构造函数，总结右值引用，移动构造函数和移动赋值运算符和std::move的用法和注意事项。</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2><h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Test</span>(<span class="keyword">int</span> a)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">    &#125;</span><br><span class="line">    Test &amp; <span class="keyword">operator</span>++()<span class="comment">// 前置++</span></span><br><span class="line">    &#123;</span><br><span class="line">        a++;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Test &amp; <span class="keyword">operator</span>--()<span class="comment">// 前置--</span></span><br><span class="line">    &#123;</span><br><span class="line">        a--;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 后置++</span></span><br><span class="line">    <span class="comment">// 通过一个站位参数来和前置++区分开来</span></span><br><span class="line">    <span class="comment">// 实现上，多了一个 tmp 变量，来实现先操作，后自增的效果</span></span><br><span class="line">    Test <span class="keyword">operator</span>++(<span class="keyword">int</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">Test <span class="title">tmp</span><span class="params">(*<span class="keyword">this</span>)</span></span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a++;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;   </span><br><span class="line">    Test <span class="keyword">operator</span>--(<span class="keyword">int</span>) <span class="comment">// 后置--</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">Test <span class="title">tmp</span><span class="params">(*<span class="keyword">this</span>)</span></span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a--;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//前置后置</span></span><br><span class="line">A &amp;<span class="keyword">operator</span>++( )&#123; a++; <span class="keyword">return</span> *<span class="keyword">this</span>; &#125;<span class="comment">//单目，前置运算 --a</span></span><br><span class="line">A <span class="keyword">operator</span>++(<span class="keyword">int</span>)&#123; <span class="keyword">return</span> <span class="built_in">A</span>(a++); &#125;<span class="comment">//双目，后置运算</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="Effective-c"><a href="#Effective-c" class="headerlink" title="Effective c++"></a>Effective c++</h1><h2 id="绪论"><a href="#绪论" class="headerlink" title="绪论"></a>绪论</h2><p>声明式: 告诉编译器某个东西的名称和类型</p>
+<p>签名式(signature): 每个函数的声明揭示其签名式, 也就是参数和返回类型</p>
+<p>定义式: 提供给编译器 一些声明式的细节, 对对象而言, 定义式是编译器为此对象拨发内存的地址; 对函数或者函数模板而言, 定义式提供了代码本体; 对于 class 而言定义式列出他们的成员</p>
+<p>copy 构造函数定义了一个对象如何 passed by value</p>
+<p>接口: 函数的签名或 class 内可访问的元素</p>
+<h2 id="const函数"><a href="#const函数" class="headerlink" title="const函数"></a>const函数</h2><p>不会对这个类的对象的数据成员作出任何改变, 即在 const 成员函数中无法赋值</p>
+<table>
+<thead>
+<tr>
+<th>表头</th>
+<th align="center">const 对象</th>
+<th align="center">noconst 对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>const 成员函数</td>
+<td align="center">yes</td>
+<td align="center">yes</td>
+</tr>
+<tr>
+<td>noconst 成员函数</td>
+<td align="center">no</td>
+<td align="center">yes</td>
+</tr>
+</tbody></table>
+<p>const 成员函数也不要提供修改途径(比如返回引用), 虽然可以通过编译</p>
+<p>可以通过 <code>mutable</code> 在 const 函数中改变对象的数据</p>
+<h2 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h2><p>在构造函数中赋值相当于先初始化再赋值, 有开销<br>所以要用初始化列表赋值, 对象成员的初始化是在进入构造函数本体之前</p>
+<p>调用构造函数初始化成员</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">ABEntry::<span class="built_in">ABEntry</span>()&#123;</span><br><span class="line">	:<span class="built_in">Name</span>(),</span><br><span class="line">  :<span class="built_in">Address</span>(),</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line">在初始化列表中调用构造函数</span><br></pre></td></tr></table></figure>
+
+<p>避免编译器自动生成的 copy 构造函数和 copy 运算符, 声明为 private</p>
+<h2 id="析构函数"><a href="#析构函数" class="headerlink" title="析构函数"></a>析构函数</h2><p>析构函数的运作方式是, 最深层派生(most derived)的那个 class 其虚构函数最先被调用, 然后是调用其每一个 base class 的析构函数</p>
+<h2 id="return-this"><a href="#return-this" class="headerlink" title="return *this"></a>return *this</h2><p>不一定的，看函数值是什么形式。若返回值的是对象，即 形如 student f(…)；返回的是对象。若返回的形式是引用，即形如 student &amp; f(….)；返回的是对象地址。但函数体的写法都是 return * this</p>
+<p>类比</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x;   <span class="keyword">int</span>  &amp;y=x;   <span class="keyword">int</span> z=x; </span><br></pre></td></tr></table></figure>
+
+<p>后面两个语句的写法都对，但是功能不同，含义不同。</p>
+<p>推荐都写成返回引用的形式, 这样捷克语实现预算符</p>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>调用 base 的运算符</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Base::<span class="keyword">operator</span> = (target);</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="cpp-课件"><a href="#cpp-课件" class="headerlink" title="cpp 课件"></a>cpp 课件</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>x– 是右值</p>
+<p>–x 是左值</p>
+<p>C++primer中对 <strong>对象</strong>的定义：<strong>对象</strong>是指一块能存储数据并具有某种类型的内存空间<br>一个<strong>对象</strong>a，它有<strong>值</strong>和<strong>地址&amp;a</strong>，运行程序时，计算机会为该对象分配存储空间，来存储该对象的值，我们通过该对象的地址，来访问存储空间中的值</p>
+<p><strong>指针</strong>p也是<strong>对象</strong>，它同样有地址&amp;p和存储的值p，只不过，<strong>p存储的数据类型是数据的地址</strong>。如果我们要以p中存储的数据为地址，来访问对象的值，则要在p前加解引用操作符”<em>“,即</em>p。</p>
+<p>对象有常量（const）和变量之分，既然指针本身是对象，那么指针所存储的地址也有常量和变量之分，指针常量是指，指针这个对象所存储的地址是不可以改变的，而指向常量的指针的意思是，不能通过该指针来改变这个指针所指向的对象。</p>
+<p><font color = "red"><strong>我们可以把引用理解成变量的别名</strong>。</font></p>
+<p>定义一个引用的时候，程序把该引用和它的初始值绑定在一起，而不是拷贝它。计算机必须<strong>在声明r的同时就要对它初始化</strong>，并且，<strong>r一经声明，就不可以再和其它对象绑定在一起了。</strong></p>
+<p>实际上，你也可以把引用看做是通过一个<strong>常量指针</strong>来实现的，它只能绑定到初始化它的对象上。</p>
+<p>关于指针和引用的对比，可以参看&lt;&lt;more effective C++&gt;&gt;中的第一条条款，引用的一个优点是它一定不为空，因此相对于指针，它不用检查它所指对象是否为空，这增加了效率</p>
+<p>比如下面的代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a,b,*p,&amp;r=a;<span class="comment">//正确</span></span><br><span class="line">r=<span class="number">3</span>;<span class="comment">//正确：等价于a=3</span></span><br><span class="line"><span class="keyword">int</span> &amp;rr;<span class="comment">//出错：引用必须初始化</span></span><br><span class="line">p=&amp;a;<span class="comment">//正确：p中存储a的地址，即p指向a</span></span><br><span class="line">*p=<span class="number">4</span>;<span class="comment">//正确：p中存的是a的地址，对a所对应的存储空间存入值4</span></span><br><span class="line">p=&amp;b<span class="comment">//正确：p可以多次赋值，p存储b的地址</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>引用必须初始化</strong><br>引用变量中存放的是被引用变量的地址, 本质是指针<br>使用引用对象, 操作对象都是被引用的对象</p>
+<p>引用一旦被初始化为指向一个对象，就不能再改变为另一个对象的引用；指针是可变的</p>
+<p><strong>int &amp;x = ……;</strong> <strong>引用变量</strong></p>
+<p><strong>void f(int &amp;x) ;</strong> <strong>引用参数</strong> 引用经常被用作函数参数, 使得函数中的变量名成为调用程序中的变量的别名. </p>
+<ul>
+<li><p>新建临时变量: </p>
+<p>条件: 1. 实参的类型正确, 但不是左值, 2. 实参的类型不正确, 但可以转换为正确的类型</p>
+<p>如果接受引用参数的函数的意图是修改作为参数传递的变量, 那么创建临时变量将阻止这种意图, 所以当引用为 const 时创建临时变量不会影响</p>
+</li>
+</ul>
+<p><strong>Int &amp; f(……) ;</strong> <strong>返回结果引用</strong> </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> swap（<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> t;</span><br><span class="line">  t=x;</span><br><span class="line">  x=y;</span><br><span class="line">  y=t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> &amp; <span class="title">f</span><span class="params">( )</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> t=<span class="number">25</span>;</span><br><span class="line"><span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//不要像这样返回一个局部变量的引用, 一般返回一个作为参数传递给函数的引用, 但是可以返回 new 出来的变量的引用</span></span><br><span class="line"><span class="comment">//lea eax,[t]  返回地址</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> &amp; <span class="title">f</span><span class="params">(<span class="keyword">int</span> t )</span> </span>&#123;</span><br><span class="line">  t=t+<span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line">a = <span class="built_in">f</span>(<span class="number">10</span>)+<span class="built_in">f</span>(<span class="number">20</span>) ;</span><br><span class="line"><span class="comment">// 显示 a = 60</span></span><br><span class="line">b = <span class="built_in">f</span>(<span class="number">20</span>)+<span class="built_in">f</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">// 显示 b = 40</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*a=f(10)+f(20)</span></span><br><span class="line"><span class="comment">先执行 f(10), </span></span><br><span class="line"><span class="comment">返回 函数f中变量t 的地址</span></span><br><span class="line"><span class="comment">再执行 f(20)</span></span><br><span class="line"><span class="comment">返回 函数f中变量t 的地址</span></span><br><span class="line"><span class="comment">根据第1个返回地址，取相</span></span><br><span class="line"><span class="comment">应单元的内容，为 30</span></span><br><span class="line"><span class="comment">根据第2个返回地址，取相</span></span><br><span class="line"><span class="comment">应单元的内容，为 30</span></span><br><span class="line"><span class="comment">故 a =60*/</span></span><br></pre></td></tr></table></figure>
+
+<p>左值引用 vs 右值引用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;y =x; <span class="comment">// x 是一个左值</span></span><br><span class="line"><span class="keyword">int</span> &amp;z = x*<span class="number">2</span>; <span class="comment">//错误，无法从 int 转换为 int &amp;</span></span><br><span class="line"><span class="comment">// z 定义为一个引用，z 中应存放一个地址</span></span><br><span class="line"><span class="comment">// 而 x*2 会对应一个值，无法取其地址，送入 z 中。</span></span><br><span class="line"><span class="keyword">int</span> &amp;&amp; w = x*<span class="number">2</span>; <span class="comment">// 右值引用；x*2是一个右值；</span></span><br><span class="line"><span class="comment">// 将 x*2 存放在一个临时单元中；将该单元的地址送入 w 中</span></span><br></pre></td></tr></table></figure>
+
+<p>const引用可以读取但是不可以被修改引用对象，任何对const引用进行赋值都是不合法的，它适用指向const对象的引用，而非const的引用不适用于指向const对象的引用。</p>
+<p>函数返回一个引用可以使得函数成为左值(c 语言中没有引用, 函数返回值只能作为右值)</p>
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*单目:: 指定为全局标识符</span></span><br><span class="line"><span class="comment">全局类型名、全局变量名、全局函数名等*/</span></span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">:: x = <span class="number">10</span>; <span class="comment">// 全局变量</span></span><br><span class="line">x =<span class="number">20</span>; <span class="comment">// 局部变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据成员指针"><a href="#数据成员指针" class="headerlink" title="数据成员指针"></a>数据成员指针</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Student::*q = &amp;Student::number; <span class="comment">// q 数据成员指针</span></span><br><span class="line">cout &lt;&lt; xu.*q&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+
+<p>取函数地址时，有无 <strong>&amp;</strong> 一样；</p>
+<p>用函数指针是，有无 ***** 一样</p>
+<p>普通成员指针是一个偏移量，存放的不是成员地址，故不能移动：</p>
+<p>普通成员指针不能进行类型转换</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Student::*p;</span><br><span class="line">p=p+<span class="number">1</span>; <span class="comment">// 非法 , 不能移动指针</span></span><br><span class="line"><span class="keyword">int</span> *q; q = q+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类中的关键字"><a href="#类中的关键字" class="headerlink" title="类中的关键字"></a>类中的关键字</h2><ul>
+<li>const</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TUTOR</span>&#123;</span></span><br><span class="line"><span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> sex; <span class="comment">//性别为只读成员</span></span><br><span class="line"><span class="keyword">int</span> wage;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">TUTOR</span>(<span class="keyword">const</span> <span class="keyword">char</span> *n, <span class="keyword">char</span> g, <span class="keyword">int</span> s): <span class="built_in">sex</span>(g), <span class="built_in">wage</span>(s)</span><br><span class="line">&#123; <span class="built_in">strcpy_s</span>(name,n); &#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">getname</span><span class="params">( )</span> <span class="keyword">const</span></span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line"><span class="comment">//函数体不能修改当前对象 函数的返回类型有 const 修饰</span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">setname</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *n)</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="built_in">strcpy_s</span>(name, n); <span class="keyword">return</span> name; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">TUTOR <span class="title">xu</span><span class="params">(“xuxy”,’M’,<span class="number">2000</span>)</span></span>;</span><br><span class="line">*xu.<span class="built_in">getname</span>()=‘X’; <span class="comment">// 不能给常量赋值</span></span><br><span class="line">*xu.<span class="built_in">setname</span>(“xuxiangyang”) =‘X’; <span class="comment">// name 的首字母变成X</span></span><br><span class="line"><span class="built_in">strcpy_s</span>(xu.<span class="built_in">setname</span>(“xu123”), <span class="number">6</span>, “hello”); <span class="comment">//name 改为hello</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p1 </span><br><span class="line">p1=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> * pc;</span><br><span class="line">pc = p1;</span><br><span class="line"><span class="comment">//legal, p1 指向的字符串可以通过 p1 修改, 但不能通过 pc 修改</span></span><br></pre></td></tr></table></figure>
+
+<p>当const在函数名前面的时候修饰的是函数返回值。</p>
+<p>当const在函数名后面表示是常成员函数，该函数不能修改对象内的任何成员，只能发生读操作，不能发生写操作。</p>
+<p>volatile 关键字: 优化器不对该变量的读取进行优化，用到该变量时重</p>
+<p>新读取。</p>
+<ul>
+<li><p>mutable:</p>
+<p>可变的</p>
+<p>➢ 是const 的反义词</p>
+<p>➢ 为突破 const的限制而设置的</p>
+<p>➢ 被mutable 修饰的变量永远处于可变得状态，即使在const函数中</p>
+<p>➢ mutable只能用来修饰数据成员</p>
+<p>➢ 不能与 const、volatile 或 static 同时出现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"><span class="keyword">int</span> a; <span class="keyword">const</span> <span class="keyword">int</span> b; <span class="comment">//b为const成员</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span></span>&#123;a++; <span class="keyword">return</span> a; &#125; <span class="comment">//this类型为： A * const this</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span><span class="keyword">const</span></span>&#123;<span class="keyword">return</span> a; &#125; <span class="comment">//this类型为：const A * const this。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span><span class="keyword">volatile</span></span>&#123;<span class="keyword">return</span> a++; &#125; <span class="comment">//this类型为：volatile A * const this</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span><span class="keyword">const</span> <span class="keyword">volatile</span></span>&#123; <span class="keyword">return</span> a; &#125;<span class="comment">//this类型为：const volatile A* const this</span></span><br><span class="line"><span class="built_in">A</span>(<span class="keyword">int</span> x) ：<span class="built_in">b</span>(x) &#123; a=x; &#125; <span class="comment">//不可在函数体内对b赋值修改</span></span><br><span class="line">&#125; <span class="built_in">x</span>(<span class="number">3</span>); <span class="comment">//等价于A x(3)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">const</span> A <span class="title">y</span><span class="params">(<span class="number">6</span>)</span></span>; <span class="comment">// y 不可修改</span></span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">volatile</span> A <span class="title">z</span><span class="params">(<span class="number">8</span>)</span></span>; <span class="comment">// z 不可修改</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">x.<span class="built_in">f</span>( ); <span class="comment">//普通对象x调用int f( ): this指向的对象可修改</span></span><br><span class="line">y.<span class="built_in">f</span>( ); <span class="comment">//只读对象y调用int f( )const:this指向的对象不可修改</span></span><br><span class="line">z.<span class="built_in">f</span>( ); <span class="comment">//只读挥发对象z调用int f( )const volatile:this指向的对象不可修改、挥发</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>const 成员函数和 non-const 成员函数是两个函数, 会区分调用(取决于 this 是 const 还是 non-const)</p>
+</li>
+</ul>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

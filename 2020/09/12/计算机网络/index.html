@@ -1,0 +1,1030 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机网络英文 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+&amp;lt;计算机网络自顶向下方法&amp;gt;(英文版) 英文缩写和词汇汇总
+学会了缩写就学会了计算机网络 —-赛诺
+
+
+
+MOOC第一章 计算机网络与因特网
+协议: 语法, 语义, 同步
+
+C/S P2,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计算机网络英文</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计算机网络英文</h1>
+        <div class="stuff">
+            <span>九月 12, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>&lt;计算机网络自顶向下方法&gt;(英文版) 英文缩写和词汇汇总</p>
+<p>学会了缩写就学会了计算机网络 —-赛诺</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="MOOC"><a href="#MOOC" class="headerlink" title="MOOC"></a>MOOC</h1><h2 id="第一章-计算机网络与因特网"><a href="#第一章-计算机网络与因特网" class="headerlink" title="第一章 计算机网络与因特网"></a>第一章 计算机网络与因特网</h2><ul>
+<li><p>协议: 语法, 语义, 同步</p>
+</li>
+<li><p>C/S P2P</p>
+</li>
+<li><p>接入</p>
+<ul>
+<li>点对点<ul>
+<li>电话线 ADSL 非对称数字用户环线（Asymmetrical Digital Subscriber Loop）双绞铜线</li>
+<li>电缆/光纤混合线路 HFC (电视)</li>
+<li>光纤到户 FTTH</li>
+<li>卫星</li>
+</ul>
+</li>
+<li>以太网/wifi<ul>
+<li>有线以太网 双绞铜线</li>
+<li>wifi</li>
+</ul>
+</li>
+<li>广域无线网</li>
+</ul>
+</li>
+<li><p>网络核心</p>
+<ul>
+<li>电路交换网络<ul>
+<li>分频复用 FDM</li>
+<li>时分复用 TDM</li>
+</ul>
+</li>
+<li>报文交换</li>
+<li>分组交换<ul>
+<li>数据报网络(纯分组交换)</li>
+<li>虚电路网络, 需要建立连接</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>时延丢包吞吐量</p>
+<p>R 链路带宽, L 分组长度, a 平均分组到达速率</p>
+<p>流量强度 L*a/R , 与 1 进行比较</p>
+</li>
+<li><p>层次化的网络体系</p>
+<p>应用层, 传输层, 网络层, 链路层, 物理层</p>
+<p>协议三要素: 语法, 语义, 同步</p>
+<p>协议栈</p>
+</li>
+<li><p>网络体系结构模型</p>
+<p>OSI: 表示层, 会话层(在应用层之上)</p>
+</li>
+<li><p>因特网中的复用和分解</p>
+<ul>
+<li><p>报文复用</p>
+<p>时分复用带宽</p>
+<p>频分复用带宽</p>
+<p>同时使用</p>
+</li>
+<li><p>报文分解</p>
+<ul>
+<li> 针对应用进程</li>
+</ul>
+<p>  套接字: ip 地址 + 端口号 -&gt; 标识进程</p>
+<ul>
+<li><p>针对电路层</p>
+<p>时分复用 –&gt; 统计时分复用(当 A 当前无传输, 就分给下一个)</p>
+<p>频分复用</p>
+<p>码分多址(CDMA) 码片? 互相之间正交, </p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据差错的检查</p>
+</li>
+</ul>
+<h2 id="第二章-应用层"><a href="#第二章-应用层" class="headerlink" title="第二章 应用层"></a>第二章 应用层</h2><ul>
+<li><p>应用层协议原理</p>
+<p>CS 体系结构 p2p 体系结构 混合体系结构</p>
+<p>应用层协议定义了</p>
+<ul>
+<li>交换报文的类型</li>
+<li>各种报文类型的语法</li>
+<li>字段的语义</li>
+<li>进程何时, 如何发送报文及对报文进行响应</li>
+</ul>
+<p>服务</p>
+</li>
+<li><p>万维网与 http</p>
+<ul>
+<li><p>web 的构成</p>
+<p>web 服务器</p>
+<p>浏览器</p>
+<p>协议: 信息表达的协议(html), 信息传输的协议(http)</p>
+</li>
+<li><p>web 内容的表达: html</p>
+</li>
+<li><p>web 内容的传输: tcp 端口 80</p>
+<p>http1.0 非持久性链接 RTT * 2 + 文件传输时间</p>
+<p>http1.1 持久性连接 分为: 非流水, 流水</p>
+</li>
+<li><p>http 报文类型</p>
+<ul>
+<li><p>http 请求报文</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjb6r2za4aj30y40fuwt9.jpg" alt="截屏2020-10-02 下午6.52.38"></p>
+<p>定义的方法:</p>
+<ul>
+<li>get 向服务器请求指定url 的对象</li>
+<li>post 向服务器提交表单数据, 也可以同时请求一个 web 页面</li>
+<li>head 返回响应报文, 不包含请求的对象</li>
+<li>put 上传的文件放在实体主体字段中, 目标路径由 url 字段标明</li>
+<li>delete 删除 url 字段中指定的文件</li>
+</ul>
+</li>
+<li><p>http 响应报文</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjb6vgjgthj31040e2nc8.jpg" alt="截屏2020-10-02 下午6.57.02"></p>
+<p>响应状态码和短语</p>
+<ul>
+<li>200 ok, 请求成功, 被请求的对象在报文里</li>
+<li>301 moved permanently 被请求的对象被移动过, 新的位置在报文中有说明(location)</li>
+<li>400 bad request 服务器不懂请求报文</li>
+<li>404 not found 服务器上找不到请求的对象</li>
+<li>505 http version not supported 服务器不支持请求报文使用的 http 协议版本</li>
+</ul>
+</li>
+<li><p>用户服务器交互 cookie</p>
+<ul>
+<li>目的: 限制用户的访问, 把内容和用户的身份关联起来</li>
+<li>技术组成:<ul>
+<li>在 http 响应报文中有一个 cookie 首部行</li>
+<li>在 http 请求报文中也有一个 cookie 首部行</li>
+<li>在用户的端系统保留了一个 cookie 文件, 由用户浏览器负责管理</li>
+<li>在 web 站点有一个后端数据库</li>
+</ul>
+</li>
+<li>私密性</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>smtp</p>
+<ul>
+<li><p>电子邮件系统的构成</p>
+<ul>
+<li>用户代理</li>
+<li>邮件服务器</li>
+<li>smtp 用在邮件服务器之间发送邮件<ul>
+<li>客户端将邮件发到服务器</li>
+<li>服务器接收和转发邮件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>tcp 端口 25, 三个阶段: 握手, 报文传输, 结束 命令响应类型: 命令 ascii 码, 响应状态码和短语</p>
+</li>
+<li><p>邮件传输过程</p>
+<ul>
+<li>持续链接</li>
+<li><strong>7 bit ascii 码</strong></li>
+<li>crlf 表示邮件结束</li>
+</ul>
+</li>
+<li><p>报文格式 rfc 822</p>
+</li>
+<li><p>客户机获取邮件的方法</p>
+<ul>
+<li><p>pop3 协议</p>
+<p>认证, 交互(下载删除-下载保存), 退出</p>
+<p>会话无状态</p>
+</li>
+<li><p>imap 协议</p>
+<p>所有邮件保存在服务器上</p>
+</li>
+<li><p>http 协议</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>域名解析 DNS</p>
+<ul>
+<li><p>分布式数据库 运行在端到端系统, 使用 udp 端口 53 应用层</p>
+</li>
+<li><p>过程</p>
+</li>
+<li><p>ddos 攻击, 重定向攻击</p>
+</li>
+</ul>
+</li>
+<li><p>p2p 协议</p>
+<ul>
+<li>bittorrent</li>
+</ul>
+</li>
+</ul>
+<h2 id="第三章-运输层"><a href="#第三章-运输层" class="headerlink" title="第三章 运输层"></a>第三章 运输层</h2><ul>
+<li><p>概述</p>
+<p>网络层: 不同主机之间的逻辑通信</p>
+<p>运输层: 应用进程之间的逻辑通信</p>
+</li>
+<li><p>端口和套接字</p>
+</li>
+<li><p>无连接传输UDP</p>
+<p>1.多路复用, 多路分解</p>
+<p>2.差错检查</p>
+<p>数据报结构: </p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk46xm0jvyj30lq0botd5.jpg" alt="截屏2020-10-27 下午9.01.21"></p>
+</li>
+<li><p>可靠数据传输</p>
+<ul>
+<li><p>概述</p>
+<p>可靠传输</p>
+<ol>
+<li>数据在传输过程中不会丢失</li>
+<li>数据在传输过程中不会出错</li>
+</ol>
+<p>FSM 有限状态机</p>
+</li>
+<li><p>分类</p>
+<ul>
+<li><p>可靠信道上的可靠传输</p>
+</li>
+<li><p>比特受损, 但可按序接受不会丢失</p>
+<p><strong>简单停等协议</strong></p>
+<ol>
+<li>差错检测</li>
+<li>ƒ接收方反馈 ACK NAK</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk47cwe8paj30m20csdp0.jpg" alt="截屏2020-10-27 下午9.16.04"></p>
+<p>问题: ack 和 nak 也会受损</p>
+<p>方案: 编号, 对分组进行编号, 便于接收方识别重复分组, 区分连续的两个分组(0, 1)</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk47g4h758j30n40e8tje.jpg" alt=" "></p>
+<p>改进: 只有 ack, 给 ack 加上编号, 接收方对最后一个正确收到的分组发送 ack, double ACK = NAK</p>
+</li>
+<li><p>数据会丢失</p>
+<p><strong>实用停等协议</strong></p>
+<p>问题: 如何检测丢包</p>
+<p>方案: 等待, 计时器</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk47lx65jlj30na0fedrq.jpg" alt="截屏2020-10-27 下午9.24.31"></p>
+</li>
+<li><p><strong>滑动窗口协议</strong></p>
+<p>问题: 解决硬件利用率不高的问题</p>
+<p>方案: 允许发送方发送多个分组而无需等待确认</p>
+<ol>
+<li>必须增大序号范围</li>
+<li>发送方和接收方需要对分组缓存</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk47v2aecsj30na06aadl.jpg" alt="截屏2020-10-27 下午9.33.30"></p>
+<p>分组丢失了怎么办?</p>
+<ul>
+<li><p><strong>GBN</strong> <strong>协议</strong>: 其后的分组全部重传</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk47znelcfj30oa0fgqh0.jpg" alt="截屏2020-10-27 下午9.37.56"></p>
+</li>
+<li><p><strong>SR</strong> <strong>协议</strong>: 仅重传该分组</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk481a17asj30n60f0tl4.jpg" alt="截屏2020-10-27 下午9.39.31"></p>
+</li>
+<li><p>序号问题</p>
+<p>发送窗口的序号和接受窗口的序号不能重复</p>
+<p>两个窗口的序号均在 2^k^-1 内, 发送方+接收方 &lt;= 2^k^</p>
+<p>GBN : 发送方&lt; 2^k^-1 接收方 = 1</p>
+<p>SR: 接收方 = 发送方 &lt;= 2^k-1^</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>TCP</p>
+<ul>
+<li><p>报文首部结构</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk487oge6jj30se0byq99.jpg" alt="截屏2020-10-27 下午9.45.39"></p>
+<p>序号: 对字节流的编号, 在报文段数据中第一个字节在字节流中的编号</p>
+<p>确认号: 期望号(ACK=1), 期待得到的下一个字节的 seq</p>
+<p>窗口: 流量监测</p>
+<p>紧急指针: URG, PSH 开关</p>
+<p>tcp 没有规定如何处理乱序报文段, 由实现者实现</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk48ibp1ctj30o40bw44s.jpg" alt="截屏2020-10-27 下午9.55.51"></p>
+</li>
+<li><p>tcp 超时</p>
+<p>样本 RTT </p>
+<p>EstimatedRTT = (1 - α) * EstimatedRTT + α * SampleRTT</p>
+<p>α = 0.125 第一次 EstimatedRTT = SampleRTT</p>
+<p>偏差 RTT</p>
+<p>DevRTT = (1 - β) * DevRTT + β * |SampleRTT - EstimatedRTT|</p>
+<p>β = 0.25 第一次 DevRTT = 0.5 * SampleRTT</p>
+<p>TCP 中的超时间隔</p>
+<p>TimeoutInterval = EstimatedRTT + 4 * DevRTT</p>
+</li>
+<li><p>TCP 的可靠数据传输</p>
+<p>tcp 的确认永远是期待的分组</p>
+<ul>
+<li><p>快速重传: 在超时到来之前重传报文段</p>
+<p>如果发送方收到一个数据的<strong>三个重复 ACK</strong>, 它会认为确认数据之后的报文段丢失</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk4zstl2kzj30c60eytdx.jpg" alt="截屏2020-10-28 下午1.40.03"></p>
+<p>每一次 TCP 重传均将下一次超时间隔设为先前值的两倍</p>
+</li>
+</ul>
+</li>
+<li><p>TCP 流量控制</p>
+<ul>
+<li><p>可变流量窗口: 将接收方缓冲区的空闲空间发给发送方</p>
+<p>剩余空间为 0 时, 为了避免假死, 发送方发送一个字节的试探报文</p>
+</li>
+</ul>
+</li>
+<li><p>TCP 连接管理</p>
+<ul>
+<li><p>TCP 链接的建立</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk500xl5iaj30li0b2jy5.jpg" alt="截屏2020-10-28 下午1.47.57"></p>
+</li>
+<li><p>TCP 连接的释放</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk5717czi7j30ms0dcdp7.jpg" alt="截屏2020-10-28 下午5.50.24"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk5721ezljj30ni0emn72.jpg" alt="截屏2020-10-28 下午5.51.11"></p>
+</li>
+<li><p>TCP 链接管理的状态序列</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk577xhb9gj30pa0cqwol.jpg" alt="截屏2020-10-28 下午5.56.52"></p>
+<p>两个 establish 状态可能不同步</p>
+</li>
+</ul>
+</li>
+<li><p>拥塞控制</p>
+<p>拥塞: 过多的源发送了过多的数据, 超出了网络的处理能力</p>
+<p>和流量控制不同的是, 流量控制是发送方发送了过多的数据, 拥塞控制是过多数据积压在网络核心</p>
+<p>现象: 延时长, 包丢失</p>
+<p>拥塞的开销:</p>
+<ol>
+<li>发送方必须重传以补偿因为缓存溢出而丢失的分组</li>
+<li>发送方在遇到大时延锁进行的不必要重传会引起路由器转发不必要的分组拷贝而占用其链路带宽</li>
+<li>当分组被丢弃时, 该分组曾用到的所有上游传输容量被浪费了</li>
+</ol>
+<p>网络辅助的拥塞控制的方法</p>
+<ol>
+<li>直接网络反馈: 路由器以阻塞分组的形式通知发送方”网络堵塞了”</li>
+<li>经由接收方的网络反馈: 路由器标识从发送方流向接收方分组的某个字段以知识拥塞产生, 由接收方通知发送方网络拥塞了</li>
+</ol>
+<p>端到端的拥塞控制</p>
+<ol>
+<li>网络层部位拥塞控制提供任何帮助和支持</li>
+<li>端系统通过对网络行为观测判断网络是否发生拥塞</li>
+<li>TCP 采用以上方法</li>
+</ol>
+</li>
+<li><p>TCP 的拥塞控制</p>
+<p>端到端的拥塞控制</p>
+<ul>
+<li><p>拥塞窗口</p>
+<p>rate = (CongWin/RTT) bytes/sec</p>
+</li>
+<li><p>如何感受拥塞</p>
+<p>超时, 三个冗余 ACK</p>
+</li>
+<li><p>拥塞控制算法(Reno 算法)</p>
+<p>加性增, 乘性减(AIMD)</p>
+<blockquote>
+<p>mss 最大报文段长度</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk57t0k08kj30ng0emdqq.jpg" alt="截屏2020-10-28 下午6.17.07"></p>
+<p>指数增加到一个门限值</p>
+<p>指数增加阶段 -&gt; 慢启动, 线性增加阶段 -&gt; 拥塞避免</p>
+<ul>
+<li>对收到三个重复 ACK 的反应: 快速重传<ol>
+<li>门限值设为当前 CongWin 的一半</li>
+<li>将 CongWin 减为新的门限值+3 MSS</li>
+<li>线性增加拥塞窗口</li>
+</ol>
+</li>
+<li>超时时间的反应<ol>
+<li>门限值设为当前 CongWin 的一半</li>
+<li>将 CongWin 设为 1  MSS</li>
+<li>窗口以指数速度增大</li>
+<li>窗口增大到门限值以后, 在以线性速度增加</li>
+</ol>
+</li>
+<li>Reno总结<ol>
+<li>门限值 Threshold 决定出于慢启动阶段还是拥塞避免阶段</li>
+<li>triple ACK 门限值变为一半, CongWin 设为门限值+3 MSS</li>
+<li>超时 门限值变为一半, CongWin 设为 1 MSS</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第四章-网络层"><a href="#第四章-网络层" class="headerlink" title="第四章 网络层"></a>第四章 网络层</h2><ul>
+<li><p>网络层概述</p>
+<p>实现主机到主机的通信</p>
+<ol>
+<li><p>如何选路</p>
+</li>
+<li><p>如何转发</p>
+</li>
+<li><p>确定是否可达</p>
+</li>
+</ol>
+<p>为传输层提供选路转发服务</p>
+<ol>
+<li>虚电路服务<ol>
+<li>收发双方的路径和电话线路一样</li>
+<li>数据传输前呼叫建立, 传输后断开连接</li>
+<li>每一个分组携带虚电路标识(而不是目的主机的地址)</li>
+<li>路径上的每个路由器必须维持连接状态信息</li>
+</ol>
+</li>
+<li>数据报服务<ol>
+<li>在网络层没有建立连接过程</li>
+<li>不维护连接状态信息</li>
+<li>同一对主机的报文可能会走不同的路径</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p>路由器的工作原理</p>
+<p>网路程, 数据链路层, 物理层</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk58gzl5hdj30ng0ea7ec.jpg" alt="截屏2020-10-28 下午6.40.10"></p>
+<ul>
+<li><p>输入端口</p>
+<ul>
+<li>线头等待</li>
+</ul>
+</li>
+<li><p>交换结构</p>
+<ul>
+<li><p>分类: 内存类, 总线类, 内联网络类</p>
+<ul>
+<li><p>内存交换: </p>
+<ol>
+<li>输入输出端口的交换是在路由器的直接控制下完成的</li>
+<li>分组被拷贝到系统内存中, 在 cpu 控制下转发至输出端口</li>
+<li>转发速度受限于内存带宽(每个分组走两次总线)</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6mdsjenrj30jg06k77d.jpg" alt="截屏2020-10-29 下午11.26.40"></p>
+</li>
+<li><p>总线交换</p>
+<ol>
+<li>输入报文经共享总线将分组直接转发到输出端口</li>
+<li>总线交换速度受限于总线带宽</li>
+<li>Cisco5600 内置 32Gbps 总线, 能满足大多接入网或企业网的路由转发速率需求</li>
+</ol>
+</li>
+<li><p>内联网络</p>
+<ol>
+<li>克服总线带宽限制</li>
+<li>Banyan 网络: 用于计算机体系结构中多处理机互连</li>
+<li>固定分组转发: 将长度变化的 ip 分组拆分为固定尺寸的信元, 通过交换网络进行转发</li>
+<li>Cisco 12000: 通过内联网络交换速度为 60Gbps</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>输出端口</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6mjektnzj30l60emqc4.jpg" alt="截屏2020-10-29 下午11.32.23"></p>
+</li>
+<li><p>缓存区?</p>
+<p>RFC 3439: B = RTT * R</p>
+<p>对于有 n 条 tcp 链接的链路: B = RTT * R / n^1/2^ </p>
+<p>分组排队丢弃策略: </p>
+<ul>
+<li>被动管理<ol>
+<li>弃尾策略</li>
+<li>删除一个或者多个已排队分组</li>
+</ol>
+</li>
+<li>主动管理–随机早期检测 RED<ol>
+<li>随机计算平均队列长度 avg<del>th</del></li>
+<li>最小阈值 min<del>th</del> 最大阈值 max<del>th</del></li>
+<li>avg<del>th</del> 小于 min<del>th</del>, 允许分组入列</li>
+<li>avg<del>th</del> 大于 max<del>th</del>, 分组被标记或丢弃</li>
+<li>avg<del>th</del> 在 min<del>th</del> 和 max<del>th</del> 之间, 按照概率标记或丢弃分组</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>ip 数据报格式</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6n6j8572j30nc0esdnj.jpg" alt="截屏2020-10-29 下午11.54.39"></p>
+<p>版本: IPv4 IPv5 IPv6</p>
+<p>服务类型: 报文处理方式</p>
+<p>生存时间: 控制数据转发的跳数</p>
+<p>报头校验和, 只检查首部</p>
+<p>协议: 1ICMP 2IGMP 4IP 6TCP 8EGP 17UDP 41IPV6</p>
+<p>源地址: 32bit</p>
+<p>目的地址: 32bit</p>
+<p>首部长度</p>
+<p>总长度: 实际长度 = 总长度 - 首部长度, 以太网链路报文只允许 1500 字节</p>
+<p>分片相关的字段(MTU)</p>
+<p>​    标识: 网络层服务的上层传输层的同一次报文使用相同的表示, 相当于每次会话使用相同表示</p>
+<p>​    标志: 1 位保留, 2 位表示能否分片, 3 位表示分片是否结束(1 未结束, 0 结束)</p>
+<p>​    片偏移: 每个分片在整个报文中的位置</p>
+</li>
+<li><p>IP 地址</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6nkk5p1ej30ng0bijwn.jpg" alt="截屏2020-10-30 上午12.08.08"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6nmqs2l5j30nc09wtea.jpg" alt="截屏2020-10-30 上午12.10.16"></p>
+<p>NAT</p>
+<p>ipv6 报文结构</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6nuwuduwj30no0d4guu.jpg" alt="截屏2020-10-30 上午12.18.02"></p>
+</li>
+<li><p>子网划分</p>
+<p>从主机号中抽取一部分作为子网号, 进行子网划分</p>
+<p>子网掩码</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6o2k52w8j30qc0gm7ej.jpg" alt="截屏2020-10-30 上午12.25.25"></p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6o420nlzj30p00fm49h.jpg" alt="截屏2020-10-30 上午12.26.52"></p>
+<ol>
+<li>H<del>1</del>先将本子网的子网掩码与分组的 ip 地址相”与”, 不匹配给路由器</li>
+<li>路由器根据路由表找到目的网络地址, 进行转发</li>
+</ol>
+</li>
+<li><p>CIDR 无类别域间路由(classless interdomain routing)</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6ofdc3oqj30j007on25.jpg" alt="截屏2020-10-30 上午12.37.45"></p>
+<p>/之后是掩码的位数</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6orahcgpj30l00ecn6t.jpg" alt="截屏2020-10-30 上午12.49.10"></p>
+</li>
+<li><p>网络地址转换 NAT</p>
+<ul>
+<li><p>解决的问题</p>
+<ol>
+<li>外网获取的 ip 地址资源有限</li>
+<li>内网 ip 地址变动无需告知外网</li>
+<li>更换 ISP 后内网 ip 地址不变</li>
+<li>内网主机外网不可见</li>
+</ol>
+</li>
+<li><p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk6otwecwaj30oe0c6qar.jpg" alt="截屏2020-10-30 上午12.51.42"></p>
+</li>
+<li><p>改变</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk9hls0rvzj30ji08i43n.jpg" alt="截屏2020-11-01 上午10.58.23"></p>
+</li>
+</ul>
+</li>
+<li><p>ICMP 协议(差错与控制报文协议)</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk9hv8j3abj30o60f8thp.jpg" alt="截屏2020-11-01 上午11.07.31"></p>
+<ul>
+<li><p>ICMP 报文格式</p>
+<ul>
+<li><p>信息报文不可达</p>
+<ol>
+<li>信宿机硬件出现故障或者关机</li>
+<li>发送者指定的地址不存在</li>
+<li>网关不知道去往信宿的路径</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk9hyeqkgvj30jm06sn10.jpg" alt="截屏2020-11-01 上午11.10.34"></p>
+</li>
+<li><p>参数出错报文</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk9hzax62lj30ji05ytcd.jpg" alt="截屏2020-11-01 上午11.11.14"></p>
+</li>
+<li><p>重定向报文</p>
+<p><img src="https://tva1.sinaimg.cn/large/0081Kckwgy1gk9hzmirtsj30km07owik.jpg" alt="截屏2020-11-01 上午11.11.44"></p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>路由协议概述</p>
+<p>好的路由: 无自环, 可收敛, 路径好</p>
+<ul>
+<li>AS<ul>
+<li>AS 内</li>
+<li>AS 外</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>选路算法</p>
+<ul>
+<li><p>OSPF 基于路径成本最优, 是一种 LS 协议</p>
+<p>迪克斯特拉算法构造最短路径树, 只记录下一跳的节点, 不记录整个路径</p>
+</li>
+<li><p>RIP 基于路径距离最短, 是一种 DV 协议</p>
+<p>相邻节点</p>
+</li>
+<li><p>BGP-4 协议</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="第五章-链路层和局域网"><a href="#第五章-链路层和局域网" class="headerlink" title="第五章 链路层和局域网"></a>第五章 链路层和局域网</h2><ul>
+<li><p>ALOHA</p>
+</li>
+<li><p>CSMA</p>
+<ul>
+<li>非坚持</li>
+<li>1 坚持</li>
+<li>p 坚持</li>
+</ul>
+</li>
+<li><p>信道划分协议</p>
+<ul>
+<li>TDMA</li>
+<li>FDMA</li>
+</ul>
+</li>
+<li><p>随机访问协议</p>
+</li>
+<li><p>轮流协议</p>
+</li>
+<li><p>令牌传递协议</p>
+</li>
+<li><p>MAC 地址</p>
+<p>48bit 链路层标识</p>
+</li>
+<li><p>ARP 协议 地址解析协议</p>
+</li>
+<li><p>以太网</p>
+<ul>
+<li><p>总线式</p>
+</li>
+<li><p>交换式</p>
+</li>
+<li><p>帧: 数据字段, 前同步码, 地址, 类型, CRC</p>
+</li>
+<li><p>集线器(转发器)</p>
+</li>
+<li><p>网桥 mac 层 lan 互连</p>
+</li>
+</ul>
+</li>
+<li><p>交换机</p>
+</li>
+<li><p>web:</p>
+<p>dhcp dns arp </p>
+</li>
+</ul>
+<h2 id="第六章-wifi"><a href="#第六章-wifi" class="headerlink" title="第六章 wifi"></a>第六章 wifi</h2><h1 id="实验-1-socket-编程"><a href="#实验-1-socket-编程" class="headerlink" title="实验 1 socket 编程"></a>实验 1 socket 编程</h1><h2 id="实验要求"><a href="#实验要求" class="headerlink" title="实验要求"></a>实验要求</h2><p>ip, 端口, 主目录</p>
+<p>处理请求, 穿件套接字</p>
+<p>确定网页文件</p>
+<p>响应报文</p>
+<p>tcp</p>
+<p>关闭启动</p>
+<p>*多媒体的网页</p>
+<p>输出请求来源</p>
+<p>输出处理结果</p>
+<p>显示错误原因, 异常处理</p>
+<h1 id="实验-2-rdt-协议"><a href="#实验-2-rdt-协议" class="headerlink" title="实验 2 rdt 协议"></a>实验 2 rdt 协议</h1><h2 id="要求"><a href="#要求" class="headerlink" title="要求"></a>要求</h2><p>序号, 窗口大小</p>
+<p>Rdt 协议的发送方 RdtSender 和 Rdt 协议的接收方则是学生需要实现的功能，它们共同</p>
+<p>实现了 Rdt 协议。其中 RdtSender 必须实现三个函数：send(Message)、receive(Packet)、</p>
+<p>timeoutHandler(int seqNum)；RdtReceiver 则必须实现一个函数：receive(Packet)</p>
+<p>单向传输, 指定编码报文序号的二进制位数和窗口大小</p>
+<p>要求三: </p>
+<ul>
+<li><p>报文段序号按照报文段为单位进行编号</p>
+</li>
+<li><p>单一的超时计时器, 指定 timeout 参数</p>
+</li>
+<li><p>支持快速重传和超时重传</p>
+</li>
+<li><p>确认号为收到的最后一个报文段序号</p>
+</li>
+</ul>
+<h2 id="模拟环境"><a href="#模拟环境" class="headerlink" title="模拟环境"></a>模拟环境</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">RdtSender::<span class="built_in">Send</span>(Message)&#123;</span><br><span class="line">	<span class="built_in">sendToNetworkLayer</span>(Packet);</span><br><span class="line">  <span class="built_in">startTimer</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">RdtReceiver::<span class="built_in">Receive</span>(Message)&#123;</span><br><span class="line">	<span class="keyword">if</span>(rightdata)</span><br><span class="line">    <span class="built_in">stopTimer</span>();</span><br><span class="line">  <span class="keyword">else</span></span><br><span class="line">    <span class="built_in">startTimer</span>();</span><br><span class="line">  <span class="keyword">if</span>(timeout)</span><br><span class="line">    <span class="built_in">timeoutHandler</span>();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="知识"><a href="#知识" class="headerlink" title="知识"></a>知识</h2><h3 id="GBN"><a href="#GBN" class="headerlink" title="GBN"></a>GBN</h3><ul>
+<li><p>接收方</p>
+<p>属性: base nextseq, N</p>
+<p>send: 检查窗口是否已满, 未满则 send, 更新变量</p>
+<p>收到 ack: </p>
+<p>timeout: 重传所以已经发送但未确认的分组</p>
+<p>定时器: 最早发送还未确认的定时器</p>
+</li>
+<li><p>发送方</p>
+<p>按序发送 ack, 否则发送上一个 ack</p>
+</li>
+</ul>
+<h3 id="rdt"><a href="#rdt" class="headerlink" title="rdt"></a>rdt</h3><ul>
+<li><p>rdt 1.0 无差错</p>
+<p>发送接收</p>
+</li>
+<li><p>rdt 2.0 比特差错</p>
+<p>checksum, ack, nak</p>
+<p>除非接收方接收到了正确的数据, 否则发送方不会发送新的数据–停等协议</p>
+</li>
+<li><p>rdt 2.1 ack 或者 nak 受损</p>
+<p>增加序号(sequence number)可以让接收方知道发送方是否在重传一个分组</p>
+</li>
+<li><p>rdt 2.2 冗余 ack</p>
+<p>用两个 ack 表示 nak</p>
+</li>
+<li><p>rdt 3.0 丢包</p>
+<p>等待与重传, 定时器</p>
+<p>每发送一个分组就启动定时器</p>
+</li>
+<li><p>流水线 解决 RTT 占比过多的问题</p>
+<p>每一个分组都要有自己的序号, 接收方和发送方要有缓冲区, 对于损坏的分组如何处理(GBN, SR)</p>
+</li>
+</ul>
+<h1 id="计算机网络自顶向下"><a href="#计算机网络自顶向下" class="headerlink" title="计算机网络自顶向下"></a>计算机网络自顶向下</h1><h2 id="第一章-计算机网络和-Internet"><a href="#第一章-计算机网络和-Internet" class="headerlink" title="第一章 计算机网络和 Internet"></a>第一章 计算机网络和 Internet</h2><p>switch 交换机</p>
+<p>router 路由器</p>
+<p>coaxial cable 同轴电缆</p>
+<p>optical fiber 光纤</p>
+<p>radio spectrum 无线电</p>
+<p>ISP(Internet Service Provider) 网络服务提供商</p>
+<p>modem(modulator and demodulator) 调制解调器</p>
+<p>IETF(Internet engineering task force) 互联网工程任务组</p>
+<p>RFCs(requests for comments) IETF standards documents</p>
+<p>API(application programming interface)</p>
+<p>host 主机, end system</p>
+<p>access network 接入网络</p>
+<p>CO(central office)</p>
+<p>DSL(digital subscriber line) 数字用户线路</p>
+<p>​    DSLAM(DSL access multiplexer)</p>
+<p>HFC(hybrid fiber coax) cable Internet access</p>
+<p>​    CMTS(cable modem termination system)约等于 DLS 里的 DSLAM</p>
+<p>FTTH(fiber to the home)</p>
+<p>LAN(local area network)</p>
+<p>​    Ethernet 以太网</p>
+<p>​    3G(third-generation wireless)    </p>
+<p>twisted-pair copper wire 双绞线</p>
+<p>coaxial cable 同轴电缆</p>
+<p>fiber optics 光纤</p>
+<p>terrestrial radio channels 地面广播频道</p>
+<p>satellite radio channels 卫星广播频道</p>
+<p>​    geostationary satellite 地球同步卫星</p>
+<p>​    LEO(low-earth orbiting) 近地轨道卫星</p>
+<p>packet switching 分组交换</p>
+<p>circuit switching 电路交换</p>
+<p>​    FDM(frequency-division multiplexing)</p>
+<p>​    TDM(time-division multiplexing)</p>
+<p>​    bandwidth 带宽</p>
+<p>network structure 1-5</p>
+<p>​    PoPs(points of presence) 网络入网点</p>
+<p>​    IXPs(Internet exchange points) 互联网交换节点</p>
+<p>​    peer 同级交换</p>
+<p>throughput 吞吐量</p>
+<p>layer</p>
+<p>​    application</p>
+<p>​    transport</p>
+<p>​    network</p>
+<p>​    link</p>
+<p>​    physic</p>
+<p>ISO(International Organization for Standardization) 国际标准化组织</p>
+<p>OSI 开放系统互连(模型)</p>
+<p>DoS denial of service attack 拒绝服务攻击</p>
+<p>DDoS distributed DoS 分布式 DoS</p>
+<h2 id="第二章-应用层-1"><a href="#第二章-应用层-1" class="headerlink" title="第二章 应用层"></a>第二章 应用层</h2><p>CS client-server architecture 客户-服务器</p>
+<p>P2P 对等体系架构</p>
+<p>process 进程</p>
+<p>message 报文</p>
+<p>socket 套接字</p>
+<p>API application programming interface 应用程序编程接口</p>
+<p>RDT reliable data transfer可靠数据传输</p>
+<p>SSL secure socket layer 安全套接字层</p>
+<p>HTTP hypertext transfer protocol 超文本传输协议</p>
+<p>RTT round-trip time 往返时间</p>
+<p>web cache web 缓存器 也叫代理服务器(proxy server)</p>
+<p>CDN content distribution network 内容分发网络</p>
+<p>SMTP simple mail transfer protocol 简单邮件传输协议</p>
+<p>user agent 用户代理</p>
+<p>mail server 邮件服务器</p>
+<p>POP3 post office protocol-version3 第三版邮局协议</p>
+<p>IMAP internet mail access protocol 因特网邮件访问协议</p>
+<p>DNS domain name system 域名系统</p>
+<p>BIND (Berkeley internet name domain) BIND 软件</p>
+<p>TLD top-level domain</p>
+<p>torrent 洪流</p>
+<p>DASH dynamic adaptive streaming over HTTP 经 http 的动态适应性流</p>
+<h2 id="第三章-运输层-1"><a href="#第三章-运输层-1" class="headerlink" title="第三章 运输层"></a>第三章 运输层</h2><p>UDP user datagram protocol</p>
+<p>TCP transfer control protocol</p>
+<p>segment 报文段(运输层)</p>
+<p>transport-layer multiplexing 多路复用</p>
+<p>demultiplexing 多路分解</p>
+<p>FSM finite-state machine 有限状态机</p>
+<p>ARQ automatic repeat reQuest 自动重传请求协议</p>
+<p>stop-and-wait 停等协议</p>
+<p>alter-nating-bit protocol 比特交替协议</p>
+<p>GBN go-back N 回退 N 步(又叫sliding-window protocol 滑动窗口协议)</p>
+<p>SR selective repeat 选择重传</p>
+<p>MSS maximum segment size 最大报文段长度(应用层数据的最大长度)</p>
+<p>MTU maximum transmission unit 最大传输单元 (最大链路层帧长度)</p>
+<p>cumulative acknowledgment 累计确认</p>
+<p>SampleRTT 样本 RTT</p>
+<p>​    EstimateRTT DevRTT</p>
+<p>fast retransmit 快速重传</p>
+<h2 id="第四章-网络层-数据平面"><a href="#第四章-网络层-数据平面" class="headerlink" title="第四章 网络层:数据平面"></a>第四章 网络层:数据平面</h2><p>forwarding 转发</p>
+<p>routing 路由选择</p>
+<p>SDN software defined networking 软件定义网络</p>
+<p>head-of-the-line HOL 线路前部(阻塞)</p>
+<p>FIFO FCFS 先进先出, 先来先服务</p>
+<p>priority queueing 优先权排队</p>
+<p>WFQ weighted fair queueing 加权公平排队</p>
+<p>TTL time-to-live 寿命</p>
+<p>MTU</p>
+<p>network mask 子网掩码</p>
+<p>CIDR classless interdomain routing 无类别域间路由选择</p>
+<p>ICANN internet corporation for assigned names and numbers 英特网名字和编号分配机构</p>
+<p>DHCP dynamic host configuration 动态主机配置协议</p>
+<p>WAN wide area network 广域网</p>
+<p>LAN local area network 局域网</p>
+<p>WLAN wireless LAN 无线局域网</p>
+<p>VLAN virtual LAN 虚拟局域网</p>
+<p>wifi wireless fidelity</p>
+<p>NAT network address translation 网络地址转换</p>
+<h2 id="第五章-网络层-控制平面"><a href="#第五章-网络层-控制平面" class="headerlink" title="第五章 网络层: 控制平面"></a>第五章 网络层: 控制平面</h2><p>LS link state 链路状态算法</p>
+<p>decentralized routing algorithm 分散式路由选择算法</p>
+<p>dijkstra 狄利克雷算法</p>
+<p>DV distance-vector 距离向量算法</p>
+<p>bellman-ford 方程</p>
+<p>OSPF open shortest path first 开放式最短路径有限</p>
+<p>AS autonomous system 自治系统</p>
+<p>ASN AS号</p>
+<p>BGP broder gateway protocol 边界网关协议</p>
+<h1 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h1><h2 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h2><p>200 OK 成功</p>
+<p>301 moved permanently 永久转移</p>
+<p>400 bad request 不能被服务器理解</p>
+<p>404 not found</p>
+<p>505 http version not supported</p>
+<h2 id="报文等概念"><a href="#报文等概念" class="headerlink" title="报文等概念"></a>报文等概念</h2><p>报文 message 应用层</p>
+<p>报文段 segment 传输层TCP</p>
+<p>数据报 datagram 传输层 UDP</p>
+<p>分组(包) packet 网络层</p>
+<p>帧 frame 链路层</p>
+<h2 id="abcde-类-ip"><a href="#abcde-类-ip" class="headerlink" title="abcde 类 ip"></a>abcde 类 ip</h2><p>A类地址第1字节为网络地址，其它3个字节为主机地址。另外第1个字节的最高位固定为0。 </p>
+<p>​    A类地址范围：1.0.0.0到127.255.255.255。 </p>
+<p>​    A类地址中的私有地址和保留地址： </p>
+<p>​        10.0.0.0到10.255.255.255是私有地址（所谓的私有地址就是在互联网上不使用，而被用在局域网络中的地址）。 </p>
+<p>　　127.0.0.0到127.255.255.255是保留地址，用做循环测试用的。 </p>
+<p>　　0.0.0.0到0.255.255.255也是保留地址，用做表示所有的IP地址。 </p>
+<p>​    A类地址默认子网掩码为255.0.0.0</p>
+<p>B类地址第1字节和第2字节为网络地址，其它2个字节为主机地址。另外第1个字节的前两位固定为10。 </p>
+<p>　B类地址范围：128.0.0.1到191.255.255.255。 </p>
+<p>　B类地址的私有地址和保留地址 </p>
+<p>　    172.16.0.0到172.31.255.255是私有地址 </p>
+<p>　　169.254.0.0到169.254.255.255是保留地址。如果你的IP地址是自动获取IP地址，而你在网络上又没有找到可用的DHCP服务器，这时你将会从169.254.0.0到169.254.255.255中临时获得一个IP地址。 </p>
+<p>　B类地址默认子网掩码为255.255.0.0</p>
+<p>C类地址第1字节、第2字节和第3个字节为网络地址，第4个字节为主机地址。另外第1个字节的前三位固定为110。 </p>
+<p>　　C类地址范围：192.0.0.1到223.255.255.255。 </p>
+<p>　　C类地址中的私有地址：192.168.0.0到192.168.255.255是私有地址。 </p>
+<p>　　C类地址默认子网掩码为255.255.255.0</p>
+<p>D类地址不分网络地址和主机地址，它的第1个字节的前四位固定为1110。 </p>
+<p>　　D类地址范围：224.0.0.0到239.255.255.255 </p>
+<p>　　D类地址用于多点播送。 </p>
+<p>　　D类IP地址第一个字节以“lll0”开始，它是一个专门保留的地址。它并不指向特定的网络，目前这一类地址被用在多点广播（Multicast）中。多点广播地址用来一次寻址一组计算机，它标识共享同一协议的一组计算机。 </p>
+<p>　　D类地址又分为三种类型：即专用地址、公用地址和私用地址；其中专用地址（224.0.0.0-224.0.0.255）用于网络协议组的广播，公用地址（224.0.1.0-238.255.255.255）用于其它组播，私用地址（239.0.0.0-239.255.255.255）用于测试。 </p>
+<p>　　在IPv6协议中，第一个字节必须是0xFF。</p>
+<p>E类地址也不分网络地址和主机地址，它的第1个字节的前五位固定为11110。 </p>
+<p>　　E类地址范围：240.0.0.1到255.255.255.254 </p>
+<p>　　E类IP地址以“llll0”开始，为将来使用保留。 </p>
+<p>　　全零（“0．0．0．0”）地址对应于当前主机。全“1”的IP地址（“255．255．255．255”）是当前子网的广播地址。 </p>
+<p>　　E类IP地址的第一段数字范围为240～254，E类地址保留，仅作为搜索、Internet的实验和开发之用。</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

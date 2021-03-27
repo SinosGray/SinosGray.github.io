@@ -1,0 +1,263 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>语言规范-命名法 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+匈牙利命名法整理
+
+
+
+匈牙利命名法概述
+变量: 小写字母开始, 后首字母大写
+
+分类: 
+
+系统命名法
+前缀代表变量的实际数据类型
+123lAccountNum//长整数arru8NumberL,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">语言规范-命名法</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">语言规范-命名法</h1>
+        <div class="stuff">
+            <span>六月 06, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>匈牙利命名法整理</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="匈牙利命名法"><a href="#匈牙利命名法" class="headerlink" title="匈牙利命名法"></a>匈牙利命名法</h2><h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><ul>
+<li><p>变量: 小写字母开始, 后首字母大写</p>
+</li>
+<li><p>分类: </p>
+<ul>
+<li><p>系统命名法</p>
+<p>前缀代表变量的实际数据类型</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">lAccountNum<span class="comment">//长整数</span></span><br><span class="line">arru8NumberList<span class="comment">//无符号 8 位整数数组</span></span><br><span class="line">szNAme<span class="comment">//零结束字符串</span></span><br></pre></td></tr></table></figure></li>
+<li><p>应用命名法</p>
+<p>前缀给出变量目的的提示, 或者说他代表了什么</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">rwPosition<span class="comment">//行</span></span><br><span class="line">usName<span class="comment">//非安全字符串</span></span><br><span class="line">strName<span class="comment">//包含名字的字符串</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+<h3 id="前缀举例"><a href="#前缀举例" class="headerlink" title="前缀举例"></a>前缀举例</h3><ul>
+<li><p>a 数组</p>
+</li>
+<li><p>b 布尔值</p>
+</li>
+<li><p>by 字节</p>
+</li>
+<li><p>c Char</p>
+</li>
+<li><p>cr ColorRef 颜色参考值</p>
+</li>
+<li><p>cx, cy 坐标差</p>
+</li>
+<li><p>dw double word</p>
+</li>
+<li><p>fn 函数</p>
+</li>
+<li><p>h handle</p>
+</li>
+<li><p>i int</p>
+</li>
+<li><p>l long</p>
+</li>
+<li><p>lp long pointer</p>
+</li>
+<li><p>m_ 类的成员</p>
+</li>
+<li><p>p pointer</p>
+</li>
+<li><p>s string</p>
+</li>
+<li><p><code>bBusy</code>：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B8%83%E5%B0%94%E5%9E%8B">布尔型</a></p>
+</li>
+<li><p><code>cApples</code>：项目计数</p>
+</li>
+<li><p><code>dwLightYears</code>：双<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%AD%97_(%E8%AE%A1%E7%AE%97%E6%9C%BA)">字</a>（系统）</p>
+</li>
+<li><p><code>fBusy</code>：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B8%83%E5%B0%94%E5%9E%8B">布尔型</a>或<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%B5%AE%E7%82%B9%E6%95%B0">浮点型</a></p>
+</li>
+<li><p><code>nSize</code>：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%95%B4%E5%9E%8B">整型</a>（系统）或计数（应用）</p>
+</li>
+<li><p><code>iSize</code>：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%95%B4%E5%9E%8B">整型</a>（系统）或索引（应用）</p>
+</li>
+<li><p><code>fpPrice</code>：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%B5%AE%E7%82%B9%E6%95%B0">浮点数</a></p>
+</li>
+<li><p><code>dbPi</code>：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%9B%99%E5%80%8D%E7%B2%BE%E7%A2%BA%E6%B5%AE%E9%BB%9E%E6%95%B8">双精度浮点数</a>（系统）</p>
+</li>
+<li><p><code>pFoo</code>：<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%8C%87%E9%92%88">指针</a></p>
+</li>
+<li><p><code>rgStudents</code>：数组或范围</p>
+</li>
+<li><p><code>szLastName</code>：零结束字符串</p>
+</li>
+<li><p><code>u32Identifier</code>：无符号32位<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E6%95%B4%E5%9E%8B">整型</a>（系统）</p>
+</li>
+<li><p><code>stTime</code>：时钟结构</p>
+</li>
+<li><p><code>fnFunction</code>：函数名</p>
+</li>
+</ul>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

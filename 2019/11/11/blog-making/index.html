@@ -1,0 +1,195 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>blog_making - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="hexo Blog解决问题next官网
+参考博客从0开始
+网页样式设置
+
+
+rss是啥RSS 是一种简单的订阅方式。就像订报纸、杂志一样，您可以订阅任何喜欢的内容。 RSS服务由一系列栏目组成，每个,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">blog_making</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">blog_making</h1>
+        <div class="stuff">
+            <span>十一月 11, 2019</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/blog/" rel="tag">blog</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <h1 id="hexo-Blog解决问题"><a href="#hexo-Blog解决问题" class="headerlink" title="hexo Blog解决问题"></a>hexo Blog解决问题</h1><p><a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/theme-settings.html">next官网</a></p>
+<p><a target="_blank" rel="noopener" href="https://io-oi.me/tech/hexo-next-optimization/">参考博客从0开始</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.cduyzh.com/hexo-settings-3/">网页样式设置</a></p>
+<span id="more"></span>
+
+<h2 id="rss是啥"><a href="#rss是啥" class="headerlink" title="rss是啥"></a>rss是啥</h2><p>RSS 是一种简单的订阅方式。就像订报纸、杂志一样，您可以订阅任何喜欢的内容。 RSS服务由一系列栏目组成，每个栏目包括标题，介绍和网址链接。欲获取FT中文网的RSS服务，浏览最新FT中文网的新闻评论、分析及专栏作家文章等精彩内容，请看本页的详情。</p>
+<p>如何使用RSS<br>您只需要下载和安装一个RSS新闻阅读器，然后从网站提供的RSS内容目录中订阅您感兴趣的栏目。订阅后，您将会自动获得所有FT中文网的最新报道，并在每次新内容发布后自动更新，FT中文网将帮助您第一时间获取全球最新商业资讯。</p>
+<h2 id="超链接url-20问题"><a href="#超链接url-20问题" class="headerlink" title="超链接url%20问题"></a>超链接url%20问题</h2><p>主页到archieve页面的超链接的url多了一个%20</p>
+<ul>
+<li><p>Internet上的每个网页都有一个统一的资源定位器或URL，例如“ <a target="_blank" rel="noopener" href="http://www.example.com/products.html">http://www.example.com/products.html</a> ”。URL不能包含空格，如果HTML文件名为“ products and services.html”，则会出现问题。URL中不允许使用的空格和其他字符必须使用百分号编码，并将十六进制值分配给ISO-Latin字符集中的字符。分配给空格的数字为32，十六进制为20。当您看到“％20”时，它表示编码的URL中的空格，例如[<a target="_blank" rel="noopener" href="http://www.example.com/products%20and%20services.html%E3%80%82]">http://www.example.com/products%20and%20services.html。]</a>(<a target="_blank" rel="noopener" href="http://www.example.com/products">http://www.example.com/products</a> and services.html.)</p>
+</li>
+<li><p>解决：在next theme的config文件里修改menu：archives: /archives/ || archive =&gt; archives: /archives/|| archive（删掉一个空格）  </p>
+</li>
+</ul>
+<h2 id="github-pages与本地预览-hexo-s-不一样"><a href="#github-pages与本地预览-hexo-s-不一样" class="headerlink" title="github pages与本地预览(hexo s)不一样"></a>github pages与本地预览(hexo s)不一样</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo d -g</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

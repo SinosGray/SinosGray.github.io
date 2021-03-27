@@ -1,0 +1,434 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>汇编 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+关于汇编语言的总结, 原则是只记录要点
+
+
+
+汇编要点总结基础:数制转换
+
+使用汇编语言编写的源代码，然后通过相应的汇编程序将它们转换成可执行的机器代码。这一过程被称为汇编过程。
+
+普遍地说，每一,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">汇编</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">汇编</h1>
+        <div class="stuff">
+            <span>四月 01, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>关于汇编语言的总结, 原则是只记录要点</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="汇编要点总结"><a href="#汇编要点总结" class="headerlink" title="汇编要点总结"></a>汇编要点总结</h2><h3 id="基础"><a href="#基础" class="headerlink" title="基础:"></a>基础:</h3><p><a target="_blank" rel="noopener" href="https://tool.oschina.net/hexconvert">数制转换</a></p>
+<ul>
+<li><p>使用汇编语言编写的源代码，然后通过相应的汇编程序将它们转换成可执行的机器代码。这一过程被称为<strong>汇编过程</strong>。</p>
+</li>
+<li><p>普遍地说，每一种特定的汇编语言和其特定的机器语言指令集是一一对应的。</p>
+</li>
+<li><p>DB, DW, DD, DQ, DT 依次为 1, 2, 4, 8, 10</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/X86">x86</a>/<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Amd64">amd64</a>汇编指令的两大风格分别是<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Intel">Intel</a>汇编与<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/AT%26T">AT&amp;T</a>汇编，分别被<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Microsoft_Windows">Microsoft Windows</a>/<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/Visual_C%2B%2B">Visual C++</a>与<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/GNU">GNU</a>/<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/GNU%E6%B1%87%E7%BC%96%E5%99%A8">Gas</a>采用（Gas也可使用Intel汇编风格）</p>
+</li>
+<li><table>
+<thead>
+<tr>
+<th align="left">项目</th>
+<th align="left">Intel风格(dosbox使用的是这种)</th>
+<th align="left">AT&amp;T风格</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">操作数顺序</td>
+<td align="left">目标操作数在前</td>
+<td align="left">源操作数在前</td>
+</tr>
+<tr>
+<td align="left">寄存器</td>
+<td align="left"><strong>原样</strong></td>
+<td align="left">加%前缀</td>
+</tr>
+<tr>
+<td align="left">立即数</td>
+<td align="left"><strong>原样</strong></td>
+<td align="left">加$前缀</td>
+</tr>
+<tr>
+<td align="left">16进制立即数</td>
+<td align="left">用后缀B与H分别表示二进制与十六进制 对于16进制字母开头的要加前缀0</td>
+<td align="left">加前缀0x</td>
+</tr>
+<tr>
+<td align="left">访问内存长度的表示</td>
+<td align="left">前缀BYTE PTR, WORD PTR, DWORD PTR和QWORD PTR表示字节,字,双字和四字</td>
+<td align="left">后缀b,w,l,q表示字节,字,双字和四字</td>
+</tr>
+<tr>
+<td align="left">引用全局或静态变量var的值</td>
+<td align="left">[<strong>var</strong>]</td>
+<td align="left">var</td>
+</tr>
+<tr>
+<td align="left">引用全局或静态变量var的地址</td>
+<td align="left"><strong>var</strong></td>
+<td align="left">$var</td>
+</tr>
+<tr>
+<td align="left">引用局部变量</td>
+<td align="left">需要基于栈指针（rsp）</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">绝对寻址</td>
+<td align="left">[imm]</td>
+<td align="left">imm</td>
+</tr>
+<tr>
+<td align="left">间接寻址</td>
+<td align="left">[reg]</td>
+<td align="left">(%reg)</td>
+</tr>
+<tr>
+<td align="left">基址相对寻址</td>
+<td align="left">[reg +imm]</td>
+<td align="left">imm(%reg)</td>
+</tr>
+<tr>
+<td align="left">变址寻址</td>
+<td align="left">[base+index]</td>
+<td align="left">(base,index)</td>
+</tr>
+<tr>
+<td align="left">变址寻址</td>
+<td align="left">imm[base+index]</td>
+<td align="left">imm(base,index)</td>
+</tr>
+<tr>
+<td align="left">比例变址寻址</td>
+<td align="left">imm[base + index * scale ]</td>
+<td align="left">imm(base, index, scale)</td>
+</tr>
+<tr>
+<td align="left">scale只能是1,2,4,8其中的一个数字(1省略不写就是普通变址寻址)</td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">代码注释</td>
+<td align="left">单行注释用;+注释内容。例如:mov   rax, rdx ;这里是注释</td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">注意</td>
+<td align="left">这里imm为立即数,base和index为寄存器,scale为伸缩量</td>
+<td align="left"></td>
+</tr>
+</tbody></table>
+</li>
+</ul>
+<h3 id="区分-地址-和-数"><a href="#区分-地址-和-数" class="headerlink" title="区分 地址 和 数"></a>区分 地址 和 数</h3><ul>
+<li><p>举例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DS: [1000h]; 这是一个地址, 位置是 1000h</span><br><span class="line">3000h; 这是一个数, 大小是 3000h</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>助记符—&gt;机器指令</li>
+<li>变量—&gt;操作数存放地址</li>
+<li>指令前的标号—&gt;该指令的存放地址</li>
+</ul>
+</li>
+</ul>
+<h3 id="为什么要分段-内存-虚拟内存-分段部件-分页部件"><a href="#为什么要分段-内存-虚拟内存-分段部件-分页部件" class="headerlink" title="为什么要分段(内存, 虚拟内存, 分段部件, 分页部件)"></a>为什么要分段(内存, 虚拟内存, 分段部件, 分页部件)</h3><ul>
+<li><p>历史</p>
+<ul>
+<li>1978年 推出 16 位 cpu8086, 内外数据线为 16 位, 地址总线为 20 位, 主存寻址 1MB</li>
+<li>1982年 推出         cpu80286, 内外数据线为 16 位, 地址总线为 24 位, 主存寻址 16MB</li>
+<li>1985年 推出32位 cpu80386, 内外数据线为 32 位, 地址总线为 32 位, 主存寻址 4GB(1MB*2^12)</li>
+</ul>
+</li>
+<li><p>物理原因</p>
+<ul>
+<li><p>总线 20 位 —&gt; 寻址 1MB</p>
+</li>
+<li><p>总线 32 位 —&gt; 寻址 4G</p>
+</li>
+<li><p>段寄存器为 16 位 —&gt; 段的大小为 64K </p>
+</li>
+<li><p><strong>最低端 80X86 16 位虚拟机中, 内部结构是 16 位, 主线是 20 位, 为了解决这一问题:</strong></p>
+<ul>
+<li>将 1MB(20 位)的主存按 64KB(16 位)分段</li>
+<li>设置四个段寄存器 CS, DS, SS, ES 保存段首址(20 位的高 16 位), 将这个 16 位(左移四位再变成 20 位)加上数据的偏移地址就得到了物理地址</li>
+<li>其中 CS—&gt;IP, SS—&gt;SP, 一般情况下不需要定义附加数据段, 如果必须定义, 最简单的方法是让附加数据段与数据段重合. </li>
+</ul>
+</li>
+<li><p>32 位暂时没看😬</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h3><ul>
+<li>数据寄存器组(可以用作 16, 8 位, 但是此时不能用作指示器, 变址寄存器?)<ul>
+<li>EAX 累加器</li>
+<li>EBX 基址寄存器</li>
+<li>ECX 计数寄存器</li>
+<li>EDX 数据寄存器</li>
+</ul>
+</li>
+<li>指示器变址寄存器组(存放偏移地址, 用作指示器或者变址寄存器, 可用作 16, 不能用作 8)<ul>
+<li>ESI 源操作数指示器</li>
+<li>EDI 目的操作数指示器</li>
+<li>EBP 基址寄存器</li>
+<li>ESP 专用堆栈指示器, 一般不做数据寄存器</li>
+</ul>
+</li>
+<li>段寄存器<ul>
+<li>CS 代码段寄存器</li>
+<li>SS </li>
+<li>DS </li>
+<li>ES, FS, GS </li>
+</ul>
+</li>
+</ul>
+<h3 id="标志寄存器"><a href="#标志寄存器" class="headerlink" title="标志寄存器"></a>标志寄存器</h3><ul>
+<li>zf: 零标志位, 相关指令执行后结果为 0 则 zf=1, 否则 0<br>mov ax,1<br>sub ax,1</li>
+<li>pf: 奇偶标志位, 结果中 1 为偶数 pf=1, 否则 0</li>
+<li>sf: 符号标志位, 结果为负, sf=1, 否则为 0</li>
+<li>cf: 进位标志位, 在进行无符号数运算的时候，CF记录了运算结果的最高有效位向更高有效位向更高位的进位值/借位值,产生进位或向更高位借位都会使CF=1</li>
+<li>of: 溢出标志位, 超出机器所能表示的范围 of=1, 否则 0</li>
+</ul>
+<h3 id="内存中的数据存放"><a href="#内存中的数据存放" class="headerlink" title="内存中的数据存放"></a>内存中的数据存放</h3><ul>
+<li>高八位在在高地址, 低八位在低地址</li>
+</ul>
+<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><p><img src="https://img-blog.csdn.net/20180214135628549?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvYWJjXzEyMzY2/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="这里写图片描述"></p>
+<h3 id="寄存器寻址"><a href="#寄存器寻址" class="headerlink" title="寄存器寻址"></a>寄存器寻址</h3><ul>
+<li>寄存器寻址 MOV AX, BX</li>
+<li>寄存器间接寻址 MOV AX, [SI] ; AX=地址为 SI 的值 的值</li>
+<li>变址寻址 MOV AL, [R*F] + V; 其中 F 应该是为了应对字节, 字, 双字的</li>
+<li>基址加变址寻址 MOV AX, [BR+IR*F+V]; 默认段寄存器由 BR 决定,  为了表示矩阵</li>
+<li>立即寻址 MOV AX, 036H</li>
+<li>直接寻址 MOV DS:[20H], CL</li>
+</ul>
+<h3 id="子程序"><a href="#子程序" class="headerlink" title="子程序"></a>子程序</h3><ul>
+<li>NEAR FAR<ul>
+<li>NEAR 可省略</li>
+<li>FAR </li>
+<li>区别主要在于 NEAR 只是把 ip 入栈, 把 ea 赋值给 ip, FAR 在 NEAR 的基础上还要把 CS 入栈(最先入 cs, 再入 ip)</li>
+</ul>
+</li>
+<li>RET 根据 NEAR 还是 FAR 出栈</li>
+<li>传递参数<ul>
+<li>寄存器法</li>
+<li>约定单元法</li>
+<li>堆栈法</li>
+</ul>
+</li>
+</ul>
+<h3 id="模块化处理"><a href="#模块化处理" class="headerlink" title="模块化处理"></a>模块化处理</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">F2T10.ASM</span><br><span class="line">NAME F2T10</span><br><span class="line">PUBLIC F2T10; 这里的 public 指明了 F2T10 是可以被其他模块调用的, 该语句可以放在任何地方</span><br><span class="line">DATA  SEGMENT  USE16 PARA    PUBLIC &#39;DATA&#39;</span><br><span class="line">;段名 segment 使用类型 定位方式 组合方式 &#39;类别&#39;</span><br><span class="line">;定位方式中para为默认, 定义段在什么样的起始边界开始</span><br><span class="line">;类别的作用是生成 exe 的时候进行分组(分配空间)</span><br><span class="line">;组合方式连在一起, public 同类别段会放在一起</span><br><span class="line">...</span><br><span class="line">DATA ENDS</span><br><span class="line"></span><br><span class="line">CODE SEGMENT USE16 PARA PUBLIC &#39;CODE&#39;</span><br><span class="line">ASSUME CS:CODE, DS:DATA</span><br><span class="line">F2T10 PROC</span><br><span class="line">...</span><br><span class="line">F2T10 ENDP</span><br><span class="line">CODE ENDS</span><br><span class="line">END</span><br><span class="line">-----------------------------------------</span><br><span class="line">MAIN.ASM</span><br><span class="line">;以上是一个子模块, 下面的是主模块</span><br><span class="line">NAME MAIN</span><br><span class="line">EXTRN F2T10:NEAR; 这里指明 F2T10 是外部模块的, 例如子程序, 如果两个代码块的类别名相同, 相当于在一个段里, 用 EXTRN F2R10:NEAR, 否则用 far</span><br><span class="line">IF1 </span><br><span class="line">;IF XXX ... ELSE ... ENDIF 如果条件成立就执行块中的语句, 其中if 有几个固定搭配</span><br><span class="line">	INCLUDE MACRO.LIB</span><br><span class="line">ENDIF</span><br><span class="line">.386</span><br><span class="line">DATA SEGMENT USE16 PARA PUBLIC &#39;DATA&#39;</span><br><span class="line">...</span><br><span class="line">DATA ENDS</span><br><span class="line"></span><br><span class="line">CODE SEGMENT USE16 PARA PUBLIC &#39;CODE&#39;</span><br><span class="line">ASSUME CS:CODE, DS:DATA</span><br><span class="line">START:...</span><br><span class="line">CODE ENDS</span><br><span class="line">START END</span><br><span class="line"></span><br><span class="line">masm main.asm</span><br><span class="line">masm F2T10.asm</span><br><span class="line">然后执行:LINK MAIN+F2T10;生成 main.exe</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="字符串操作"><a href="#字符串操作" class="headerlink" title="字符串操作"></a>字符串操作</h3><ul>
+<li>默认:<ul>
+<li>源串指示器 SI</li>
+<li>目的串指示器 DI</li>
+<li>重复次数 CX</li>
+<li>SCAS 搜索值 AX</li>
+<li>LODS 目的地址 AX</li>
+<li>STOS 源地址</li>
+</ul>
+</li>
+<li>MOVS</li>
+<li>CMPS<ul>
+<li>REPE CMPS 未比较完且相等时继续</li>
+<li>REPNE CMPS 未比较完且不相等时继续</li>
+</ul>
+</li>
+<li>SCAS 在 DI 中搜索 AL</li>
+<li>LODS </li>
+<li>STOS </li>
+</ul>
+<h3 id="输入输出"><a href="#输入输出" class="headerlink" title="输入输出"></a>输入输出</h3><p>I/O 空间</p>
+<ul>
+<li>IN<ul>
+<li>IN AL/AX/EAX, 立即数</li>
+<li>IN AL/AX/EAX, DX</li>
+</ul>
+</li>
+<li>OUT 同上</li>
+</ul>
+<h3 id="中断"><a href="#中断" class="headerlink" title="中断"></a>中断</h3><h3 id="win32"><a href="#win32" class="headerlink" title="win32"></a>win32</h3><ul>
+<li>32 位</li>
+<li>输入输出退出等需要调用 api<ul>
+<li>动态链接</li>
+</ul>
+</li>
+<li>库<ul>
+<li>user32.lib</li>
+<li>kernel32.lib</li>
+</ul>
+</li>
+</ul>
+<h3 id="指令合集"><a href="#指令合集" class="headerlink" title="指令合集"></a>指令合集</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line">MOV OPD, OPS; MOVE DEST SRC</span><br><span class="line"></span><br><span class="line">XLAT; TRANSLATE ([BX+AL])-&gt;AL </span><br><span class="line"></span><br><span class="line">LEA OPD, OPS; LOAD EFFECTIVE ADDRESS 立即寻址 等价于 MOV OPD, OFFSET OPS, 其中 OPD 必须是 16&#x2F;32 位寄存器</span><br><span class="line"></span><br><span class="line">;标志位?</span><br><span class="line"></span><br><span class="line">NEG OPD; NEGTIVE 将 OPD 的每一位取反最后加一, 包括符号位, 得到结论: 负数&quot;取补码&quot;得到绝对值</span><br><span class="line"></span><br><span class="line">IMUL OPD, OPS;INTEGER MULTIPLICATION (OPD)*(OPS)-&gt;OPD</span><br><span class="line">IMUL OPD, OPS, N; (OPS)*N-&gt;OPD</span><br><span class="line">IMUL OPS; </span><br><span class="line">(AL)*(OPS)-&gt;AX</span><br><span class="line">(AX)*(OPS)-&gt;DX, AX</span><br><span class="line">(EAX)*(OPS)-&gt;EDX, EAX</span><br><span class="line">MUL</span><br><span class="line"></span><br><span class="line">DIV OPS;</span><br><span class="line">(AX)&#x2F;(OPS)-&gt;AL 商, AH 余数</span><br><span class="line">(DX, AX)&#x2F;(OPS)-&gt;AX 商, AH 余数</span><br><span class="line">(EDX, EAX)&#x2F;(OPS)-&gt;EAX商, EDX余数</span><br><span class="line">IDIV</span><br><span class="line"></span><br><span class="line">NOT OPD; 取反</span><br><span class="line">AND OPD, OPS; 逻辑与</span><br><span class="line">TEST OPD, OPS</span><br><span class="line">常见用法: TEST ECX, ECX 判断 ecx 是否为空, 如果为空则 zf&#x3D;1</span><br><span class="line">总结: test 是逻辑与运算, cmp 是 sub 运算, cmp a1, a2 执行操作 a1-a2</span><br><span class="line">XOR OPD, OPS; 异或</span><br><span class="line"></span><br><span class="line">SAL OPD, N 或者 SHL OPD, N; ARITHMATIC SHIFT LEFT, SHIFT LEFT 左移, 逻辑算数都一样</span><br><span class="line">SHR OPD, N; 逻辑右移, 加 0</span><br><span class="line">SAR OPD, N; 算数右移, 加符号位</span><br><span class="line"></span><br><span class="line">ROL OPD, N; 循环左移</span><br><span class="line">ROR OPD, N</span><br><span class="line">RCL OPD, N; ROTATE LEFT WITH CARRY 带进位循环左移</span><br><span class="line">RCR OPD, N</span><br><span class="line"></span><br><span class="line">ABOVE, BELOW 无符号, GREATER LESS 有符号</span><br><span class="line">JA; JUMP WHEN ABOVE</span><br><span class="line">JNA; JUMP WHEN NOT ABOVE</span><br><span class="line">JAE; JUMP WHEN ABOVE OR EQUAL</span><br><span class="line">JNAE; JUMP WHEN NOT ABOVE OR EQUAL 不大于, 且不等于</span><br><span class="line"></span><br><span class="line">JB; JUMP WHEN BELOW</span><br><span class="line">JNB; JUMP WHEN NOT BELOW</span><br><span class="line">JBE; JUMP WHEN BELOW OR EQUAL</span><br><span class="line">JNBE; </span><br><span class="line"></span><br><span class="line">JG; JUMP WHEN GREATER</span><br><span class="line">JNG</span><br><span class="line">JGE; JUMP WHEN GREATER OR EQUAL</span><br><span class="line">JNGE; JUMP WHEN NOT GREATER OR EQUAL </span><br><span class="line"></span><br><span class="line">JL; JUMP WHEN LESS</span><br><span class="line">JNL; JUMP WHEN NOT LESS</span><br><span class="line">JLE</span><br><span class="line">JNLE; JUMP WHEN NOT LESS OR EQUAL</span><br><span class="line"></span><br><span class="line">JE; JUMP WHEN EQUAL</span><br><span class="line">JZ; JUMP WHEN HAS ZERO FLAG JZ&#x3D;JE</span><br><span class="line">JNE</span><br><span class="line">JNZ</span><br><span class="line">JO; JUMP WHEN HAS OVERFLOW FLAG</span><br><span class="line">JC; JUMP WHEN HAS CARRY FLAG</span><br><span class="line"></span><br><span class="line">;pf: 奇偶标志位, 结果中 1 为偶数 pf&#x3D;1, 否则 0</span><br><span class="line">JP; JUMP WHEN HAS PARITY(奇偶) FLAG</span><br><span class="line">JPO; JUMP WHEN PARITY FLAG IS ODD, JP &#x3D; JPE</span><br><span class="line">JPE; JUMP WHEN PARITY FLAG IS EVEN, JNP &#x3D; JPO</span><br><span class="line">JS; JUMP WHEN HAS SIGN FLAG</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INT; INTERRUPT</span><br><span class="line"></span><br><span class="line">DW; DEFINE WORD</span><br><span class="line"></span><br><span class="line">PROC; PROCEDURE</span><br><span class="line"></span><br><span class="line">ENDS; END SEGMENT</span><br><span class="line"></span><br><span class="line">PTR; POINTER</span><br><span class="line"></span><br><span class="line">MOVSX; EXTENDED MOVE WITH SIGN DATA</span><br><span class="line">MOVZX; EXTENDED MOVE WITH ZERO DATA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***********************</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PUSH OPS; SP&#x3D;SP-1</span><br><span class="line"></span><br><span class="line">POP OPD; SP&#x3D;SP+1</span><br><span class="line"></span><br><span class="line">DIV;https:&#x2F;&#x2F;blog.csdn.net&#x2F;loovejava&#x2F;article&#x2F;details&#x2F;7044242</span><br><span class="line"></span><br><span class="line">IMUL OPD, OPS; 有符号数乘法</span><br><span class="line">IMUL OPD, OPS, N; OPS*N-&gt;OPD</span><br><span class="line">IMUL OPS; AL*OPS-&gt;AX 字节</span><br><span class="line">					AX*OPS-&gt;DX,AX 字</span><br><span class="line">					EAX*OPS-&gt;EDX,EAX 双字</span><br><span class="line">MUL;无符号乘法,用法同上</span><br><span class="line"></span><br><span class="line">ADD AX,10;把 ax 加上 10 再存到 ax 里</span><br><span class="line"></span><br><span class="line">SUB</span><br><span class="line"></span><br><span class="line">LOOP 标号</span><br><span class="line"></span><br><span class="line">逻辑移位, 总是用 0 补充</span><br><span class="line">SHL EDX, 7;EDX 左移 7 位</span><br><span class="line">shr ;右移</span><br><span class="line"></span><br><span class="line">算数移位, 用符号位补充</span><br><span class="line">sar;右移</span><br><span class="line"></span><br><span class="line">CBW ;将 AL 中的符号扩展到 AH 里</span><br><span class="line"></span><br><span class="line">;意义    无符号比较     有符号比较</span><br><span class="line">&gt;        JA, JNBE     JG, JNLE</span><br><span class="line">&gt;&#x3D;			 JAE, JNB			JNC, JGE, JNL</span><br><span class="line">&lt;				 JB, JNAE			JC, JL, JN, JNGE</span><br><span class="line">&lt;				 JBE, JNA			JLE, JNG</span><br><span class="line"></span><br><span class="line">CMP BYTE PTR[SI],&quot;#&quot; ;ptr前面的类型有byte（字节）、word（字）、dword（双字）、qword（四字）、tbyte（十字节）、far（远类型）和near（近类型）</span><br><span class="line"></span><br><span class="line">LEA </span><br><span class="line">lea指令</span><br><span class="line">load effective address, 加载有效地址，可以将有效地址传送到指定的的寄存器。指令形式是从存储器读数据到寄存器, 效果是将存储器的有效地址写入到目的操作数, 简单说, 就是C语言中的”&amp;”.</span><br><span class="line">mov指令</span><br><span class="line">在CPU内或CPU和存储器之间传送字或字节，它传送的信息可以从寄存器到寄存器，立即数到寄存器，立即数到存储单元，从存储单元到寄存器，从寄存器到存储单元，从寄存器或存储单元到除CS外的段寄存器(注意立即数不能直接送段寄存器)，从段寄存器到寄存器或存储单元。</span><br><span class="line">但是注意</span><br><span class="line">（1） MOV指令中的源操作数绝对不能是立即数和代码段CS寄存器；</span><br><span class="line">（2） MOV指令中绝对不允许在两个存储单元之间直接传送数据；</span><br><span class="line">（3） MOV指令中绝对不允许在两个段寄存器之间直接传送数据；</span><br><span class="line">（4） MOV指令不会影响标志位</span><br><span class="line">使用[]区别</span><br><span class="line">第二操作数加不加中括号[]的区别就是:</span><br><span class="line">lea对变量没有影响是取地址,对寄存器来说加[]时取值,第二操作数不加[]非法</span><br><span class="line">mov对变量来说没有影响是取值,对寄存器来说是加[]时取地址,第二操作数不加[]是取值</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

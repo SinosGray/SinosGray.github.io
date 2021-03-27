@@ -1,0 +1,370 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>计算机系统基础 - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+计算机系统基础课程
+
+
+
+第一章 概述1.1 计算机基本工作原理
+存储程序
+
+冯诺依曼结构 模型机的硬件基本结构
+
+主存, 算数逻辑部件 ALU(arithmetic logic unit), 控,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">计算机系统基础</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">计算机系统基础</h1>
+        <div class="stuff">
+            <span>五月 26, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>计算机系统基础课程</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="第一章-概述"><a href="#第一章-概述" class="headerlink" title="第一章 概述"></a>第一章 概述</h2><h3 id="1-1-计算机基本工作原理"><a href="#1-1-计算机基本工作原理" class="headerlink" title="1.1 计算机基本工作原理"></a>1.1 计算机基本工作原理</h3><ul>
+<li><p>存储程序</p>
+</li>
+<li><p>冯诺依曼结构 模型机的硬件基本结构</p>
+<ul>
+<li>主存, 算数逻辑部件 ALU(arithmetic logic unit), 控制部件 CU(control unit) 取出指令, 通用寄存器组 GPRs(general purpose register), 指令寄存器 IR(instruction register), 程序计数器 PC(program counter), 中央处理器 CPU(central processing unit)包括: 控制部件, 运算部件, 各类寄存器</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-2-程序的开发与运行"><a href="#1-2-程序的开发与运行" class="headerlink" title="1.2 程序的开发与运行"></a>1.2 程序的开发与运行</h3><ul>
+<li>机器语言</li>
+<li>汇编语言</li>
+<li>高级编程语言</li>
+<li>翻译程序<ul>
+<li>汇编程序 汇编-&gt;机器</li>
+<li>解释程序 源程序逐条-&gt;机器</li>
+<li>编译程序 高级语言-&gt;汇编/机器</li>
+</ul>
+</li>
+<li>处理步骤: 预处理-&gt;编译-&gt;汇编-&gt;链接</li>
+</ul>
+<h3 id="1-3-计算机系统的层次结构"><a href="#1-3-计算机系统的层次结构" class="headerlink" title="1.3 计算机系统的层次结构"></a>1.3 计算机系统的层次结构</h3><ul>
+<li><p>指令集体系结构 ISA(instruction set architecture)  </p>
+<p>定义了 一台计算机可以执行的所有 指令的集合，每条指令规定了计算机执行什么操作，以及所处理的操作数存放的地址空间和操作数类型 。</p>
+</li>
+<li><p>微体系结构(microarchitecture) 微体系结构最终是由逻辑电路 (logic circuit) 实现的</p>
+</li>
+<li><p>应用程序二进制接口 ABI(application binary interface) 用来约束连接器</p>
+</li>
+<li><p>应用程序编程接口 ABI(application programming interface) 用来约束编译器</p>
+<ul>
+<li><p>区分</p>
+<h4 id="API-Application-Program-Interface"><a href="#API-Application-Program-Interface" class="headerlink" title="API: Application Program Interface"></a>API: Application Program Interface</h4><p>This is the set of public types/variables/functions that you expose from your application/library.</p>
+<p>In C/C++ this is what you expose in the header files that you ship with the application.</p>
+<h4 id="ABI-Application-Binary-Interface"><a href="#ABI-Application-Binary-Interface" class="headerlink" title="ABI: Application Binary Interface"></a>ABI: Application Binary Interface</h4><p>This is how the compiler builds an application.<br>It defines things (but is not limited to):</p>
+<ul>
+<li>How parameters are passed to functions (registers/stack).</li>
+<li>Who cleans parameters from the stack (caller/callee).</li>
+<li>Where the return value is placed for return.</li>
+<li>How exceptions propagate.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="1-4-计算机系统性能评价"><a href="#1-4-计算机系统性能评价" class="headerlink" title="1.4 计算机系统性能评价"></a>1.4 计算机系统性能评价</h3><ul>
+<li>CPU 性能:<ul>
+<li>时钟周期  CPU 的主脉冲信号， 其宽度称为时钟周期 (clock cycle,  tick,  clock  tick ,  clock ) </li>
+<li>时钟频率 clock rate CPU 的圭埂就是 CPU 中的主脉冲信号的时钟频率 (clock rate) ,  是 CPU 时 钟周期的倒数 。</li>
+<li>CPI(cycles per instruction) 表示执行一条指令所需的时钟周期数 。</li>
+</ul>
+</li>
+</ul>
+<h2 id="第二章-数据的机器级表示与处理"><a href="#第二章-数据的机器级表示与处理" class="headerlink" title="第二章 数据的机器级表示与处理"></a>第二章 数据的机器级表示与处理</h2><h3 id="2-1-数制与编码"><a href="#2-1-数制与编码" class="headerlink" title="2.1 数制与编码"></a>2.1 数制与编码</h3><ul>
+<li><p>浮点数 <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gg3ntcaf7nj309s01i74j.jpg" alt="截屏2020-06-24 下午8.38.16"></p>
+<p>其中阶 E 用”移码”来表示, 即对每个阶都加上一个偏置常数(bias), 使得所有阶都是正数</p>
+</li>
+<li><p>补码</p>
+</li>
+</ul>
+<h3 id="2-2-整数的表示"><a href="#2-2-整数的表示" class="headerlink" title="2.2 整数的表示"></a>2.2 整数的表示</h3><ul>
+<li>整型长度 <ul>
+<li>short 16 位</li>
+<li>int 16 位是 16 位 32 位是 32 位</li>
+<li>long 32 位是 32 位 64 位是 64 位</li>
+<li>longlong 64 位</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-3-浮点数的表示"><a href="#2-3-浮点数的表示" class="headerlink" title="2.3 浮点数的表示"></a>2.3 浮点数的表示</h3><ul>
+<li><p>IEEE754 标准</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gg3pebo5y0j30oy09qgo0.jpg" alt="截屏2020-06-24 下午9.33.05"></p>
+<p>阶码用移码形式，偏置常数并不是通常 n 位移码所用的 2^n-1^ 而是 2^n-1^-1</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gg4uayrh3dj311o0f2k36.jpg" alt="截屏2020-06-25 下午9.08.20"></p>
+</li>
+</ul>
+<h3 id="2-4-十进制数的表示"><a href="#2-4-十进制数的表示" class="headerlink" title="2.4 十进制数的表示"></a>2.4 十进制数的表示</h3><ul>
+<li>bcd 码</li>
+</ul>
+<h3 id="2-5-非数值数据的编码表示"><a href="#2-5-非数值数据的编码表示" class="headerlink" title="2.5 非数值数据的编码表示"></a>2.5 非数值数据的编码表示</h3><ul>
+<li>逻辑值</li>
+<li>西文字符 ascii</li>
+<li>汉字字符 <ul>
+<li>输入码(外码)</li>
+<li>内码 </li>
+<li>国际码</li>
+<li>gb2312 94*94</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-6-数据的宽度与存储"><a href="#2-6-数据的宽度与存储" class="headerlink" title="2.6 数据的宽度与存储"></a>2.6 数据的宽度与存储</h3><ul>
+<li>字长!=字的长度=16</li>
+<li>LSB MSB</li>
+<li>大端(高权低位)   小端(低权低位)</li>
+</ul>
+<h3 id="2-7-数据的基本运算"><a href="#2-7-数据的基本运算" class="headerlink" title="2.7 数据的基本运算"></a>2.7 数据的基本运算</h3><ul>
+<li>移位<ul>
+<li>逻辑移位 高位补 0</li>
+<li>算数移位 高位补符号</li>
+</ul>
+</li>
+<li>整数加减?</li>
+<li>整数乘除?</li>
+<li>浮点数运算<ul>
+<li>对阶 小阶向大阶看齐</li>
+<li>尾数加减</li>
+<li>尾数规格化</li>
+<li>尾数舍入</li>
+<li>阶码溢出判断</li>
+</ul>
+</li>
+</ul>
+<h2 id="第三章-程序的转换及机器级表示"><a href="#第三章-程序的转换及机器级表示" class="headerlink" title="第三章 程序的转换及机器级表示"></a>第三章 程序的转换及机器级表示</h2><blockquote>
+<p>IA-32</p>
+</blockquote>
+<h3 id="3-1-程序转换概述"><a href="#3-1-程序转换概述" class="headerlink" title="3.1 程序转换概述"></a>3.1 程序转换概述</h3><ul>
+<li>汇编</li>
+<li>指令集体系结构 ISA(instruction set architecture) 机器语言虚拟机</li>
+<li>生成机器代码的过程<ul>
+<li>预处理.i, 编译.s, 汇编.o, 链接</li>
+</ul>
+</li>
+<li>AT&amp;T <ul>
+<li>存储器操作数形式为＂偏移量（基址寄存器，变址寄存器，比例因子） “</li>
+<li>100(%ebx, %esi ,4)  表示存储单元的地址为 EBX 的内容加 ESI 的内容乘以 4 再加 100</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-2-IA-32-intel-architecture-32-bit-指令系统概述"><a href="#3-2-IA-32-intel-architecture-32-bit-指令系统概述" class="headerlink" title="3.2 IA-32 (intel architecture 32-bit)指令系统概述"></a>3.2 IA-32 (intel architecture 32-bit)指令系统概述</h3><ul>
+<li><p>数据类型及格式</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gg920c0yh1j312o0cc12u.jpg" alt="截屏2020-06-29 下午12.37.08"></p>
+</li>
+<li><p>寄存器</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gg921zanq2j30qe0kador.jpg" alt="截屏2020-06-29 下午12.38.47"></p>
+<ul>
+<li>通用寄存器</li>
+<li>EFLAGS</li>
+<li>段寄存器</li>
+<li>浮点寄存器栈</li>
+<li>多媒体扩展寄存器组</li>
+</ul>
+</li>
+<li><p>寻址方式</p>
+<ul>
+<li>立即寻址, 寄存器寻址, 存储器操作数</li>
+<li>工作模式<ul>
+<li>实地址模式</li>
+<li>保护模式</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>机器指令格式</p>
+</li>
+</ul>
+<h3 id="3-3-IA-32-常用指令"><a href="#3-3-IA-32-常用指令" class="headerlink" title="3.3 IA-32 常用指令"></a>3.3 IA-32 常用指令</h3><ul>
+<li>CALL RET</li>
+</ul>
+<h3 id="3-4-c-语言程序的机器级表示"><a href="#3-4-c-语言程序的机器级表示" class="headerlink" title="3.4 c 语言程序的机器级表示"></a>3.4 c 语言程序的机器级表示</h3><ul>
+<li>过程调用</li>
+<li>栈帧 当前栈帧的范围在帧指针 EBP 和栈指针 ESP 指向区域之间</li>
+</ul>
+<h3 id="3-5-复杂数据类型的分配和访问"><a href="#3-5-复杂数据类型的分配和访问" class="headerlink" title="3.5 复杂数据类型的分配和访问"></a>3.5 复杂数据类型的分配和访问</h3><ul>
+<li>数组?</li>
+<li>数据的对齐</li>
+</ul>
+<h3 id="3-6-越界访问-缓冲区溢出"><a href="#3-6-越界访问-缓冲区溢出" class="headerlink" title="3.6 越界访问 缓冲区溢出"></a>3.6 越界访问 缓冲区溢出</h3><ul>
+<li>缓冲区溢出攻击<ul>
+<li>应对策略</li>
+</ul>
+</li>
+</ul>
+<h2 id="第一次实验"><a href="#第一次实验" class="headerlink" title="第一次实验"></a>第一次实验</h2><h3 id="msb-与-lsb"><a href="#msb-与-lsb" class="headerlink" title="msb 与 lsb"></a>msb 与 lsb</h3><blockquote>
+<p><strong>Most Significant Bit， Last（Least） Significant Bit</strong></p>
+</blockquote>
+<h4 id="大端-小端"><a href="#大端-小端" class="headerlink" title="大端 小端"></a>大端 小端</h4><p>PowerPC系列采用big endian方式存储数据</p>
+<p>x86系列则采用little endian方式存储数据</p>
+<p>其实big endian是指低地址存放最高有效字节（MSB），而little endian则是低地址存放最低有效字节（LSB）。</p>
+<h3 id="浮点数"><a href="#浮点数" class="headerlink" title="浮点数"></a>浮点数</h3><p>对于float单精度浮点来说，它有32个比特位，其中第一位是符号位，和补码一样，第一位是0说明是正数，是1说明是负数</p>
+<p>第二位到第九位是所谓的阶码。为了说明什么是阶码，我们先看这个十进制式子 <img src="https://www.zhihu.com/equation?tex=1.2%5Ctimes10%5E%7B5%7D" alt="[公式]"> ，看见右上角那个5了ma，那个东西就类似我们说的阶码，只不过计算机用的是二进制，所以实际上应该写成 <img src="https://www.zhihu.com/equation?tex=(1.x_%7B1%7Dx_%7B2%7Dx_%7B3%7D...)_%7B(2)%7D%5Ctimes2%5E%7BE%7D" alt="[公式]"> ，这里的E就是我们的阶码了，只不过由于诡异的IEEE754标准，这个E还不是真正的阶码，也就是说浮点数不是简单的1.xxxxx乘上 <img src="https://www.zhihu.com/equation?tex=2%5E%7Bn%7D" alt="[公式]"> ，n是几就左/右移几位。实际上，假如你要表示的数是1.0101，你要把10101乘上 <img src="https://www.zhihu.com/equation?tex=2%5E%7B-4%7D" alt="[公式]"> ，但是计算机中真正的阶码是 <img src="https://www.zhihu.com/equation?tex=(-4)+127" alt="[公式]"> 而不是-4——别问为什么，教科书上写了很多这么做的好处，这里我们只需要知道这一点即可。</p>
+<p>剩下的23位是所谓的尾数，也就是 <img src="https://www.zhihu.com/equation?tex=1.x_%7B1%7Dx_%7B2%7Dx_%7B3%7D..." alt="[公式]"> 中的那个 <img src="https://www.zhihu.com/equation?tex=x_%7B1%7Dx_%7B2%7Dx_%7B3%7D..." alt="[公式]"> ，<strong>注意这里的尾数都是以原码表示的</strong>。你问我为什么开头一定是1？就像标准的十进制科学记数法开头一定是个1位数一样，开头为1是二进制的正规化数的“标准”，也就是说，开头为1才是二进制数科学记数法的“标准写法”……总之，记住这里有一个1就好了，到时候我们不要忘记加上。</p>
+<p><img src="https://img-blog.csdnimg.cn/20190213233956617.png" alt="在这里插入图片描述"></p>
+<p><img src="https://img-blog.csdnimg.cn/20190213223146755.png" alt="在这里插入图片描述"></p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

@@ -1,0 +1,360 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>git - Hexo</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+git 简介和使用
+
+
+
+git 命令
+git status (-s)
+123456789101112$ vim CONTRIBUTING.md $ git status On branch ma,"> 
+    <meta name="author" content="John Doe"> 
+    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Hexo</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">git</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">git</h1>
+        <div class="stuff">
+            <span>十一月 18, 2019</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/git/" rel="tag">git</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>git 简介和使用</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="git-命令"><a href="#git-命令" class="headerlink" title="git 命令"></a>git 命令</h2><ul>
+<li><p><code>git status (-s)</code></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> vim CONTRIBUTING.md</span> </span><br><span class="line"><span class="meta">$</span><span class="bash"> git status</span> </span><br><span class="line">On branch master </span><br><span class="line">Changes to be committed:   </span><br><span class="line">		(use &quot;git reset HEAD &lt;file&gt;...&quot; to unstage)</span><br><span class="line">    new file:   README     </span><br><span class="line">    modified:   CONTRIBUTING.md</span><br><span class="line">Changes not staged for commit:   </span><br><span class="line">(use &quot;git add &lt;file&gt;...&quot; to update what will be committed)   </span><br><span class="line">(use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line">    modified:   CONTRIBUTING.md</span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li><p><code>git rm (--cached)</code></p>
+</li>
+<li><p><code>git config --global alias.last &#39;log -1 HEAD&#39;</code></p>
+</li>
+</ul>
+<h2 id="git-分支"><a href="#git-分支" class="headerlink" title="git 分支"></a>git 分支</h2><ul>
+<li><p>提交对象</p>
+<p>首次提交</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2gnf7ccej31gg0rgn6i.jpg" alt="截屏2020-07-24 下午11.04.55"></p>
+<p>以后的提交</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2go0zfo9j31cc0g0ai4.jpg" alt="截屏2020-07-24 下午11.05.31"></p>
+</li>
+<li><p>Git 的分支，其实本质上仅仅是指向提交对象的可变指针。</p>
+</li>
+<li><p> <strong>HEAD</strong> 的特殊指针。在 Git 中，它是一个指针，指向当前所在的本地分支（译注：将 HEAD 想象为当前分支的别名）。</p>
+</li>
+</ul>
+<p>  <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2h2mi8nrj31d20t278e.jpg" alt="截屏2020-07-24 下午11.19.33"></p>
+<h3 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h3><ul>
+<li><p>fast-forward</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2hg1iq2ej31f00mcwi3.jpg" alt="截屏2020-07-24 下午11.32.26"></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git checkout master</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git merge hotfix</span> </span><br><span class="line">Updating f42c576..3a0874c</span><br><span class="line">Fast-forward </span><br><span class="line">index.html | 2 ++ </span><br><span class="line">1 file changed, 2 insertions(+)</span><br></pre></td></tr></table></figure>
+
+<p>直接指针右移, 没有需要解决的冲突</p>
+</li>
+<li><p>分支之间的合并</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2hi4e4pqj31dw0iugqd.jpg" alt="截屏2020-07-24 下午11.34.27"></p>
+<p>和之间将分支指针向前推进所不同的是，Git 将此次三方合并的结果做了一个新的快照并且自动创建一个新的提 交指向它。这个被称作一次合并提交，它的特别之处在于他有不止一个父提交。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2hlh6lc1j31c40ekjti.jpg" alt="截屏2020-07-24 下午11.37.40"></p>
+<h3 id="解决冲突"><a href="#解决冲突" class="headerlink" title="解决冲突"></a>解决冲突</h3><p>如果你在两个不同的分支中，对<strong>同一个文件的同一个部分</strong>进行了不同的修 改，Git 就没法干净的合并它们。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2hpueb36j30q20cmqid.jpg" alt="截屏2020-07-24 下午11.41.53"></p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2htn2dnqj306i04omxm.jpg" alt="截屏2020-07-24 下午11.45.31"></p>
+<p>在你解决了所有文件里的冲突之后，对每个文件使用 git add 命令来将其标记为冲突已解决。一旦暂存这 些原本有冲突的文件，Git 就会将它们标记为冲突已解决。</p>
+<h3 id="远程分支"><a href="#远程分支" class="headerlink" title="远程分支"></a>远程分支</h3><ul>
+<li>git clone</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2i5i6y9yj31650u0tgx.jpg" alt="截屏2020-07-24 下午11.56.55"></p>
+<ul>
+<li>git fetch</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2i6jmqxmj315f0u07bt.jpg" alt="截屏2020-07-24 下午11.57.54"></p>
+<ul>
+<li><p>git pull = git fetch + git merge</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2lkjp3oqj31bk0s0wkh.jpg" alt="截屏2020-07-25 上午1.55.11"></p>
+<p>git fetch, git merge</p>
+</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2ll5j1dhj31cw0km0xh.jpg" alt="截屏2020-07-25 上午1.55.46"></p>
+<p>​        git push</p>
+<p>​        <img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2lltvxjaj31aq0g4q7h.jpg" alt="截屏2020-07-25 上午1.56.21"></p>
+<p>​        </p>
+<ul>
+<li><p>rebase</p>
+<p>与 git merge 不同, 其实，还有一种方法：你可以提取在 C4 中引入的补丁和修改，然后在 C3 的基础上再应用一次。在 Git 中，这种 操作就叫做 变基。<strong>你可以使用 rebase 命令将提交到某一分支上的所有修改都移至另一分支上，就好像“重新 播放”一样。</strong></p>
+<p>它的原理是首先找到这两个分支（即当前分支 experiment、变基操作的目标基底分支 master）的最近共同祖 先 C2，然后对比当前分支相对于该祖先的历次提交，提取相应的修改并存为临时文件，然后将当前分支指向目 标基底 C3, 最后以此将之前另存为临时文件的修改依序应用。</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gh2k75saijj31ds0e0jtx.jpg" alt="截屏2020-07-25 上午1.07.41"></p>
+<p>变基使得提交历史更加整洁</p>
+</li>
+</ul>
+<h2 id="git-工具"><a href="#git-工具" class="headerlink" title="git 工具"></a>git 工具</h2><ul>
+<li>git show SHA-1 </li>
+</ul>
+<h2 id="git-内部原理"><a href="#git-内部原理" class="headerlink" title="git 内部原理"></a>git 内部原理</h2><h3 id="git-基础"><a href="#git-基础" class="headerlink" title="git 基础"></a>git 基础</h3><p><strong>工作区</strong></p>
+<p>电脑里能看到的目录</p>
+<p><strong>版本库</strong></p>
+<p>.git</p>
+<p>其中包含了 <strong>stage/index</strong> 暂存区, 即 git add 操作</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlly1gha6tcriipj30rg0duaf6.jpg" alt="截屏2020-07-31 下午3.29.01"></p>
+<h3 id="git-数据库"><a href="#git-数据库" class="headerlink" title="git 数据库"></a>git 数据库</h3><p><strong>.git 文件</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ ls -F1</span><br><span class="line">HEAD</span><br><span class="line">config*</span><br><span class="line">description</span><br><span class="line">hooks&#x2F;</span><br><span class="line">info&#x2F;</span><br><span class="line">objects&#x2F;</span><br><span class="line">refs&#x2F;</span><br></pre></td></tr></table></figure>
+
+<p>description gitweb 程序使用, 无需关心</p>
+<p>config 配置</p>
+<p>info 包含一个全局性排除文件</p>
+<p>hooks 包含客户端或服务端的钩子脚本</p>
+<p>objects 存储所有数据内容</p>
+<p>refs 存储指向数据(分支)的提交对象的指针</p>
+<p>HEAD 只是目前被检出的分支</p>
+<p>index 保存暂存区信息</p>
+<p><strong>objects</strong></p>
+<h3 id="数据对象"><a href="#数据对象" class="headerlink" title="数据对象"></a>数据对象</h3><ul>
+<li><p>git init 用于创建一个空的git仓库，或重置一个已存在的git仓库</p>
+</li>
+<li><p>git hash-object git底层命令，用于向Git数据库中写入数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;version 1&quot;</span> | git hash-object -w --stdin</span></span><br><span class="line"> 83baae61804e65cc73a7201a7252750c76066a30</span><br><span class="line"><span class="meta">$</span><span class="bash"> find .git/objects/ -<span class="built_in">type</span> f</span></span><br><span class="line">.git/objects/83/baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> <span class="built_in">echo</span> <span class="string">&quot;version 1&quot;</span> &gt; file.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> git hash-object -w file.txt</span></span><br><span class="line">83baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure></li>
+<li><p>git cat-file git底层命令，用于查看Git数据库中数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git cat-file -p 83baa</span></span><br><span class="line">version 1</span><br></pre></td></tr></table></figure></li>
+<li><p>问题: </p>
+<p>第一，无法记录文件名的变化；</p>
+<p>第二，无法记录文件夹的变化；</p>
+<p>第三，记忆每一个版本对应的hash值无聊且乏味且不可能；</p>
+<p>第四，无法得知文件的变更时序；</p>
+<p>第五，缺少对每一次版本变化的说明。</p>
+</li>
+</ul>
+<h3 id="树对象"><a href="#树对象" class="headerlink" title="树对象"></a>树对象</h3><p>Git利用树对象（tree object）解决文件名保存的问题，树对象也能够将多个文件组织在一起。</p>
+<ul>
+<li>git update-index git底层命令，用于创建暂存区</li>
+<li>git ls-files –stage git底层命令，用于查看暂存区内容</li>
+<li>git write-tree git底层命令，用于将暂存区内容写入一个树对象</li>
+</ul>
+<p>前两个命令都是对暂存区操作, 第三个则会在 objects 里创建一个树对象</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> find .git/objects -<span class="built_in">type</span> f</span></span><br><span class="line">.git/objects/1f/7a7a472abf3dd9643fd615f6da379c4acb3e3a</span><br><span class="line">.git/objects/83/baae61804e65cc73a7201a7252750c76066a30</span><br><span class="line"><span class="meta">$</span><span class="bash"> git update-index --add file.txt</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> find .git/objects/ -<span class="built_in">type</span> f</span></span><br><span class="line">.git/objects/1f/7a7a472abf3dd9643fd615f6da379c4acb3e3a</span><br><span class="line">.git/objects/83/baae61804e65cc73a7201a7252750c76066a30</span><br><span class="line"><span class="meta">$</span><span class="bash"> git write-tree</span></span><br><span class="line">391a4e90ba882dbc9ea93855103f6b1fa6791cf6</span><br><span class="line"><span class="meta">$</span><span class="bash"> find .git/objects/ -<span class="built_in">type</span> f</span></span><br><span class="line">.git/objects/39/1a4e90ba882dbc9ea93855103f6b1fa6791cf6</span><br><span class="line">.git/objects/1f/7a7a472abf3dd9643fd615f6da379c4acb3e3a</span><br><span class="line">.git/objects/83/baae61804e65cc73a7201a7252750c76066a30</span><br></pre></td></tr></table></figure>
+
+<p>查看内容</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git cat-file -t 391a4e <span class="comment"># -t 类型</span></span></span><br><span class="line">tree</span><br><span class="line"><span class="meta">$</span><span class="bash"> git cat-file -p 391a4e <span class="comment"># -p 内容</span></span></span><br><span class="line">100644 blob 83baa...    file.txt  </span><br></pre></td></tr></table></figure>
+
+<h3 id="commit-对象"><a href="#commit-对象" class="headerlink" title="commit 对象"></a>commit 对象</h3><p>commit对象能够帮你记录什么时间，由什么人，因为什么原因提交了一个新的版本，这个新的版本的父版本又是谁。</p>
+<ul>
+<li>git commit-tree git 底层命令, 用来创建提交对象</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">$</span><span class="bash"> git write-tree</span></span><br><span class="line">cb0fbcc484a3376b3e70958a05be0299e57ab495</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git commit-tree cb0fbcc -m <span class="string">&quot;first commit&quot;</span></span></span><br><span class="line">7020a97c0e792f340e00e1bb8edcbafcc4dfb60f</span><br><span class="line"></span><br><span class="line"><span class="meta">$</span><span class="bash"> git cat-file 7020a97</span></span><br><span class="line">tree cb0fbcc484a3376b3e70958a05be0299e57ab495</span><br><span class="line">author john &lt;john@163.com&gt; 1537961478 +0800</span><br><span class="line">committer john &lt;john@163.com&gt; 1537961478 +0800</span><br><span class="line"></span><br><span class="line">first commit</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="git-工作原理"><a href="#git-工作原理" class="headerlink" title="git 工作原理"></a>git 工作原理</h2><p><img src="https://pic2.zhimg.com/80/v2-3bc9d5f2c49a713c776e69676d7d56c5_1440w.jpg" alt="img"></p>
+<p>Workspace：工作区<br>Index / Stage：暂存区<br>Repository：仓库区（或本地仓库）<br>Remote：远程仓库</p>
+<h2 id="初次使用-git"><a href="#初次使用-git" class="headerlink" title="初次使用 git"></a>初次使用 git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ git config --global user.name &quot;John Doe&quot;</span><br><span class="line">$ git config --global user.email johndoe@example.com</span><br></pre></td></tr></table></figure>
+
+<p>git config 一个用来配置 git 的工具</p>
+<p>–global 默认全局, 如果要针对特定 git 仓库修改, 不要使用 global</p>
+<p>1.git 回退</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ git status</span><br><span class="line">On branch master</span><br><span class="line">Changes not staged for commit:</span><br><span class="line">  (use &quot;git add &lt;file&gt;...&quot; to update what will be committed)</span><br><span class="line">  (use &quot;git checkout -- &lt;file&gt;...&quot; to discard changes in working directory)</span><br><span class="line"></span><br><span class="line">	modified:   readme.txt</span><br><span class="line"></span><br><span class="line">no changes added to commit (use &quot;git add&quot; and&#x2F;or &quot;git commit -a&quot;)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>你可以发现，Git会告诉你，<code>git checkout -- file</code>可以丢弃工作区的修改：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ git checkout -- readme.txt</span><br></pre></td></tr></table></figure>
+
+<p>总之，就是让这个文件回到最近一次<code>git commit</code>或<code>git add</code>时的状态。</p>
+<ol start="2">
+<li>Git同样告诉我们，用命令<code>git reset HEAD &lt;file&gt;</code>可以把暂存区的修改撤销掉（unstage），重新放回工作区：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ git reset HEAD readme.txt</span><br><span class="line">Unstaged changes after reset:</span><br><span class="line">M	readme.txt</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li><p>-u参数：关联本地分支和远程分支</p>
+</li>
+<li><p>git merge $branch_name 如果有冲突要手动解决(一般是两个分支有不同的提交内容)</p>
+</li>
+<li><p>git branch -d $branch_name 删除分支</p>
+</li>
+<li><p>git rm –cached $doc_name    删除文件（会影响到远程</p>
+</li>
+<li><p>git branch –set-upstream-to=origin/$name</p>
+</li>
+<li><p>git branch -vv     查看本地分支和远程分支的对应关系</p>
+</li>
+<li><p>git pull &lt;远程主机名&gt; &lt;远程分支名&gt;:&lt;本地分支名&gt;</p>
+</li>
+<li><p>fatal: refusing to merge unrelated histories</p>
+<p>–allow-unrelated-histories</p>
+</li>
+<li><p>CRLF和LF</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/ccfxue/article/details/52625806">参考网站</a></p>
+<p>crlf：carriage return line feed回车换行</p>
+<p>lf：line feed 换行</p>
+<p>reason：</p>
+<p>When you view changes in a file, Git handles line endings in its own way.Since you’re collaborating on projects with Git and GitHub, Git mightproduce unexpected results if, for example, you’re working on a Windows machine,and your collaborator has made a change in OS X.</p>
+<p>CRLF-&gt;Windows-style</p>
+<p>LF-&gt;Unix Style</p>
+<p>CR-&gt;Mac Style</p>
+<p>CRLF表示句尾使用回车换行两个字符(即我们常在Windows编程时使用”\r\n”换行)</p>
+<p>LF表示表示句尾，只使用换行.</p>
+<p>CR表示只使用回车.</p>
+</li>
+</ol>
+<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
