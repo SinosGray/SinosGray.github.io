@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>硬件茶谈 - Hexo</title>
+    <title>硬件茶谈 - Sinos_wei&#39;s blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
@@ -20,8 +20,8 @@
 超频超频一般超倍频, 因为改变外频需要其他所有设备同步超频
 
 内存外频异步工作, 内存,"> 
-    <meta name="author" content="John Doe"> 
-    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+    <meta name="author" content="Sinos_wei"> 
+    <link rel="alternative" href="atom.xml" title="Sinos_wei&#39;s blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/a33.jpg"> 
     
     
@@ -40,7 +40,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="loading">
-    <span id="config-title" style="display:none">Hexo</span>
+    <span id="config-title" style="display:none">Sinos_wei&#39;s blog</span>
     <div id="loader"></div>
     <div id="single">
     <div id="top" style="display: block;">
@@ -85,6 +85,96 @@
 <h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>显卡核心频率和显存频率不受基础频率影响, 可以随意设置</p>
 <h1 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h1><h2 id="串并行"><a href="#串并行" class="headerlink" title="串并行"></a>串并行</h2><p>趋势: 并行-&gt;串行</p>
 <p>并行: 多个数据同时传输, 需要做到整齐同步, 速度慢</p>
+<h1 id="PCIe"><a href="#PCIe" class="headerlink" title="PCIe"></a>PCIe</h1><h2 id="ISA-总线"><a href="#ISA-总线" class="headerlink" title="ISA 总线"></a>ISA 总线</h2><p>上世纪 80 年代, 并行总线</p>
+<h2 id="PCI"><a href="#PCI" class="headerlink" title="PCI"></a>PCI</h2><p>即插即用, 并行传输, 共享总线, 不支持热拔插(带电插拔)</p>
+<h2 id="PCIe-1"><a href="#PCIe-1" class="headerlink" title="PCIe"></a>PCIe</h2><ul>
+<li>存在形态: 接口(插显卡, 网卡, 声卡等等, 转 M2, USB 等等), 通道(M2, 雷电 3)</li>
+<li>残血 PCIe*2 满血 PCIe*4</li>
+<li>PCIe*4 -&gt; 4GB/s , M2 速度不会超过 4GB/s</li>
+</ul>
+<h1 id="南桥-south-bridge"><a href="#南桥-south-bridge" class="headerlink" title="南桥 south bridge"></a>南桥 south bridge</h1><blockquote>
+<p>帮助 cpu 和其他部分交换数据</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1goz3hlbb13j316y0u0hdt.jpg" alt="IMG_1F0D3A668A43-1"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1goz3itxq82j30wz0u0qsy.jpg" alt="IMG_46EC5860BC5E-1"></p>
+<p>直连 cpu 的 PCIe 只有 16 条, 所以插一个显卡 PCIe 就全部被占用了</p>
+<p>cpu 和南桥(DMI3.0 其实就是 PCIe3.0*4)上限是 4GB/s</p>
+<h1 id="硬盘-HDD-hard-disk-drive"><a href="#硬盘-HDD-hard-disk-drive" class="headerlink" title="硬盘 HDD(hard disk drive)"></a>硬盘 HDD(hard disk drive)</h1><ul>
+<li>机械硬盘: 写数据直接覆盖, 删除 FAT 表</li>
+<li>LMR, PMR(CMR)</li>
+<li>SMR 瓦楞式堆叠硬盘</li>
+</ul>
+<h2 id="fat-表"><a href="#fat-表" class="headerlink" title="fat 表"></a>fat 表</h2><h2 id="磁盘阵列"><a href="#磁盘阵列" class="headerlink" title="磁盘阵列"></a>磁盘阵列</h2><ul>
+<li>raid0 一个数据分成 n 份, 带宽提高 n 倍, 最不安全, 速度最快</li>
+<li>raid1 自动备份, 最安全, 空间利用最低, 速度不增</li>
+<li>raid2 海明校验, 在 raid0 基础上增加纠错功能</li>
+<li>raid3 raid0 + 一个存储恢复码的磁盘, 数据拆分</li>
+<li>raid4 raid0 + 一个存储恢复码的磁盘, 数据不拆分</li>
+<li>raid5 raid34 可能会因为恢复盘而制约性能, raid5 把恢复码分散到所有磁盘中</li>
+<li>raid6 raid345 只能容灾一个磁盘, raid6 在 raid5 基础上使用两个容灾磁盘</li>
+</ul>
+<h1 id="固态硬盘-SSD-solid-state-disk-drive"><a href="#固态硬盘-SSD-solid-state-disk-drive" class="headerlink" title="固态硬盘 SSD(solid state disk/drive)"></a><a target="_blank" rel="noopener" href="http://www.pceva.com.cn/article/31-1.html">固态硬盘 SSD(solid state disk/drive)</a></h1><blockquote>
+<p>lba logical block address</p>
+<p>固态硬盘: TRIM 回收指令, 在硬盘空闲时会自动执行, 固态硬盘在写入前必须进行擦除操作</p>
+</blockquote>
+<h2 id="层次"><a href="#层次" class="headerlink" title="层次"></a>层次</h2><p>die -&gt; plane -&gt; block -&gt; page</p>
+<p><img src="http://bbs.pceva.com.cn/data/attachment/forum/month_1101/11013008324fdf5d20f5089eb1.jpg" alt="image001.jpg"></p>
+<p>主控每个通道连接一个 Die, 写入时类似 raid0, 多通道提高带宽</p>
+<p>写满后:<br><code>在SSD主控制器看来，这里的文件都是有效的，也就是不能擦除. 在操作系统的要求下，继续写入数据的话就要在空余的地方写入，对于SSD来说，这时候就需要把整个块的绿色读进缓存并更新操作系统发来的数据，之后擦除这整个块并把缓存里的整个更新完的块写回去，这样即使写入4KB的数据，其实也是大费周章的折腾，这就是早期SSD主控制器或者U盘写入放大高的道理，这些SSD的算法上不支持GC，也没有Trim,所以在随机写入的表现上非常的悲剧。</code></p>
+<h2 id="gc-garbage-collection"><a href="#gc-garbage-collection" class="headerlink" title="gc garbage collection"></a>gc garbage collection</h2><p>垃圾回收的功能是将所有Block中的有效Page合并到一个新的Block中，并将旧的Block进行擦除，这样做的好处一方面减少寻址负担，另一方面留出更多的空闲Block。</p>
+<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><h2 id="双通道"><a href="#双通道" class="headerlink" title="双通道"></a>双通道</h2><p>内存带宽 = 内存核心频率 * 内存总线位宽 * 倍增系数</p>
+<p>IMC(memory controller i/o) 最大只支持双通道内存</p>
+<h2 id="性能制约"><a href="#性能制约" class="headerlink" title="性能制约"></a>性能制约</h2><ul>
+<li>标注内存频率为保底频率</li>
+<li>主板不超频时, 内存下限由内存本身决定, 内存上限由 cpu 默认内存频率和内存本身体质决定</li>
+<li>主板超频时内存频率无视 cpu 默认内存频率, 内存下限由内存本身决定, 内存上限由内存体质, IMC 性能/体质, 主板布线和电气性能决定</li>
+</ul>
+<h1 id="屏幕"><a href="#屏幕" class="headerlink" title="屏幕"></a>屏幕</h1><p>屏幕响应时间: 颜色 1 切换到颜色 2 的时间</p>
+<p>灰阶响应时间</p>
+<p>调光</p>
+<ul>
+<li>DC 电压高灯亮 LCD</li>
+<li>PWM 调整占空比 OLED 低频 PWM</li>
+</ul>
+<p>LCD: PPI = (x^2^ + y^2^)^1/2^ / 屏幕尺寸 &gt;=300</p>
+<h2 id="LCD"><a href="#LCD" class="headerlink" title="LCD"></a>LCD</h2><p>背光层(发光)+液晶层(遮光)+滤光片(分光)</p>
+<p>背光层是整个屏幕一个大的背光层</p>
+<p>黑色不是完全黑色</p>
+<p>边缘会漏光</p>
+<p>屏幕响应时间长, 温度越低液晶变化越慢时间越长</p>
+<p>耗电</p>
+<h2 id="OLED"><a href="#OLED" class="headerlink" title="OLED"></a>OLED</h2><p>发光二极管, 通电越多越亮, 每个子像素都是独立控制开关</p>
+<ul>
+<li>可以做息屏提醒</li>
+<li>近乎无限的对比度</li>
+<li>黑白响应时间比彩色切换时间长</li>
+<li>薄</li>
+<li>可弯曲, 曲面屏, 折叠屏</li>
+<li>寿命短: 有机物+频繁电子迁移+自发光, 烧屏</li>
+<li>理论分辨率</li>
+</ul>
+<h2 id="色域"><a href="#色域" class="headerlink" title="色域"></a>色域</h2><p>可见光 380nm~780nm</p>
+<p>CIE 色彩空间</p>
+<p>常见色彩空间</p>
+<ul>
+<li>sRGB 100%</li>
+<li>NTSC</li>
+<li>Adobe RGB</li>
+<li>DCI-P3</li>
+</ul>
+<blockquote>
+<p>并不是色域越广越好 -&gt; 过饱和</p>
+</blockquote>
+<h3 id="色彩管理"><a href="#色彩管理" class="headerlink" title="色彩管理"></a>色彩管理</h3><p>ICC 文件 实现色彩校准, 将数据和屏幕匹配(映射)</p>
+<h2 id="色准"><a href="#色准" class="headerlink" title="色准"></a>色准</h2><p>显示颜色的准确度</p>
+<p>△E 越小色准越高 正常: 3-5</p>
+<h2 id="色深"><a href="#色深" class="headerlink" title="色深"></a>色深</h2><p>eg: 8/10bit-颜色</p>
+<p>2^8^ bit -&gt; 2^8^个色阶</p>
+<p>FRC 用抖动增加色阶</p>
+<h1 id="显卡-1"><a href="#显卡-1" class="headerlink" title="显卡"></a>显卡</h1><h2 id="DLSS"><a href="#DLSS" class="headerlink" title="DLSS"></a>DLSS</h2><h3 id="采样率"><a href="#采样率" class="headerlink" title="采样率"></a>采样率</h3><p>锯齿 光栅化 (采样率) -&gt; 抗锯齿</p>
+<h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><h1 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h1><p>非模组: 不可拆卸</p>
+<p>全模组: 可拆卸</p>
+<p>半模组: 部分可拆卸</p>
 <h1 id="装机"><a href="#装机" class="headerlink" title="装机"></a>装机</h1><h1 id="windows-系统安装"><a href="#windows-系统安装" class="headerlink" title="windows 系统安装"></a>windows 系统安装</h1><h2 id="iso镜像写入"><a href="#iso镜像写入" class="headerlink" title="iso镜像写入"></a>iso镜像写入</h2><ul>
 <li>U盘格式化方式: FAT32, exFAT, NTFS<ul>
 <li>exFAT, NTFS 识别有问题</li>
@@ -127,7 +217,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%91%E7%8E%87"><span class="toc-number">1.</span> <span class="toc-text">频率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%A2%91"><span class="toc-number">1.1.</span> <span class="toc-text">外频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%8D%E9%A2%91"><span class="toc-number">1.2.</span> <span class="toc-text">倍频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E9%A2%91"><span class="toc-number">1.3.</span> <span class="toc-text">超频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1"><span class="toc-number">1.4.</span> <span class="toc-text">显卡</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF"><span class="toc-number">2.</span> <span class="toc-text">总线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%B2%E5%B9%B6%E8%A1%8C"><span class="toc-number">2.1.</span> <span class="toc-text">串并行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A3%85%E6%9C%BA"><span class="toc-number">3.</span> <span class="toc-text">装机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-number">4.</span> <span class="toc-text">windows 系统安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iso%E9%95%9C%E5%83%8F%E5%86%99%E5%85%A5"><span class="toc-number">4.1.</span> <span class="toc-text">iso镜像写入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PE-%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BE%85%E5%8A%A9%E5%AE%89%E8%A3%85"><span class="toc-number">4.2.</span> <span class="toc-text">PE 便携式操作系统辅助安装</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%A2%91%E7%8E%87"><span class="toc-number">1.</span> <span class="toc-text">频率</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%96%E9%A2%91"><span class="toc-number">1.1.</span> <span class="toc-text">外频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%80%8D%E9%A2%91"><span class="toc-number">1.2.</span> <span class="toc-text">倍频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B6%85%E9%A2%91"><span class="toc-number">1.3.</span> <span class="toc-text">超频</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1"><span class="toc-number">1.4.</span> <span class="toc-text">显卡</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BA%BF"><span class="toc-number">2.</span> <span class="toc-text">总线</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%B2%E5%B9%B6%E8%A1%8C"><span class="toc-number">2.1.</span> <span class="toc-text">串并行</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PCIe"><span class="toc-number">3.</span> <span class="toc-text">PCIe</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ISA-%E6%80%BB%E7%BA%BF"><span class="toc-number">3.1.</span> <span class="toc-text">ISA 总线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCI"><span class="toc-number">3.2.</span> <span class="toc-text">PCI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PCIe-1"><span class="toc-number">3.3.</span> <span class="toc-text">PCIe</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%97%E6%A1%A5-south-bridge"><span class="toc-number">4.</span> <span class="toc-text">南桥 south bridge</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A1%AC%E7%9B%98-HDD-hard-disk-drive"><span class="toc-number">5.</span> <span class="toc-text">硬盘 HDD(hard disk drive)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fat-%E8%A1%A8"><span class="toc-number">5.1.</span> <span class="toc-text">fat 表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A3%81%E7%9B%98%E9%98%B5%E5%88%97"><span class="toc-number">5.2.</span> <span class="toc-text">磁盘阵列</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%BA%E6%80%81%E7%A1%AC%E7%9B%98-SSD-solid-state-disk-drive"><span class="toc-number">6.</span> <span class="toc-text">固态硬盘 SSD(solid state disk&#x2F;drive)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%82%E6%AC%A1"><span class="toc-number">6.1.</span> <span class="toc-text">层次</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#gc-garbage-collection"><span class="toc-number">6.2.</span> <span class="toc-text">gc garbage collection</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%85%E5%AD%98"><span class="toc-number">7.</span> <span class="toc-text">内存</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%8C%E9%80%9A%E9%81%93"><span class="toc-number">7.1.</span> <span class="toc-text">双通道</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E5%88%B6%E7%BA%A6"><span class="toc-number">7.2.</span> <span class="toc-text">性能制约</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B1%8F%E5%B9%95"><span class="toc-number">8.</span> <span class="toc-text">屏幕</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#LCD"><span class="toc-number">8.1.</span> <span class="toc-text">LCD</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#OLED"><span class="toc-number">8.2.</span> <span class="toc-text">OLED</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%89%B2%E5%9F%9F"><span class="toc-number">8.3.</span> <span class="toc-text">色域</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%89%B2%E5%BD%A9%E7%AE%A1%E7%90%86"><span class="toc-number">8.3.1.</span> <span class="toc-text">色彩管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%89%B2%E5%87%86"><span class="toc-number">8.4.</span> <span class="toc-text">色准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%89%B2%E6%B7%B1"><span class="toc-number">8.5.</span> <span class="toc-text">色深</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%BE%E5%8D%A1-1"><span class="toc-number">9.</span> <span class="toc-text">显卡</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#DLSS"><span class="toc-number">9.1.</span> <span class="toc-text">DLSS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E6%A0%B7%E7%8E%87"><span class="toc-number">9.1.1.</span> <span class="toc-text">采样率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0"><span class="toc-number">9.1.2.</span> <span class="toc-text">深度学习</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%B5%E6%BA%90"><span class="toc-number">10.</span> <span class="toc-text">电源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A3%85%E6%9C%BA"><span class="toc-number">11.</span> <span class="toc-text">装机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#windows-%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85"><span class="toc-number">12.</span> <span class="toc-text">windows 系统安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#iso%E9%95%9C%E5%83%8F%E5%86%99%E5%85%A5"><span class="toc-number">12.1.</span> <span class="toc-text">iso镜像写入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#PE-%E4%BE%BF%E6%90%BA%E5%BC%8F%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E8%BE%85%E5%8A%A9%E5%AE%89%E8%A3%85"><span class="toc-number">12.2.</span> <span class="toc-text">PE 便携式操作系统辅助安装</span></a></li></ol></li></ol>	
         </div>
     
 </div>

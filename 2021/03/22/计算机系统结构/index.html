@@ -5,19 +5,23 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>计算机系统结构 - Hexo</title>
+    <title>计算机系统结构 - Sinos_wei&#39;s blog</title>
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate" />
     <meta name="keywords" content="Fechin,"> 
     <meta name="description" content="
 简介
+$\frac{a}{b}$
 
 
 
-计算机系统结构第一章"> 
-    <meta name="author" content="John Doe"> 
-    <link rel="alternative" href="atom.xml" title="Hexo" type="application/atom+xml"> 
+
+第一章Amdahl 定律
+加速比: $S_n = \frac{新速度}{老速度} = \frac{T_o}{T_n}$
+$S_n = \frac{1}{(,"> 
+    <meta name="author" content="Sinos_wei"> 
+    <link rel="alternative" href="atom.xml" title="Sinos_wei&#39;s blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/a33.jpg"> 
     
     
@@ -36,7 +40,7 @@
 <meta name="generator" content="Hexo 5.4.0"></head>
 
 <body class="loading">
-    <span id="config-title" style="display:none">Hexo</span>
+    <span id="config-title" style="display:none">Sinos_wei&#39;s blog</span>
     <div id="loader"></div>
     <div id="single">
     <div id="top" style="display: block;">
@@ -69,10 +73,275 @@
         <div class="content markdown">
             <blockquote>
 <p>简介</p>
+<p>$\frac{a}{b}$</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="计算机系统结构"><a href="#计算机系统结构" class="headerlink" title="计算机系统结构"></a>计算机系统结构</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpbhsx1afpj30kq0ciaan.jpg" alt="C158860121CB11859CBAEB3809185D18"></p>
+<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="Amdahl-定律"><a href="#Amdahl-定律" class="headerlink" title="Amdahl 定律"></a>Amdahl 定律</h2><ul>
+<li><p>加速比: $S_n = \frac{新速度}{老速度} = \frac{T_o}{T_n}$</p>
+<p>$S_n = \frac{1}{(1-F_e) + \frac{F_e}{S_e}}$</p>
+<p>推导: $T_n = T_o(1-F_e+\frac{F_e}{S_e})$</p>
+<p>S<del>e</del> 改进部分的部件加速比</p>
+<p>F<del>e</del> 改进部分原执行时间占原总时间的百分比</p>
+<ul>
+<li>加快经常性时间</li>
+<li>Huffman 编码</li>
+</ul>
+</li>
+</ul>
+<h2 id="CPU-性能公式"><a href="#CPU-性能公式" class="headerlink" title="CPU 性能公式"></a>CPU 性能公式</h2><ul>
+<li><p>CPU 时间: 一个程序在 CPU 上运行的时间, 不包括 I/O 时间</p>
+<ul>
+<li>时钟周期时间</li>
+<li>程序的时钟周期数<ul>
+<li>指令周期数 CPI = 执行程序所需时钟周期数/IC </li>
+<li>IC: 执行指令条数</li>
+</ul>
+</li>
+</ul>
+<p>CPU 时间 = IC * CPI * 时钟周期时间</p>
+<p>CPU 时间 = IC * CPI / 时钟频率</p>
+</li>
+</ul>
+<h2 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h2><ul>
+<li>时间</li>
+<li>空间 </li>
+</ul>
+<h2 id="系统评价指标"><a href="#系统评价指标" class="headerlink" title="系统评价指标"></a>系统评价指标</h2><ul>
+<li><p>响应时间: 完成一个任务的全部时间(用户角度)</p>
+</li>
+<li><p>吞吐率: 单位时间内完成的任务数(管理员)</p>
+</li>
+<li><p>$MIPS = \frac{指令条数}{执行时间 \times 10^6} = \frac{f}{CPI \times 10^6}$</p>
+<ul>
+<li>依赖于指令集</li>
+<li>程序不同 MPIS 不同</li>
+<li>唯一可靠的是测真实程序的执行时间</li>
+</ul>
+</li>
+<li><p>基准测试程序: Benchmark</p>
+<p>实际应用程序, 修正的(脚本化的)应用程序, 核心测试程序, 小测试程序, 合成测试程序</p>
+</li>
+<li><p>成本</p>
+<p>部件成本, 直接成本, 毛利润, 平均折扣</p>
+</li>
+<li><p>功耗</p>
+</li>
+<li><p>可靠性和可用性</p>
+<ul>
+<li>可靠性: MTTF(平均故障时间) </li>
+<li>可用性:$ \frac{MTTF}{MTTF+MTTR}$ MTTR(平均修复时间)</li>
+</ul>
+</li>
+</ul>
+<h2 id="系统结构的发展"><a href="#系统结构的发展" class="headerlink" title="系统结构的发展"></a>系统结构的发展</h2><ul>
+<li>冯诺依曼<ul>
+<li>以计算器为中心</li>
+<li>存储器中数据和指令同等对待</li>
+<li>存储器按地址访问, 按线性编址, 每个单元位数固定</li>
+<li>指令的执行时顺序的</li>
+</ul>
+</li>
+<li>冯诺依曼的发展<ul>
+<li>输入输出的改进<ul>
+<li>程序控制<ul>
+<li>程序等待: 轮巡 i/o 设备</li>
+<li>程序中断</li>
+</ul>
+</li>
+<li>DMA(Direct Memory Access) 直接存储器访问: 减少 CPU 对 i/o 的干预, 通过硬件为RAM和IO设备开辟一条直接传输数据的通道</li>
+<li><a target="_blank" rel="noopener" href="https://blog.csdn.net/starter_____/article/details/101615848">i/o 处理机</a><br><img src="https://img-blog.csdnimg.cn/20190928144959429.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N0YXJ0ZXJfX19fXw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+</li>
+<li>并行技术<ul>
+<li>指令内部并行</li>
+<li>指令级并行</li>
+<li>线程级并行</li>
+<li>任务级, 过程级并行</li>
+<li>作业, 程序级并行</li>
+</ul>
+</li>
+<li>存储器组织结构<ul>
+<li>相联存储器</li>
+<li>通用寄存器</li>
+<li>高速缓存 Cache</li>
+</ul>
+</li>
+<li>指令系统<ul>
+<li>CISC</li>
+<li>RISC</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="器件对系统结构的影响"><a href="#器件对系统结构的影响" class="headerlink" title="器件对系统结构的影响"></a>器件对系统结构的影响</h2><ul>
+<li><p>1945-1954 ENIAC</p>
+<ul>
+<li>电子管和继电器</li>
+<li>机器语言, 汇编语言</li>
+<li>存储程序, 计算机程序控制 i/o</li>
+</ul>
+</li>
+<li><p>1955-1964 IBM7030</p>
+<ul>
+<li>晶体管</li>
+<li>浮点数表示, 寻址技术, 中断, i/o 处理机</li>
+<li>高级语言, 编译, 批处理监控系统</li>
+</ul>
+</li>
+<li><p>1965-1974 IBM370</p>
+<ul>
+<li><p>SSI(小规模集成电路), MSI(中规模集成电路), 多层印刷电路, 微程序</p>
+</li>
+<li><p>流水线, cache, 先行处理, 系列机</p>
+</li>
+<li><p>多道程序, 分时操作系统</p>
+</li>
+</ul>
+</li>
+<li><p>1975-1991 Cray-1</p>
+<ul>
+<li>LSI(大规模集成电路), VLSI(超大规模集成电路), 半导体存储器</li>
+<li>向量处理, 分布式存储器</li>
+<li>并行, 分布处理</li>
+</ul>
+</li>
+<li><p>1991-</p>
+<ul>
+<li>高性能微处理器, 高密度电路</li>
+<li>超标量, 超流水线, SMP, MP, MPP, 机群</li>
+<li>大规模, 可扩展性, 并行, 分布处理</li>
+</ul>
+</li>
+</ul>
+<h1 id="第三章-流水线技术"><a href="#第三章-流水线技术" class="headerlink" title="第三章 流水线技术"></a>第三章 流水线技术</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>分类:</p>
+<ul>
+<li><p>单功能流水线</p>
+</li>
+<li><p>多功能流水线</p>
+<p>多功能流水线又可分为</p>
+<ul>
+<li>静态流水线</li>
+<li>动态流水线</li>
+</ul>
+</li>
+</ul>
+<p>还可分为线性流水线, 非线性流水线(有反馈回路)</p>
+<p>顺序流水线, 乱序流水线(允许后进来的任务先完成)</p>
+<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="吞吐率TP"><a href="#吞吐率TP" class="headerlink" title="吞吐率TP"></a>吞吐率TP</h3><p>$TP = \frac{n}{T_k}$  任务数/处理完 n 个任务的时间(从“开启这个程序进程”到“程序中调用clock()函数”时之间的CPU时钟计时单元（clock tick）数，在MSDN中称之为挂钟时间（wal-clock）)</p>
+<p>$TP = \frac{n}{(k+n-1)\times △t}$ n 个任务, k 个段, </p>
+<p>$TP_{max} = \frac{1}{△t}$</p>
+<p>$TP = \frac{n}{k+n-1}TP_{max}$</p>
+<p>流水线中执行时间最长的段称为 瓶颈段</p>
+<p>$TP = \frac{n}{\sum_{i=1}^{k}△t_i + (n-1)max(△t_1, △t_2, △t_3)} = \frac{n}{一个任务的时间 + (n-1)瓶颈段的时间}$</p>
+<p>拆分瓶颈段, 重复设置瓶颈段</p>
+<h3 id="加速比"><a href="#加速比" class="headerlink" title="加速比"></a>加速比</h3><p>加速比: $S = \frac{T_s}{T_k}$</p>
+<p>不使用流水线所用的时间与使用流水线所用的时间比</p>
+<p>$S = \frac{nk}{k+n-1}$</p>
+<p>时间不等时</p>
+<p>$S = \frac{n\sum_{i=1}^{k}△t_i}{\sum_{i=1}^{k}△t_i + (n-1)max(△t_1, △t_2, △t_3)}$</p>
+<h3 id="效率-E"><a href="#效率-E" class="headerlink" title="效率(E)"></a>效率(E)</h3><p>效率: 设备实际使用时间/整个运行时间 &lt; 1</p>
+<p>$e_1 = e_2 = … = e_k  = \frac{n}{k+n-1} $</p>
+<p>$E = \frac{e_1+e_2+…+e_k}{k} = \frac{nk}{(k+n-1)k}= TP△t = \frac{S}{k}$</p>
+<p>时间间隔不等</p>
+<p>$E= \frac{n\sum_{i=1}^{k}△t_i}{k[\sum_{i=1}^{k}△t_i + (n-1)max(△t_1, △t_2, △t_3)]}$</p>
+<h2 id="单功能非线性流水线的调度"><a href="#单功能非线性流水线的调度" class="headerlink" title="单功能非线性流水线的调度"></a>单功能非线性流水线的调度</h2><ul>
+<li><p>非线性流水线: 任务在流水线中可能会流经某些段多次</p>
+</li>
+<li><p>启动距离: 向一条非线性流水线输入端 连续输入两个任务 之间的时间间隔</p>
+</li>
+<li><p>禁用启动距离: 会引起 非线性流水线 功能段使用冲突的 启动距离</p>
+</li>
+<li><p>预约表</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp1z4hobarj30vi0bgwvb.jpg" alt="截屏2021-03-30 下午3.41.39"></p>
+</li>
+<li><p>禁止表 F: 由禁用启动距离构成的集合</p>
+<ul>
+<li><p>根据预约表写出禁止表</p>
+<p>对于预约表每一行的任意一对√, 用他们所在的列号相减(大-小)列出各种可能的差值, 差值的集合就是禁止表的元素</p>
+<p>对上图: {8, 1, 5, 6}</p>
+</li>
+</ul>
+</li>
+<li><p>冲突向量 C: N 位二进制串</p>
+<ul>
+<li><p>根据禁止表 F 写出初始冲突向量 C<del>0</del></p>
+<p>设$C_0 = (c_N c_{N-1} … c_i … c_2 c_1)$</p>
+<p>则 $ c_i=<br>\begin{cases}<br>1, i \in F\<br>0, i \notin F<br>\end{cases}$</p>
+<p>C<del>0</del>的意义是当第一个任务进入流水线后, C<del>0</del> 决定了下一个任务需要多少时间间隔才可以流入</p>
+<p>对于 C<del>k</del> , 假设 j 个时钟周期后送入第二个任务, 则 $C_{k+1} = SHR^{(j)} (C_k) \vee C_0 $</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp1ztoxmbyj30rw0bu1ad.jpg" alt="截屏2021-03-30 下午4.05.56"></p>
+</li>
+</ul>
+</li>
+<li><p>流水线状态转移图</p>
+<ul>
+<li>流水线状态集合(所有冲突向量)</li>
+<li>有向弧</li>
+<li>弧上的数字</li>
+</ul>
+</li>
+</ul>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><p>数据相关: 对于 i, j 两条指令</p>
+<ul>
+<li>j 使用 i 的结果</li>
+<li>j 与指令 k 数据相关, k 与指令 i 数据相关</li>
+</ul>
+<p>具有传递性</p>
+</li>
+<li><p>名相关: 指令访问的寄存器或存储单元名称</p>
+<ul>
+<li>反相关(先读后写): 指令 j 写的名 = 指令 i 读的名</li>
+<li>输出相关: 指令 j 写的名 = 指令 i 写的名</li>
+</ul>
+</li>
+<li><p>控制相关: 分支指令</p>
+</li>
+</ul>
+<h2 id="流水线冲突"><a href="#流水线冲突" class="headerlink" title="流水线冲突"></a>流水线冲突</h2><ul>
+<li>流水线冲突: 由于相关等原因存在, 使得指令流中的下一条指令不能再指定的时间周期执行</li>
+<li>分类<ul>
+<li>结构冲突: 硬件资源无法满足</li>
+<li>数据冲突: 指令间结果冲突<ul>
+<li>写后读 RAW (常见)</li>
+<li>写后写 WAW</li>
+<li>读后写 WAR</li>
+</ul>
+</li>
+<li>控制冲突: 分支指令</li>
+</ul>
+</li>
+</ul>
+<h1 id="第五章-指令级并行-ILP"><a href="#第五章-指令级并行-ILP" class="headerlink" title="第五章 指令级并行(ILP)"></a>第五章 指令级并行(ILP)</h1><h2 id="指令的动态调度"><a href="#指令的动态调度" class="headerlink" title="指令的动态调度"></a>指令的动态调度</h2><blockquote>
+<p>指令的静态调度: 编译时调度</p>
+<p>指令动态调度: 通过硬件</p>
+</blockquote>
+<h3 id="乱序执行"><a href="#乱序执行" class="headerlink" title="乱序执行"></a>乱序执行</h3><p>将 5 段流水线的译码阶段分为</p>
+<ul>
+<li>流出 Issue IS</li>
+<li>读操作数 Read Operands RO</li>
+</ul>
+<p>引入指令缓冲区, 直到冲突消除</p>
+<p>部署更多执行部件, 使多条指令能同时执行或访存</p>
+<p>但会新出现 WAR 和 WAW 冲突</p>
+<h3 id="寄存器重命名"><a href="#寄存器重命名" class="headerlink" title="寄存器重命名"></a>寄存器重命名</h3><h2 id="动态分支预测技术"><a href="#动态分支预测技术" class="headerlink" title="动态分支预测技术"></a>动态分支预测技术</h2><p>在程序运行时, 根据分支指令过去的表现来预测其将来的行为</p>
+<h3 id="BHT-branch-history-table"><a href="#BHT-branch-history-table" class="headerlink" title="BHT branch history table"></a>BHT branch history table</h3><p>用 BHT 来记录分支指令最近几次的执行情况</p>
+<h3 id="BTB-branch-target-buffer"><a href="#BTB-branch-target-buffer" class="headerlink" title="BTB branch target buffer"></a>BTB branch target buffer</h3><p>分支开销降为 0</p>
+<h2 id="多指令流出技术"><a href="#多指令流出技术" class="headerlink" title="多指令流出技术"></a>多指令流出技术</h2><p>理想 CPI &lt; 1</p>
+<h1 id="第七章-存储系统"><a href="#第七章-存储系统" class="headerlink" title="第七章 存储系统"></a>第七章 存储系统</h1><h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><h3 id="如何放"><a href="#如何放" class="headerlink" title="如何放"></a>如何放</h3><ul>
+<li><p>全相联映像</p>
+<p>任意存, </p>
+</li>
+<li><p>直接映像</p>
+</li>
+<li><p>组相联映像</p>
+</li>
+</ul>
+<h3 id="如何找"><a href="#如何找" class="headerlink" title="如何找"></a>如何找</h3><p>地址变换</p>
+
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
                 <source type="audio/mpeg" src="">
@@ -107,7 +376,7 @@
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">计算机系统结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.1.</span> <span class="toc-text">第一章</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.</span> <span class="toc-text">第一章</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Amdahl-%E5%AE%9A%E5%BE%8B"><span class="toc-number">1.1.</span> <span class="toc-text">Amdahl 定律</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CPU-%E6%80%A7%E8%83%BD%E5%85%AC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">CPU 性能公式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B1%80%E9%83%A8%E6%80%A7%E5%8E%9F%E7%90%86"><span class="toc-number">1.3.</span> <span class="toc-text">局部性原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-number">1.4.</span> <span class="toc-text">系统评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E7%9A%84%E5%8F%91%E5%B1%95"><span class="toc-number">1.5.</span> <span class="toc-text">系统结构的发展</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%99%A8%E4%BB%B6%E5%AF%B9%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E7%9A%84%E5%BD%B1%E5%93%8D"><span class="toc-number">1.6.</span> <span class="toc-text">器件对系统结构的影响</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%B5%81%E6%B0%B4%E7%BA%BF%E6%8A%80%E6%9C%AF"><span class="toc-number">2.</span> <span class="toc-text">第三章 流水线技术</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-number">2.1.</span> <span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%8C%87%E6%A0%87"><span class="toc-number">2.2.</span> <span class="toc-text">性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%9E%E5%90%90%E7%8E%87TP"><span class="toc-number">2.2.1.</span> <span class="toc-text">吞吐率TP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8A%A0%E9%80%9F%E6%AF%94"><span class="toc-number">2.2.2.</span> <span class="toc-text">加速比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%88%E7%8E%87-E"><span class="toc-number">2.2.3.</span> <span class="toc-text">效率(E)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%95%E5%8A%9F%E8%83%BD%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%B5%81%E6%B0%B4%E7%BA%BF%E7%9A%84%E8%B0%83%E5%BA%A6"><span class="toc-number">2.3.</span> <span class="toc-text">单功能非线性流水线的调度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3"><span class="toc-number">2.4.</span> <span class="toc-text">相关</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%81%E6%B0%B4%E7%BA%BF%E5%86%B2%E7%AA%81"><span class="toc-number">2.5.</span> <span class="toc-text">流水线冲突</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%8C%87%E4%BB%A4%E7%BA%A7%E5%B9%B6%E8%A1%8C-ILP"><span class="toc-number">3.</span> <span class="toc-text">第五章 指令级并行(ILP)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E4%BB%A4%E7%9A%84%E5%8A%A8%E6%80%81%E8%B0%83%E5%BA%A6"><span class="toc-number">3.1.</span> <span class="toc-text">指令的动态调度</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B9%B1%E5%BA%8F%E6%89%A7%E8%A1%8C"><span class="toc-number">3.1.1.</span> <span class="toc-text">乱序执行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8%E9%87%8D%E5%91%BD%E5%90%8D"><span class="toc-number">3.1.2.</span> <span class="toc-text">寄存器重命名</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E5%88%86%E6%94%AF%E9%A2%84%E6%B5%8B%E6%8A%80%E6%9C%AF"><span class="toc-number">3.2.</span> <span class="toc-text">动态分支预测技术</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#BHT-branch-history-table"><span class="toc-number">3.2.1.</span> <span class="toc-text">BHT branch history table</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BTB-branch-target-buffer"><span class="toc-number">3.2.2.</span> <span class="toc-text">BTB branch target buffer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E6%8C%87%E4%BB%A4%E6%B5%81%E5%87%BA%E6%8A%80%E6%9C%AF"><span class="toc-number">3.3.</span> <span class="toc-text">多指令流出技术</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%AD%98%E5%82%A8%E7%B3%BB%E7%BB%9F"><span class="toc-number">4.</span> <span class="toc-text">第七章 存储系统</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#cache"><span class="toc-number">4.1.</span> <span class="toc-text">cache</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%94%BE"><span class="toc-number">4.1.1.</span> <span class="toc-text">如何放</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE"><span class="toc-number">4.1.2.</span> <span class="toc-text">如何找</span></a></li></ol></li></ol></li></ol>	
         </div>
     
 </div>

@@ -398,7 +398,7 @@
   <entry>
     <title>java</title>
     <url>/2020/01/25/java/</url>
-    <content><![CDATA[<h1 id="Java-基础"><a href="#Java-基础" class="headerlink" title="Java 基础"></a>Java 基础</h1><blockquote>
+    <content><![CDATA[<h1 id="Java-背景"><a href="#Java-背景" class="headerlink" title="Java 背景"></a>Java 背景</h1><blockquote>
 <p>简单介绍java的基础知识</p>
 </blockquote>
 <span id="more"></span>
@@ -424,7 +424,22 @@
 </li>
 <li></li>
 </ul>
-<h1 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h1><h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<h1 id="java基础"><a href="#java基础" class="headerlink" title="java基础"></a>java基础</h1><h2 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h2><ul>
+<li><p>工具</p>
+<p>javac 编译, java 运行, jdb 调试</p>
+</li>
+<li><p>版本</p>
+<p>java SE 桌面, java EE 服务器, java ME 嵌入式移动设备</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">xxx</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ......;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">double</span> value : myList) &#123;</span><br><span class="line">    	sum += value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>JVM</p>
+<p>java源码编译后生成.class 文件, 由字节码构成</p>
+</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
 <li>整数: byte, short, int, long</li>
 </ul>
 <h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><h2 id="spring-boot"><a href="#spring-boot" class="headerlink" title="spring boot"></a>spring boot</h2><p><a href="https://jimmysong.io/posts/spring-boot-quick-start-guide/">参考</a></p>
@@ -2453,6 +2468,96 @@
 <h2 id="显卡"><a href="#显卡" class="headerlink" title="显卡"></a>显卡</h2><p>显卡核心频率和显存频率不受基础频率影响, 可以随意设置</p>
 <h1 id="总线"><a href="#总线" class="headerlink" title="总线"></a>总线</h1><h2 id="串并行"><a href="#串并行" class="headerlink" title="串并行"></a>串并行</h2><p>趋势: 并行-&gt;串行</p>
 <p>并行: 多个数据同时传输, 需要做到整齐同步, 速度慢</p>
+<h1 id="PCIe"><a href="#PCIe" class="headerlink" title="PCIe"></a>PCIe</h1><h2 id="ISA-总线"><a href="#ISA-总线" class="headerlink" title="ISA 总线"></a>ISA 总线</h2><p>上世纪 80 年代, 并行总线</p>
+<h2 id="PCI"><a href="#PCI" class="headerlink" title="PCI"></a>PCI</h2><p>即插即用, 并行传输, 共享总线, 不支持热拔插(带电插拔)</p>
+<h2 id="PCIe-1"><a href="#PCIe-1" class="headerlink" title="PCIe"></a>PCIe</h2><ul>
+<li>存在形态: 接口(插显卡, 网卡, 声卡等等, 转 M2, USB 等等), 通道(M2, 雷电 3)</li>
+<li>残血 PCIe*2 满血 PCIe*4</li>
+<li>PCIe*4 -&gt; 4GB/s , M2 速度不会超过 4GB/s</li>
+</ul>
+<h1 id="南桥-south-bridge"><a href="#南桥-south-bridge" class="headerlink" title="南桥 south bridge"></a>南桥 south bridge</h1><blockquote>
+<p>帮助 cpu 和其他部分交换数据</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1goz3hlbb13j316y0u0hdt.jpg" alt="IMG_1F0D3A668A43-1"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1goz3itxq82j30wz0u0qsy.jpg" alt="IMG_46EC5860BC5E-1"></p>
+<p>直连 cpu 的 PCIe 只有 16 条, 所以插一个显卡 PCIe 就全部被占用了</p>
+<p>cpu 和南桥(DMI3.0 其实就是 PCIe3.0*4)上限是 4GB/s</p>
+<h1 id="硬盘-HDD-hard-disk-drive"><a href="#硬盘-HDD-hard-disk-drive" class="headerlink" title="硬盘 HDD(hard disk drive)"></a>硬盘 HDD(hard disk drive)</h1><ul>
+<li>机械硬盘: 写数据直接覆盖, 删除 FAT 表</li>
+<li>LMR, PMR(CMR)</li>
+<li>SMR 瓦楞式堆叠硬盘</li>
+</ul>
+<h2 id="fat-表"><a href="#fat-表" class="headerlink" title="fat 表"></a>fat 表</h2><h2 id="磁盘阵列"><a href="#磁盘阵列" class="headerlink" title="磁盘阵列"></a>磁盘阵列</h2><ul>
+<li>raid0 一个数据分成 n 份, 带宽提高 n 倍, 最不安全, 速度最快</li>
+<li>raid1 自动备份, 最安全, 空间利用最低, 速度不增</li>
+<li>raid2 海明校验, 在 raid0 基础上增加纠错功能</li>
+<li>raid3 raid0 + 一个存储恢复码的磁盘, 数据拆分</li>
+<li>raid4 raid0 + 一个存储恢复码的磁盘, 数据不拆分</li>
+<li>raid5 raid34 可能会因为恢复盘而制约性能, raid5 把恢复码分散到所有磁盘中</li>
+<li>raid6 raid345 只能容灾一个磁盘, raid6 在 raid5 基础上使用两个容灾磁盘</li>
+</ul>
+<h1 id="固态硬盘-SSD-solid-state-disk-drive"><a href="#固态硬盘-SSD-solid-state-disk-drive" class="headerlink" title="固态硬盘 SSD(solid state disk/drive)"></a><a href="http://www.pceva.com.cn/article/31-1.html">固态硬盘 SSD(solid state disk/drive)</a></h1><blockquote>
+<p>lba logical block address</p>
+<p>固态硬盘: TRIM 回收指令, 在硬盘空闲时会自动执行, 固态硬盘在写入前必须进行擦除操作</p>
+</blockquote>
+<h2 id="层次"><a href="#层次" class="headerlink" title="层次"></a>层次</h2><p>die -&gt; plane -&gt; block -&gt; page</p>
+<p><img src="http://bbs.pceva.com.cn/data/attachment/forum/month_1101/11013008324fdf5d20f5089eb1.jpg" alt="image001.jpg"></p>
+<p>主控每个通道连接一个 Die, 写入时类似 raid0, 多通道提高带宽</p>
+<p>写满后:<br><code>在SSD主控制器看来，这里的文件都是有效的，也就是不能擦除. 在操作系统的要求下，继续写入数据的话就要在空余的地方写入，对于SSD来说，这时候就需要把整个块的绿色读进缓存并更新操作系统发来的数据，之后擦除这整个块并把缓存里的整个更新完的块写回去，这样即使写入4KB的数据，其实也是大费周章的折腾，这就是早期SSD主控制器或者U盘写入放大高的道理，这些SSD的算法上不支持GC，也没有Trim,所以在随机写入的表现上非常的悲剧。</code></p>
+<h2 id="gc-garbage-collection"><a href="#gc-garbage-collection" class="headerlink" title="gc garbage collection"></a>gc garbage collection</h2><p>垃圾回收的功能是将所有Block中的有效Page合并到一个新的Block中，并将旧的Block进行擦除，这样做的好处一方面减少寻址负担，另一方面留出更多的空闲Block。</p>
+<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><h2 id="双通道"><a href="#双通道" class="headerlink" title="双通道"></a>双通道</h2><p>内存带宽 = 内存核心频率 * 内存总线位宽 * 倍增系数</p>
+<p>IMC(memory controller i/o) 最大只支持双通道内存</p>
+<h2 id="性能制约"><a href="#性能制约" class="headerlink" title="性能制约"></a>性能制约</h2><ul>
+<li>标注内存频率为保底频率</li>
+<li>主板不超频时, 内存下限由内存本身决定, 内存上限由 cpu 默认内存频率和内存本身体质决定</li>
+<li>主板超频时内存频率无视 cpu 默认内存频率, 内存下限由内存本身决定, 内存上限由内存体质, IMC 性能/体质, 主板布线和电气性能决定</li>
+</ul>
+<h1 id="屏幕"><a href="#屏幕" class="headerlink" title="屏幕"></a>屏幕</h1><p>屏幕响应时间: 颜色 1 切换到颜色 2 的时间</p>
+<p>灰阶响应时间</p>
+<p>调光</p>
+<ul>
+<li>DC 电压高灯亮 LCD</li>
+<li>PWM 调整占空比 OLED 低频 PWM</li>
+</ul>
+<p>LCD: PPI = (x^2^ + y^2^)^1/2^ / 屏幕尺寸 &gt;=300</p>
+<h2 id="LCD"><a href="#LCD" class="headerlink" title="LCD"></a>LCD</h2><p>背光层(发光)+液晶层(遮光)+滤光片(分光)</p>
+<p>背光层是整个屏幕一个大的背光层</p>
+<p>黑色不是完全黑色</p>
+<p>边缘会漏光</p>
+<p>屏幕响应时间长, 温度越低液晶变化越慢时间越长</p>
+<p>耗电</p>
+<h2 id="OLED"><a href="#OLED" class="headerlink" title="OLED"></a>OLED</h2><p>发光二极管, 通电越多越亮, 每个子像素都是独立控制开关</p>
+<ul>
+<li>可以做息屏提醒</li>
+<li>近乎无限的对比度</li>
+<li>黑白响应时间比彩色切换时间长</li>
+<li>薄</li>
+<li>可弯曲, 曲面屏, 折叠屏</li>
+<li>寿命短: 有机物+频繁电子迁移+自发光, 烧屏</li>
+<li>理论分辨率</li>
+</ul>
+<h2 id="色域"><a href="#色域" class="headerlink" title="色域"></a>色域</h2><p>可见光 380nm~780nm</p>
+<p>CIE 色彩空间</p>
+<p>常见色彩空间</p>
+<ul>
+<li>sRGB 100%</li>
+<li>NTSC</li>
+<li>Adobe RGB</li>
+<li>DCI-P3</li>
+</ul>
+<blockquote>
+<p>并不是色域越广越好 -&gt; 过饱和</p>
+</blockquote>
+<h3 id="色彩管理"><a href="#色彩管理" class="headerlink" title="色彩管理"></a>色彩管理</h3><p>ICC 文件 实现色彩校准, 将数据和屏幕匹配(映射)</p>
+<h2 id="色准"><a href="#色准" class="headerlink" title="色准"></a>色准</h2><p>显示颜色的准确度</p>
+<p>△E 越小色准越高 正常: 3-5</p>
+<h2 id="色深"><a href="#色深" class="headerlink" title="色深"></a>色深</h2><p>eg: 8/10bit-颜色</p>
+<p>2^8^ bit -&gt; 2^8^个色阶</p>
+<p>FRC 用抖动增加色阶</p>
+<h1 id="显卡-1"><a href="#显卡-1" class="headerlink" title="显卡"></a>显卡</h1><h2 id="DLSS"><a href="#DLSS" class="headerlink" title="DLSS"></a>DLSS</h2><h3 id="采样率"><a href="#采样率" class="headerlink" title="采样率"></a>采样率</h3><p>锯齿 光栅化 (采样率) -&gt; 抗锯齿</p>
+<h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><h1 id="电源"><a href="#电源" class="headerlink" title="电源"></a>电源</h1><p>非模组: 不可拆卸</p>
+<p>全模组: 可拆卸</p>
+<p>半模组: 部分可拆卸</p>
 <h1 id="装机"><a href="#装机" class="headerlink" title="装机"></a>装机</h1><h1 id="windows-系统安装"><a href="#windows-系统安装" class="headerlink" title="windows 系统安装"></a>windows 系统安装</h1><h2 id="iso镜像写入"><a href="#iso镜像写入" class="headerlink" title="iso镜像写入"></a>iso镜像写入</h2><ul>
 <li>U盘格式化方式: FAT32, exFAT, NTFS<ul>
 <li>exFAT, NTFS 识别有问题</li>
@@ -2862,10 +2967,275 @@
     <url>/2021/03/22/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84/</url>
     <content><![CDATA[<blockquote>
 <p>简介</p>
+<p>$\frac{a}{b}$</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="计算机系统结构"><a href="#计算机系统结构" class="headerlink" title="计算机系统结构"></a>计算机系统结构</h1><h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2>]]></content>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpbhsx1afpj30kq0ciaan.jpg" alt="C158860121CB11859CBAEB3809185D18"></p>
+<h1 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h1><h2 id="Amdahl-定律"><a href="#Amdahl-定律" class="headerlink" title="Amdahl 定律"></a>Amdahl 定律</h2><ul>
+<li><p>加速比: $S_n = \frac{新速度}{老速度} = \frac{T_o}{T_n}$</p>
+<p>$S_n = \frac{1}{(1-F_e) + \frac{F_e}{S_e}}$</p>
+<p>推导: $T_n = T_o(1-F_e+\frac{F_e}{S_e})$</p>
+<p>S<del>e</del> 改进部分的部件加速比</p>
+<p>F<del>e</del> 改进部分原执行时间占原总时间的百分比</p>
+<ul>
+<li>加快经常性时间</li>
+<li>Huffman 编码</li>
+</ul>
+</li>
+</ul>
+<h2 id="CPU-性能公式"><a href="#CPU-性能公式" class="headerlink" title="CPU 性能公式"></a>CPU 性能公式</h2><ul>
+<li><p>CPU 时间: 一个程序在 CPU 上运行的时间, 不包括 I/O 时间</p>
+<ul>
+<li>时钟周期时间</li>
+<li>程序的时钟周期数<ul>
+<li>指令周期数 CPI = 执行程序所需时钟周期数/IC </li>
+<li>IC: 执行指令条数</li>
+</ul>
+</li>
+</ul>
+<p>CPU 时间 = IC * CPI * 时钟周期时间</p>
+<p>CPU 时间 = IC * CPI / 时钟频率</p>
+</li>
+</ul>
+<h2 id="局部性原理"><a href="#局部性原理" class="headerlink" title="局部性原理"></a>局部性原理</h2><ul>
+<li>时间</li>
+<li>空间 </li>
+</ul>
+<h2 id="系统评价指标"><a href="#系统评价指标" class="headerlink" title="系统评价指标"></a>系统评价指标</h2><ul>
+<li><p>响应时间: 完成一个任务的全部时间(用户角度)</p>
+</li>
+<li><p>吞吐率: 单位时间内完成的任务数(管理员)</p>
+</li>
+<li><p>$MIPS = \frac{指令条数}{执行时间 \times 10^6} = \frac{f}{CPI \times 10^6}$</p>
+<ul>
+<li>依赖于指令集</li>
+<li>程序不同 MPIS 不同</li>
+<li>唯一可靠的是测真实程序的执行时间</li>
+</ul>
+</li>
+<li><p>基准测试程序: Benchmark</p>
+<p>实际应用程序, 修正的(脚本化的)应用程序, 核心测试程序, 小测试程序, 合成测试程序</p>
+</li>
+<li><p>成本</p>
+<p>部件成本, 直接成本, 毛利润, 平均折扣</p>
+</li>
+<li><p>功耗</p>
+</li>
+<li><p>可靠性和可用性</p>
+<ul>
+<li>可靠性: MTTF(平均故障时间) </li>
+<li>可用性:$ \frac{MTTF}{MTTF+MTTR}$ MTTR(平均修复时间)</li>
+</ul>
+</li>
+</ul>
+<h2 id="系统结构的发展"><a href="#系统结构的发展" class="headerlink" title="系统结构的发展"></a>系统结构的发展</h2><ul>
+<li>冯诺依曼<ul>
+<li>以计算器为中心</li>
+<li>存储器中数据和指令同等对待</li>
+<li>存储器按地址访问, 按线性编址, 每个单元位数固定</li>
+<li>指令的执行时顺序的</li>
+</ul>
+</li>
+<li>冯诺依曼的发展<ul>
+<li>输入输出的改进<ul>
+<li>程序控制<ul>
+<li>程序等待: 轮巡 i/o 设备</li>
+<li>程序中断</li>
+</ul>
+</li>
+<li>DMA(Direct Memory Access) 直接存储器访问: 减少 CPU 对 i/o 的干预, 通过硬件为RAM和IO设备开辟一条直接传输数据的通道</li>
+<li><a href="https://blog.csdn.net/starter_____/article/details/101615848">i/o 处理机</a><br><img src="https://img-blog.csdnimg.cn/20190928144959429.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3N0YXJ0ZXJfX19fXw==,size_16,color_FFFFFF,t_70" alt="在这里插入图片描述"></li>
+</ul>
+</li>
+<li>并行技术<ul>
+<li>指令内部并行</li>
+<li>指令级并行</li>
+<li>线程级并行</li>
+<li>任务级, 过程级并行</li>
+<li>作业, 程序级并行</li>
+</ul>
+</li>
+<li>存储器组织结构<ul>
+<li>相联存储器</li>
+<li>通用寄存器</li>
+<li>高速缓存 Cache</li>
+</ul>
+</li>
+<li>指令系统<ul>
+<li>CISC</li>
+<li>RISC</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="器件对系统结构的影响"><a href="#器件对系统结构的影响" class="headerlink" title="器件对系统结构的影响"></a>器件对系统结构的影响</h2><ul>
+<li><p>1945-1954 ENIAC</p>
+<ul>
+<li>电子管和继电器</li>
+<li>机器语言, 汇编语言</li>
+<li>存储程序, 计算机程序控制 i/o</li>
+</ul>
+</li>
+<li><p>1955-1964 IBM7030</p>
+<ul>
+<li>晶体管</li>
+<li>浮点数表示, 寻址技术, 中断, i/o 处理机</li>
+<li>高级语言, 编译, 批处理监控系统</li>
+</ul>
+</li>
+<li><p>1965-1974 IBM370</p>
+<ul>
+<li><p>SSI(小规模集成电路), MSI(中规模集成电路), 多层印刷电路, 微程序</p>
+</li>
+<li><p>流水线, cache, 先行处理, 系列机</p>
+</li>
+<li><p>多道程序, 分时操作系统</p>
+</li>
+</ul>
+</li>
+<li><p>1975-1991 Cray-1</p>
+<ul>
+<li>LSI(大规模集成电路), VLSI(超大规模集成电路), 半导体存储器</li>
+<li>向量处理, 分布式存储器</li>
+<li>并行, 分布处理</li>
+</ul>
+</li>
+<li><p>1991-</p>
+<ul>
+<li>高性能微处理器, 高密度电路</li>
+<li>超标量, 超流水线, SMP, MP, MPP, 机群</li>
+<li>大规模, 可扩展性, 并行, 分布处理</li>
+</ul>
+</li>
+</ul>
+<h1 id="第三章-流水线技术"><a href="#第三章-流水线技术" class="headerlink" title="第三章 流水线技术"></a>第三章 流水线技术</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>分类:</p>
+<ul>
+<li><p>单功能流水线</p>
+</li>
+<li><p>多功能流水线</p>
+<p>多功能流水线又可分为</p>
+<ul>
+<li>静态流水线</li>
+<li>动态流水线</li>
+</ul>
+</li>
+</ul>
+<p>还可分为线性流水线, 非线性流水线(有反馈回路)</p>
+<p>顺序流水线, 乱序流水线(允许后进来的任务先完成)</p>
+<h2 id="性能指标"><a href="#性能指标" class="headerlink" title="性能指标"></a>性能指标</h2><h3 id="吞吐率TP"><a href="#吞吐率TP" class="headerlink" title="吞吐率TP"></a>吞吐率TP</h3><p>$TP = \frac{n}{T_k}$  任务数/处理完 n 个任务的时间(从“开启这个程序进程”到“程序中调用clock()函数”时之间的CPU时钟计时单元（clock tick）数，在MSDN中称之为挂钟时间（wal-clock）)</p>
+<p>$TP = \frac{n}{(k+n-1)\times △t}$ n 个任务, k 个段, </p>
+<p>$TP_{max} = \frac{1}{△t}$</p>
+<p>$TP = \frac{n}{k+n-1}TP_{max}$</p>
+<p>流水线中执行时间最长的段称为 瓶颈段</p>
+<p>$TP = \frac{n}{\sum_{i=1}^{k}△t_i + (n-1)max(△t_1, △t_2, △t_3)} = \frac{n}{一个任务的时间 + (n-1)瓶颈段的时间}$</p>
+<p>拆分瓶颈段, 重复设置瓶颈段</p>
+<h3 id="加速比"><a href="#加速比" class="headerlink" title="加速比"></a>加速比</h3><p>加速比: $S = \frac{T_s}{T_k}$</p>
+<p>不使用流水线所用的时间与使用流水线所用的时间比</p>
+<p>$S = \frac{nk}{k+n-1}$</p>
+<p>时间不等时</p>
+<p>$S = \frac{n\sum_{i=1}^{k}△t_i}{\sum_{i=1}^{k}△t_i + (n-1)max(△t_1, △t_2, △t_3)}$</p>
+<h3 id="效率-E"><a href="#效率-E" class="headerlink" title="效率(E)"></a>效率(E)</h3><p>效率: 设备实际使用时间/整个运行时间 &lt; 1</p>
+<p>$e_1 = e_2 = … = e_k  = \frac{n}{k+n-1} $</p>
+<p>$E = \frac{e_1+e_2+…+e_k}{k} = \frac{nk}{(k+n-1)k}= TP△t = \frac{S}{k}$</p>
+<p>时间间隔不等</p>
+<p>$E= \frac{n\sum_{i=1}^{k}△t_i}{k[\sum_{i=1}^{k}△t_i + (n-1)max(△t_1, △t_2, △t_3)]}$</p>
+<h2 id="单功能非线性流水线的调度"><a href="#单功能非线性流水线的调度" class="headerlink" title="单功能非线性流水线的调度"></a>单功能非线性流水线的调度</h2><ul>
+<li><p>非线性流水线: 任务在流水线中可能会流经某些段多次</p>
+</li>
+<li><p>启动距离: 向一条非线性流水线输入端 连续输入两个任务 之间的时间间隔</p>
+</li>
+<li><p>禁用启动距离: 会引起 非线性流水线 功能段使用冲突的 启动距离</p>
+</li>
+<li><p>预约表</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp1z4hobarj30vi0bgwvb.jpg" alt="截屏2021-03-30 下午3.41.39"></p>
+</li>
+<li><p>禁止表 F: 由禁用启动距离构成的集合</p>
+<ul>
+<li><p>根据预约表写出禁止表</p>
+<p>对于预约表每一行的任意一对√, 用他们所在的列号相减(大-小)列出各种可能的差值, 差值的集合就是禁止表的元素</p>
+<p>对上图: {8, 1, 5, 6}</p>
+</li>
+</ul>
+</li>
+<li><p>冲突向量 C: N 位二进制串</p>
+<ul>
+<li><p>根据禁止表 F 写出初始冲突向量 C<del>0</del></p>
+<p>设$C_0 = (c_N c_{N-1} … c_i … c_2 c_1)$</p>
+<p>则 $ c_i=<br>\begin{cases}<br>1, i \in F\<br>0, i \notin F<br>\end{cases}$</p>
+<p>C<del>0</del>的意义是当第一个任务进入流水线后, C<del>0</del> 决定了下一个任务需要多少时间间隔才可以流入</p>
+<p>对于 C<del>k</del> , 假设 j 个时钟周期后送入第二个任务, 则 $C_{k+1} = SHR^{(j)} (C_k) \vee C_0 $</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gp1ztoxmbyj30rw0bu1ad.jpg" alt="截屏2021-03-30 下午4.05.56"></p>
+</li>
+</ul>
+</li>
+<li><p>流水线状态转移图</p>
+<ul>
+<li>流水线状态集合(所有冲突向量)</li>
+<li>有向弧</li>
+<li>弧上的数字</li>
+</ul>
+</li>
+</ul>
+<h2 id="相关"><a href="#相关" class="headerlink" title="相关"></a>相关</h2><ul>
+<li><p>数据相关: 对于 i, j 两条指令</p>
+<ul>
+<li>j 使用 i 的结果</li>
+<li>j 与指令 k 数据相关, k 与指令 i 数据相关</li>
+</ul>
+<p>具有传递性</p>
+</li>
+<li><p>名相关: 指令访问的寄存器或存储单元名称</p>
+<ul>
+<li>反相关(先读后写): 指令 j 写的名 = 指令 i 读的名</li>
+<li>输出相关: 指令 j 写的名 = 指令 i 写的名</li>
+</ul>
+</li>
+<li><p>控制相关: 分支指令</p>
+</li>
+</ul>
+<h2 id="流水线冲突"><a href="#流水线冲突" class="headerlink" title="流水线冲突"></a>流水线冲突</h2><ul>
+<li>流水线冲突: 由于相关等原因存在, 使得指令流中的下一条指令不能再指定的时间周期执行</li>
+<li>分类<ul>
+<li>结构冲突: 硬件资源无法满足</li>
+<li>数据冲突: 指令间结果冲突<ul>
+<li>写后读 RAW (常见)</li>
+<li>写后写 WAW</li>
+<li>读后写 WAR</li>
+</ul>
+</li>
+<li>控制冲突: 分支指令</li>
+</ul>
+</li>
+</ul>
+<h1 id="第五章-指令级并行-ILP"><a href="#第五章-指令级并行-ILP" class="headerlink" title="第五章 指令级并行(ILP)"></a>第五章 指令级并行(ILP)</h1><h2 id="指令的动态调度"><a href="#指令的动态调度" class="headerlink" title="指令的动态调度"></a>指令的动态调度</h2><blockquote>
+<p>指令的静态调度: 编译时调度</p>
+<p>指令动态调度: 通过硬件</p>
+</blockquote>
+<h3 id="乱序执行"><a href="#乱序执行" class="headerlink" title="乱序执行"></a>乱序执行</h3><p>将 5 段流水线的译码阶段分为</p>
+<ul>
+<li>流出 Issue IS</li>
+<li>读操作数 Read Operands RO</li>
+</ul>
+<p>引入指令缓冲区, 直到冲突消除</p>
+<p>部署更多执行部件, 使多条指令能同时执行或访存</p>
+<p>但会新出现 WAR 和 WAW 冲突</p>
+<h3 id="寄存器重命名"><a href="#寄存器重命名" class="headerlink" title="寄存器重命名"></a>寄存器重命名</h3><h2 id="动态分支预测技术"><a href="#动态分支预测技术" class="headerlink" title="动态分支预测技术"></a>动态分支预测技术</h2><p>在程序运行时, 根据分支指令过去的表现来预测其将来的行为</p>
+<h3 id="BHT-branch-history-table"><a href="#BHT-branch-history-table" class="headerlink" title="BHT branch history table"></a>BHT branch history table</h3><p>用 BHT 来记录分支指令最近几次的执行情况</p>
+<h3 id="BTB-branch-target-buffer"><a href="#BTB-branch-target-buffer" class="headerlink" title="BTB branch target buffer"></a>BTB branch target buffer</h3><p>分支开销降为 0</p>
+<h2 id="多指令流出技术"><a href="#多指令流出技术" class="headerlink" title="多指令流出技术"></a>多指令流出技术</h2><p>理想 CPI &lt; 1</p>
+<h1 id="第七章-存储系统"><a href="#第七章-存储系统" class="headerlink" title="第七章 存储系统"></a>第七章 存储系统</h1><h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><h3 id="如何放"><a href="#如何放" class="headerlink" title="如何放"></a>如何放</h3><ul>
+<li><p>全相联映像</p>
+<p>任意存, </p>
+</li>
+<li><p>直接映像</p>
+</li>
+<li><p>组相联映像</p>
+</li>
+</ul>
+<h3 id="如何找"><a href="#如何找" class="headerlink" title="如何找"></a>如何找</h3><p>地址变换</p>
+]]></content>
       <categories>
         <category>cs</category>
       </categories>
