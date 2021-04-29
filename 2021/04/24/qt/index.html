@@ -1,0 +1,239 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>qt - Sinos_wei&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+qt 入门教程
+
+
+
+Qt 入门what is QtQt是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如,"> 
+    <meta name="author" content="Sinos_wei"> 
+    <link rel="alternative" href="atom.xml" title="Sinos_wei&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/a33.jpg"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Sinos_wei&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">qt</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">qt</h1>
+        <div class="stuff">
+            <span>四月 24, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/qt/" rel="tag">qt</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+<p>qt 入门教程</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="Qt-入门"><a href="#Qt-入门" class="headerlink" title="Qt 入门"></a>Qt 入门</h1><h2 id="what-is-Qt"><a href="#what-is-Qt" class="headerlink" title="what is Qt"></a>what is Qt</h2><p>Qt是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。Qt是面向对象的框架，使用特殊的代码生成扩展（称为元对象编译器(Meta Object Compiler, moc)）以及一些宏，Qt很容易扩展，并且允许真正地组件编程。基本上，Qt 同X Window上的 Motif，Openwin，GTK 等图形界 面库和 Windows 平台上的MFC，OWL，VCL，ATL 是同类型的东西。</p>
+<h2 id="how-to-use-Qt"><a href="#how-to-use-Qt" class="headerlink" title="how to use Qt"></a>how to use Qt</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="qt.io">Qt 官网</a></p>
+<p>在 Qt 官网<a target="_blank" rel="noopener" href="https://www.qt.io/download">下载</a> Qt 及其 IDE QtCreator</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv2g5txzij30uu0b2gnm.jpg" alt="截屏2021-04-24 下午7.38.05"></p>
+<p>用 MaintenanceTool 下载对应版本和额外的组件.</p>
+<p>用 QtCreator 进行开发</p>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>进入 QtCreator 后新建项目可以看到以下选项</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv2lgzoqtj30vk0dg402.jpg" alt="截屏2021-04-24 下午7.43.14"></p>
+<p>Qt Widgets Application 是新建窗口项目</p>
+<p>Qt Console Application 是新建命令行项目</p>
+<p>下面以窗口项目进行演示</p>
+<h3 id="窗口项目"><a href="#窗口项目" class="headerlink" title="窗口项目"></a>窗口项目</h3><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv2pcvrpsj30dg0a6q3t.jpg" alt="截屏2021-04-24 下午7.46.59"></p>
+<p>下面依次介绍一个 Qt 项目的目录</p>
+<ul>
+<li><p>.pro</p>
+<p><code>QT       += core gui</code> 等是代表模块的加载, 如果需要新的模块比如编写 socket 网络内容需要添加如<code>QT       += network</code></p>
+<p>之后的目录代码如<code>SOURCES +=     main.cpp mainwindow.cpp</code>是项目文件配置, 一般是自动补充的.</p>
+</li>
+<li><p>Headers/</p>
+<p>保存项目头文件(.h)</p>
+</li>
+<li><p>Sources/</p>
+<p>保存项目文件(.cpp)</p>
+</li>
+<li><p>Forms/</p>
+<p>设计界面</p>
+</li>
+<li><p>Other/</p>
+<p>其他文件</p>
+</li>
+</ul>
+<p>代码主要保存在 Sources 和 Headers 文件夹中, ui 设计在 Forms 文件夹中</p>
+<h4 id="main-文件与类"><a href="#main-文件与类" class="headerlink" title="main 文件与类"></a>main 文件与类</h4><p>main.cpp </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;mainwindow.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;<span class="comment">//新应用</span></span><br><span class="line">    MainWindow w;              <span class="comment">//新窗口</span></span><br><span class="line">    w.<span class="built_in">show</span>();                  <span class="comment">//窗口显示</span></span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();           <span class="comment">//应用执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mainwindow.h</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MAINWINDOW_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAINWINDOW_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QMainWindow&gt;</span></span></span><br><span class="line"></span><br><span class="line">QT_BEGIN_NAMESPACE</span><br><span class="line"><span class="keyword">namespace</span> Ui &#123; <span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span>;</span> &#125;</span><br><span class="line">QT_END_NAMESPACE</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span> :</span> <span class="keyword">public</span> QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">    <span class="comment">//继承 QObject 类的宏, 在 Qt 中, 所有组件都继承 QObject 类</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MainWindow</span>(QWidget *parent = <span class="literal">nullptr</span>);</span><br><span class="line">    <span class="comment">//构造函数</span></span><br><span class="line">    ~<span class="built_in">MainWindow</span>();</span><br><span class="line">  	<span class="comment">//析构函数</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    Ui::MainWindow *ui;</span><br><span class="line">  	<span class="comment">//ui 对象指针</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// MAINWINDOW_H</span></span></span><br></pre></td></tr></table></figure>
+
+<p>mainwindow.cpp</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;mainwindow.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ui_mainwindow.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">MainWindow::<span class="built_in">MainWindow</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QMainWindow</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::MainWindow)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//建立 ui</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MainWindow::~<span class="built_in">MainWindow</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="按钮实例"><a href="#按钮实例" class="headerlink" title="按钮实例"></a>按钮实例</h4><p>下面演示实现一个按钮功能</p>
+<ol>
+<li><p>在 mainwindow.ui 中拖入 qpushbutton, 在右侧属性栏可以对组件属性进行编辑(比如文字, 大小等)<br><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv38m0izgj30rm0dojsw.jpg" alt="截屏2021-04-24 下午8.05.27"></p>
+</li>
+<li><p>如果要对 button 实现点击功能, 可以右键按钮-&gt;转到槽-&gt;clicked(), 就会添加对应的槽函数(可以理解为点击后执行的函数)<br>具体实现机理请查阅 “<strong>Qt 信号与槽</strong>“</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MainWindow::on_pushButton_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>如果要用代码实现对这个按钮进行操作, 比如设置显示文字, 可以参考如下代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MainWindow::on_pushButton_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ui-&gt;pushButton-&gt;<span class="built_in">setText</span>(<span class="string">&quot;text&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这个例子是为了说明, 如果要访问这个按钮需要使用 ui 指针</span></span><br><span class="line"><span class="comment">//注意有的时候 ui-&gt;后可能没有对应组件, 一般是新组件未加载, 可以编译一边来解决</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>以上就是基本的 Qt 使用方式.</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Qt-%E5%85%A5%E9%97%A8"><span class="toc-number">1.</span> <span class="toc-text">Qt 入门</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#what-is-Qt"><span class="toc-number">1.1.</span> <span class="toc-text">what is Qt</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#how-to-use-Qt"><span class="toc-number">1.2.</span> <span class="toc-text">how to use Qt</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.2.1.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.3.</span> <span class="toc-text">简单介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E9%A1%B9%E7%9B%AE"><span class="toc-number">1.3.1.</span> <span class="toc-text">窗口项目</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.1.1.</span> <span class="toc-text">目录结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#main-%E6%96%87%E4%BB%B6%E4%B8%8E%E7%B1%BB"><span class="toc-number">1.3.1.2.</span> <span class="toc-text">main 文件与类</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8C%89%E9%92%AE%E5%AE%9E%E4%BE%8B"><span class="toc-number">1.3.1.3.</span> <span class="toc-text">按钮实例</span></a></li></ol></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>

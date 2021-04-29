@@ -432,18 +432,127 @@
 <p>java SE 桌面, java EE 服务器, java ME 嵌入式移动设备</p>
 </li>
 </ul>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">xxx</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ......;</span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">double</span> value : myList) &#123;</span><br><span class="line">    	sum += value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">xxx</span></span>&#123;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span></span>&#123;</span><br><span class="line">    ......;</span><br><span class="line">    <span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">7</span>];<span class="comment">//数组定义</span></span><br><span class="line">    <span class="keyword">for</span>(<span class="keyword">double</span> value : myList) &#123;</span><br><span class="line">    	sum += value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <ul>
 <li><p>JVM</p>
 <p>java源码编译后生成.class 文件, 由字节码构成</p>
 </li>
+<li><p>源文件.java -&gt; 编译后.class</p>
+</li>
+<li><p>栈: 方法调用和局部变量</p>
+</li>
+<li><p>堆: 所有的对象</p>
+</li>
 </ul>
 <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
-<li>整数: byte, short, int, long</li>
+<li><p>整数: byte 8, short 16, int 32, long 64</p>
+</li>
+<li><p>小数: float 32, double 64</p>
+</li>
+<li><p>boolean 未明确定义, char 16</p>
+</li>
+<li><p>数组也是对象</p>
+</li>
+<li><p>主数据包装</p>
+<p>Boolean Character Byte Short Integer Long Float Double</p>
+<p><code>Integer wrap = new Integer(i);</code></p>
+<p><code>int unwrap = wrap.intValue();</code></p>
+<p><code>int x = Integer.parseInt(&quot;2&quot;);</code></p>
+</li>
 </ul>
-<h2 id="Tomcat"><a href="#Tomcat" class="headerlink" title="Tomcat"></a>Tomcat</h2><h2 id="spring-boot"><a href="#spring-boot" class="headerlink" title="spring boot"></a>spring boot</h2><p><a href="https://jimmysong.io/posts/spring-boot-quick-start-guide/">参考</a></p>
-<h3 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h3><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+<h2 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h2><ul>
+<li>对象作为参数, 传入的是对象(指针)的拷贝</li>
+<li>实例变量(类中声明)不定义会有初始值(0, null), 局部变量不会有, 编译会报错</li>
+<li>对象比较: == 是否指向同一对象, .equals() 完全相等</li>
+</ul>
+<h2 id="实用类"><a href="#实用类" class="headerlink" title="实用类"></a>实用类</h2><h3 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h3><p><code>ArrayList&lt;String&gt; list = new ArrayList&lt;String&gt;();</code></p>
+<p>不能使用[]</p>
+<p>如何引入 ArrayList?</p>
+<ol>
+<li><code>import java.util.ArrayList;</code></li>
+<li><code>java.util.ArrayList&lt;String&gt; list = new java.util.ArrayList&lt;String&gt;()</code></li>
+</ol>
+<h2 id="类"><a href="#类" class="headerlink" title="类"></a>类</h2><h3 id="继承"><a href="#继承" class="headerlink" title="继承"></a>继承</h3><p>所有类都继承自Object, Object 不是抽象类</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//object 方法</span></span><br><span class="line">equals();</span><br><span class="line">getClass();</span><br><span class="line">hashCode(); <span class="comment">//唯一 id</span></span><br><span class="line">toString();</span><br></pre></td></tr></table></figure>
+
+<p><code>public class classson extends classfather&#123;&#125;</code></p>
+<p>调用父类方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span></span>&#123;</span><br><span class="line">  <span class="keyword">super</span>.method();</span><br><span class="line">  ...;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>权限:</p>
+<p>public 会被继承, private 不会被继承</p>
+</li>
+<li><p>final 修饰方法: 不可被覆盖</p>
+</li>
+<li><p>覆盖 override: 参数一样, 返回类型一样或者是之前返回类型的子类, 权限需要更开放(public 不能覆盖成 private)</p>
+</li>
+<li><p>重载 overload: 参数不一样, 返回可以不一样, 但不能只改变返回类型, 权限任意改变</p>
+</li>
+<li><p>根据引用判断还是根据确实类型判断?</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Father</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;father&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span> <span class="keyword">extends</span> <span class="title">Father</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Son son = <span class="keyword">new</span> Son();</span><br><span class="line">        Father father = son;</span><br><span class="line">        son.m();</span><br><span class="line">        father.m();</span><br><span class="line">        <span class="comment">//father.m_only(); 无法通过编译</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;son&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">m_only</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;son only&quot;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>输出: son son</p>
+</li>
+<li><p>强制类型转换:  <code>Dog d = (Dog)o;</code><br>检查是否可以转换: <code>if(o isstanceof Dog)</code></p>
+</li>
+<li><p>不支持多重继承, 请使用接口</p>
+</li>
+</ul>
+<h3 id="抽象类"><a href="#抽象类" class="headerlink" title="抽象类"></a>抽象类</h3><p><code>abstract public class abclass&#123;&#125;</code> 必须被继承</p>
+<ul>
+<li>抽象方法: <code>public abstract void func();</code> 不可以在非抽象类中声明抽象方法, 必须被<strong>覆盖</strong>, 函数体为空</li>
+</ul>
+<h3 id="接口-interface"><a href="#接口-interface" class="headerlink" title="接口 interface"></a>接口 interface</h3><p><code>public class sonClass extends fatherClass implements interfaceClass1, interfaceClass2</code></p>
+<p>纯的抽象类</p>
+<p>继承接口以后必须要实现接口的抽象方法</p>
+<h3 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h3><p>只有在没有任何构造函数时, 编译器才会自动生成无参构造函数</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gpvddcdaxyj311k0f4wun.jpg" alt="截屏2021-04-25 上午1.56.01"></p>
+<p>父类的构造函数必须在子类之前完成</p>
+<p>调用父类构造函数<code>super();</code>, 且必须为第一个语句<br>调用其他本身的构造函数<code>this();</code>, 且必须为第一个语句<br>但不能同时调用</p>
+<h3 id="final"><a href="#final" class="headerlink" title="final"></a>final</h3><p>final 变量: 不能被改变</p>
+<p>final 方法: 不能被覆盖</p>
+<p>final class: 不能被继承</p>
+<h3 id="静态"><a href="#静态" class="headerlink" title="静态"></a>静态</h3><p><code>Math.abs();</code></p>
+<p>静态方法无法调用非静态变量, 不能调用非静态方法</p>
+<p>静态变量: 每个类一个</p>
+<p>静态变量会在该类任何对象初始化前初始化<br>静态变量会在该类任何静态方法执行前就初始化</p>
+<p>常量 = final + static 必须初始化</p>
+<h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>&#123;</span><br><span class="line">  MyClass a = <span class="keyword">new</span> MyClass();</span><br><span class="line">  ...</span><br><span class="line">&#125;<span class="keyword">catch</span>(Exception e)&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;<span class="keyword">finally</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">method</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>&#123;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>抛出的异常数量要与 catch 相匹配</p>
+<p>catch 从小到大</p>
+<h2 id="i-o"><a href="#i-o" class="headerlink" title="i/o"></a>i/o</h2><h3 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h3><p>Serializable 接口</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ObjectOutputStream os = <span class="keyword">new</span> ObjectOutputStream(<span class="keyword">new</span> FileOutputStream(<span class="string">&quot;filename&quot;</span>));</span><br><span class="line">os.writeObject(...);</span><br><span class="line">os.close();</span><br></pre></td></tr></table></figure>
+
+<p>跳过序列化: transient</p>
+<h3 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Son</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileWriter writer = <span class="keyword">new</span> FileWriter(<span class="string">&quot;filename&quot;</span>);</span><br><span class="line">            writer.write(<span class="string">&quot;str&quot;</span>);</span><br><span class="line">            writer.close();</span><br><span class="line">        &#125;<span class="keyword">catch</span> (IOException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="线程"><a href="#线程" class="headerlink" title="线程"></a>线程</h2><ol>
+<li>实现 Runnable 类</li>
+<li><code>Thread thread = new Thread(runnable);</code></li>
+<li><code>thread.start();</code></li>
+</ol>
+<p>Runnable 类<br><code>public void run()&#123;...&#125;</code></p>
+<p><code>synchronized</code> 修饰方法, 只能被单一线程存取</p>
+<h2 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.*;</span><br><span class="line"><span class="keyword">import</span> java.net.*;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySocketDemo</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Socket socket = <span class="keyword">new</span> Socket(<span class="string">&quot;127.0.0.1&quot;</span>, <span class="number">8899</span>);</span><br><span class="line">        </span><br><span class="line">        InputStreamReader stream = <span class="keyword">new</span> InputStreamReader(socket.getInputStream());</span><br><span class="line">        BufferedReader reader = <span class="keyword">new</span> BufferedReader(stream);</span><br><span class="line">        String msg = reader.readLine();</span><br><span class="line">        </span><br><span class="line">        PrintWriter writer = <span class="keyword">new</span> PrintWriter(socket.getOutputStream());</span><br><span class="line">        writer.println(<span class="string">&quot;msg&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        ServerSocket sever = <span class="keyword">new</span> ServerSocket(<span class="number">8899</span>);</span><br><span class="line">        Socket severSocket = sever.accept();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="泛型"><a href="#泛型" class="headerlink" title="泛型"></a>泛型</h2><h3 id="Collections"><a href="#Collections" class="headerlink" title="Collections"></a>Collections</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ToBeCompared</span></span>&#123;</span><br><span class="line">  ArrayList&lt;Song&gt; songList = <span class="keyword">new</span> ArrayList&lt;Song&gt;();</span><br><span class="line">  <span class="class"><span class="keyword">class</span> <span class="title">Comparer</span> <span class="keyword">implements</span> <span class="title">Comparator</span>&lt;<span class="title">Song</span>&gt;</span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">compare</span><span class="params">(Song one, Song two)</span></span>&#123;</span><br><span class="line">      <span class="keyword">return</span> one.xxxx/compareTo(two.xxx);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">go</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Comparer com = <span class="keyword">new</span> Comparer();</span><br><span class="line">    Collections.sort(songList, com);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="打包"><a href="#打包" class="headerlink" title="打包"></a>打包</h2><p>JAR: java archive</p>
+<p><code>java -jar xxx.jar</code></p>
+<h1 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h1><ul>
+<li><p>random()生成 0-1 的值</p>
+</li>
+<li><p>数字格式化 <code>String s = String.format(&quot;%,.2f aha&quot;, 492.23);</code></p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
       <categories>
         <category>language</category>
       </categories>
@@ -2455,10 +2564,12 @@
     <title>硬件茶谈</title>
     <url>/2021/02/15/%E7%A1%AC%E4%BB%B6%E8%8C%B6%E8%B0%88/</url>
     <content><![CDATA[<blockquote>
-<p>硬件茶谈 up 主视频总结</p>
+<p>硬件茶谈 up 主视频 + 零碎硬件知识</p>
 </blockquote>
 <span id="more"></span>
 
+<h1 id="CPU"><a href="#CPU" class="headerlink" title="CPU"></a>CPU</h1><p>SiO<del>2</del> -&gt; Si -&gt; 元晶圆 -&gt; wafer -&gt; die</p>
+<p>多核 cpu 性能优于 多 cpu, 但价格贵</p>
 <h1 id="频率"><a href="#频率" class="headerlink" title="频率"></a>频率</h1><h2 id="外频"><a href="#外频" class="headerlink" title="外频"></a>外频</h2><p>主板晶振 BCLK, 100MHz</p>
 <h2 id="倍频"><a href="#倍频" class="headerlink" title="倍频"></a>倍频</h2><p>cpu 频率相对于外频翻倍</p>
 <h2 id="超频"><a href="#超频" class="headerlink" title="超频"></a>超频</h2><p>超频一般超倍频, 因为改变外频需要其他所有设备同步超频</p>
@@ -2482,12 +2593,74 @@
 <p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1goz3itxq82j30wz0u0qsy.jpg" alt="IMG_46EC5860BC5E-1"></p>
 <p>直连 cpu 的 PCIe 只有 16 条, 所以插一个显卡 PCIe 就全部被占用了</p>
 <p>cpu 和南桥(DMI3.0 其实就是 PCIe3.0*4)上限是 4GB/s</p>
-<h1 id="硬盘-HDD-hard-disk-drive"><a href="#硬盘-HDD-hard-disk-drive" class="headerlink" title="硬盘 HDD(hard disk drive)"></a>硬盘 HDD(hard disk drive)</h1><ul>
+<h1 id="存储器"><a href="#存储器" class="headerlink" title="存储器"></a>存储器</h1><h2 id="概述-csapp"><a href="#概述-csapp" class="headerlink" title="概述(csapp)"></a>概述(csapp)</h2><h3 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h3><ul>
+<li><p>RAM</p>
+<ul>
+<li><p>DRAM -&gt; 内存</p>
+<ul>
+<li>FPM DRAM, EDO DRAM, SDRAM, DDR SDRAM, VRAM</li>
+</ul>
+</li>
+<li><p>SRAM -&gt; cache</p>
+</li>
+<li><p>ROM</p>
+<ul>
+<li><p>PROM, EPROM, EEPROM, FLASH</p>
+</li>
+<li><p>SSD</p>
+<p>U盘=USB控制器+闪存控制器+FLASH<br>固态硬盘=硬盘控制器+FLASH<br>FLASH一般就是各种闪存芯片，一般都是NAND的片子。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>磁盘, 光盘, 磁带</p>
+<ul>
+<li><p>I/O 总线和接口</p>
+<p>USB(universal serial bus), SCSI, SATA 等</p>
+</li>
+<li><p>DMA 设备读写数据不需要 cpu 参与</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>单元大小</th>
+<th>管理器</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CPU 寄存器</td>
+<td>4/8B 一个字</td>
+<td>编译器</td>
+</tr>
+<tr>
+<td>高速缓存</td>
+<td>64B 一个 block</td>
+<td>硬件</td>
+</tr>
+<tr>
+<td>虚拟内存</td>
+<td>4KB 一个 page</td>
+<td>硬件+OS</td>
+</tr>
+<tr>
+<td>磁盘</td>
+<td>512KB 等 一个扇区</td>
+<td>磁盘控制器</td>
+</tr>
+</tbody></table>
+<h3 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h3><p>映射: 内存地址  -&gt; 组内标记 + 组号 + 块偏移<br>组号在中间是为了防止多个地址对应同一个缓存组</p>
+<p>分类: 直接映射, 组相联映射, 全相联</p>
+<h2 id="硬盘-HDD-hard-disk-drive"><a href="#硬盘-HDD-hard-disk-drive" class="headerlink" title="硬盘 HDD(hard disk drive)"></a>硬盘 HDD(hard disk drive)</h2><ul>
 <li>机械硬盘: 写数据直接覆盖, 删除 FAT 表</li>
 <li>LMR, PMR(CMR)</li>
 <li>SMR 瓦楞式堆叠硬盘</li>
 </ul>
-<h2 id="fat-表"><a href="#fat-表" class="headerlink" title="fat 表"></a>fat 表</h2><h2 id="磁盘阵列"><a href="#磁盘阵列" class="headerlink" title="磁盘阵列"></a>磁盘阵列</h2><ul>
+<h3 id="fat-表"><a href="#fat-表" class="headerlink" title="fat 表"></a>fat 表</h3><h3 id="磁盘阵列"><a href="#磁盘阵列" class="headerlink" title="磁盘阵列"></a>磁盘阵列</h3><ul>
 <li>raid0 一个数据分成 n 份, 带宽提高 n 倍, 最不安全, 速度最快</li>
 <li>raid1 自动备份, 最安全, 空间利用最低, 速度不增</li>
 <li>raid2 海明校验, 在 raid0 基础上增加纠错功能</li>
@@ -2496,18 +2669,19 @@
 <li>raid5 raid34 可能会因为恢复盘而制约性能, raid5 把恢复码分散到所有磁盘中</li>
 <li>raid6 raid345 只能容灾一个磁盘, raid6 在 raid5 基础上使用两个容灾磁盘</li>
 </ul>
-<h1 id="固态硬盘-SSD-solid-state-disk-drive"><a href="#固态硬盘-SSD-solid-state-disk-drive" class="headerlink" title="固态硬盘 SSD(solid state disk/drive)"></a><a href="http://www.pceva.com.cn/article/31-1.html">固态硬盘 SSD(solid state disk/drive)</a></h1><blockquote>
+<h2 id="固态硬盘-SSD-solid-state-disk-drive"><a href="#固态硬盘-SSD-solid-state-disk-drive" class="headerlink" title="固态硬盘 SSD(solid state disk/drive)"></a><a href="http://www.pceva.com.cn/article/31-1.html">固态硬盘 SSD(solid state disk/drive)</a></h2><blockquote>
 <p>lba logical block address</p>
 <p>固态硬盘: TRIM 回收指令, 在硬盘空闲时会自动执行, 固态硬盘在写入前必须进行擦除操作</p>
 </blockquote>
-<h2 id="层次"><a href="#层次" class="headerlink" title="层次"></a>层次</h2><p>die -&gt; plane -&gt; block -&gt; page</p>
+<h3 id="层次"><a href="#层次" class="headerlink" title="层次"></a>层次</h3><p>die -&gt; plane -&gt; block -&gt; page</p>
 <p><img src="http://bbs.pceva.com.cn/data/attachment/forum/month_1101/11013008324fdf5d20f5089eb1.jpg" alt="image001.jpg"></p>
 <p>主控每个通道连接一个 Die, 写入时类似 raid0, 多通道提高带宽</p>
 <p>写满后:<br><code>在SSD主控制器看来，这里的文件都是有效的，也就是不能擦除. 在操作系统的要求下，继续写入数据的话就要在空余的地方写入，对于SSD来说，这时候就需要把整个块的绿色读进缓存并更新操作系统发来的数据，之后擦除这整个块并把缓存里的整个更新完的块写回去，这样即使写入4KB的数据，其实也是大费周章的折腾，这就是早期SSD主控制器或者U盘写入放大高的道理，这些SSD的算法上不支持GC，也没有Trim,所以在随机写入的表现上非常的悲剧。</code></p>
-<h2 id="gc-garbage-collection"><a href="#gc-garbage-collection" class="headerlink" title="gc garbage collection"></a>gc garbage collection</h2><p>垃圾回收的功能是将所有Block中的有效Page合并到一个新的Block中，并将旧的Block进行擦除，这样做的好处一方面减少寻址负担，另一方面留出更多的空闲Block。</p>
-<h1 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h1><h2 id="双通道"><a href="#双通道" class="headerlink" title="双通道"></a>双通道</h2><p>内存带宽 = 内存核心频率 * 内存总线位宽 * 倍增系数</p>
+<h3 id="gc-garbage-collection"><a href="#gc-garbage-collection" class="headerlink" title="gc garbage collection"></a>gc garbage collection</h3><p>垃圾回收的功能是将所有Block中的有效Page合并到一个新的Block中，并将旧的Block进行擦除，这样做的好处一方面减少寻址负担，另一方面留出更多的空闲Block。</p>
+<h3 id="接口-协议-总线"><a href="#接口-协议-总线" class="headerlink" title="接口, 协议, 总线"></a>接口, 协议, 总线</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpcsgphh8dj31mr0u07pj.jpg" alt="IMG_1103"></p>
+<h2 id="内存"><a href="#内存" class="headerlink" title="内存"></a>内存</h2><h3 id="双通道"><a href="#双通道" class="headerlink" title="双通道"></a>双通道</h3><p>内存带宽 = 内存核心频率 * 内存总线位宽 * 倍增系数</p>
 <p>IMC(memory controller i/o) 最大只支持双通道内存</p>
-<h2 id="性能制约"><a href="#性能制约" class="headerlink" title="性能制约"></a>性能制约</h2><ul>
+<h3 id="性能制约"><a href="#性能制约" class="headerlink" title="性能制约"></a>性能制约</h3><ul>
 <li>标注内存频率为保底频率</li>
 <li>主板不超频时, 内存下限由内存本身决定, 内存上限由 cpu 默认内存频率和内存本身体质决定</li>
 <li>主板超频时内存频率无视 cpu 默认内存频率, 内存下限由内存本身决定, 内存上限由内存体质, IMC 性能/体质, 主板布线和电气性能决定</li>
@@ -3225,17 +3399,59 @@
 <h3 id="BHT-branch-history-table"><a href="#BHT-branch-history-table" class="headerlink" title="BHT branch history table"></a>BHT branch history table</h3><p>用 BHT 来记录分支指令最近几次的执行情况</p>
 <h3 id="BTB-branch-target-buffer"><a href="#BTB-branch-target-buffer" class="headerlink" title="BTB branch target buffer"></a>BTB branch target buffer</h3><p>分支开销降为 0</p>
 <h2 id="多指令流出技术"><a href="#多指令流出技术" class="headerlink" title="多指令流出技术"></a>多指令流出技术</h2><p>理想 CPI &lt; 1</p>
-<h1 id="第七章-存储系统"><a href="#第七章-存储系统" class="headerlink" title="第七章 存储系统"></a>第七章 存储系统</h1><h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><h3 id="如何放"><a href="#如何放" class="headerlink" title="如何放"></a>如何放</h3><ul>
-<li><p>全相联映像</p>
-<p>任意存, </p>
-</li>
-<li><p>直接映像</p>
-</li>
-<li><p>组相联映像</p>
-</li>
+<h3 id="超标量"><a href="#超标量" class="headerlink" title="超标量"></a>超标量</h3><p>每周期流出指令数量</p>
+<h3 id="超长指令字-VLIW"><a href="#超长指令字-VLIW" class="headerlink" title="超长指令字 VLIW"></a>超长指令字 VLIW</h3><p>流出指令数量固定, 构成一个长指令或指令包</p>
+<h3 id="超流水线"><a href="#超流水线" class="headerlink" title="超流水线"></a>超流水线</h3><p>每一个流水线段细分</p>
+<h1 id="第七章-存储系统"><a href="#第七章-存储系统" class="headerlink" title="第七章 存储系统"></a>第七章 存储系统</h1><h2 id="cache"><a href="#cache" class="headerlink" title="cache"></a>cache</h2><h3 id="三种类型的不命中"><a href="#三种类型的不命中" class="headerlink" title="三种类型的不命中"></a>三种类型的不命中</h3><h4 id="强制不命中-第一次启动"><a href="#强制不命中-第一次启动" class="headerlink" title="强制不命中: 第一次启动"></a>强制不命中: 第一次启动</h4><p>增加块大小</p>
+<p>预取</p>
+<h4 id="容量不命中-容量不足"><a href="#容量不命中-容量不足" class="headerlink" title="容量不命中: 容量不足"></a>容量不命中: 容量不足</h4><p>增加容量</p>
+<h4 id="冲突不命中-冲突"><a href="#冲突不命中-冲突" class="headerlink" title="冲突不命中: 冲突"></a>冲突不命中: 冲突</h4><p>增加相联度</p>
+<h3 id="降低-cache-不命中率的方法"><a href="#降低-cache-不命中率的方法" class="headerlink" title="降低 cache 不命中率的方法"></a>降低 cache 不命中率的方法</h3><h4 id="增加-cache-块大小"><a href="#增加-cache-块大小" class="headerlink" title="增加 cache 块大小"></a>增加 cache 块大小</h4><p>对于给定 cache 容量, 块大小增加, 不命中率先下降后上升</p>
+<p>原因: 降低强制不命中, 但是会增加冲突不命中</p>
+<h4 id="增加-cache-容量"><a href="#增加-cache-容量" class="headerlink" title="增加 cache 容量"></a>增加 cache 容量</h4><p>成本</p>
+<h4 id="提高相联度"><a href="#提高相联度" class="headerlink" title="提高相联度"></a>提高相联度</h4><p>增加命中时间</p>
+<p>2:1 cache 经验规则<br>容量为 N 的直接映射 cache 的不命中率和容量为 N/2 的两路组相联 cache 不命中率差不多</p>
+<h4 id="伪相联-cache"><a href="#伪相联-cache" class="headerlink" title="伪相联 cache"></a>伪相联 cache</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpgan2zqazj30sq0a8gz0.jpg" alt="截屏2021-04-12 上午12.58.04"></p>
+<h4 id="硬件预取"><a href="#硬件预取" class="headerlink" title="硬件预取"></a>硬件预取</h4><h4 id="编译器控制的预取"><a href="#编译器控制的预取" class="headerlink" title="编译器控制的预取"></a>编译器控制的预取</h4><h4 id="编译优化"><a href="#编译优化" class="headerlink" title="编译优化"></a>编译优化</h4><h4 id="“牺牲”-cache"><a href="#“牺牲”-cache" class="headerlink" title="“牺牲” cache"></a>“牺牲” cache</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEgy1gpgatl3ihnj30ti0amh13.jpg" alt="截屏2021-04-12 上午1.04.22"></p>
+<h3 id="减小不命中开销"><a href="#减小不命中开销" class="headerlink" title="减小不命中开销"></a>减小不命中开销</h3><h4 id="采用两级-cache"><a href="#采用两级-cache" class="headerlink" title="采用两级 cache"></a>采用两级 cache</h4><h4 id="读不命中优先于写"><a href="#读不命中优先于写" class="headerlink" title="读不命中优先于写"></a>读不命中优先于写</h4><h4 id="写缓冲合并"><a href="#写缓冲合并" class="headerlink" title="写缓冲合并"></a>写缓冲合并</h4><p>在写缓冲的地方合并</p>
+<h4 id="非阻塞-cache-技术"><a href="#非阻塞-cache-技术" class="headerlink" title="非阻塞 cache 技术"></a>非阻塞 cache 技术</h4><h3 id="减小命中时间"><a href="#减小命中时间" class="headerlink" title="减小命中时间"></a>减小命中时间</h3><h4 id="虚拟-cache-并行-mmu"><a href="#虚拟-cache-并行-mmu" class="headerlink" title="虚拟 cache(并行 mmu)"></a>虚拟 cache(并行 mmu)</h4><p>虚拟冲突</p>
+<h4 id="流水线"><a href="#流水线" class="headerlink" title="流水线"></a>流水线</h4><h4 id="踪迹-cache"><a href="#踪迹-cache" class="headerlink" title="踪迹 cache"></a>踪迹 cache</h4><h3 id="并行主存系统"><a href="#并行主存系统" class="headerlink" title="并行主存系统"></a>并行主存系统</h3><p>高位交叉</p>
+<p>低位交叉</p>
+<h3 id="虚拟存储器"><a href="#虚拟存储器" class="headerlink" title="虚拟存储器"></a>虚拟存储器</h3><h1 id="第六章-i-o-系统"><a href="#第六章-i-o-系统" class="headerlink" title="第六章 i/o 系统"></a>第六章 i/o 系统</h1><h2 id="评价"><a href="#评价" class="headerlink" title="评价"></a>评价</h2><p>MTTF 平均无故障时间</p>
+<p>MTTR 平均修复时间</p>
+<p> $系统可用性 = \frac{MTTF}{MTTF + MTTR}$</p>
+<h2 id="串并联系统可靠性模型"><a href="#串并联系统可靠性模型" class="headerlink" title="串并联系统可靠性模型"></a>串并联系统可靠性模型</h2><p>F(t) + R(t) = 1</p>
+<h3 id="串联系统"><a href="#串联系统" class="headerlink" title="串联系统"></a>串联系统</h3><p>$R_s = {\prod_{i=1}^{n}}R_i $</p>
+<h3 id="并联系统"><a href="#并联系统" class="headerlink" title="并联系统"></a>并联系统</h3><p>$R_s = 1-{\prod_{i=1}^{n}}(1-R_i) $</p>
+<h2 id="raid"><a href="#raid" class="headerlink" title="raid"></a>raid</h2><ul>
+<li>raid0 一个数据分成 n 份, 带宽提高 n 倍, 最不安全, 速度最快</li>
+<li>raid1 自动备份, 最安全, 空间利用最低, 速度不增</li>
+<li>raid2 海明校验, 在 raid0 基础上增加纠错功能</li>
+<li>raid3 raid0 + 一个存储恢复码的磁盘, 数据拆分</li>
+<li>raid4 raid0 + 一个存储恢复码的磁盘, 数据不拆分</li>
+<li>raid5 raid34 可能会因为恢复盘而制约性能, raid5 把恢复码分散到所有磁盘中</li>
+<li>raid6 raid345 只能容灾一个磁盘, raid6 在 raid5 基础上使用两个容灾磁盘</li>
 </ul>
-<h3 id="如何找"><a href="#如何找" class="headerlink" title="如何找"></a>如何找</h3><p>地址变换</p>
-]]></content>
+<h1 id="第七章-互联网络"><a href="#第七章-互联网络" class="headerlink" title="第七章 互联网络"></a>第七章 互联网络</h1><h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>通信时延 = 软件开销+通道时延+选路时延+竞争时延</p>
+<p>网络时延 = 通道时延+选路时延</p>
+<h2 id="互连函数"><a href="#互连函数" class="headerlink" title="互连函数"></a>互连函数</h2><p>I 恒等函数</p>
+<p>E 交换函数: 第 k 位互反</p>
+<p>σ 均匀洗牌函数: 把输入端二进制标号循环左移一位</p>
+<p>逆函数, 子函数(低 k 位), 超函数(高 k 位)</p>
+<p>β 蝶式函数: 最高位最低位交换</p>
+<p>ρ 反位序函数: 位序颠倒</p>
+<p>PM2I 函数: x +- 2^i^ mod N </p>
+<h2 id="静态互联网络"><a href="#静态互联网络" class="headerlink" title="静态互联网络"></a>静态互联网络</h2><p>线性阵列(单向环, 双向环, 带弦环)</p>
+<p>全连接网络</p>
+<p>循环移数网络, 2整数幂之间有弦</p>
+<p>树形</p>
+<p>星形</p>
+<p>胖树</p>
+<p>网格型, 环网形</p>
+<p>illiac 网络</p>
+<h2 id="总线网络"><a href="#总线网络" class="headerlink" title="总线网络"></a>总线网络</h2><h2 id="交叉开关网络"><a href="#交叉开关网络" class="headerlink" title="交叉开关网络"></a>交叉开关网络</h2><h1 id="多处理器"><a href="#多处理器" class="headerlink" title="多处理器"></a>多处理器</h1><h2 id="cache-的一致性"><a href="#cache-的一致性" class="headerlink" title="cache 的一致性"></a>cache 的一致性</h2><h3 id="监听式协议"><a href="#监听式协议" class="headerlink" title="监听式协议"></a>监听式协议</h3><p>监听总线</p>
+<p>作废</p>
+<h3 id="目录式协议"><a href="#目录式协议" class="headerlink" title="目录式协议"></a>目录式协议</h3>]]></content>
       <categories>
         <category>cs</category>
       </categories>
@@ -8332,6 +8548,168 @@
       </categories>
       <tags>
         <tag>os</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>q&amp;a</title>
+    <url>/2021/04/11/q&amp;a/</url>
+    <content><![CDATA[<blockquote>
+<p>记录小 tips, 争取每天解决一个小问题</p>
+</blockquote>
+<span id="more"></span>
+
+<h3 id="mac-terminal-快捷键"><a href="#mac-terminal-快捷键" class="headerlink" title="mac terminal 快捷键"></a>mac terminal 快捷键</h3><p>ctrl + U = 删除整行</p>
+<p>显示隐藏文件 shift+command+.</p>
+<h3 id="what-is-dmg"><a href="#what-is-dmg" class="headerlink" title="what is dmg"></a>what is dmg</h3><p>The main reason macOS uses DMG files is to make sure the file downloaded properly and wasn’t tampered with. DMG files include something called a checksum, which basically verifies that the file is 100% intact. </p>
+<p>second reason why macOS uses DMG files: they’re a compressed format (like a <a href="https://www.howtogeek.com/178146/htg-explains-everything-you-need-to-know-about-zipped-files/">ZIP file</a>) that makes your download smaller. Saving your data usage on downloads is always a good thing.</p>
+<h3 id="what-is-ISO"><a href="#what-is-ISO" class="headerlink" title="what is ISO"></a>what is ISO</h3><p>You can think of an ISO image as a complete copy of everything stored on a physical optical disc like CD, DVD, or Blu-ray disc—including the file system itself. They are a sector-by-sector copy of the disc, and no compression is used.</p>
+<h3 id="what-is-mount"><a href="#what-is-mount" class="headerlink" title="what is mount"></a><a href="https://blog.csdn.net/binks_/article/details/70799134">what is mount</a></h3><blockquote>
+<p>Mounting takes place before a computer can use any kind of storage device (such as a hard drive, CD-ROM, or network share). The user or their operating system must make it accessible through the computer’s file system. A user can only access files on mounted media.</p>
+</blockquote>
+<p>意思是说, “挂载” 发生在计算机想要使用任何类型的存储设备 (如硬盘, CD-ROM, 网络设备) 之前. 操作系统必须将这个设备纳入自己的文件系统中去.</p>
+<p>要注意的是, 这里的存储设备不一定必须是外部的存储设备, 也可以是你安装系统的硬盘上的分区.</p>
+<h3 id="what-is-串口"><a href="#what-is-串口" class="headerlink" title="what is 串口"></a>what is 串口</h3><h4 id="串行通信与并行通信"><a href="#串行通信与并行通信" class="headerlink" title="串行通信与并行通信"></a>串行通信与并行通信</h4><p>见硬件茶谈, 并行通信就是多条线每条线传递一位, 串行通信就是一条线连着传</p>
+<h4 id="同步通信与异步通信"><a href="#同步通信与异步通信" class="headerlink" title="同步通信与异步通信"></a>同步通信与异步通信</h4><p>同步通信有一个时钟信号用来同步</p>
+<h4 id="串口-多位串行异步"><a href="#串口-多位串行异步" class="headerlink" title="串口: 多位串行异步"></a>串口: 多位串行异步</h4><h4 id="分类-232-485-422"><a href="#分类-232-485-422" class="headerlink" title="分类: 232, 485, 422"></a>分类: 232, 485, 422</h4><h3 id="hosts-文件"><a href="#hosts-文件" class="headerlink" title="hosts 文件"></a>hosts 文件</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo vim /etc/hosts </span><br><span class="line">sudo dscacheutil -flushcache</span><br><span class="line">sudo killall -HUP mDNSResponder</span><br></pre></td></tr></table></figure>
+
+<p>myhosts</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">127.0.0.1	localhost</span><br><span class="line">255.255.255.255	broadcasthost</span><br><span class="line">::1             localhost</span><br><span class="line">192.30.255.113   github.com</span><br><span class="line">108.160.166.49  github.global.ssl.fastly.net</span><br><span class="line">#</span><br><span class="line">185.199.108.153 assets-cdn.github.com</span><br></pre></td></tr></table></figure>
+
+<p>assets-cdn.github.com 这个网站是之前限速的原因, 改了就好了</p>
+<p><a href="https://github.com/googlehosts/hosts.git">https://github.com/googlehosts/hosts.git</a> git仓库</p>
+]]></content>
+      <categories>
+        <category>others</category>
+      </categories>
+      <tags>
+        <tag>q&amp;a</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>qt</title>
+    <url>/2021/04/24/qt/</url>
+    <content><![CDATA[<blockquote>
+<p>qt 入门教程</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="Qt-入门"><a href="#Qt-入门" class="headerlink" title="Qt 入门"></a>Qt 入门</h1><h2 id="what-is-Qt"><a href="#what-is-Qt" class="headerlink" title="what is Qt"></a>what is Qt</h2><p>Qt是一个1991年由Qt Company开发的跨平台C++图形用户界面应用程序开发框架。它既可以开发GUI程序，也可用于开发非GUI程序，比如控制台工具和服务器。Qt是面向对象的框架，使用特殊的代码生成扩展（称为元对象编译器(Meta Object Compiler, moc)）以及一些宏，Qt很容易扩展，并且允许真正地组件编程。基本上，Qt 同X Window上的 Motif，Openwin，GTK 等图形界 面库和 Windows 平台上的MFC，OWL，VCL，ATL 是同类型的东西。</p>
+<h2 id="how-to-use-Qt"><a href="#how-to-use-Qt" class="headerlink" title="how to use Qt"></a>how to use Qt</h2><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p><a href="qt.io">Qt 官网</a></p>
+<p>在 Qt 官网<a href="https://www.qt.io/download">下载</a> Qt 及其 IDE QtCreator</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv2g5txzij30uu0b2gnm.jpg" alt="截屏2021-04-24 下午7.38.05"></p>
+<p>用 MaintenanceTool 下载对应版本和额外的组件.</p>
+<p>用 QtCreator 进行开发</p>
+<h2 id="简单介绍"><a href="#简单介绍" class="headerlink" title="简单介绍"></a>简单介绍</h2><p>进入 QtCreator 后新建项目可以看到以下选项</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv2lgzoqtj30vk0dg402.jpg" alt="截屏2021-04-24 下午7.43.14"></p>
+<p>Qt Widgets Application 是新建窗口项目</p>
+<p>Qt Console Application 是新建命令行项目</p>
+<p>下面以窗口项目进行演示</p>
+<h3 id="窗口项目"><a href="#窗口项目" class="headerlink" title="窗口项目"></a>窗口项目</h3><h4 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h4><p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv2pcvrpsj30dg0a6q3t.jpg" alt="截屏2021-04-24 下午7.46.59"></p>
+<p>下面依次介绍一个 Qt 项目的目录</p>
+<ul>
+<li><p>.pro</p>
+<p><code>QT       += core gui</code> 等是代表模块的加载, 如果需要新的模块比如编写 socket 网络内容需要添加如<code>QT       += network</code></p>
+<p>之后的目录代码如<code>SOURCES +=     main.cpp mainwindow.cpp</code>是项目文件配置, 一般是自动补充的.</p>
+</li>
+<li><p>Headers/</p>
+<p>保存项目头文件(.h)</p>
+</li>
+<li><p>Sources/</p>
+<p>保存项目文件(.cpp)</p>
+</li>
+<li><p>Forms/</p>
+<p>设计界面</p>
+</li>
+<li><p>Other/</p>
+<p>其他文件</p>
+</li>
+</ul>
+<p>代码主要保存在 Sources 和 Headers 文件夹中, ui 设计在 Forms 文件夹中</p>
+<h4 id="main-文件与类"><a href="#main-文件与类" class="headerlink" title="main 文件与类"></a>main 文件与类</h4><p>main.cpp </p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;mainwindow.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QApplication&gt;</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="function">QApplication <span class="title">a</span><span class="params">(argc, argv)</span></span>;<span class="comment">//新应用</span></span><br><span class="line">    MainWindow w;              <span class="comment">//新窗口</span></span><br><span class="line">    w.<span class="built_in">show</span>();                  <span class="comment">//窗口显示</span></span><br><span class="line">    <span class="keyword">return</span> a.<span class="built_in">exec</span>();           <span class="comment">//应用执行</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>mainwindow.h</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">ifndef</span> MAINWINDOW_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAINWINDOW_H</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;QMainWindow&gt;</span></span></span><br><span class="line"></span><br><span class="line">QT_BEGIN_NAMESPACE</span><br><span class="line"><span class="keyword">namespace</span> Ui &#123; <span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span>;</span> &#125;</span><br><span class="line">QT_END_NAMESPACE</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MainWindow</span> :</span> <span class="keyword">public</span> QMainWindow</span><br><span class="line">&#123;</span><br><span class="line">    Q_OBJECT</span><br><span class="line">    <span class="comment">//继承 QObject 类的宏, 在 Qt 中, 所有组件都继承 QObject 类</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">MainWindow</span>(QWidget *parent = <span class="literal">nullptr</span>);</span><br><span class="line">    <span class="comment">//构造函数</span></span><br><span class="line">    ~<span class="built_in">MainWindow</span>();</span><br><span class="line">  	<span class="comment">//析构函数</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    Ui::MainWindow *ui;</span><br><span class="line">  	<span class="comment">//ui 对象指针</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">endif</span> <span class="comment">// MAINWINDOW_H</span></span></span><br></pre></td></tr></table></figure>
+
+<p>mainwindow.cpp</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;mainwindow.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;ui_mainwindow.h&quot;</span></span></span><br><span class="line"></span><br><span class="line">MainWindow::<span class="built_in">MainWindow</span>(QWidget *parent)</span><br><span class="line">    : <span class="built_in">QMainWindow</span>(parent)</span><br><span class="line">    , <span class="built_in">ui</span>(<span class="keyword">new</span> Ui::MainWindow)</span><br><span class="line">&#123;</span><br><span class="line">    ui-&gt;<span class="built_in">setupUi</span>(<span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//建立 ui</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">MainWindow::~<span class="built_in">MainWindow</span>()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">delete</span> ui;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="按钮实例"><a href="#按钮实例" class="headerlink" title="按钮实例"></a>按钮实例</h4><p>下面演示实现一个按钮功能</p>
+<ol>
+<li><p>在 mainwindow.ui 中拖入 qpushbutton, 在右侧属性栏可以对组件属性进行编辑(比如文字, 大小等)<br><img src="https://tva1.sinaimg.cn/large/008i3skNly1gpv38m0izgj30rm0dojsw.jpg" alt="截屏2021-04-24 下午8.05.27"></p>
+</li>
+<li><p>如果要对 button 实现点击功能, 可以右键按钮-&gt;转到槽-&gt;clicked(), 就会添加对应的槽函数(可以理解为点击后执行的函数)<br>具体实现机理请查阅 “<strong>Qt 信号与槽</strong>“</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MainWindow::on_pushButton_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>如果要用代码实现对这个按钮进行操作, 比如设置显示文字, 可以参考如下代码</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">MainWindow::on_pushButton_clicked</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    ui-&gt;pushButton-&gt;<span class="built_in">setText</span>(<span class="string">&quot;text&quot;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//这个例子是为了说明, 如果要访问这个按钮需要使用 ui 指针</span></span><br><span class="line"><span class="comment">//注意有的时候 ui-&gt;后可能没有对应组件, 一般是新组件未加载, 可以编译一边来解决</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>以上就是基本的 Qt 使用方式.</p>
+]]></content>
+      <categories>
+        <category>language</category>
+      </categories>
+      <tags>
+        <tag>qt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>启亦临时工</title>
+    <url>/2021/04/13/%E5%90%AF%E4%BA%A6%E4%B8%B4%E6%97%B6%E5%B7%A5/</url>
+    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
+  <script id="hbeData" type="hbeData" data-hmacdigest="c4501c30e6db0a03b6298b0c3986d444d849cffa54e4ecfc27c399949e9a8ce3">3a5a033e128904461ecff31443a75b85773732e839f348154716694284a812f56ca7cc076af937c1233a8f232446b1443a6f763ccaa2501aa1e853040860e46162c044de7562bb84c66a7eba87c1ab4f0814f0edfa5eabfeef045e585cc13a8ccd296eba5dff27085a0bd05cef672782d118e526738c547d0f25467fab0bcfceae1c0cf49b2efe7f715eb4775ad42f4087513500939e0477a34dea7d4e2e9a409616401ce743d9fe4aa5d880c4f2c4c7e1f9291fb3d576bce187a6294f2b23139e57215020876db4ec5cc83182dd56af7311a0f7962a932687c19c15dce3adebd857fcb1f602a3504bda35ba88a99ae4f6b746c9fb6fba6bba349fad486542e621f2ca4d80ea095bec6e9ea63cd2acbc38860bf8d9f6f82a934c0be843e1bfba024be058baaa2bea332313efbdcb16f10a2a6690d969e732711a477f1e62093cfd5a4e2f0dfdd250dc2de324d2695b0630c479d901991e3e1572bc40bf4a04a27579ffaa4506feb8aeb7d3b57898918333fe4ab774edcb7856f8b16ca309283b26a9a0dd4e07f911a79e683b5a09d3e3b99cb57eff00bce82e15d116c00162a5e0be711a56e6c684e5d703eb2446b2d6dc75e10d4c7499585f52ed468de84d74aa8025492d6a7695d79530533c5ea6fe8ada623fefb3846a14c9e1abc0a7b66444a68d95bc56585cba09ff6c015f517c832db7f0eb57cb85c136405925830129d9d4b8f1c6cdd9d21b8bc62ece547cdd9fe46f8276ffac9e4d25444cdf8e59fc0675a38a7acffc77aec96a7ef8cf4a12c3b76215bb980102d998302bdf1a372a895a69a901cb6836d9b6ae9d957584c5c3213479b37162dcd33544de859a2cb3bb9163d370724405bbc082998d08eda9657d4c239270dbfd0d7a5ec30f354aba77cb1265fc36d04db2aff4e466cbb491782b7a64a02d13c87a62f58d777b0a30474c3e1049f569c656456a68d402f3ee256ee2cc5f159e69e554317a4c897ea740d24aaa90d58d4e0f7da73a2c2eced2b22c5c83bf2899b751955f793526d5cf1fb6d06782e074b9ea6e3894a0dd167d2c82c8d10f510c73ea46c2ec1daa06072aaa8ce896cae61e010a7815cc2dfce3fc6176212584841c93085bb2bece4cd734688615e474bf1d151a484a5c934de802b45bd302c6c794ab9ca53ccd71930e3f64f7b9a67ded513011627777615f0191d495b6cc6d7fec4872de126529e266bc291590d3f25b729bc29db5f393c938ff11c7601b48ceb61bf2b2d9ab0266a151ada9e882c522817bf034384e90698a8a048c0163f4a8e369c58977dbcf314fa37fe3c87252af7adde5b0146635638b188ed93ffc01afec9c3523864078da024f0e42a08c0b768710e0b32fb87827b01a655879886a575bf51f88c327ce5d18f6042381a7a43db5e2e2d335a388c32fda206370a7533affa9632c4a3ec9e2a1f3a14028ebaee3598791a31a9345be136e88b171b319ceece0368adf8173c9b5ad01d7363eff42964d907c768522ff0330196d3c7b7f2f323fcc65f00a00e521b550606db1239e00a5766808cc21651f1a0307f0d278a5c2a44066b23c9a09be6b43e888d0963c33bb67acaaef7d5d6e4e9001940a705d1fa2aadb3261b07362d5aa00e5752b4a2dd21708b8c9b8e2d8167a8ce985cb2bed9045d4cd5542f5e459b52ccbbed4f9170ca40f845403373a4eff9820a01184d677d5cc835d7121a4c7e4968fb5e5eb203ad69b1d1adf0e30217cf4cf9b564065b0ceb1cdb43a84b82a6379a9279819c54179c97ced36f481330b903a15d0595dc4787c547f8c2bc5ffc8a03c4959f2e8261dbb76c1a974809247df767a22383d8a74faa4af710722c668fce99b274f986fad0fdcdee988f23a8cfc6a74fbcbd5a91dc57e0f02825fd68792f3dd6e2e0de6da8a6d44bc6120f935326e926410ef987ef9a42845245738f557725d724f34a6246ac60a062219e280f2e7bee77c3036af746b2edec75bc182299e755cb196e1a9dddc698e7975b81b8fa2893c2cae34b5784c2ad255d3460192f242ace814ac2bebfd7f8700bfa69ee53cfc18e2d62ca5dd1898eea59bddb4be357c57d2f03bf1cc67a4a5be316d439c58b93ad40f133ebf84b04d3ec3d063127bd1c7aae31c979080088a9cd6d248c4066f4a2d088c975c313fc0cc69ffc7f84ae3d6d1a0fbd32a3c6d37fce6bf812dd0d81b9ac93192a89207fefe5573420c1edba5ce5b2d6a32b9dedaf8ae7c90cc4db8fd3127e899a7a187e457ebd067c4b172dfb3fd3bb36a55d0e0da3f4b3f7c57ebff329f7c2e80d27af7cda7e75d5e45a8f970e90e2b935461a2ee266cb3141db470a45daa3e5813da937feb84da948f28b6056d8e9fd2e703a97c6c350ebb1b7db35aff87a5d8b05c34949e8879d247cde2fdbfb821df0d84b05a41d348db5f0b4c54bd44d896513574b1155c1881f02de2a6b0eaafe610120350cc7810229a9f59cec9a213174e44b533f352f797314157469c62d208ccaacbbb2fb02b21dd174557acd65a46d0d5b7ec9e8e553d8fa25d411aad95c597e4a8d78ba4673ae321491f11572244f03e57b24d9665093d568d95801b98477a295579293a80a28dbe1c0a2e07b91d30e07a3f16ee5a6247e586f1d362920085abca904d3989ebb793ed08fd4d5c3883ffedd8a34cdc35ef06c23f68c293dbd77689a324a5c41b6b0d0cc32351230e6883c3b629dde4ad542854a44f328c9d4e363e83e0909a36f35dcc3b220a8ba18fbb7dca331a87ddb8aa3e842684fd9be8f69f376a60b6eebed3eee73d536a4ff30c7a2482ffde352e16e6050ee531a3d099d40dbdba7340dd1b301ed981d603894b5d22cde84827e6120d8d89a0794a639a763bbd5884ddb37acee020079328afdf9484a11503d2cbe59b08bcadd0ee6991651570d141930df8d39c1b97280ff90c29bd825dd28dd2035ed92540dcfb00849bc1dd1eb4f012fb87000efabb90fcd0cb5070d632f8272e8e34351da63811f1385b9547989c46e41c190061a555c4fb46b8c6e589c8f6c0293e80783d413947acd46882da9a848b82dcd47f8e7dd2a260408fef77b1b1643548cb856b3aec4723f61c1e425cb177d431665aff056a5d6a8d1cdadc909c477eb1f5644fdbfab495c940cd45d121e55c1d9241a388fa58f91e1f71ae41020d3a82d6b2c8c2a5087462630cc983663a48908a6cacc1ba4fe8f9db2e513f6f1523e67855f60de129318d70721757662339b485337fb315177c41215f407350f84bc1ab29b74376d86a5ae5a9c033b3f7f01de2a222088ea0900926c6d18ab599e9f8f9e5f4870dcd954ca7ae072f9ec00f37092501ca98b0a759135c03dc404f49f55307ff6f2b4c3007128cf94cc53d55b88675004119895f9587e76362416e93d43c8a1468c0b171ffe9</script>
+  <div class="hbe hbe-content">
+    <div class="hbe hbe-input hbe-input-default">
+      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
+      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
+        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
+      </label>
+    </div>
+  </div>
+</div>
+<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
+      <categories>
+        <category>project</category>
+      </categories>
+      <tags>
+        <tag>qiyi</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>编译原理</title>
+    <url>/2021/04/13/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/</url>
+    <content><![CDATA[<blockquote>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="第一章-引论"><a href="#第一章-引论" class="headerlink" title="第一章 引论"></a>第一章 引论</h1><h2 id="编译程序"><a href="#编译程序" class="headerlink" title="编译程序"></a>编译程序</h2><p>一个编译程序就是一个语言翻译程序,它把一种语言(称作源语言)书写的程序翻译成另一种语言(称作目标语言)的等价的程序.</p>
+<h2 id="编译过程"><a href="#编译过程" class="headerlink" title="编译过程"></a>编译过程</h2><h3 id="词法分析"><a href="#词法分析" class="headerlink" title="词法分析"></a>词法分析</h3><p>划分出单词符号串</p>
+<h3 id="语法分析"><a href="#语法分析" class="headerlink" title="语法分析"></a>语法分析</h3><p>表示出语法树</p>
+<h3 id="语义分析"><a href="#语义分析" class="headerlink" title="语义分析"></a>语义分析</h3><p>上下文相关性, 类型匹配, 类型转换</p>
+<h3 id="中间代码生成"><a href="#中间代码生成" class="headerlink" title="中间代码生成"></a>中间代码生成</h3><p>三元式, 四元式, p-code, c-code</p>
+<h3 id="代码优化"><a href="#代码优化" class="headerlink" title="代码优化"></a>代码优化</h3><h3 id="目标代码生成"><a href="#目标代码生成" class="headerlink" title="目标代码生成"></a>目标代码生成</h3><p>生成汇编码</p>
+<h3 id="符号表管理"><a href="#符号表管理" class="headerlink" title="*符号表管理"></a>*符号表管理</h3><p>记录高中符号名称, 属性</p>
+<h2 id="解释程序"><a href="#解释程序" class="headerlink" title="解释程序"></a>解释程序</h2><p>​    编译方式是先翻译后执行，即将整个源程序翻译完毕，再执行目标程序，只需要保存完整的目标程序而无需保存源程序。一次翻译后无需再翻译，可多次执行。<br>​    解释方式是边翻译边执行，即翻译一句就执行一句，翻译完毕也执行完毕，只保存源程序无需保存完整的目标程序。执行一次需要翻译一次。 </p>
+<p>不产生目标程序文件<br>不区别翻译阶段和执行阶段<br>翻译源程序的每条语句后直接执行<br>程序执行期间一直有解释程序守候<br>常用于实现虚拟机<br>著名的解释程序有Basic语言解释程序 ,Lisp语言解释程序,UNIX命令语言解释程序(shell),数据库查询语言SQL 解释程序以及bytecode解释程序.</p>
+<h2 id="PL-O-语言编译系统"><a href="#PL-O-语言编译系统" class="headerlink" title="PL/O 语言编译系统"></a>PL/O 语言编译系统</h2><h1 id="第二章-文法与语言"><a href="#第二章-文法与语言" class="headerlink" title="第二章 文法与语言"></a>第二章 文法与语言</h1><h2 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h2><p>文法是阐述语法的一个工具，语句是语法的实例 </p>
+<p>符号:</p>
+<p> <code>::=</code> …是由…组成的</p>
+<p><code>|</code>或者</p>
+<p><code>=&gt;</code>推导</p>
+<p>文法G定义为一个四元组（V<del>N</del>，V<del>T</del>，P，S），记为G＝（V<del>N</del>，V<del>T</del>，P，S）。其中，<br> ① V<del>N</del>是非空有穷集合，称为非终结符集，其元素称为非终结符；<br> ② V<del>T</del>是有穷集合，称为终结符集，其元素称为终结符；<br> ③ P是非空有穷集合，称为规则集，其元素是字母表V<del>N</del>∪V<del>T</del>上的规则，V<del>N</del>∪V<del>T</del>称为文法的字母表V，且V<del>N</del>∩V<del>T</del>＝∅；<br> ④ S∈V<del>N</del>，称为开始符。</p>
+<p>直接推导, 直接归约<br>eg. a S bSb =&gt; a aSb bSb (α＝S，β＝aSb，γ＝a，δ＝bSb )</p>
+<p>多步推导, 多步归约</p>
+<h2 id="符号和符号串"><a href="#符号和符号串" class="headerlink" title="符号和符号串"></a>符号和符号串</h2><p>字母表<code>∑</code>, 其元素称为符号, 空串记为<code>ε</code></p>
+<p>符号串<code>α</code>, 符号串α的长度<code>|α|</code>, 符号串集合<code>A</code></p>
+<p>符号串连接运算<code>z=x·y</code>  符号串乘方运算 x^0^ = ε, x^1^ = x</p>
+<p>符号串集连接, 符号串集方幂</p>
+<p>符号串集正闭包运算 设A是字母表∑上的符号串集， A+是A的正闭包，则:  A+＝A^1^∪A^2^∪A^3^∪···∪A^n^···<br>符号串集闭包运算  设A是字母表∑上的符号串集， A*是A的闭包，则 :  A* ＝A^0^∪A+ ，即：A* ＝A^0^∪A^1^∪A^2^∪A^3^∪···∪A^n^···<br>例：设字母表∑＝｛a，b｝，A＝｛aa，bb｝，B＝ ｛ab，ba｝，C＝｛a｝，则<br>                A·B＝｛aaab，aaba，bbab，bbba｝，<br>                A^2^   ＝｛aaaa，aabb，bbaa，bbbb｝，<br>                C+   ＝｛a，aa，aaa，···｝＝｛a^n^︱n≥1｝，<br>                C*  ＝｛ε,a，aa，aaa，···｝＝｛a^n^︱n≥0｝。</p>
+<p>规则是字母表V上形如 α∷＝β的式子，可以简写成α→β。其中，符号串α∈V+称为规则的左部，符号串β∈V*称为规则的右部。规则也称为重写规则、产生式或生成式。<br>特别地，α∷＝ε（ε空串）称为α的空规则<br>对于相同左部的多个规则，可以使用符号|简写。如，规则α∷＝β和a∷＝δ，简写成α∷＝β|δ。 简写为α→β|δ</p>
+]]></content>
+      <categories>
+        <category>cs</category>
+      </categories>
+      <tags>
+        <tag>编译原理</tag>
       </tags>
   </entry>
 </search>
