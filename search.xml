@@ -130,20 +130,6 @@
       </tags>
   </entry>
   <entry>
-    <title>ai</title>
-    <url>/2019/11/18/ai/</url>
-    <content><![CDATA[<h2 id="tensorflow"><a href="#tensorflow" class="headerlink" title="tensorflow"></a>tensorflow</h2><p>pip install –index-url <a href="https://pypi.douban.com/simple">https://pypi.douban.com/simple</a> tensorflow快速安装库（国内源）</p>
-<span id="more"></span>
-
-<h2 id="ai导论"><a href="#ai导论" class="headerlink" title="ai导论"></a>ai导论</h2>]]></content>
-      <categories>
-        <category>program</category>
-      </categories>
-      <tags>
-        <tag>ai</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>blog_making</title>
     <url>/2019/11/11/blog-making/</url>
     <content><![CDATA[<h1 id="hexo-Blog解决问题"><a href="#hexo-Blog解决问题" class="headerlink" title="hexo Blog解决问题"></a>hexo Blog解决问题</h1><p><a href="https://theme-next.iissnan.com/theme-settings.html">next官网</a></p>
@@ -640,38 +626,6 @@
       </categories>
       <tags>
         <tag>java</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>javascript_xjb学</title>
-    <url>/2020/08/09/javascript-xjb%E5%AD%A6/</url>
-    <content><![CDATA[<blockquote>
-<p>简介</p>
-<p>javascript 瞎 jb 学</p>
-<p>1065</p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="web基础"><a href="#web基础" class="headerlink" title="web基础"></a>web基础</h1><h2 id="google-font"><a href="#google-font" class="headerlink" title="google font"></a>google font</h2><h1 id="js简介"><a href="#js简介" class="headerlink" title="js简介"></a>js简介</h1><h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ul>
-<li>对事件响应</li>
-<li>改变 html 内容</li>
-<li>改变图像(src)</li>
-<li>改变 html 样式</li>
-<li>验证输入</li>
-</ul>
-<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ul>
-<li>用<code>&lt;script&gt; &lt;/script&gt;</code>包含 js 代码</li>
-<li>函数与响应</li>
-<li>通常的做法是把函数放入 <head> 部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</li>
-<li>class 是类, id 是 id</li>
-<li></li>
-</ul>
-]]></content>
-      <categories>
-        <category>language</category>
-      </categories>
-      <tags>
-        <tag>js</tag>
       </tags>
   </entry>
   <entry>
@@ -1216,57 +1170,6 @@
       <tags>
         <tag>python</tag>
         <tag>language</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>信号与线性系统</title>
-    <url>/2020/09/04/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/</url>
-    <content><![CDATA[<blockquote>
-<p>简介</p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="信号与线性系统"><a href="#信号与线性系统" class="headerlink" title="信号与线性系统"></a>信号与线性系统</h1><h2 id="第一章-信号系统基础"><a href="#第一章-信号系统基础" class="headerlink" title="第一章 信号系统基础"></a>第一章 信号系统基础</h2><p>信号分类, 简单处理</p>
-<p>奇异信号</p>
-<p>R(t), u(t), G(t), δ(t), <strong>冲激信号</strong>, </p>
-<p>系统概念分类</p>
-<p>线性时不变系统</p>
-<h2 id="第二章-LTI-系统的时域分析方法"><a href="#第二章-LTI-系统的时域分析方法" class="headerlink" title="第二章 LTI 系统的时域分析方法"></a>第二章 LTI 系统的时域分析方法</h2><p>系统微分方程的建立求解</p>
-<p>LTI 系统全响应的经典解法</p>
-<p>系统零输入响应的求解</p>
-<p>连续时间系统的单位冲激响应</p>
-<p>卷积积分</p>
-<h2 id="第三章-连续信号正交分解-CTFS"><a href="#第三章-连续信号正交分解-CTFS" class="headerlink" title="第三章 连续信号正交分解 CTFS"></a>第三章 连续信号正交分解 CTFS</h2><p>周期信号</p>
-<p>傅里叶级数</p>
-<p>周期信号的频谱</p>
-<p>非周期信号的 CTFS</p>
-<p>矩形脉冲信号的频谱分析</p>
-<h2 id="第四章-连续时间系统的频域分析"><a href="#第四章-连续时间系统的频域分析" class="headerlink" title="第四章 连续时间系统的频域分析"></a>第四章 连续时间系统的频域分析</h2><p>信号通过系统的频域分析</p>
-<p>理想低通滤波器的冲激响应与阶跃响应</p>
-<p>系统无失真传输和有失真线性畸变</p>
-<h2 id="第五章-连续时间系统的复频域分析"><a href="#第五章-连续时间系统的复频域分析" class="headerlink" title="第五章 连续时间系统的复频域分析"></a>第五章 连续时间系统的复频域分析</h2><p>拉普拉斯变换</p>
-<h2 id="第六章-连续时间系统的系统函数"><a href="#第六章-连续时间系统的系统函数" class="headerlink" title="第六章 连续时间系统的系统函数"></a>第六章 连续时间系统的系统函数</h2><p>系统函数的定义, 极点零点分布</p>
-<p>系统稳定性</p>
-<p>系统函数-&gt;系统频响特性</p>
-<p>字体的框图研究</p>
-<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><p>离散时间信号</p>
-<p>抽样定理</p>
-<p>离散线性移不变系统</p>
-<p>离散时间系统的响应, 全响应, 卷积和法</p>
-<h2 id="第八章-z-变换和性质"><a href="#第八章-z-变换和性质" class="headerlink" title="第八章 z 变换和性质"></a>第八章 z 变换和性质</h2><p>z 变换</p>
-<p>z 变换求解差分方程, 分析系统响应</p>
-<p>系统函数与系统稳定性分析</p>
-<p>DTFT 离散时间傅里叶变换</p>
-<p>离散时间系统的频率响应</p>
-<p>离散系统的模拟</p>
-<p>​    非递归式数字滤波器</p>
-<p>​    递归式数字滤波器</p>
-]]></content>
-      <categories>
-        <category>cs</category>
-      </categories>
-      <tags>
-        <tag>signal</tag>
       </tags>
   </entry>
   <entry>
@@ -5404,15 +5307,16 @@
 <p>2.1.1  Network Application Architectures 86</p>
 <ul>
 <li>C/S p2p</li>
+<li>客户端是发起连接的, 服务端是等待被连接的</li>
 </ul>
 <p>2.1.2  Processes Communicating 88</p>
 <ul>
-<li>socket</li>
+<li>socket 是应用层和传输层的接口</li>
 </ul>
 <p>2.1.3  Transport Services Available to Applications 91</p>
 <p>2.1.4  Transport Services Provided by the Internet 93</p>
 <ul>
-<li>UDP TCP SSL</li>
+<li>UDP TCP SSL(<em>?</em>), ssl 是 tcp 在应用层的加强</li>
 </ul>
 <p>2.1.5  Application-Layer Protocols 96</p>
 <p>2.1.6  Network Applications Covered in This Book 97</p>
@@ -5420,26 +5324,69 @@
 <p>2.2.1  Overview of HTTP 98</p>
 <p>2.2.2  Non-Persistent and Persistent Connections 100</p>
 <ul>
-<li>three way handshake</li>
-<li><a href="qt.md">123</a></li>
+<li><p>每一个请求是开一个新的 tcp 连接还是可继续使用之前的 tcp 连接</p>
+</li>
+<li><p>three way handshake</p>
+</li>
 </ul>
 <p>2.2.3  HTTP Message Format 103</p>
 <p>2.2.4  User-Server Interaction: Cookies 108</p>
+<ul>
+<li>cookie 组成<ul>
+<li>Cookie:</li>
+<li>Set-Cookie:</li>
+<li>cookie 文件</li>
+<li>cookie db</li>
+</ul>
+</li>
+<li>cookie 过程<ol>
+<li>c: request</li>
+<li>s: set-cookie, entry in db</li>
+<li>c: cookie</li>
+<li>s: identify in db, response</li>
+</ol>
+</li>
+</ul>
 <p>2.2.5  Web Caching 110</p>
 <p>2.2.6  The Conditional GET 114</p>
+<ul>
+<li>If-Modified-Since:</li>
+</ul>
 <p>2.3  File Transfer: FTP 116</p>
 <p>2.3.1 FTP Commands and Replies 118</p>
 <p>2.4  Electronic Mail in the Internet 118</p>
 <p>2.4.1  SMTP 121</p>
 <p>2.4.2  Comparison with HTTP 124</p>
+<ul>
+<li>http pull, smtp push</li>
+</ul>
 <p>2.4.3  Mail Message Format 125</p>
 <p>2.4.4  Mail Access Protocols 125</p>
+<ul>
+<li>pop3, imap, http</li>
+</ul>
 <p>2.5  DNS—The Internet’s Directory Service 130</p>
 <p>2.5.1  Services Provided by DNS 131</p>
 <p>2.5.2  Overview of How DNS Works 133</p>
+<ul>
+<li>root server, TLD dns server(top-level domain), authoritative dns server, local dns server</li>
+</ul>
 <p>2.5.3  DNS Records and Messages 139</p>
+<ul>
+<li>(name, value, type, ttl)</li>
+<li>type<ul>
+<li>A hostname - ip</li>
+<li>NS domain(com) - authoritative dns server</li>
+<li>CNAME alias hostname - canonical hostname</li>
+<li>MX alias hostname - mail server canonical hostname</li>
+</ul>
+</li>
+</ul>
 <p>2.6  Peer-to-Peer Applications 144</p>
 <p>2.6.1  P2P File Distribution 145</p>
+<ul>
+<li>bittorrent</li>
+</ul>
 <p>2.6.2  Distributed Hash Tables (DHTs) 151</p>
 <p>2.7  Socket Programming: Creating Network Applications 156</p>
 <p>2.7.1  Socket Programming with UDP 157</p>
@@ -5568,7 +5515,7 @@
 <td>FTP</td>
 <td>TCP</td>
 <td>略</td>
-<td>有状态协议:control connection (持续)和 data connection(不持续)<br /></td>
+<td>有状态协议:control connection (持续)和 data connection(不持续, server 发起连接)<br /></td>
 <td>control: 21<br />data: 20</td>
 <td></td>
 </tr>
@@ -5576,23 +5523,23 @@
 <td>SMTP</td>
 <td>TCP</td>
 <td></td>
-<td>强制 ASCII 要转码</td>
+<td>强制 ASCII 要转码, 持续</td>
 <td>25</td>
 <td></td>
 </tr>
 <tr>
 <td>DNS</td>
 <td>UDP</td>
-<td>RR: (Name, Value, Type, TTL)<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwrficy19rj30mg0dywfy.jpg" alt="截屏2021-11-25 下午3.30.02"></td>
-<td>分层, 分布式</td>
+<td>RR: (Name, Value, Type, TTL)<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4cbpi3qoj30uo0l076o.jpg" alt="截屏2021-12-06 下午7.32.16"></td>
+<td>分层, 分布式<br /><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4cb4kz64j310o0d6dhh.jpg" alt="截屏2021-12-06 下午7.31.37"></td>
 <td>53</td>
 <td></td>
 </tr>
 <tr>
 <td>p2p</td>
+<td>TCP</td>
 <td></td>
-<td></td>
-<td></td>
+<td>tit for tat</td>
 <td></td>
 <td></td>
 </tr>
@@ -9170,94 +9117,65 @@
       </tags>
   </entry>
   <entry>
-    <title>ky数学日记</title>
-    <url>/2021/08/03/ky%E6%97%A5%E8%AE%B0/</url>
+    <title>面经</title>
+    <url>/2021/12/06/%E9%9D%A2%E7%BB%8F/</url>
     <content><![CDATA[<blockquote>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="8-3"><a href="#8-3" class="headerlink" title="8.3"></a>8.3</h1><h2 id="点乘叉乘"><a href="#点乘叉乘" class="headerlink" title="点乘叉乘"></a><a href="https://www.zhihu.com/question/21080171">点乘叉乘</a></h2><h3 id="点乘"><a href="#点乘" class="headerlink" title="点乘"></a>点乘</h3><p>A·B = |A| |B| cosθ</p>
-<h3 id="叉乘"><a href="#叉乘" class="headerlink" title="叉乘"></a>叉乘</h3><p><img src="https://pic1.zhimg.com/80/v2-3aae99433f86de9b05b48f5ee528bbaa_1440w.jpg?source=1940ef5c" alt="img"></p>
-<h2 id="f-x"><a href="#f-x" class="headerlink" title="f(x)"></a>f(x)</h2><h2 id="点到直线距离公式"><a href="#点到直线距离公式" class="headerlink" title="点到直线距离公式"></a><a href="https://www.zhihu.com/question/29380268/answer/823738387">点到直线距离公式</a></h2><h1 id="8-4"><a href="#8-4" class="headerlink" title="8.4"></a>8.4</h1>]]></content>
+
+
+]]></content>
+  </entry>
+  <entry>
+    <title>ai</title>
+    <url>/2019/11/18/trash/ai/</url>
+    <content><![CDATA[<h2 id="tensorflow"><a href="#tensorflow" class="headerlink" title="tensorflow"></a>tensorflow</h2><p>pip install –index-url <a href="https://pypi.douban.com/simple">https://pypi.douban.com/simple</a> tensorflow快速安装库（国内源）</p>
+<span id="more"></span>
+
+<h2 id="ai导论"><a href="#ai导论" class="headerlink" title="ai导论"></a>ai导论</h2>]]></content>
       <categories>
-        <category>ky</category>
+        <category>program</category>
       </categories>
       <tags>
-        <tag>ky</tag>
+        <tag>ai</tag>
       </tags>
   </entry>
   <entry>
-    <title>ky408日记</title>
-    <url>/2021/08/03/ky408%E6%97%A5%E8%AE%B0/</url>
+    <title>javascript_xjb学</title>
+    <url>/2020/08/09/trash/javascript-xjb%E5%AD%A6/</url>
     <content><![CDATA[<blockquote>
+<p>简介</p>
+<p>javascript 瞎 jb 学</p>
+<p>1065</p>
 </blockquote>
 <span id="more"></span>
 
-<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h1 id="组原"><a href="#组原" class="headerlink" title="组原"></a>组原</h1><h2 id="ddr"><a href="#ddr" class="headerlink" title="ddr"></a>ddr</h2><h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><table>
-<thead>
-<tr>
-<th align="left">属性</th>
-<th align="left">1物理层</th>
-<th align="left">2数据链路层</th>
-<th>3网络层</th>
-<th>4传输层</th>
-<th>5会话层</th>
-<th>6表示层</th>
-<th>7应用层</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">设备</td>
-<td align="left">中继器, 集线器 hub</td>
-<td align="left"></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
+<h1 id="web基础"><a href="#web基础" class="headerlink" title="web基础"></a>web基础</h1><h2 id="google-font"><a href="#google-font" class="headerlink" title="google font"></a>google font</h2><h1 id="js简介"><a href="#js简介" class="headerlink" title="js简介"></a>js简介</h1><h2 id="用途"><a href="#用途" class="headerlink" title="用途"></a>用途</h2><ul>
+<li>对事件响应</li>
+<li>改变 html 内容</li>
+<li>改变图像(src)</li>
+<li>改变 html 样式</li>
+<li>验证输入</li>
+</ul>
+<h2 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h2><ul>
+<li>用<code>&lt;script&gt; &lt;/script&gt;</code>包含 js 代码</li>
+<li>函数与响应</li>
+<li>通常的做法是把函数放入 <head> 部分中，或者放在页面底部。这样就可以把它们安置到同一处位置，不会干扰页面的内容。</li>
+<li>class 是类, id 是 id</li>
+<li></li>
+</ul>
 ]]></content>
       <categories>
-        <category>ky</category>
+        <category>language</category>
       </categories>
       <tags>
-        <tag>ky</tag>
+        <tag>js</tag>
       </tags>
   </entry>
   <entry>
     <title>408英文表</title>
-    <url>/2021/10/12/408%E8%8B%B1%E6%96%87%E8%A1%A8/</url>
+    <url>/2021/10/12/trash/408%E8%8B%B1%E6%96%87%E8%A1%A8/</url>
     <content><![CDATA[<blockquote>
 </blockquote>
 <span id="more"></span>
@@ -9342,14 +9260,140 @@
       </tags>
   </entry>
   <entry>
-    <title>面经</title>
-    <url>/2021/12/06/%E9%9D%A2%E7%BB%8F/</url>
+    <title>ky408日记</title>
+    <url>/2021/08/03/trash/ky408%E6%97%A5%E8%AE%B0/</url>
     <content><![CDATA[<blockquote>
 </blockquote>
 <span id="more"></span>
 
-
-
+<h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h1 id="操作系统"><a href="#操作系统" class="headerlink" title="操作系统"></a>操作系统</h1><h1 id="组原"><a href="#组原" class="headerlink" title="组原"></a>组原</h1><h2 id="ddr"><a href="#ddr" class="headerlink" title="ddr"></a>ddr</h2><h1 id="网络"><a href="#网络" class="headerlink" title="网络"></a>网络</h1><table>
+<thead>
+<tr>
+<th align="left">属性</th>
+<th align="left">1物理层</th>
+<th align="left">2数据链路层</th>
+<th>3网络层</th>
+<th>4传输层</th>
+<th>5会话层</th>
+<th>6表示层</th>
+<th>7应用层</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">设备</td>
+<td align="left">中继器, 集线器 hub</td>
+<td align="left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 ]]></content>
+      <categories>
+        <category>ky</category>
+      </categories>
+      <tags>
+        <tag>ky</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ky数学日记</title>
+    <url>/2021/08/03/trash/ky%E6%97%A5%E8%AE%B0/</url>
+    <content><![CDATA[<blockquote>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="8-3"><a href="#8-3" class="headerlink" title="8.3"></a>8.3</h1><h2 id="点乘叉乘"><a href="#点乘叉乘" class="headerlink" title="点乘叉乘"></a><a href="https://www.zhihu.com/question/21080171">点乘叉乘</a></h2><h3 id="点乘"><a href="#点乘" class="headerlink" title="点乘"></a>点乘</h3><p>A·B = |A| |B| cosθ</p>
+<h3 id="叉乘"><a href="#叉乘" class="headerlink" title="叉乘"></a>叉乘</h3><p><img src="https://pic1.zhimg.com/80/v2-3aae99433f86de9b05b48f5ee528bbaa_1440w.jpg?source=1940ef5c" alt="img"></p>
+<h2 id="f-x"><a href="#f-x" class="headerlink" title="f(x)"></a>f(x)</h2><h2 id="点到直线距离公式"><a href="#点到直线距离公式" class="headerlink" title="点到直线距离公式"></a><a href="https://www.zhihu.com/question/29380268/answer/823738387">点到直线距离公式</a></h2><h1 id="8-4"><a href="#8-4" class="headerlink" title="8.4"></a>8.4</h1>]]></content>
+      <categories>
+        <category>ky</category>
+      </categories>
+      <tags>
+        <tag>ky</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>信号与线性系统</title>
+    <url>/2020/09/04/trash/%E4%BF%A1%E5%8F%B7%E4%B8%8E%E7%BA%BF%E6%80%A7%E7%B3%BB%E7%BB%9F/</url>
+    <content><![CDATA[<blockquote>
+<p>简介</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="信号与线性系统"><a href="#信号与线性系统" class="headerlink" title="信号与线性系统"></a>信号与线性系统</h1><h2 id="第一章-信号系统基础"><a href="#第一章-信号系统基础" class="headerlink" title="第一章 信号系统基础"></a>第一章 信号系统基础</h2><p>信号分类, 简单处理</p>
+<p>奇异信号</p>
+<p>R(t), u(t), G(t), δ(t), <strong>冲激信号</strong>, </p>
+<p>系统概念分类</p>
+<p>线性时不变系统</p>
+<h2 id="第二章-LTI-系统的时域分析方法"><a href="#第二章-LTI-系统的时域分析方法" class="headerlink" title="第二章 LTI 系统的时域分析方法"></a>第二章 LTI 系统的时域分析方法</h2><p>系统微分方程的建立求解</p>
+<p>LTI 系统全响应的经典解法</p>
+<p>系统零输入响应的求解</p>
+<p>连续时间系统的单位冲激响应</p>
+<p>卷积积分</p>
+<h2 id="第三章-连续信号正交分解-CTFS"><a href="#第三章-连续信号正交分解-CTFS" class="headerlink" title="第三章 连续信号正交分解 CTFS"></a>第三章 连续信号正交分解 CTFS</h2><p>周期信号</p>
+<p>傅里叶级数</p>
+<p>周期信号的频谱</p>
+<p>非周期信号的 CTFS</p>
+<p>矩形脉冲信号的频谱分析</p>
+<h2 id="第四章-连续时间系统的频域分析"><a href="#第四章-连续时间系统的频域分析" class="headerlink" title="第四章 连续时间系统的频域分析"></a>第四章 连续时间系统的频域分析</h2><p>信号通过系统的频域分析</p>
+<p>理想低通滤波器的冲激响应与阶跃响应</p>
+<p>系统无失真传输和有失真线性畸变</p>
+<h2 id="第五章-连续时间系统的复频域分析"><a href="#第五章-连续时间系统的复频域分析" class="headerlink" title="第五章 连续时间系统的复频域分析"></a>第五章 连续时间系统的复频域分析</h2><p>拉普拉斯变换</p>
+<h2 id="第六章-连续时间系统的系统函数"><a href="#第六章-连续时间系统的系统函数" class="headerlink" title="第六章 连续时间系统的系统函数"></a>第六章 连续时间系统的系统函数</h2><p>系统函数的定义, 极点零点分布</p>
+<p>系统稳定性</p>
+<p>系统函数-&gt;系统频响特性</p>
+<p>字体的框图研究</p>
+<h2 id="第七章"><a href="#第七章" class="headerlink" title="第七章"></a>第七章</h2><p>离散时间信号</p>
+<p>抽样定理</p>
+<p>离散线性移不变系统</p>
+<p>离散时间系统的响应, 全响应, 卷积和法</p>
+<h2 id="第八章-z-变换和性质"><a href="#第八章-z-变换和性质" class="headerlink" title="第八章 z 变换和性质"></a>第八章 z 变换和性质</h2><p>z 变换</p>
+<p>z 变换求解差分方程, 分析系统响应</p>
+<p>系统函数与系统稳定性分析</p>
+<p>DTFT 离散时间傅里叶变换</p>
+<p>离散时间系统的频率响应</p>
+<p>离散系统的模拟</p>
+<p>​    非递归式数字滤波器</p>
+<p>​    递归式数字滤波器</p>
+]]></content>
+      <categories>
+        <category>cs</category>
+      </categories>
+      <tags>
+        <tag>signal</tag>
+      </tags>
   </entry>
 </search>

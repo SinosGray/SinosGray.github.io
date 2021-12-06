@@ -933,15 +933,16 @@ C/S P2,">
 <p>2.1.1  Network Application Architectures 86</p>
 <ul>
 <li>C/S p2p</li>
+<li>客户端是发起连接的, 服务端是等待被连接的</li>
 </ul>
 <p>2.1.2  Processes Communicating 88</p>
 <ul>
-<li>socket</li>
+<li>socket 是应用层和传输层的接口</li>
 </ul>
 <p>2.1.3  Transport Services Available to Applications 91</p>
 <p>2.1.4  Transport Services Provided by the Internet 93</p>
 <ul>
-<li>UDP TCP SSL</li>
+<li>UDP TCP SSL(<em>?</em>), ssl 是 tcp 在应用层的加强</li>
 </ul>
 <p>2.1.5  Application-Layer Protocols 96</p>
 <p>2.1.6  Network Applications Covered in This Book 97</p>
@@ -949,26 +950,69 @@ C/S P2,">
 <p>2.2.1  Overview of HTTP 98</p>
 <p>2.2.2  Non-Persistent and Persistent Connections 100</p>
 <ul>
-<li>three way handshake</li>
-<li><a href="qt.md">123</a></li>
+<li><p>每一个请求是开一个新的 tcp 连接还是可继续使用之前的 tcp 连接</p>
+</li>
+<li><p>three way handshake</p>
+</li>
 </ul>
 <p>2.2.3  HTTP Message Format 103</p>
 <p>2.2.4  User-Server Interaction: Cookies 108</p>
+<ul>
+<li>cookie 组成<ul>
+<li>Cookie:</li>
+<li>Set-Cookie:</li>
+<li>cookie 文件</li>
+<li>cookie db</li>
+</ul>
+</li>
+<li>cookie 过程<ol>
+<li>c: request</li>
+<li>s: set-cookie, entry in db</li>
+<li>c: cookie</li>
+<li>s: identify in db, response</li>
+</ol>
+</li>
+</ul>
 <p>2.2.5  Web Caching 110</p>
 <p>2.2.6  The Conditional GET 114</p>
+<ul>
+<li>If-Modified-Since:</li>
+</ul>
 <p>2.3  File Transfer: FTP 116</p>
 <p>2.3.1 FTP Commands and Replies 118</p>
 <p>2.4  Electronic Mail in the Internet 118</p>
 <p>2.4.1  SMTP 121</p>
 <p>2.4.2  Comparison with HTTP 124</p>
+<ul>
+<li>http pull, smtp push</li>
+</ul>
 <p>2.4.3  Mail Message Format 125</p>
 <p>2.4.4  Mail Access Protocols 125</p>
+<ul>
+<li>pop3, imap, http</li>
+</ul>
 <p>2.5  DNS—The Internet’s Directory Service 130</p>
 <p>2.5.1  Services Provided by DNS 131</p>
 <p>2.5.2  Overview of How DNS Works 133</p>
+<ul>
+<li>root server, TLD dns server(top-level domain), authoritative dns server, local dns server</li>
+</ul>
 <p>2.5.3  DNS Records and Messages 139</p>
+<ul>
+<li>(name, value, type, ttl)</li>
+<li>type<ul>
+<li>A hostname - ip</li>
+<li>NS domain(com) - authoritative dns server</li>
+<li>CNAME alias hostname - canonical hostname</li>
+<li>MX alias hostname - mail server canonical hostname</li>
+</ul>
+</li>
+</ul>
 <p>2.6  Peer-to-Peer Applications 144</p>
 <p>2.6.1  P2P File Distribution 145</p>
+<ul>
+<li>bittorrent</li>
+</ul>
 <p>2.6.2  Distributed Hash Tables (DHTs) 151</p>
 <p>2.7  Socket Programming: Creating Network Applications 156</p>
 <p>2.7.1  Socket Programming with UDP 157</p>
@@ -1097,7 +1141,7 @@ C/S P2,">
 <td>FTP</td>
 <td>TCP</td>
 <td>略</td>
-<td>有状态协议:control connection (持续)和 data connection(不持续)<br /></td>
+<td>有状态协议:control connection (持续)和 data connection(不持续, server 发起连接)<br /></td>
 <td>control: 21<br />data: 20</td>
 <td></td>
 </tr>
@@ -1105,23 +1149,23 @@ C/S P2,">
 <td>SMTP</td>
 <td>TCP</td>
 <td></td>
-<td>强制 ASCII 要转码</td>
+<td>强制 ASCII 要转码, 持续</td>
 <td>25</td>
 <td></td>
 </tr>
 <tr>
 <td>DNS</td>
 <td>UDP</td>
-<td>RR: (Name, Value, Type, TTL)<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwrficy19rj30mg0dywfy.jpg" alt="截屏2021-11-25 下午3.30.02"></td>
-<td>分层, 分布式</td>
+<td>RR: (Name, Value, Type, TTL)<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4cbpi3qoj30uo0l076o.jpg" alt="截屏2021-12-06 下午7.32.16"></td>
+<td>分层, 分布式<br /><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gx4cb4kz64j310o0d6dhh.jpg" alt="截屏2021-12-06 下午7.31.37"></td>
 <td>53</td>
 <td></td>
 </tr>
 <tr>
 <td>p2p</td>
+<td>TCP</td>
 <td></td>
-<td></td>
-<td></td>
+<td>tit for tat</td>
 <td></td>
 <td></td>
 </tr>
