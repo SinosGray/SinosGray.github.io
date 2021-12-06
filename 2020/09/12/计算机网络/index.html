@@ -882,7 +882,283 @@ C/S P2,">
 <p>AS autonomous system 自治系统</p>
 <p>ASN AS号</p>
 <p>BGP broder gateway protocol 边界网关协议</p>
-<h1 id="小总结"><a href="#小总结" class="headerlink" title="小总结"></a>小总结</h1><h2 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h2><p>200 OK 成功</p>
+<h1 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h1><h2 id="Computer-Networks-and-the-Internet-1"><a href="#Computer-Networks-and-the-Internet-1" class="headerlink" title="Computer Networks and the Internet 1"></a><strong>Computer Networks and the Internet 1</strong></h2><p>1.1  What Is the Internet? 2</p>
+<p>1.1.1  A Nuts-and-Bolts Description 2</p>
+<p>1.1.2  A Services Description 5</p>
+<p>1.1.3  What Is a Protocol? 7</p>
+<p>1.2  The Network Edge 9</p>
+<p>1.2.1  Access Networks 12</p>
+<ul>
+<li>DSL cable FTTH Dial-up Satellite</li>
+</ul>
+<p>1.2.2  Physical Media 18</p>
+<p>1.3  The Network Core 22</p>
+<p>1.3.1  Packet Switching 22</p>
+<ul>
+<li>store and forward</li>
+</ul>
+<p>1.3.2  Circuit Switching 27</p>
+<p>1.3.3  A Network of Networks 32</p>
+<ul>
+<li>ISP</li>
+</ul>
+<p>1.4  Delay, Loss, and Throughput in Packet-Switched Networks 35</p>
+<p>1.4.1  Overview of Delay in Packet-Switched Networks 35</p>
+<ul>
+<li>processing delay, queuing delay, transmission delay, propagation delay</li>
+</ul>
+<p>1.4.2  Queuing Delay and Packet Loss 39</p>
+<ul>
+<li>traffic intensity La/R</li>
+</ul>
+<p>1.4.3  End-to-End Delay 42</p>
+<p>1.4.4  Throughput in Computer Networks 44</p>
+<p>1.5  Protocol Layers and Their Service Models 47</p>
+<p>1.5.1 Layered Architecture 47 </p>
+<ul>
+<li>5 application transport network link physical</li>
+<li>5 message segment datagram frame bit</li>
+<li>7OSI Application presentation session transport network link physical</li>
+</ul>
+<p>1.5.2 Encapsulation 53</p>
+<p>1.6  Networks Under Attack 55</p>
+<p>1.7  History of Computer Networking and the Internet 60</p>
+<p>1.7.1  The Development of Packet Switching: 1961–1972 60</p>
+<p>1.7.2  Proprietary Networks and Internetworking: 1972–1980 62</p>
+<p>1.7.3  A Proliferation of Networks: 1980–1990 63</p>
+<p>1.7.4  The Internet Explosion: The 1990s 64</p>
+<p>1.7.5  The New Millennium 65</p>
+<p>1.8  Summary 66</p>
+<h2 id="Application-Layer-83"><a href="#Application-Layer-83" class="headerlink" title="Application Layer 83"></a>Application Layer 83</h2><p>2.1  Principles of Network Applications 84</p>
+<p>2.1.1  Network Application Architectures 86</p>
+<ul>
+<li>C/S p2p</li>
+</ul>
+<p>2.1.2  Processes Communicating 88</p>
+<ul>
+<li>socket</li>
+</ul>
+<p>2.1.3  Transport Services Available to Applications 91</p>
+<p>2.1.4  Transport Services Provided by the Internet 93</p>
+<ul>
+<li>UDP TCP SSL</li>
+</ul>
+<p>2.1.5  Application-Layer Protocols 96</p>
+<p>2.1.6  Network Applications Covered in This Book 97</p>
+<p>2.2  The Web and HTTP 98</p>
+<p>2.2.1  Overview of HTTP 98</p>
+<p>2.2.2  Non-Persistent and Persistent Connections 100</p>
+<ul>
+<li>three way handshake</li>
+<li><a href="qt.md">123</a></li>
+</ul>
+<p>2.2.3  HTTP Message Format 103</p>
+<p>2.2.4  User-Server Interaction: Cookies 108</p>
+<p>2.2.5  Web Caching 110</p>
+<p>2.2.6  The Conditional GET 114</p>
+<p>2.3  File Transfer: FTP 116</p>
+<p>2.3.1 FTP Commands and Replies 118</p>
+<p>2.4  Electronic Mail in the Internet 118</p>
+<p>2.4.1  SMTP 121</p>
+<p>2.4.2  Comparison with HTTP 124</p>
+<p>2.4.3  Mail Message Format 125</p>
+<p>2.4.4  Mail Access Protocols 125</p>
+<p>2.5  DNS—The Internet’s Directory Service 130</p>
+<p>2.5.1  Services Provided by DNS 131</p>
+<p>2.5.2  Overview of How DNS Works 133</p>
+<p>2.5.3  DNS Records and Messages 139</p>
+<p>2.6  Peer-to-Peer Applications 144</p>
+<p>2.6.1  P2P File Distribution 145</p>
+<p>2.6.2  Distributed Hash Tables (DHTs) 151</p>
+<p>2.7  Socket Programming: Creating Network Applications 156</p>
+<p>2.7.1  Socket Programming with UDP 157</p>
+<p>2.7.2  Socket Programming with TCP 163</p>
+<p>2.8  Summary 168</p>
+<p><strong>Chapter 3</strong></p>
+<p><strong>Transport Layer 185</strong></p>
+<p>3.1  Introduction and Transport-Layer Services 186</p>
+<p>3.1.1  Relationship Between Transport and Network Layers 186</p>
+<p>3.1.2  Overview of the Transport Layer in the Internet 189</p>
+<p>3.2  Multiplexing and Demultiplexing 191</p>
+<p>3.3  Connectionless Transport: UDP 198</p>
+<p>3.3.1  UDP Segment Structure 202</p>
+<p>3.3.2  UDP Checksum 202</p>
+<p>3.4  Principles of Reliable Data Transfer 204</p>
+<p>3.4.1  Building a Reliable Data Transfer Protocol 206</p>
+<p>3.4.2  Pipelined Reliable Data Transfer Protocols 215</p>
+<p>3.4.3  Go-Back-N (GBN) 218</p>
+<p>3.4.4  Selective Repeat (SR) 223</p>
+<p>3.5  Connection-Oriented Transport: TCP 230</p>
+<p>3.5.1  The TCP Connection 231</p>
+<p>3.5.2  TCP Segment Structure 233</p>
+<p>3.5.3  Round-Trip Time Estimation and Timeout 238</p>
+<p>3.5.4  Reliable Data Transfer 242</p>
+<p>3.5.5  Flow Control 250</p>
+<p>3.5.6  TCP Connection Management 252</p>
+<p>3.6  Principles of Congestion Control 259 3.6.1 The Causes and the Costs of Congestion 259 3.6.2 Approaches to Congestion Control 265</p>
+<p>3.6.3 Network-Assisted Congestion-Control Example:<br> ATM ABR Congestion Control 266</p>
+<p>3.7  TCP Congestion Control 269 3.7.1 Fairness 279</p>
+<p>3.8  Summary 283</p>
+<p><strong>The Network Layer 305</strong></p>
+<p>4.1  Introduction 306</p>
+<p>4.1.1  Forwarding and Routing 308</p>
+<p>4.1.2  Network Service Models 310</p>
+<p>4.2  Virtual Circuit and Datagram Networks 313</p>
+<p>4.2.1  Virtual-Circuit Networks 314</p>
+<p>4.2.2  Datagram Networks 317</p>
+<p>4.2.3  Origins of VC and Datagram Networks 319</p>
+<p>4.3  What’s Inside a Router? 320</p>
+<p>4.3.1  Input Processing 322</p>
+<p>4.3.2  Switching 324</p>
+<p>4.3.3  Output Processing 326</p>
+<p>4.3.4  Where Does Queuing Occur? 327</p>
+<p>4.3.5  The Routing Control Plane 331</p>
+<p>4.4  The Internet Protocol (IP): Forwarding and Addressing in the Internet 331</p>
+<p>4.4.1  Datagram Format 332</p>
+<p>4.4.2  IPv4 Addressing 338</p>
+<p>4.4.3  Internet Control Message Protocol (ICMP) 353</p>
+<p>4.4.4  IPv6 356</p>
+<p>4.4.5  A Brief Foray into IP Security 362</p>
+<p>4.5  Routing Algorithms 363</p>
+<p>4.5.1  The Link-State (LS) Routing Algorithm 366</p>
+<p>4.5.2  The Distance-Vector (DV) Routing Algorithm 371</p>
+<p>4.5.3  Hierarchical Routing 379</p>
+<p>4.6  Routing in the Internet 383</p>
+<p>4.6.1  Intra-AS Routing in the Internet: RIP 384</p>
+<p>4.6.2  Intra-AS Routing in the Internet: OSPF 388</p>
+<p>4.6.3  Inter-AS Routing: BGP 390</p>
+<p>4.7  Broadcast and Multicast Routing 399</p>
+<p>4.7.1 Broadcast Routing Algorithms 400 4.7.2 Multicast 405</p>
+<p>4.8 Summary 412 </p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="access-network"><a href="#access-network" class="headerlink" title="access network"></a>access network</h2><table>
+<thead>
+<tr>
+<th align="left">名字</th>
+<th>示意图</th>
+<th>特征</th>
+<th>共用</th>
+<th>传输材料</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">DSL digital subscriber line</td>
+<td><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwrejuhwyfj30nu09iaaw.jpg" alt="截屏2021-11-25 下午2.56.52"></td>
+<td>短距离</td>
+<td>电话</td>
+<td>双绞铜线(便宜)</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">HFC hybrid fiber coax</td>
+<td><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwrelepf5mj30t20d0q3z.jpg" alt="截屏2021-11-25 下午2.58.27"></td>
+<td>每个用户都会收到 packet 的copy</td>
+<td>电视</td>
+<td>同轴电缆(高速), 光纤</td>
+<td></td>
+</tr>
+<tr>
+<td align="left">FTTH fiber to the home</td>
+<td><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwreo25e92j30o40c0dgt.jpg" alt="截屏2021-11-25 下午3.00.59"></td>
+<td></td>
+<td></td>
+<td>光纤(高速, 不受电磁影响, 成本高)</td>
+<td>PON(similar to cable), AON</td>
+</tr>
+<tr>
+<td align="left">LAN</td>
+<td><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwres7bkyuj30oc0d8aat.jpg" alt="截屏2021-11-25 下午3.04.55"></td>
+<td></td>
+<td></td>
+<td>双绞铜线</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="应用层协议"><a href="#应用层协议" class="headerlink" title="应用层协议"></a>应用层协议</h2><table>
+<thead>
+<tr>
+<th>协议名</th>
+<th>传输层协议</th>
+<th>报文</th>
+<th>特点</th>
+<th>端口</th>
+<th>其他</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>HTTP</td>
+<td>TCP</td>
+<td><strong>request 报文</strong><br />GET /dir/page.html HTTP/1.1<br />HOST: <a target="_blank" rel="noopener" href="http://www.xxx.com/">www.xxx.com</a><br />Connection: close<br />User-agent: Mozilla/5.0<br /><br /><strong>response 报文</strong><br />HTTP/1.1 200 OK<br />Connection: close<br />Date: Tue, 09 Aug 2011 15:44:04 GMT<br />Server: Apache/2.2.3 (CentOS)<br />Last-Modified: Tue, 09 Aug 2011 15:11:03 GMT<br />Content-Length: 6811<br />Content-Type: text/html<br /><br />(data data data)</td>
+<td>无状态协议</td>
+<td>80</td>
+<td>cookies</td>
+</tr>
+<tr>
+<td>FTP</td>
+<td>TCP</td>
+<td>略</td>
+<td>有状态协议:control connection (持续)和 data connection(不持续)<br /></td>
+<td>control: 21<br />data: 20</td>
+<td></td>
+</tr>
+<tr>
+<td>SMTP</td>
+<td>TCP</td>
+<td></td>
+<td>强制 ASCII 要转码</td>
+<td>25</td>
+<td></td>
+</tr>
+<tr>
+<td>DNS</td>
+<td>UDP</td>
+<td>RR: (Name, Value, Type, TTL)<img src="https://tva1.sinaimg.cn/large/008i3skNgy1gwrficy19rj30mg0dywfy.jpg" alt="截屏2021-11-25 下午3.30.02"></td>
+<td>分层, 分布式</td>
+<td>53</td>
+<td></td>
+</tr>
+<tr>
+<td>p2p</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="SMTP-mail-access-protocol"><a href="#SMTP-mail-access-protocol" class="headerlink" title="SMTP mail access protocol"></a>SMTP mail access protocol</h3><table>
+<thead>
+<tr>
+<th>协议名</th>
+<th>特点</th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>POP3</td>
+<td>server 只有标签, 不能移动更改文件夹, 不保存用户状态信息</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>IMAP</td>
+<td>可以操作文件夹, 可以只获得邮件的部分内容, 保存用户状态信息</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>HTTP</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="http-状态码"><a href="#http-状态码" class="headerlink" title="http 状态码"></a>http 状态码</h2><p>200 OK 成功</p>
 <p>301 moved permanently 永久转移</p>
 <p>400 bad request 不能被服务器理解</p>
 <p>404 not found</p>
@@ -955,7 +1231,7 @@ C/S P2,">
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MOOC"><span class="toc-number">1.</span> <span class="toc-text">MOOC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%A0%E7%89%B9%E7%BD%91"><span class="toc-number">1.1.</span> <span class="toc-text">第一章 计算机网络与因特网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">第二章 应用层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">第三章 运输层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">第四章 网络层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%93%BE%E8%B7%AF%E5%B1%82%E5%92%8C%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.5.</span> <span class="toc-text">第五章 链路层和局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-wifi"><span class="toc-number">1.6.</span> <span class="toc-text">第六章 wifi</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-1-socket-%E7%BC%96%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">实验 1 socket 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">实验要求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-2-rdt-%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">实验 2 rdt 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A6%81%E6%B1%82"><span class="toc-number">3.1.</span> <span class="toc-text">要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">3.2.</span> <span class="toc-text">模拟环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86"><span class="toc-number">3.3.</span> <span class="toc-text">知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GBN"><span class="toc-number">3.3.1.</span> <span class="toc-text">GBN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rdt"><span class="toc-number">3.3.2.</span> <span class="toc-text">rdt</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B"><span class="toc-number">4.</span> <span class="toc-text">计算机网络自顶向下</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%92%8C-Internet"><span class="toc-number">4.1.</span> <span class="toc-text">第一章 计算机网络和 Internet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82-1"><span class="toc-number">4.2.</span> <span class="toc-text">第二章 应用层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82-1"><span class="toc-number">4.3.</span> <span class="toc-text">第三章 运输层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2"><span class="toc-number">4.4.</span> <span class="toc-text">第四章 网络层:数据平面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2"><span class="toc-number">4.5.</span> <span class="toc-text">第五章 网络层: 控制平面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%8F%E6%80%BB%E7%BB%93"><span class="toc-number">5.</span> <span class="toc-text">小总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">5.1.</span> <span class="toc-text">http 状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E6%96%87%E7%AD%89%E6%A6%82%E5%BF%B5"><span class="toc-number">5.2.</span> <span class="toc-text">报文等概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abcde-%E7%B1%BB-ip"><span class="toc-number">5.3.</span> <span class="toc-text">abcde 类 ip</span></a></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#MOOC"><span class="toc-number">1.</span> <span class="toc-text">MOOC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%8E%E5%9B%A0%E7%89%B9%E7%BD%91"><span class="toc-number">1.1.</span> <span class="toc-text">第一章 计算机网络与因特网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82"><span class="toc-number">1.2.</span> <span class="toc-text">第二章 应用层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82"><span class="toc-number">1.3.</span> <span class="toc-text">第三章 运输层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82"><span class="toc-number">1.4.</span> <span class="toc-text">第四章 网络层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E9%93%BE%E8%B7%AF%E5%B1%82%E5%92%8C%E5%B1%80%E5%9F%9F%E7%BD%91"><span class="toc-number">1.5.</span> <span class="toc-text">第五章 链路层和局域网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-wifi"><span class="toc-number">1.6.</span> <span class="toc-text">第六章 wifi</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-1-socket-%E7%BC%96%E7%A8%8B"><span class="toc-number">2.</span> <span class="toc-text">实验 1 socket 编程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E8%A6%81%E6%B1%82"><span class="toc-number">2.1.</span> <span class="toc-text">实验要求</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-2-rdt-%E5%8D%8F%E8%AE%AE"><span class="toc-number">3.</span> <span class="toc-text">实验 2 rdt 协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A6%81%E6%B1%82"><span class="toc-number">3.1.</span> <span class="toc-text">要求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">3.2.</span> <span class="toc-text">模拟环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86"><span class="toc-number">3.3.</span> <span class="toc-text">知识</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#GBN"><span class="toc-number">3.3.1.</span> <span class="toc-text">GBN</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rdt"><span class="toc-number">3.3.2.</span> <span class="toc-text">rdt</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B"><span class="toc-number">4.</span> <span class="toc-text">计算机网络自顶向下</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E5%92%8C-Internet"><span class="toc-number">4.1.</span> <span class="toc-text">第一章 计算机网络和 Internet</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E5%BA%94%E7%94%A8%E5%B1%82-1"><span class="toc-number">4.2.</span> <span class="toc-text">第二章 应用层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E8%BF%90%E8%BE%93%E5%B1%82-1"><span class="toc-number">4.3.</span> <span class="toc-text">第三章 运输层</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%95%B0%E6%8D%AE%E5%B9%B3%E9%9D%A2"><span class="toc-number">4.4.</span> <span class="toc-text">第四章 网络层:数据平面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%BD%91%E7%BB%9C%E5%B1%82-%E6%8E%A7%E5%88%B6%E5%B9%B3%E9%9D%A2"><span class="toc-number">4.5.</span> <span class="toc-text">第五章 网络层: 控制平面</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">5.</span> <span class="toc-text">目录</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Computer-Networks-and-the-Internet-1"><span class="toc-number">5.1.</span> <span class="toc-text">Computer Networks and the Internet 1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Application-Layer-83"><span class="toc-number">5.2.</span> <span class="toc-text">Application Layer 83</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#access-network"><span class="toc-number">6.1.</span> <span class="toc-text">access network</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8%E5%B1%82%E5%8D%8F%E8%AE%AE"><span class="toc-number">6.2.</span> <span class="toc-text">应用层协议</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SMTP-mail-access-protocol"><span class="toc-number">6.2.1.</span> <span class="toc-text">SMTP mail access protocol</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E7%8A%B6%E6%80%81%E7%A0%81"><span class="toc-number">6.3.</span> <span class="toc-text">http 状态码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%A5%E6%96%87%E7%AD%89%E6%A6%82%E5%BF%B5"><span class="toc-number">6.4.</span> <span class="toc-text">报文等概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#abcde-%E7%B1%BB-ip"><span class="toc-number">6.5.</span> <span class="toc-text">abcde 类 ip</span></a></li></ol></li></ol>	
         </div>
     
 </div>
