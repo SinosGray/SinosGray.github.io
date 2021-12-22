@@ -1,0 +1,321 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>cpp_class - Sinos_wei&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+
+
+
+cpp 实验tips1.struct 中的 const 成员
+初始化 struct结构体是常用的自定义构造类型，是一种很常见的数据打包方法。结构体对象的初始化有多种方式，分为顺序初始化、指定,"> 
+    <meta name="author" content="Sinos_wei"> 
+    <link rel="alternative" href="atom.xml" title="Sinos_wei&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/a33.jpg"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Sinos_wei&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">cpp_class</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">cpp_class</h1>
+        <div class="stuff">
+            <span>十二月 21, 2021</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/c/" rel="tag">c++</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="cpp-实验tips"><a href="#cpp-实验tips" class="headerlink" title="cpp 实验tips"></a>cpp 实验tips</h1><h2 id="1"><a href="#1" class="headerlink" title="1."></a>1.</h2><h3 id="struct-中的-const-成员"><a href="#struct-中的-const-成员" class="headerlink" title="struct 中的 const 成员"></a>struct 中的 const 成员</h3><p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gj7iqelf3jj30rm0digmj.jpg" alt="截屏2020-09-29 下午2.45.05"></p>
+<h3 id="初始化-struct"><a href="#初始化-struct" class="headerlink" title="初始化 struct"></a>初始化 struct</h3><p>结构体是常用的自定义构造类型，是一种很常见的数据打包方法。结构体对象的初始化有多种方式，分为顺序初始化、指定初始化、构造函数初始化。假如有如下结构体。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">struct A &#123;</span><br><span class="line">	int b;</span><br><span class="line">	int c;</span><br><span class="line">&#125;;</span><br><span class="line">1234</span><br></pre></td></tr></table></figure>
+
+<p>（1）顺序初始化因为书写起来较为简约，是我们最常用的初始化方式，但相对于指定初始化，无法变更数据成员初始化顺序，灵活性较差，而且表现形式不直观，不能一眼看出 struct 各个数据成员的值。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">A</span> &#123;</span></span><br><span class="line">	<span class="keyword">int</span> b;</span><br><span class="line">	<span class="keyword">int</span> c;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="number">1234</span></span><br><span class="line">A a = &#123;<span class="number">1</span>, <span class="number">2</span>&#125;;</span><br><span class="line"><span class="comment">// 点号+赋值符号</span></span><br><span class="line">A a = &#123;.b = <span class="number">1</span>, .c = <span class="number">2</span>&#125;;</span><br><span class="line"><span class="comment">//冒号</span></span><br><span class="line">A a = &#123;b:<span class="number">1</span>, c:<span class="number">2</span>&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="要注意后面是不是-0-if-检验"><a href="#要注意后面是不是-0-if-检验" class="headerlink" title="% /  要注意后面是不是 0 if 检验"></a>% /  要注意后面是不是 0 if 检验</h3><h3 id="null-与-nullptr-的区别"><a href="#null-与-nullptr-的区别" class="headerlink" title="null 与 nullptr 的区别"></a>null 与 nullptr 的区别</h3><h3 id="delete"><a href="#delete" class="headerlink" title="delete"></a>delete</h3><p>delete 运算符只能作用于 new 返回的指针或者nullptr, delete 指针后不会自动设置为 nullptr, 指针的值不变</p>
+<h3 id="处有未经处理的异常-0xC0000005-读取位置-0xcccccccc-时发生访问冲突"><a href="#处有未经处理的异常-0xC0000005-读取位置-0xcccccccc-时发生访问冲突" class="headerlink" title="处有未经处理的异常: 0xC0000005: 读取位置 0xcccccccc 时发生访问冲突"></a>处有未经处理的异常: 0xC0000005: 读取位置 0xcccccccc 时发生访问冲突</h3><p>具体原因是在 destroy 的时候删除了 p 本身(题目未要求删除)</p>
+<p>解决方法：在debug下，未初始化的指针的地址为0xcccccccc ， 检查下有没有什么地方使用了未初始化的指针，定位后应该是data指针没有初始化，应对其初始化：</p>
+<h2 id="2"><a href="#2" class="headerlink" title="2."></a>2.</h2><h3 id="noexcept"><a href="#noexcept" class="headerlink" title="noexcept"></a>noexcept</h3><h3 id="初始化列表"><a href="#初始化列表" class="headerlink" title="初始化列表"></a>初始化列表</h3><h3 id="amp-amp-运算符"><a href="#amp-amp-运算符" class="headerlink" title="&amp;&amp;运算符"></a>&amp;&amp;运算符</h3><h3 id="Invalid-address-specified-to-RtlValidateHea"><a href="#Invalid-address-specified-to-RtlValidateHea" class="headerlink" title="Invalid address specified to RtlValidateHea"></a>Invalid address specified to RtlValidateHea</h3><h2 id="3"><a href="#3" class="headerlink" title="3."></a>3.</h2><h3 id="std-move"><a href="#std-move" class="headerlink" title="std::move()"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/94588204">std::move()</a></h3><p>前段时间和朋友聊天的过程中说到了右值和std::move以及项目代码里面不合时宜的使用std::move。以及前段时间，华为开源了方舟编译器，大神们讨论方舟编译器，有人贴出里面乱用std::move，看了一下它的源码，是有随意使用std::move的现象。因此，对右值引用和std::move做了一下回顾。</p>
+<p>说到<strong>右值</strong>，先看一下什么是右值，在c++中，一个值要么是右值，要么是左值，<em>左值是指表达式结束后依然存在的持久化对象，右值是指表达式结束时就不再存在的临时对象。所有的具名变量或者对象都是左值，而右值不具名。</em></p>
+<p>比如：</p>
+<p>常见的右值：“abc”,123等都是右值。</p>
+<p><strong>右值引用，</strong>用以引用一个右值，可以延长右值的生命期，比如：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>&amp;&amp; i = <span class="number">123</span>;</span><br><span class="line"><span class="keyword">int</span>&amp;&amp; j = std::<span class="built_in">move</span>(i);</span><br><span class="line"><span class="keyword">int</span>&amp;&amp; k = i;<span class="comment">//编译不过，这里i是一个左值，右值引用只能引用右值</span></span><br></pre></td></tr></table></figure>
+
+<p>可以通过下面的代码，更深入的体会左值引用和右值引用的区别：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int i;</span><br><span class="line">int&amp;&amp; j = i++;</span><br><span class="line">int&amp;&amp; k = ++i;</span><br><span class="line">int&amp; m = i++;</span><br><span class="line">int&amp; l = ++i;</span><br><span class="line"></span><br><span class="line">move.cpp: In function ‘int main()’:</span><br><span class="line">move.cpp:72:14: error: cannot bind ‘int’ lvalue to ‘int&amp;&amp;’</span><br><span class="line">  int&amp;&amp; k = ++i;</span><br><span class="line">              ^</span><br><span class="line">move.cpp:73:15: error: invalid initialization of non-const reference of type ‘int&amp;’ from an rvalue of type ‘int’</span><br><span class="line">     int&amp; m = i++;</span><br></pre></td></tr></table></figure>
+
+<p><strong>为什么需要右值引用</strong></p>
+<p>C++引入右值引用之后，可以通过右值引用，充分使用临时变量，或者即将不使用的变量即右值的资源，减少不必要的拷贝，提高效率。如下代码，均会产生临时变量：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class RValue &#123;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">RValue get() &#123;</span><br><span class="line">    return RValue();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void put(RValue)&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>为了充分利用右值的资源，减少不必要的拷贝，C++11引入了右值引用(&amp;&amp;)，移动构造函数，移动复制运算符以及std::move。</p>
+<p><strong>右值引用(&amp;&amp;)，移动构造函数，移动复制运算符以及std::move</strong></p>
+<p>将上面的类定义补充完整：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">ut&lt;&lt;#include &lt;iostream&gt;</span><br><span class="line">#include &lt;memory&gt;</span><br><span class="line">#include &lt;vector&gt;</span><br><span class="line">#include &lt;string&gt;</span><br><span class="line">using namespace std;</span><br><span class="line"></span><br><span class="line">struct RValue &#123;</span><br><span class="line">	RValue():sources(&quot;hello!!!&quot;)&#123;&#125;</span><br><span class="line">	RValue(RValue&amp;&amp; a) &#123;</span><br><span class="line">		sources = std::move(a.sources);</span><br><span class="line">		cout&lt;&lt;&quot;&amp;&amp; RValue&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	RValue(const RValue&amp; a) &#123;</span><br><span class="line">		sources = a.sources;</span><br><span class="line">		cout&lt;&lt;&quot;&amp; RValue&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	void operator=(const RValue&amp;&amp; a) &#123;</span><br><span class="line">		sources = std::move(a.sources);</span><br><span class="line">		cout&lt;&lt;&quot;&amp;&amp; ==&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	void operator=(const RValue&amp; a) &#123;</span><br><span class="line">		sources = a.sources;</span><br><span class="line">		cout&lt;&lt;&quot;&amp; ==&quot;&lt;&lt;endl;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	string sources;;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">RValue get() &#123;</span><br><span class="line">        RValue a;</span><br><span class="line">	return a;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">void put(RValue)&#123;&#125;</span><br><span class="line"></span><br><span class="line">int main() &#123;</span><br><span class="line">	RValue a = get();</span><br><span class="line">        cout&lt;&lt;&quot;---------------&quot;&lt;&lt;endl;</span><br><span class="line">	put(RValue());</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不过，当运行的时候却发现没有任何输出</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br></pre></td></tr></table></figure>
+
+<p>这是因为，编译器做了优化，编译的时候加上-fno-elide-constructors，去掉优化</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">g++ move.cpp -std=c++11 -fno-elide-constructors -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">---------------</span><br><span class="line">&amp;&amp; RValue</span><br></pre></td></tr></table></figure>
+
+<p>通过上面的代码，可以看出，在没有加-fno-elide-constructors选项时，编译器做了优化，没有临时变量的生成。在加了-fno-elide-constructors选项时，get产生了两次临时变量，二put生成了一次临时变量。</p>
+<p>将get函数稍微修改一下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">RValue get() &#123;</span><br><span class="line">	RValue a;</span><br><span class="line">	return std::move(RValue());</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">---------------</span><br><span class="line"></span><br><span class="line">//加编译选项</span><br><span class="line">g++ move.cpp -std=c++11 -fno-elide-constructors -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">---------------</span><br><span class="line">&amp;&amp; RValue</span><br></pre></td></tr></table></figure>
+
+<p>只是简单的修改了一下，std::move(a)，在编译器做了优化的情况下，用了std::move，反而多做了一次拷贝。</p>
+<p>其实，RValue如果在没有定义移动构造函数，重复上面的操作，生成临时变量的次数还是一样的，只不过，调用的时拷贝构造函数了而已。</p>
+<p>通过get函数可以知道，乱用std::move在编译器开启构造函数优化的场景下反而增加了不必要的拷贝。那么，std::move应该在什么场景下使用？</p>
+<p><strong>std::move使用场景</strong></p>
+<p>1、移动构造函数的原理</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjouc37bo1j30cm095my6.jpg" alt="image-20201014142110913"></p>
+<p>通过移动构造，b指向a的资源，a不再拥有资源，这里的资源，可以是动态申请的内存，网络链接，打开的文件，也可以是本例中的string。<strong>这时候访问a的行为时未定义的</strong>，比如，如果资源是动态内存，a被移动之后，再次访问a的资源，根据移动构造函数的定义，可能是空指针，如果是资源上文的string，移动之后，a的资源为空字符串（string被移动之后，为空字符串）。</p>
+<p>可以通过下面代码验证，修改main函数：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">int main() &#123;</span><br><span class="line">	RValue a, b;</span><br><span class="line">	RValue a1 = std::move(a);</span><br><span class="line">	cout&lt;&lt;&quot;a.sources:&quot;&lt;&lt;a.sources&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;&quot;a1.sources:&quot;&lt;&lt;a1.sources&lt;&lt;endl;</span><br><span class="line">	RValue b1(b);</span><br><span class="line">	cout&lt;&lt;&quot;b.sources:&quot;&lt;&lt;b.sources&lt;&lt;endl;</span><br><span class="line">	cout&lt;&lt;&quot;b1.sources:&quot;&lt;&lt;a1.sources&lt;&lt;endl;</span><br><span class="line">	return 0;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">a.sources:</span><br><span class="line">a1.sources:hello!!!</span><br><span class="line">&amp; RValue</span><br><span class="line">b.sources:hello!!!</span><br><span class="line">b1.sources:hello!!!</span><br></pre></td></tr></table></figure>
+
+<p>通过移动构造函数之后，a的资源为空，b指向了a的资源。通过拷贝构造函数，b<strong>复制</strong>了a的资源。</p>
+<p>2、std::move的原理</p>
+<p>std::move的定义：</p>
+<p><img src="https://tva1.sinaimg.cn/large/007S8ZIlgy1gjoueoadnuj30hn027dh4.jpg" alt="image-20201014142341508"></p>
+<p>这里，T&amp;&amp;是通用引用，需要注意和右值引用（比如int&amp;&amp;）区分。通过move定义可以看出，move并没有”移动“什么内容，<strong>只是将传入的值转换为右值</strong>，此外没有其他动作。std::move+移动构造函数或者移动赋值运算符，才能充分起到减少不必要拷贝的意义。</p>
+<p>3、std::move的使用场景</p>
+<p>在之前的项目中看到有的同事到处使用std::move，好像觉得使用了std::move就能移动资源，提升性能一样，在我看来，std::move主要使用在以下场景：</p>
+<ul>
+<li><strong>使用前提：1 定义的类使用了资源并定义了移动构造函数和移动赋值运算符，2 该变量即将不再使用</strong></li>
+<li>使用场景</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">RValue a, b;</span><br><span class="line">	</span><br><span class="line"><span class="comment">//对a,b坐一系列操作之后，不再使用a,b，但需要保存到智能指针或者容器之中</span></span><br><span class="line"><span class="function">unique_ptr&lt;RValue&gt; <span class="title">up</span><span class="params">(<span class="keyword">new</span> RValue(std::move(a)))</span></span>;</span><br><span class="line">vector&lt;RValue*&gt; vr;</span><br><span class="line">vr.<span class="built_in">push_back</span>(<span class="keyword">new</span> <span class="built_in">RValue</span>(std::<span class="built_in">move</span>(b)));</span><br><span class="line"></span><br><span class="line"><span class="comment">//临时容器中保存的大量的元素需要复制到目标容器之中	</span></span><br><span class="line">vector&lt;RValue&gt; vrs_temp;</span><br><span class="line">vrs_temp.<span class="built_in">push_back</span>(<span class="built_in">RValue</span>());</span><br><span class="line">vrs_temp.<span class="built_in">push_back</span>(<span class="built_in">RValue</span>());</span><br><span class="line">vrs_temp.<span class="built_in">push_back</span>(<span class="built_in">RValue</span>());</span><br><span class="line"><span class="function">vector&lt;RValue&gt; <span class="title">vrs</span><span class="params">(std::move(vrs_temp))</span></span>;</span><br><span class="line">	</span><br><span class="line">RValue c;</span><br><span class="line"><span class="built_in">put</span>(std::<span class="built_in">move</span>(c));</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>在没有右值引用之前，为了使用临时变量，通常定义const的左值引用，比如const string&amp;，在有了右值引用之后，为了使用右值语义，不要把参数定义为常量左值引用，否则，传递右值时调用的时拷贝构造函数</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">void put(const RValue&amp; c)&#123;</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">	unique_ptr&lt;RValue&gt; up(new RValue(std::move(c)));</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">RValue c;</span><br><span class="line">put(std::move(c));</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">----------</span><br><span class="line">&amp; RValue</span><br><span class="line">----------</span><br></pre></td></tr></table></figure>
+
+<p>不使用左值常量引用：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">void put(RValue c)&#123;</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">	unique_ptr&lt;RValue&gt; up(new RValue(std::move(c)));</span><br><span class="line">	cout&lt;&lt;&quot;----------&quot;&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">RValue c;</span><br><span class="line">put(std::move(c));</span><br><span class="line"></span><br><span class="line">g++ move.cpp -std=c++11 -o move</span><br><span class="line"> ./move </span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">----------</span><br><span class="line">&amp;&amp; RValue</span><br><span class="line">----------</span><br></pre></td></tr></table></figure>
+
+<p>这是因为，根据通用引用的定义，std::move(c)过程中，模板参数被推倒为const RValue&amp;，因此，调用拷贝构造函数。</p>
+<p><strong>总结</strong></p>
+<p>通过简绍右值和右值引用以及std::move和移动构造函数，总结右值引用，移动构造函数和移动赋值运算符和std::move的用法和注意事项。</p>
+<h2 id="4"><a href="#4" class="headerlink" title="4."></a>4.</h2><h3 id="运算符重载"><a href="#运算符重载" class="headerlink" title="运算符重载"></a>运算符重载</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Test</span>(<span class="keyword">int</span> a)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a = a;</span><br><span class="line">    &#125;</span><br><span class="line">    Test &amp; <span class="keyword">operator</span>++()<span class="comment">// 前置++</span></span><br><span class="line">    &#123;</span><br><span class="line">        a++;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    Test &amp; <span class="keyword">operator</span>--()<span class="comment">// 前置--</span></span><br><span class="line">    &#123;</span><br><span class="line">        a--;</span><br><span class="line">        <span class="keyword">return</span> *<span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 后置++</span></span><br><span class="line">    <span class="comment">// 通过一个站位参数来和前置++区分开来</span></span><br><span class="line">    <span class="comment">// 实现上，多了一个 tmp 变量，来实现先操作，后自增的效果</span></span><br><span class="line">    Test <span class="keyword">operator</span>++(<span class="keyword">int</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">Test <span class="title">tmp</span><span class="params">(*<span class="keyword">this</span>)</span></span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a++;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;   </span><br><span class="line">    Test <span class="keyword">operator</span>--(<span class="keyword">int</span>) <span class="comment">// 后置--</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="function">Test <span class="title">tmp</span><span class="params">(*<span class="keyword">this</span>)</span></span>;</span><br><span class="line">        <span class="keyword">this</span>-&gt;a--;</span><br><span class="line">        <span class="keyword">return</span> tmp;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="keyword">int</span> a;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//前置后置</span></span><br><span class="line">A &amp;<span class="keyword">operator</span>++( )&#123; a++; <span class="keyword">return</span> *<span class="keyword">this</span>; &#125;<span class="comment">//单目，前置运算 --a</span></span><br><span class="line">A <span class="keyword">operator</span>++(<span class="keyword">int</span>)&#123; <span class="keyword">return</span> <span class="built_in">A</span>(a++); &#125;<span class="comment">//双目，后置运算</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="cpp-课件"><a href="#cpp-课件" class="headerlink" title="cpp 课件"></a>cpp 课件</h1><h2 id="引用"><a href="#引用" class="headerlink" title="引用"></a>引用</h2><p>x– 是右值</p>
+<p>–x 是左值</p>
+<p>C++primer中对 <strong>对象</strong>的定义：<strong>对象</strong>是指一块能存储数据并具有某种类型的内存空间<br>一个<strong>对象</strong>a，它有<strong>值</strong>和<strong>地址&amp;a</strong>，运行程序时，计算机会为该对象分配存储空间，来存储该对象的值，我们通过该对象的地址，来访问存储空间中的值</p>
+<p><strong>指针</strong>p也是<strong>对象</strong>，它同样有地址&amp;p和存储的值p，只不过，<strong>p存储的数据类型是数据的地址</strong>。如果我们要以p中存储的数据为地址，来访问对象的值，则要在p前加解引用操作符”<em>“,即</em>p。</p>
+<p>对象有常量（const）和变量之分，既然指针本身是对象，那么指针所存储的地址也有常量和变量之分，指针常量是指，指针这个对象所存储的地址是不可以改变的，而指向常量的指针的意思是，不能通过该指针来改变这个指针所指向的对象。</p>
+<p><font color = "red"><strong>我们可以把引用理解成变量的别名</strong>。</font></p>
+<p>定义一个引用的时候，程序把该引用和它的初始值绑定在一起，而不是拷贝它。计算机必须<strong>在声明r的同时就要对它初始化</strong>，并且，<strong>r一经声明，就不可以再和其它对象绑定在一起了。</strong></p>
+<p>实际上，你也可以把引用看做是通过一个<strong>常量指针</strong>来实现的，它只能绑定到初始化它的对象上。</p>
+<p>关于指针和引用的对比，可以参看&lt;&lt;more effective C++&gt;&gt;中的第一条条款，引用的一个优点是它一定不为空，因此相对于指针，它不用检查它所指对象是否为空，这增加了效率</p>
+<p>比如下面的代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a,b,*p,&amp;r=a;<span class="comment">//正确</span></span><br><span class="line">r=<span class="number">3</span>;<span class="comment">//正确：等价于a=3</span></span><br><span class="line"><span class="keyword">int</span> &amp;rr;<span class="comment">//出错：引用必须初始化</span></span><br><span class="line">p=&amp;a;<span class="comment">//正确：p中存储a的地址，即p指向a</span></span><br><span class="line">*p=<span class="number">4</span>;<span class="comment">//正确：p中存的是a的地址，对a所对应的存储空间存入值4</span></span><br><span class="line">p=&amp;b<span class="comment">//正确：p可以多次赋值，p存储b的地址</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>引用必须初始化</strong><br>引用变量中存放的是被引用变量的地址, 本质是指针<br>使用引用对象, 操作对象都是被引用的对象</p>
+<p>引用一旦被初始化为指向一个对象，就不能再改变为另一个对象的引用；指针是可变的</p>
+<p><strong>int &amp;x = ……;</strong> <strong>引用变量</strong></p>
+<p><strong>void f(int &amp;x) ;</strong> <strong>引用参数</strong> 引用经常被用作函数参数, 使得函数中的变量名成为调用程序中的变量的别名. </p>
+<ul>
+<li><p>新建临时变量: </p>
+<p>条件: 1. 实参的类型正确, 但不是左值, 2. 实参的类型不正确, 但可以转换为正确的类型</p>
+<p>如果接受引用参数的函数的意图是修改作为参数传递的变量, 那么创建临时变量将阻止这种意图, 所以当引用为 const 时创建临时变量不会影响</p>
+</li>
+</ul>
+<p><strong>Int &amp; f(……) ;</strong> <strong>返回结果引用</strong> </p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> swap（<span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y)</span><br><span class="line">&#123;</span><br><span class="line">  <span class="keyword">int</span> t;</span><br><span class="line">  t=x;</span><br><span class="line">  x=y;</span><br><span class="line">  y=t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> &amp; <span class="title">f</span><span class="params">( )</span> </span>&#123;</span><br><span class="line"><span class="keyword">int</span> t=<span class="number">25</span>;</span><br><span class="line"><span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//不要像这样返回一个局部变量的引用, 一般返回一个作为参数传递给函数的引用, 但是可以返回 new 出来的变量的引用</span></span><br><span class="line"><span class="comment">//lea eax,[t]  返回地址</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> &amp; <span class="title">f</span><span class="params">(<span class="keyword">int</span> t )</span> </span>&#123;</span><br><span class="line">  t=t+<span class="number">10</span>;</span><br><span class="line">  <span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line">a = <span class="built_in">f</span>(<span class="number">10</span>)+<span class="built_in">f</span>(<span class="number">20</span>) ;</span><br><span class="line"><span class="comment">// 显示 a = 60</span></span><br><span class="line">b = <span class="built_in">f</span>(<span class="number">20</span>)+<span class="built_in">f</span>(<span class="number">10</span>);</span><br><span class="line"><span class="comment">// 显示 b = 40</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*a=f(10)+f(20)</span></span><br><span class="line"><span class="comment">先执行 f(10), </span></span><br><span class="line"><span class="comment">返回 函数f中变量t 的地址</span></span><br><span class="line"><span class="comment">再执行 f(20)</span></span><br><span class="line"><span class="comment">返回 函数f中变量t 的地址</span></span><br><span class="line"><span class="comment">根据第1个返回地址，取相</span></span><br><span class="line"><span class="comment">应单元的内容，为 30</span></span><br><span class="line"><span class="comment">根据第2个返回地址，取相</span></span><br><span class="line"><span class="comment">应单元的内容，为 30</span></span><br><span class="line"><span class="comment">故 a =60*/</span></span><br></pre></td></tr></table></figure>
+
+<p>左值引用 vs 右值引用</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x=<span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> &amp;y =x; <span class="comment">// x 是一个左值</span></span><br><span class="line"><span class="keyword">int</span> &amp;z = x*<span class="number">2</span>; <span class="comment">//错误，无法从 int 转换为 int &amp;</span></span><br><span class="line"><span class="comment">// z 定义为一个引用，z 中应存放一个地址</span></span><br><span class="line"><span class="comment">// 而 x*2 会对应一个值，无法取其地址，送入 z 中。</span></span><br><span class="line"><span class="keyword">int</span> &amp;&amp; w = x*<span class="number">2</span>; <span class="comment">// 右值引用；x*2是一个右值；</span></span><br><span class="line"><span class="comment">// 将 x*2 存放在一个临时单元中；将该单元的地址送入 w 中</span></span><br></pre></td></tr></table></figure>
+
+<p>const引用可以读取但是不可以被修改引用对象，任何对const引用进行赋值都是不合法的，它适用指向const对象的引用，而非const的引用不适用于指向const对象的引用。</p>
+<p>函数返回一个引用可以使得函数成为左值(c 语言中没有引用, 函数返回值只能作为右值)</p>
+<h2 id="变量作用域"><a href="#变量作用域" class="headerlink" title="变量作用域"></a>变量作用域</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*单目:: 指定为全局标识符</span></span><br><span class="line"><span class="comment">全局类型名、全局变量名、全局函数名等*/</span></span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">f</span> <span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"><span class="keyword">int</span> x;</span><br><span class="line">:: x = <span class="number">10</span>; <span class="comment">// 全局变量</span></span><br><span class="line">x =<span class="number">20</span>; <span class="comment">// 局部变量</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="数据成员指针"><a href="#数据成员指针" class="headerlink" title="数据成员指针"></a>数据成员指针</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Student::*q = &amp;Student::number; <span class="comment">// q 数据成员指针</span></span><br><span class="line">cout &lt;&lt; xu.*q&lt;&lt;endl;</span><br></pre></td></tr></table></figure>
+
+<p>取函数地址时，有无 <strong>&amp;</strong> 一样；</p>
+<p>用函数指针是，有无 ***** 一样</p>
+<p>普通成员指针是一个偏移量，存放的不是成员地址，故不能移动：</p>
+<p>普通成员指针不能进行类型转换</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> Student::*p;</span><br><span class="line">p=p+<span class="number">1</span>; <span class="comment">// 非法 , 不能移动指针</span></span><br><span class="line"><span class="keyword">int</span> *q; q = q+<span class="number">1</span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类中的关键字"><a href="#类中的关键字" class="headerlink" title="类中的关键字"></a>类中的关键字</h2><h3 id="const"><a href="#const" class="headerlink" title="const"></a>const</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TUTOR</span>&#123;</span></span><br><span class="line"><span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> sex; <span class="comment">//性别为只读成员</span></span><br><span class="line"><span class="keyword">int</span> wage;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="built_in">TUTOR</span>(<span class="keyword">const</span> <span class="keyword">char</span> *n, <span class="keyword">char</span> g, <span class="keyword">int</span> s): <span class="built_in">sex</span>(g), <span class="built_in">wage</span>(s)</span><br><span class="line">&#123; <span class="built_in">strcpy_s</span>(name,n); &#125;</span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">char</span> *<span class="title">getname</span><span class="params">( )</span> <span class="keyword">const</span></span>&#123; <span class="keyword">return</span> name; &#125;</span><br><span class="line"><span class="comment">//函数体不能修改当前对象 函数的返回类型有 const 修饰</span></span><br><span class="line">  </span><br><span class="line"><span class="function"><span class="keyword">char</span> *<span class="title">setname</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> *n)</span></span></span><br><span class="line"><span class="function"></span>&#123; <span class="built_in">strcpy_s</span>(name, n); <span class="keyword">return</span> name; &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function">TUTOR <span class="title">xu</span><span class="params">(“xuxy”,’M’,<span class="number">2000</span>)</span></span>;</span><br><span class="line">*xu.<span class="built_in">getname</span>()=‘X’; <span class="comment">// 不能给常量赋值</span></span><br><span class="line">*xu.<span class="built_in">setname</span>(“xuxiangyang”) =‘X’; <span class="comment">// name 的首字母变成X</span></span><br><span class="line"><span class="built_in">strcpy_s</span>(xu.<span class="built_in">setname</span>(“xu123”), <span class="number">6</span>, “hello”); <span class="comment">//name 改为hello</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> *p1 </span><br><span class="line">p1=<span class="keyword">new</span> <span class="keyword">char</span>[<span class="number">10</span>];</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span> * pc;</span><br><span class="line">pc = p1;</span><br><span class="line"><span class="comment">//legal, p1 指向的字符串可以通过 p1 修改, 但不能通过 pc 修改</span></span><br></pre></td></tr></table></figure>
+
+<p>当const在函数名前面的时候修饰的是函数返回值。</p>
+<p>当const在函数名后面表示是常成员函数，该函数不能修改对象内的任何成员，只能发生读操作，不能发生写操作。</p>
+<p>volatile 关键字: 优化器不对该变量的读取进行优化，用到该变量时重</p>
+<p>新读取。</p>
+<h3 id="mutable"><a href="#mutable" class="headerlink" title="mutable:"></a>mutable:</h3><p>可变的</p>
+<p>➢ 是const 的反义词</p>
+<p>➢ 为突破 const的限制而设置的</p>
+<p>➢ 被mutable 修饰的变量永远处于可变得状态，即使在const函数中</p>
+<p>➢ mutable只能用来修饰数据成员</p>
+<p>➢ 不能与 const、volatile 或 static 同时出现</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>&#123;</span></span><br><span class="line"><span class="keyword">int</span> a; <span class="keyword">const</span> <span class="keyword">int</span> b; <span class="comment">//b为const成员</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span></span>&#123;a++; <span class="keyword">return</span> a; &#125; <span class="comment">//this类型为： A * const this</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span><span class="keyword">const</span></span>&#123;<span class="keyword">return</span> a; &#125; <span class="comment">//this类型为：const A * const this。</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span><span class="keyword">volatile</span></span>&#123;<span class="keyword">return</span> a++; &#125; <span class="comment">//this类型为：volatile A * const this</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">f</span><span class="params">( )</span><span class="keyword">const</span> <span class="keyword">volatile</span></span>&#123; <span class="keyword">return</span> a; &#125;<span class="comment">//this类型为：const volatile A* const this</span></span><br><span class="line"><span class="built_in">A</span>(<span class="keyword">int</span> x) ：<span class="built_in">b</span>(x) &#123; a=x; &#125; <span class="comment">//不可在函数体内对b赋值修改</span></span><br><span class="line">&#125; <span class="built_in">x</span>(<span class="number">3</span>); <span class="comment">//等价于A x(3)</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">const</span> A <span class="title">y</span><span class="params">(<span class="number">6</span>)</span></span>; <span class="comment">// y 不可修改</span></span><br><span class="line"><span class="function"><span class="keyword">const</span> <span class="keyword">volatile</span> A <span class="title">z</span><span class="params">(<span class="number">8</span>)</span></span>; <span class="comment">// z 不可修改</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">main</span><span class="params">(<span class="keyword">void</span>)</span> </span>&#123;</span><br><span class="line">x.<span class="built_in">f</span>( ); <span class="comment">//普通对象x调用int f( ): this指向的对象可修改</span></span><br><span class="line">y.<span class="built_in">f</span>( ); <span class="comment">//只读对象y调用int f( )const:this指向的对象不可修改</span></span><br><span class="line">z.<span class="built_in">f</span>( ); <span class="comment">//只读挥发对象z调用int f( )const volatile:this指向的对象不可修改、挥发</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>const 成员函数和 non-const 成员函数是两个函数, 会区分调用(取决于 this 是 const 还是 non-const)</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#cpp-%E5%AE%9E%E9%AA%8Ctips"><span class="toc-number">1.</span> <span class="toc-text">cpp 实验tips</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1"><span class="toc-number">1.1.</span> <span class="toc-text">1.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#struct-%E4%B8%AD%E7%9A%84-const-%E6%88%90%E5%91%98"><span class="toc-number">1.1.1.</span> <span class="toc-text">struct 中的 const 成员</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96-struct"><span class="toc-number">1.1.2.</span> <span class="toc-text">初始化 struct</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A6%81%E6%B3%A8%E6%84%8F%E5%90%8E%E9%9D%A2%E6%98%AF%E4%B8%8D%E6%98%AF-0-if-%E6%A3%80%E9%AA%8C"><span class="toc-number">1.1.3.</span> <span class="toc-text">% &#x2F;  要注意后面是不是 0 if 检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null-%E4%B8%8E-nullptr-%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="toc-number">1.1.4.</span> <span class="toc-text">null 与 nullptr 的区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delete"><span class="toc-number">1.1.5.</span> <span class="toc-text">delete</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A4%84%E6%9C%89%E6%9C%AA%E7%BB%8F%E5%A4%84%E7%90%86%E7%9A%84%E5%BC%82%E5%B8%B8-0xC0000005-%E8%AF%BB%E5%8F%96%E4%BD%8D%E7%BD%AE-0xcccccccc-%E6%97%B6%E5%8F%91%E7%94%9F%E8%AE%BF%E9%97%AE%E5%86%B2%E7%AA%81"><span class="toc-number">1.1.6.</span> <span class="toc-text">处有未经处理的异常: 0xC0000005: 读取位置 0xcccccccc 时发生访问冲突</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2"><span class="toc-number">1.2.</span> <span class="toc-text">2.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#noexcept"><span class="toc-number">1.2.1.</span> <span class="toc-text">noexcept</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E5%8C%96%E5%88%97%E8%A1%A8"><span class="toc-number">1.2.2.</span> <span class="toc-text">初始化列表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#amp-amp-%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">1.2.3.</span> <span class="toc-text">&amp;&amp;运算符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Invalid-address-specified-to-RtlValidateHea"><span class="toc-number">1.2.4.</span> <span class="toc-text">Invalid address specified to RtlValidateHea</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3"><span class="toc-number">1.3.</span> <span class="toc-text">3.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#std-move"><span class="toc-number">1.3.1.</span> <span class="toc-text">std::move()</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4"><span class="toc-number">1.4.</span> <span class="toc-text">4.</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD"><span class="toc-number">1.4.1.</span> <span class="toc-text">运算符重载</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cpp-%E8%AF%BE%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">cpp 课件</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8"><span class="toc-number">2.1.</span> <span class="toc-text">引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E4%BD%9C%E7%94%A8%E5%9F%9F"><span class="toc-number">2.2.</span> <span class="toc-text">变量作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%88%90%E5%91%98%E6%8C%87%E9%92%88"><span class="toc-number">2.3.</span> <span class="toc-text">数据成员指针</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E4%B8%AD%E7%9A%84%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-number">2.4.</span> <span class="toc-text">类中的关键字</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#const"><span class="toc-number">2.4.1.</span> <span class="toc-text">const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#mutable"><span class="toc-number">2.4.2.</span> <span class="toc-text">mutable:</span></a></li></ol></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
