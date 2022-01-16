@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="en" class="loading">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>stl - Sinos_wei&#39;s blog</title>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate" />
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="
+
+
+
+global functionremove1234567891011121314template &amp;lt;class ForwardIterator, class T&amp;gt;  Forwar,"> 
+    <meta name="author" content="Sinos_wei"> 
+    <link rel="alternative" href="atom.xml" title="Sinos_wei&#39;s blog" type="application/atom+xml"> 
+    <link rel="icon" href="/img/a33.jpg"> 
+    
+    
+<link rel="stylesheet" href="/css/diaspora.css">
+
+	<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads"
+        src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body class="loading">
+    <span id="config-title" style="display:none">Sinos_wei&#39;s blog</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="iconfont icon-home image-icon" href="javascript:;" data-url="https://sinos_wei.gitee.io"></a>
+    <div title="播放/暂停" class="iconfont icon-play"></div>
+    <h3 class="subtitle">stl</h3>
+    <div class="social">
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="iconfont icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">stl</h1>
+        <div class="stuff">
+            <span>一月 16, 2022</span>
+            
+  <ul class="post-tags-list" itemprop="keywords"><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/cpp/" rel="tag">cpp</a></li><li class="post-tags-list-item"><a class="post-tags-list-link" href="/tags/stl/" rel="tag">stl</a></li></ul>
+
+
+        </div>
+        <div class="content markdown">
+            <blockquote>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="global-function"><a href="#global-function" class="headerlink" title="global function"></a>global function</h1><h2 id="remove"><a href="#remove" class="headerlink" title="remove"></a>remove</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator</span>, <span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line">  <span class="function">ForwardIterator <span class="title">remove</span> <span class="params">(ForwardIterator first, ForwardIterator last, <span class="keyword">const</span> T&amp; val)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  ForwardIterator result = first;</span><br><span class="line">  <span class="keyword">while</span> (first!=last) &#123;</span><br><span class="line">    <span class="keyword">if</span> (!(*first == val)) &#123;</span><br><span class="line">      <span class="keyword">if</span> (result!=first)</span><br><span class="line">        *result = <span class="built_in">move</span>(*first);</span><br><span class="line">      ++result;</span><br><span class="line">    &#125;</span><br><span class="line">    ++first;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Transforms the range <code>[first,last)</code> into a range with all the elements that compare equal to val removed, and returns an iterator to the new end of that range.</p>
+<p><strong>size 不变</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  vector&lt;<span class="keyword">int</span>&gt; v &#123;<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">  <span class="keyword">auto</span> i = std::<span class="built_in">remove</span>(v.<span class="built_in">begin</span>(), v.<span class="built_in">end</span>(), <span class="number">1</span>);</span><br><span class="line">  v.<span class="built_in">push_back</span>(<span class="number">6</span>);</span><br><span class="line"></span><br><span class="line">  cout&lt;&lt;*i&lt;&lt;endl;</span><br><span class="line">  <span class="keyword">for</span>(<span class="keyword">auto</span>&amp;&amp; i:v)</span><br><span class="line">      cout&lt;&lt;i&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">5</span></span><br><span class="line"><span class="comment">0</span></span><br><span class="line"><span class="comment">2</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">4</span></span><br><span class="line"><span class="comment">5</span></span><br><span class="line"><span class="comment">5</span></span><br><span class="line"><span class="comment">6</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="move-forward"><a href="#move-forward" class="headerlink" title="move forward"></a><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/9671749/whats-the-difference-between-stdmove-and-stdforward">move forward</a></h2><p><code>std::move</code> takes an object and allows you to treat it as a temporary (an rvalue). Although it isn’t a semantic requirement, typically a function accepting a reference to an rvalue will invalidate it. When you see <code>std::move</code>, it indicates that the value of the object should not be used afterwards, but you can still assign a new value and continue using it.</p>
+<p><code>std::forward</code> has a single use case: <strong>to cast a templated function parameter (inside the function) to the value category</strong> (lvalue or rvalue) the caller used to pass it. This allows rvalue arguments to be passed on as rvalues, and lvalues to be passed on as lvalues, a scheme called “perfect forwarding.”</p>
+<p>To <a target="_blank" rel="noopener" href="http://ideone.com/z5li7">illustrate</a>:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">overloaded</span><span class="params">( <span class="keyword">int</span> <span class="keyword">const</span> &amp;arg )</span> </span>&#123; std::cout &lt;&lt; <span class="string">&quot;by lvalue\n&quot;</span>; &#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">overloaded</span><span class="params">( <span class="keyword">int</span> &amp;&amp; arg )</span> </span>&#123; std::cout &lt;&lt; <span class="string">&quot;by rvalue\n&quot;</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">template</span>&lt; <span class="keyword">typename</span> t &gt;</span><br><span class="line"><span class="comment">/* &quot;t &amp;&amp;&quot; with &quot;t&quot; being template param is special, and  adjusts &quot;t&quot; to be (for example) &quot;int &amp;&quot; or non-ref &quot;int&quot; so std::forward knows what to do. */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">forwarding</span><span class="params">( t &amp;&amp; arg )</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;via std::forward: &quot;</span>;</span><br><span class="line">    <span class="built_in">overloaded</span>( std::forward&lt;t&gt;(arg) );</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;via std::move: &quot;</span>;</span><br><span class="line">    <span class="built_in">overloaded</span>( std::<span class="built_in">move</span>(arg) ); <span class="comment">// conceptually this would invalidate arg</span></span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;by simple passing: &quot;</span>;</span><br><span class="line">    <span class="built_in">overloaded</span>( arg );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;initial caller passes rvalue:\n&quot;</span>;</span><br><span class="line">    forwarding( <span class="number">5</span> );</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;initial caller passes lvalue:\n&quot;</span>;</span><br><span class="line">    <span class="keyword">int</span> x = <span class="number">5</span>;</span><br><span class="line">    forwarding( x );</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">initial caller passes rvalue:</span></span><br><span class="line"><span class="comment">via std::forward: by rvalue</span></span><br><span class="line"><span class="comment">via std::move: by rvalue</span></span><br><span class="line"><span class="comment">by simple passing: by lvalue</span></span><br><span class="line"><span class="comment">initial caller passes lvalue:</span></span><br><span class="line"><span class="comment">via std::forward: by lvalue</span></span><br><span class="line"><span class="comment">via std::move: by rvalue</span></span><br><span class="line"><span class="comment">by simple passing: by lvalue</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>As Howard mentions, there are also similarities as both these functions simply cast to reference type. But outside these specific use cases (which cover 99.9% of the usefulness of rvalue reference casts), you should use <code>static_cast</code> directly and write a good explanation of what you’re doing.</p>
+<p>简而言之, move 将一切值变为右值, forward 进行完美转发, 不改变右值或者左值</p>
+<p>In C++11, a <a target="_blank" rel="noopener" href="https://en.wikibooks.org/wiki/More_C%2B%2B_Idioms/Move_Constructor">move constructor</a> of <code>std::vector&lt;T&gt;</code> that <strong>takes an rvalue reference to an <code>std::vector&lt;T&gt;</code> can copy the pointer to the internal C-style array out of the rvalue into the new <code>std::vector&lt;T&gt;</code></strong>, then set the pointer inside the rvalue to null. Since the temporary will never again be used, no code will try to access the null pointer, and because the pointer is null, its memory is not deleted when it goes out of scope. Hence, the operation not only forgoes the expense of a deep copy, but is safe and invisible.</p>
+<h2 id="iterator"><a href="#iterator" class="headerlink" title="iterator"></a>iterator</h2><blockquote>
+<p>random-&gt;bidirectional-&gt;forward-&gt;input/output</p>
+<p><img src="https://tva1.sinaimg.cn/large/008i3skNly1gyfngf8848j314i0rcdk2.jpg" alt="截屏2022-01-16 下午5.38.52"></p>
+</blockquote>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt; v &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>&#125;;</span><br><span class="line">    vector&lt;<span class="keyword">int</span>&gt;::iterator i = v.<span class="built_in">begin</span>();</span><br><span class="line">    cout&lt;&lt;i.<span class="built_in">base</span>()&lt;&lt;endl;</span><br><span class="line">    ++i;</span><br><span class="line">    cout&lt;&lt;i.<span class="built_in">base</span>()&lt;&lt;endl;</span><br><span class="line">    i = v.<span class="built_in">end</span>();</span><br><span class="line">    cout&lt;&lt;i.<span class="built_in">base</span>()&lt;&lt;endl;</span><br><span class="line">    cout&lt;&lt;v.<span class="built_in">end</span>()-v.<span class="built_in">begin</span>()&lt;&lt;endl;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*output</span></span><br><span class="line"><span class="comment">	0x600000141100</span></span><br><span class="line"><span class="comment">  0x600000141104</span></span><br><span class="line"><span class="comment">  0x600000141114</span></span><br><span class="line"><span class="comment">  5</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<p>to get int from iterator</p>
+<p><code>it - vec.begin()</code></p>
+<h1 id="container"><a href="#container" class="headerlink" title="container"></a>container</h1><blockquote>
+<p>common:</p>
+<p>[first, last)</p>
+<p>end return past-end</p>
+<p>use &lt; to compare, strict weak ordering, a==b equals !(a&lt;b) &amp;&amp; !(b&lt;a)</p>
+<p>if not find return end()</p>
+</blockquote>
+<h2 id="vector"><a href="#vector" class="headerlink" title="vector"></a>vector</h2><blockquote>
+<p>扩充容量: 2 倍</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vector&lt;<span class="keyword">int</span>&gt; v&#123;&#125;;</span><br><span class="line">v.<span class="built_in">reserve</span>(<span class="number">1</span>);</span><br><span class="line">cout&lt;&lt;v.<span class="built_in">begin</span>().<span class="built_in">base</span>()&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;v.<span class="built_in">end</span>().<span class="built_in">base</span>()&lt;&lt;endl;</span><br><span class="line">v.<span class="built_in">push_back</span>(<span class="number">0</span>);</span><br><span class="line">cout&lt;&lt;v.<span class="built_in">begin</span>().<span class="built_in">base</span>()&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;v.<span class="built_in">end</span>().<span class="built_in">base</span>()&lt;&lt;endl;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">0x600000b48030</span></span><br><span class="line"><span class="comment">0x600000b48030</span></span><br><span class="line"><span class="comment">0x600000b48030</span></span><br><span class="line"><span class="comment">0x600000b48034</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="comment">//end() always return past end element</span></span><br></pre></td></tr></table></figure>
+</blockquote>
+<h3 id="constructor-NaN"><a href="#constructor-NaN" class="headerlink" title="constructor"></a>constructor</h3><table>
+<thead>
+<tr>
+<th align="right">default (1)</th>
+<th><code>explicit vector (const allocator_type&amp; alloc = allocator_type()); </code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">fill (2)</td>
+<td><code>explicit vector (size_type n);        </code><br /><code>vector (size_type n, const value_type&amp; val, const allocator_type&amp; alloc = allocator_type());</code></td>
+</tr>
+<tr>
+<td align="right">range (3)</td>
+<td><code>template &lt;class InputIterator&gt;  vector (InputIterator first, InputIterator last, const allocator_type&amp; alloc = allocator_type()); </code></td>
+</tr>
+<tr>
+<td align="right">copy (4)</td>
+<td><code>vector (const vector&amp; x); </code><br /><code>vector (const vector&amp; x, const allocator_type&amp; alloc); </code></td>
+</tr>
+<tr>
+<td align="right">move (5)</td>
+<td><code>vector (vector&amp;&amp; x); </code><br /><code>vector (vector&amp;&amp; x, const allocator_type&amp; alloc); </code></td>
+</tr>
+<tr>
+<td align="right">initializer list (6)</td>
+<td><code>vector (initializer_list&lt;value_type&gt; il, const allocator_type&amp; alloc = allocator_type());</code></td>
+</tr>
+</tbody></table>
+<h3 id="clear"><a href="#clear" class="headerlink" title="clear"></a>clear</h3><p>元素清空, size = 0</p>
+<h3 id="erase"><a href="#erase" class="headerlink" title="erase"></a>erase</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">iterator <span class="title">erase</span> <span class="params">(const_iterator position)</span></span>;</span><br><span class="line"><span class="function">iterator <span class="title">erase</span> <span class="params">(const_iterator first, const_iterator last)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>[first, last)</p>
+<h3 id="assign"><a href="#assign" class="headerlink" title="assign"></a>assign</h3><table>
+<thead>
+<tr>
+<th align="right">range(1)</th>
+<th><code>template &lt;class InputIterator&gt;  void assign (InputIterator first, InputIterator last); </code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">fill (2)</td>
+<td><code>void assign (size_type n, const value_type&amp; val); </code></td>
+</tr>
+<tr>
+<td align="right">initializer list (3)</td>
+<td><code>void assign (initializer_list&lt;value_type&gt; il);</code></td>
+</tr>
+</tbody></table>
+<p>size change</p>
+<h3 id="push-back"><a href="#push-back" class="headerlink" title="push_back"></a>push_back</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_back</span> <span class="params">(<span class="keyword">const</span> value_type&amp; val)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">push_back</span> <span class="params">(value_type&amp;&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>The content of <em>val</em> is copied (or moved) to the new element.</p>
+<h3 id="pop-back"><a href="#pop-back" class="headerlink" title="pop_back"></a>pop_back</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">pop_back</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>remove last element, –size</p>
+<h3 id="insert"><a href="#insert" class="headerlink" title="insert"></a>insert</h3><table>
+<thead>
+<tr>
+<th align="right">single element (1)</th>
+<th><code>iterator insert (const_iterator position, const value_type&amp; val); </code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">fill (2)</td>
+<td><code>iterator insert (const_iterator position, size_type n, const value_type&amp; val); </code></td>
+</tr>
+<tr>
+<td align="right">range (3)</td>
+<td><code>template &lt;class InputIterator&gt; iterator insert (const_iterator position, InputIterator first, InputIterator last); </code></td>
+</tr>
+<tr>
+<td align="right">move (4)</td>
+<td><code>iterator insert (const_iterator position, value_type&amp;&amp; val); </code></td>
+</tr>
+<tr>
+<td align="right">initializer list (5)</td>
+<td><code>iterator insert (const_iterator position, initializer_list&lt;value_type&gt; il);</code></td>
+</tr>
+</tbody></table>
+<p>The <a target="_blank" rel="noopener" href="https://www.cplusplus.com/vector">vector</a> is extended by inserting new elements <strong><u>before</u> the element at the specified <em>position</em></strong></p>
+<h3 id="swap"><a href="#swap" class="headerlink" title="swap"></a>swap</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">swap</span> <span class="params">(vector&amp; x)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>After the call to this member function, the elements in this container are those which were in <em>x</em> before the call, and the elements of <em>x</em> are those which were in this. <strong>All iterators, references and pointers</strong> <strong>remain valid</strong> for the swapped objects. 即指针的内容 <code>*itrator</code> 不会改变</p>
+<h3 id="emplace"><a href="#emplace" class="headerlink" title="emplace"></a>emplace</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;class... Args&gt;</span><br><span class="line"><span class="function">iterator <span class="title">emplace</span> <span class="params">(const_iterator position, Args&amp;&amp;... args)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>The container is extended by inserting a new element at <em>position</em>. This new element is <strong>constructed in place using <em>args</em></strong> as the arguments for its construction.</p>
+<p>++size</p>
+<h3 id="emplace-back"><a href="#emplace-back" class="headerlink" title="emplace_back"></a>emplace_back</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;class... Args&gt;</span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">emplace_back</span> <span class="params">(Args&amp;&amp;... args)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>emplace at the end</p>
+<h2 id="deque"><a href="#deque" class="headerlink" title="deque"></a>deque</h2><blockquote>
+<p> <a target="_blank" rel="noopener" href="https://www.cplusplus.com/deque">deques</a> are not guaranteed to store all its elements in contiguous storage locations (do not use pointer) most method similar to vector</p>
+</blockquote>
+<h3 id="push-front"><a href="#push-front" class="headerlink" title="push_front"></a>push_front</h3><h3 id="pop-front"><a href="#pop-front" class="headerlink" title="pop_front"></a>pop_front</h3><h3 id="emplace-front"><a href="#emplace-front" class="headerlink" title="emplace_front"></a>emplace_front</h3><h3 id="forward-list"><a href="#forward-list" class="headerlink" title="forward_list"></a>forward_list</h3><blockquote>
+<p>only pointer to next node</p>
+<p>special: </p>
+<ul>
+<li>before_begin iterator</li>
+<li>push pop front only</li>
+</ul>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cout&lt;&lt;&amp;*l.<span class="built_in">begin</span>()&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&amp;*l.<span class="built_in">before_begin</span>()&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&amp;*l.<span class="built_in">end</span>()&lt;&lt;endl;</span><br><span class="line">l.<span class="built_in">push_front</span>(<span class="number">0</span>);</span><br><span class="line">cout&lt;&lt;&amp;*l.<span class="built_in">begin</span>()&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&amp;*l.<span class="built_in">before_begin</span>()&lt;&lt;endl;</span><br><span class="line">cout&lt;&lt;&amp;*l.<span class="built_in">end</span>()&lt;&lt;endl;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">0x8</span></span><br><span class="line"><span class="comment">0x7ff7b93b5900</span></span><br><span class="line"><span class="comment">0x8</span></span><br><span class="line"><span class="comment">0x600003bf4048</span></span><br><span class="line"><span class="comment">0x7ff7b93b5900</span></span><br><span class="line"><span class="comment">0x8</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+
+</blockquote>
+<h3 id="resize"><a href="#resize" class="headerlink" title="resize"></a>resize</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span> <span class="params">(size_type n)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">resize</span> <span class="params">(size_type n, <span class="keyword">const</span> value_type&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>If <em>n</em> is smaller than the current number of elements in the container, the content is trimmed to contain only its <strong>first <em>n</em> elements</strong>, removing those beyonf (and destroying them).</p>
+<p>If <em>n</em> is greater than the current number of elements in the container, the content is expanded by inserting at the end as many elements as needed to reach a size of <em>n</em> elements. If <em>val</em> is specified, the new elements are initialized as copies of <em>val</em>, otherwise, they are <strong>value-initialized.</strong></p>
+<h3 id="splice-after"><a href="#splice-after" class="headerlink" title="splice_after"></a>splice_after</h3><table>
+<thead>
+<tr>
+<th align="right">entire list (1)</th>
+<th><strong><code>void splice_after (const_iterator position, forward_list&amp; fwdlst); void splice_after (const_iterator position, forward_list&amp;&amp; fwdlst); </code></strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">single element (2)</td>
+<td><code>void splice_after (const_iterator position, forward_list&amp; fwdlst, const_iterator i); </code><br /><code>void splice_after (const_iterator position, forward_list&amp;&amp; fwdlst, const_iterator i);</code></td>
+</tr>
+<tr>
+<td align="right">element range (3)</td>
+<td><code>void splice_after (const_iterator position, forward_list&amp; fwdlst,                   const_iterator first, const_iterator last); </code><br /><code>void splice_after (const_iterator position, forward_list&amp;&amp; fwdlst,                   const_iterator first, const_iterator last);</code></td>
+</tr>
+</tbody></table>
+<p>Transfers elements from <em>fwdlst</em> into the container inserting them <strong>after the element pointed by <em>position</em>.</strong></p>
+<p>This effectively inserts those elements into the container and removes them from <em>fwdlst</em>, <strong>altering the sizes of both containers</strong>. The operation does not involve the construction or destruction of any element. They are transferred, no matter whether <em>fwdlst</em> is an lvalue or an rvalue, or whether the <code>value_type</code> supports move-construction or not.</p>
+<p>The <em>first version (1)</em> transfers all the elements of <em>fwdlst</em> into the container.<br>The <em>second version (2)</em> transfers only the element pointed by <em>i</em> from <em>fwdlst</em> into the container.<br>The <em>third version (3)</em> transfers the range <code>(first,last)</code> from <em>fwdlst</em> into the container.</p>
+<h3 id="remove-1"><a href="#remove-1" class="headerlink" title="remove"></a>remove</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">remove</span> <span class="params">(<span class="keyword">const</span> value_type&amp; val)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Removes from the container all the elements that compare equal to <em>val</em>. This calls the destructor of these objects and reduces the container size by the number of elements removed.</p>
+<h3 id="remove-if"><a href="#remove-if" class="headerlink" title="remove_if"></a>remove_if</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">Predicate</span>&gt;</span> <span class="function"><span class="keyword">void</span> <span class="title">remove_if</span> <span class="params">(Predicate pred)</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Removes from the container all the elements for which <em>Predicate pred</em> returns <code>true</code>. This calls the destructor of these objects and reduces the container size by the number of elements removed.</p>
+<p>Predicate should be function or class with () overloaded</p>
+<h3 id="unique"><a href="#unique" class="headerlink" title="unique"></a>unique</h3><table>
+<thead>
+<tr>
+<th align="right">(1)</th>
+<th><code>void unique(); </code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">(2)</td>
+<td><code>template &lt;class BinaryPredicate&gt;  void unique (BinaryPredicate binary_pred);</code></td>
+</tr>
+</tbody></table>
+<p>The version with no parameters <em>(1)</em>, removes all but the first element from every consecutive group of equal elements in the container.Thus, this function is especially useful for sorted lists.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">forward_list&lt;<span class="keyword">int</span>&gt; l&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>&#125;;</span><br><span class="line">l.<span class="built_in">unique</span>();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i : l)</span><br><span class="line">  cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//1 2 3 4 2 1</span></span><br></pre></td></tr></table></figure>
+
+<p>for (2), notice that the function will call <code>binary_pred(*i,*(i-1))</code> for all pairs of elements (where <code>i</code> is an iterator to an element, starting from the second) and remove <code>i</code> from the <a target="_blank" rel="noopener" href="https://www.cplusplus.com/forward_list">forward_list</a> if the predicate returns <code>true</code>.</p>
+<h3 id="merge"><a href="#merge" class="headerlink" title="merge"></a>merge</h3><table>
+<thead>
+<tr>
+<th align="right">(1)</th>
+<th><code> void merge (forward_list&amp; fwdlst);</code><br /><code>void merge (forward_list&amp;&amp; fwdlst);</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">(2)</td>
+<td><code>template &lt;class Compare&gt;  void merge (forward_list&amp; fwdlst, Compare comp); </code><br /><code>template &lt;class Compare&gt;  void merge (forward_list&amp;&amp; fwdlst, Compare comp);</code></td>
+</tr>
+</tbody></table>
+<p>Merges <em>x</em> into the <a target="_blank" rel="noopener" href="https://www.cplusplus.com/forward_list">forward_list</a> by transferring all of its elements at their respective ordered positions into the container (both containers shall already be ordered). This effectively removes all the elements in <em>x</em> (which becomes <a target="_blank" rel="noopener" href="https://www.cplusplus.com/forward_list::empty">empty</a>), and inserts them into their ordered position within container</p>
+<p>The template versions with two parameters (2), have the same behavior, but take a specific predicate (<em>comp</em>) to perform the comparison operation between elements. This comparison shall produce a <em>strict weak ordering</em> of the elements.</p>
+<blockquote>
+<p><em>strict weak ordering</em></p>
+<p>== equeals !(a&lt;b) &amp;&amp; !(b&lt;a)</p>
+</blockquote>
+<p>This function requires that the <a target="_blank" rel="noopener" href="https://www.cplusplus.com/forward_list">forward_list</a> containers have their elements already ordered by value (or by <em>comp</em>) before the call. For an alternative on unordered lists, see <a target="_blank" rel="noopener" href="https://www.cplusplus.com/list::splice">list::splice</a>.</p>
+<p>Assuming such ordering, each element of <em>x</em> is inserted at the position that corresponds to its value according to the <em>strict weak ordering</em> defined by <code>operator&lt;</code> or <em>comp</em>.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">forward_list&lt;<span class="keyword">int</span>&gt; l&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>&#125;;</span><br><span class="line">forward_list&lt;<span class="keyword">int</span>&gt; l2&#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">13</span>, <span class="number">0</span>&#125;;</span><br><span class="line">l.<span class="built_in">sort</span>();</span><br><span class="line">l2.<span class="built_in">sort</span>();</span><br><span class="line">l.<span class="built_in">merge</span>(l2);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i : l)</span><br><span class="line">  cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line"><span class="comment">//0 1 1 2 2 2 3 4 10 13 20</span></span><br><span class="line"></span><br><span class="line">forward_list&lt;<span class="keyword">int</span>&gt; l&#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">2</span>, <span class="number">1</span>&#125;;</span><br><span class="line">forward_list&lt;<span class="keyword">int</span>&gt; l2&#123;<span class="number">10</span>, <span class="number">20</span>, <span class="number">13</span>, <span class="number">0</span>&#125;;</span><br><span class="line">l.<span class="built_in">merge</span>(l2);</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">auto</span> i : l)</span><br><span class="line">  cout&lt;&lt;i&lt;&lt;<span class="string">&quot; &quot;</span>;</span><br><span class="line"><span class="comment">//1 2 2 3 4 2 1 10 20 13 0</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort"></a>sort</h3><table>
+<thead>
+<tr>
+<th align="right">(1)</th>
+<th><code> void sort();</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">(2)</td>
+<td><code>template &lt;class Compare&gt;  void sort (Compare comp);</code></td>
+</tr>
+</tbody></table>
+<p>strict weak ordering, stable, equivalent elements preserve the relative order they had before the call.</p>
+<h3 id="reverse"><a href="#reverse" class="headerlink" title="reverse"></a>reverse</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reverse</span><span class="params">()</span> <span class="keyword">noexcept</span></span>;</span><br></pre></td></tr></table></figure>
+
+<h2 id="list"><a href="#list" class="headerlink" title="list"></a>list</h2><blockquote>
+<p>special: doubly-linked lists</p>
+</blockquote>
+<h3 id="splice"><a href="#splice" class="headerlink" title="splice"></a>splice</h3><table>
+<thead>
+<tr>
+<th align="right">entire list (1)</th>
+<th><code>void splice (const_iterator position, list&amp; x); </code><br /><code>void splice (const_iterator position, list&amp;&amp; x); </code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">single element (2)</td>
+<td><code>void splice (const_iterator position, list&amp; x, const_iterator i);</code><br /><code>void splice (const_iterator position, list&amp;&amp; x, const_iterator i);</code></td>
+</tr>
+<tr>
+<td align="right">element range (3)</td>
+<td><code>void splice (const_iterator position, list&amp; x, const_iterator first, const_iterator last); </code><br /><code>void splice (const_iterator position, list&amp;&amp; x, const_iterator first, const_iterator last);</code></td>
+</tr>
+</tbody></table>
+<h2 id="map"><a href="#map" class="headerlink" title="map"></a>map</h2><blockquote>
+<p>special: key unique, Internally, the elements in a <code>map</code> are <strong>always sorted</strong> by its <em>key</em> following a specific <em>strict weak ordering</em> criterion indicated by its internal <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map::key_comp">comparison object</a> (of type <code>Compare</code>).</p>
+<p>Maps are typically implemented as <em>binary search trees</em>.</p>
+<p>begin() returns sorted first element</p>
+</blockquote>
+<h3 id="insert-1"><a href="#insert-1" class="headerlink" title="insert"></a>insert</h3><table>
+<thead>
+<tr>
+<th align="right">single element (1)</th>
+<th><code>pair&lt;iterator,bool&gt; insert (const value_type&amp; val); </code><br /><code>template &lt;class P&gt; pair&lt;iterator,bool&gt; insert (P&amp;&amp; val); </code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">with hint (2)</td>
+<td><code>iterator insert (const_iterator position, const value_type&amp; val);</code><br /><code>template &lt;class P&gt; iterator insert (const_iterator position, P&amp;&amp; val);</code></td>
+</tr>
+<tr>
+<td align="right">range (3)</td>
+<td><code>template &lt;class InputIterator&gt;  void insert (InputIterator first, InputIterator last); </code></td>
+</tr>
+<tr>
+<td align="right">initializer list (4)</td>
+<td><code>void insert (initializer_list&lt;value_type&gt; il);</code></td>
+</tr>
+</tbody></table>
+<p>Because element keys in a <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map">map</a> are unique, the insertion operation <strong>checks</strong> whether each inserted element has a key equivalent to the one of an element already in the container, and if so, the element is not inserted, <strong>returning an iterator to this existing element</strong> (if the function returns a value).</p>
+<p>can also just use <code>[]</code></p>
+<p>The function optimizes its insertion time if <em>position</em> points to the element that will <strong>follow</strong> the inserted element (or to the <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map::end">end</a>, if it would be the last).</p>
+<p>Notice that this is just a hint and does not force the new element to be inserted at that position within the <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map">map</a> container (the elements in a <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map">map</a> always follow a specific order depending on their key).</p>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/4342204/is-there-any-position-limitation-on-the-insert-hint-for-stdmap/4342257">hint</a></p>
+<p>Insert with hint is logarithmic in general, but it is amortized constant time if t is inserted immediately before p.</p>
+<p>So I’d say hinting on either side gives about the same result, and is always better than no hint at all. Choosing a poor hint position (such as the start) is worse than no hint at all.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">std::map&lt;Key,T,Compare,Allocator&gt;::extract</span><br><span class="line"><span class="comment">//return node_type</span></span><br><span class="line"><span class="comment">//parammeter: iterator or key</span></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"><span class="comment">//used to change key, normally key is const</span></span><br><span class="line"><span class="comment">//extract, change key, insert(move())</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    std::map&lt;<span class="keyword">int</span>, <span class="keyword">char</span>&gt; cont&#123;&#123;<span class="number">1</span>, <span class="string">&#x27;a&#x27;</span>&#125;, &#123;<span class="number">2</span>, <span class="string">&#x27;b&#x27;</span>&#125;, &#123;<span class="number">3</span>, <span class="string">&#x27;c&#x27;</span>&#125;&#125;;</span><br><span class="line">    <span class="keyword">auto</span> print = [](std::pair&lt;<span class="keyword">const</span> <span class="keyword">int</span>, <span class="keyword">char</span>&gt;&amp; n) &#123; </span><br><span class="line">        std::cout &lt;&lt; <span class="string">&quot; &quot;</span> &lt;&lt; n.first &lt;&lt; <span class="string">&#x27;(&#x27;</span> &lt;&lt; n.second &lt;&lt; <span class="string">&#x27;)&#x27;</span>; </span><br><span class="line">    &#125;;</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;Start:&quot;</span>;</span><br><span class="line">    std::for_each(cont.<span class="built_in">begin</span>(), cont.<span class="built_in">end</span>(), print);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Extract node handle and change key</span></span><br><span class="line">    <span class="keyword">auto</span> nh = cont.<span class="built_in">extract</span>(<span class="number">1</span>);</span><br><span class="line">    nh.<span class="built_in">key</span>() = <span class="number">4</span>; </span><br><span class="line"> </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;After extract and before insert:&quot;</span>;</span><br><span class="line">    std::for_each(cont.<span class="built_in">begin</span>(), cont.<span class="built_in">end</span>(), print);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line"> </span><br><span class="line">    <span class="comment">// Insert node handle back</span></span><br><span class="line">    cont.<span class="built_in">insert</span>(<span class="built_in">move</span>(nh));</span><br><span class="line"> </span><br><span class="line">    std::cout &lt;&lt; <span class="string">&quot;End:&quot;</span>;</span><br><span class="line">    std::for_each(cont.<span class="built_in">begin</span>(), cont.<span class="built_in">end</span>(), print);</span><br><span class="line">    std::cout &lt;&lt; <span class="string">&#x27;\n&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">Start: 1(a) 2(b) 3(c)</span></span><br><span class="line"><span class="comment">After extract and before insert: 2(b) 3(c)</span></span><br><span class="line"><span class="comment">End: 2(b) 3(c) 4(a)</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="find"><a href="#find" class="headerlink" title="find"></a>find</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">iterator <span class="title">find</span> <span class="params">(<span class="keyword">const</span> key_type&amp; k)</span></span>;</span><br><span class="line"><span class="function">const_iterator <span class="title">find</span> <span class="params">(<span class="keyword">const</span> key_type&amp; k)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Searches the container for an element with a <em>key</em> equivalent to <em>k</em> and returns an iterator to it if found, otherwise it returns an iterator to <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map::end">map::end</a>.</p>
+<h3 id="count"><a href="#count" class="headerlink" title="count"></a>count</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">size_type <span class="title">count</span> <span class="params">(<span class="keyword">const</span> key_type&amp; k)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Searches the container for elements with a key equivalent to <em>k</em> and returns the number of matches.</p>
+<p>Because all elements in a <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map">map</a> container are unique, the function can only return <em>1</em> (if the element is found) or zero (otherwise).</p>
+<h3 id="lower-bound"><a href="#lower-bound" class="headerlink" title="lower_bound"></a>lower_bound</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">      <span class="function">iterator <span class="title">lower_bound</span> <span class="params">(<span class="keyword">const</span> key_type&amp; k)</span></span>;</span><br><span class="line"><span class="function">const_iterator <span class="title">lower_bound</span> <span class="params">(<span class="keyword">const</span> key_type&amp; k)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Returns an iterator pointing to the first element in the container whose key is not considered to go before <em>k</em> (i.e., either it is equivalent or goes after).</p>
+<p>&lt;=</p>
+<h3 id="upper-bound"><a href="#upper-bound" class="headerlink" title="upper_bound"></a>upper_bound</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">     <span class="function">iterator <span class="title">upper_bound</span> <span class="params">(<span class="keyword">const</span> key_type&amp; k)</span></span>;</span><br><span class="line"><span class="function">const_iterator <span class="title">upper_bound</span> <span class="params">(<span class="keyword">const</span> key_type&amp; k)</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>the function returns an iterator to the first element whose key is greater than <em>k</em>.</p>
+<p>&gt;</p>
+<h3 id="equal-range"><a href="#equal-range" class="headerlink" title="equal_range"></a>equal_range</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pair&lt;const_iterator,const_iterator&gt; equal_range (const key_type&amp; k) const;</span><br><span class="line">pair&lt;iterator,iterator&gt;             equal_range (const key_type&amp; k);</span><br></pre></td></tr></table></figure>
+
+<p>Returns the bounds of a range that includes all the elements in the container which have a <em>key</em> equivalent to <em>k</em>.</p>
+<p>the range returned will contain a single element at most.</p>
+<p>If no matches are found, the range returned has a length of zero, with both iterators pointing to the first element that has a key considered to go after <em>k</em> according to the container’s <a target="_blank" rel="noopener" href="https://www.cplusplus.com/map::key_comp">internal comparison object</a> (<a target="_blank" rel="noopener" href="https://www.cplusplus.com/map::key_comp">key_comp</a>).</p>
+<p>map.equal_range().first =&gt; lower_bound</p>
+<p>map.equal_range().second =&gt; upper_bound</p>
+<p>not found, both upper_bound</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">map&lt;string, <span class="keyword">int</span>&gt; m &#123;&#125;;</span><br><span class="line">m[<span class="string">&quot;b&quot;</span>] = <span class="number">2</span>;</span><br><span class="line">m[<span class="string">&quot;e&quot;</span>] = <span class="number">3</span>;</span><br><span class="line">m[<span class="string">&quot;w&quot;</span>] = <span class="number">4</span>;</span><br><span class="line">cout&lt;&lt; m.<span class="built_in">equal_range</span>(<span class="string">&quot;e&quot;</span>).first-&gt;first &lt;&lt; m.<span class="built_in">equal_range</span>(<span class="string">&quot;e&quot;</span>).second-&gt;first &lt;&lt;endl;</span><br><span class="line">cout&lt;&lt; m.<span class="built_in">equal_range</span>(<span class="string">&quot;f&quot;</span>).first-&gt;first &lt;&lt; m.<span class="built_in">equal_range</span>(<span class="string">&quot;f&quot;</span>).second-&gt;first &lt;&lt;endl;</span><br><span class="line"><span class="comment">//ew</span></span><br><span class="line"><span class="comment">//ww</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="multimap"><a href="#multimap" class="headerlink" title="multimap"></a>multimap</h2><blockquote>
+<p>multiple elements can have equivalent keys.</p>
+<p>use equal_range to get all pairs for certain key</p>
+</blockquote>
+<h2 id="unordered-map"><a href="#unordered-map" class="headerlink" title="unordered_map"></a>unordered_map</h2><blockquote>
+<p>special:</p>
+<p>Internally, the elements in the <code>unordered_map</code> are not sorted in any particular order with respect to either their <em>key</em> or <em>mapped</em> values, but organized into <strong><em>buckets</em> depending on their hash values</strong> to allow for fast access to individual elements directly by their <em>key values</em> (with a constant average time complexity on average).</p>
+</blockquote>
+<h3 id="bucket"><a href="#bucket" class="headerlink" title="bucket"></a>bucket</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">size_type <span class="title">bucket</span> <span class="params">( <span class="keyword">const</span> key_type&amp; k )</span> <span class="keyword">const</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Returns the bucket number where the element with key <em>k</em> is located.</p>
+<p>A bucket is a slot in the container’s internal hash table to which elements are assigned based on the hash value of their key. Buckets are numbered from <code>0</code> to <code>(bucket_count-1)</code>.</p>
+<p>Individual elements in a bucket can be accessed by means of the range iterators returned by <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::begin">unordered_map::begin</a> and <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::end">unordered_map::end</a>.</p>
+<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/17016175/c-unordered-map-using-a-custom-class-type-as-the-key">hash function for customed class</a></p>
+<p>To be able to use <code>std::unordered_map</code> (or one of the other unordered associative containers) with a user-defined key-type, you need to define two things:</p>
+<ol>
+<li>A <strong>hash function</strong>; this must be a class that overrides <code>operator()</code> and calculates the hash value given an object of the key-type. One particularly straight-forward way of doing this is to specialize the <code>std::hash</code> template for your key-type.</li>
+<li>A <strong>comparison function for equality</strong>; this is required because the hash cannot rely on the fact that the hash function will always provide a unique hash value for every distinct key (i.e., it needs to be able to deal with collisions), so it needs a way to compare two given keys for an exact match. You can implement this either as a class that overrides <code>operator()</code>, or as a specialization of <code>std::equal</code>, or – easiest of all – by overloading <code>operator==()</code> for your key type (as you did already).</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Key</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  std::string first;</span><br><span class="line">  std::string second;</span><br><span class="line">  <span class="keyword">int</span>         third;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">bool</span> <span class="keyword">operator</span>==(<span class="keyword">const</span> Key &amp;other) <span class="keyword">const</span></span><br><span class="line">  &#123; <span class="built_in"><span class="keyword">return</span></span> (first == other.first</span><br><span class="line">            &amp;&amp; second == other.second</span><br><span class="line">            &amp;&amp; third == other.third);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">namespace</span> std &#123;</span><br><span class="line">  <span class="keyword">template</span> &lt;&gt;</span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">hash</span>&lt;</span>Key&gt;</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="function">std::<span class="keyword">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> Key&amp; k)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">      <span class="keyword">using</span> std::<span class="keyword">size_t</span>;</span><br><span class="line">      <span class="keyword">using</span> std::hash;</span><br><span class="line">      <span class="keyword">using</span> std::string;</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Compute individual hash values for first,</span></span><br><span class="line">      <span class="comment">// second and third and combine them using XOR</span></span><br><span class="line">      <span class="comment">// and bit shifting:</span></span><br><span class="line"></span><br><span class="line">      <span class="keyword">return</span> ((hash&lt;string&gt;()(k.first)</span><br><span class="line">               ^ (hash&lt;string&gt;()(k.second) &lt;&lt; <span class="number">1</span>)) &gt;&gt; <span class="number">1</span>)</span><br><span class="line">               ^ (hash&lt;<span class="keyword">int</span>&gt;()(k.third) &lt;&lt; <span class="number">1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//or just a new function object</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">KeyHasher</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">  <span class="function">std::<span class="keyword">size_t</span> <span class="title">operator</span><span class="params">()</span><span class="params">(<span class="keyword">const</span> Key&amp; k)</span> <span class="keyword">const</span></span></span><br><span class="line"><span class="function">  </span>&#123;</span><br><span class="line">    <span class="keyword">using</span> std::<span class="keyword">size_t</span>;</span><br><span class="line">    <span class="keyword">using</span> std::hash;</span><br><span class="line">    <span class="keyword">using</span> std::string;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> ((hash&lt;string&gt;()(k.first)</span><br><span class="line">             ^ (hash&lt;string&gt;()(k.second) &lt;&lt; <span class="number">1</span>)) &gt;&gt; <span class="number">1</span>)</span><br><span class="line">             ^ (hash&lt;<span class="keyword">int</span>&gt;()(k.third) &lt;&lt; <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  std::unordered_map&lt;Key,std::string,KeyHasher&gt; m6 = &#123;</span><br><span class="line">    &#123; &#123;<span class="string">&quot;John&quot;</span>, <span class="string">&quot;Doe&quot;</span>, <span class="number">12</span>&#125;, <span class="string">&quot;example&quot;</span>&#125;,</span><br><span class="line">    &#123; &#123;<span class="string">&quot;Mary&quot;</span>, <span class="string">&quot;Sue&quot;</span>, <span class="number">21</span>&#125;, <span class="string">&quot;another&quot;</span>&#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="load-factor"><a href="#load-factor" class="headerlink" title="load_factor"></a>load_factor</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">float</span> <span class="title">load_factor</span><span class="params">()</span> <span class="keyword">const</span> <span class="keyword">noexcept</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>The load factor is the ratio between the number of elements in the container (its <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::size">size</a>) and the number of buckets (<a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket_count</a>)</p>
+<p>load_factor = <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::size">size</a> / <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket_count</a></p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/14851249/whats-the-difference-between-the-rehash-and-reserve-methods-of-the-c-unor">see more for difference between rehash and reserve</a></p>
+<p>The difference is in <em>purpose</em>, although both are doing something similar.</p>
+<ul>
+<li><code>rehash</code> takes an existing map and rebuilds a <em>new</em> size of buckets, rehashing in the process and redistributing elements into the new buckets.</li>
+<li><code>reserve</code> guarantees you that if you don’t insert more than the reserved number of elements, there will be no rehashing (i.e. your iterators will remain valid).</li>
+</ul>
+<p>Those are two somewhat different things, albeit related. <code>rehash</code> doesn’t give you any guarantees, and <code>reserve</code> doesn’t express the purpose of rehashing. Use <code>rehash</code> if you think your map is inefficient, and <code>reserve</code> if you’re preparing for a lot of insertions.</p>
+<p>As @Xeo points out, <code>reserve</code> is just a wrapper around <code>rehash</code>, though, taking into account the permissible load factor of the map.</p>
+</blockquote>
+<h3 id="rehash"><a href="#rehash" class="headerlink" title="rehash"></a>rehash</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rehash</span><span class="params">( size_type n )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Sets the number of buckets in the container to <em>n</em> or more.</p>
+<p>If <em>n</em> is greater than the current number of buckets in the container (<a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket_count</a>), a rehash is forced. The new <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket count</a> can either be equal or greater than <em>n</em>.</p>
+<p>If <em>n</em> is lower than the current number of buckets in the container (<a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket_count</a>), the function may have no effect on the <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket count</a> and may not force a rehash.</p>
+<p>A rehash is the reconstruction of the hash table: All the elements in the container are rearranged according to their hash value into the new set of buckets. This may alter the order of iteration of elements within the container.</p>
+<p>Rehashes are automatically performed by the container whenever its <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::load_factor">load factor</a> is going to surpass its <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::max_load_factor">max_load_factor</a> in an operation.</p>
+<p>Notice that this function expects the number of buckets as argument. A similar function exists, <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::reserve">unordered_map::reserve</a>, that expects the number of elements in the container as argument.</p>
+<h3 id="reserve"><a href="#reserve" class="headerlink" title="reserve"></a>reserve</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">reserve</span> <span class="params">( size_type n )</span></span>;</span><br></pre></td></tr></table></figure>
+
+<p>Sets the number of buckets in the container (<a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket_count</a>) to the most appropriate to contain at least <em>n</em> elements.</p>
+<p>If <em>n</em> is greater than the current <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket_count</a> multiplied by the <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::max_load_factor">max_load_factor</a>, the container’s <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::bucket_count">bucket_count</a> is increased and a <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::rehash">rehash</a> is forced.</p>
+<p>If <em>n</em> is lower than that, the function may have no effect.</p>
+<h2 id="set"><a href="#set" class="headerlink" title="set"></a>set</h2><blockquote>
+<p>special:</p>
+<p>unique elements following a specific order.</p>
+<p>The value of the elements in a <code>set</code> cannot be modified once in the container (the elements are <strong>always const</strong>), but they can be inserted or removed from the container.</p>
+</blockquote>
+<h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><blockquote>
+<p>special:</p>
+<p>following a specific order, and where multiple elements can have equivalent values.</p>
+<p>the elements are always const</p>
+</blockquote>
+<h2 id="unordered-set"><a href="#unordered-set" class="headerlink" title="unordered_set"></a>unordered_set</h2><h1 id="algorithm"><a href="#algorithm" class="headerlink" title="algorithm"></a>algorithm</h1><h2 id="find-end"><a href="#find-end" class="headerlink" title="find_end"></a>find_end</h2><p>Searches the range <code>[first1,last1)</code> for the <strong>last occurrence</strong> of the sequence defined by <code>[first2,last2)</code>, and returns an iterator to its first element, or last1 if no occurrences are found.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator1</span>, <span class="keyword">class</span> <span class="title">ForwardIterator2</span>&gt;</span></span><br><span class="line">  <span class="function">ForwardIterator1 <span class="title">find_end</span> <span class="params">(ForwardIterator1 first1, ForwardIterator1 last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                             ForwardIterator2 first2, ForwardIterator2 last2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (first2==last2) <span class="keyword">return</span> last1;  <span class="comment">// specified in C++11</span></span><br><span class="line"></span><br><span class="line">  ForwardIterator1 ret = last1;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">while</span> (first1!=last1)</span><br><span class="line">  &#123;</span><br><span class="line">    ForwardIterator1 it1 = first1;</span><br><span class="line">    ForwardIterator2 it2 = first2;</span><br><span class="line">    <span class="keyword">while</span> (*it1==*it2) &#123;    <span class="comment">// or: while (pred(*it1,*it2)) for version (2)</span></span><br><span class="line">        ++it1; ++it2;</span><br><span class="line">        <span class="keyword">if</span> (it2==last2) &#123; ret=first1; <span class="keyword">break</span>; &#125;<span class="comment">//reserve last occurrence</span></span><br><span class="line">        <span class="keyword">if</span> (it1==last1) <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    ++first1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="find-first-of"><a href="#find-first-of" class="headerlink" title="find_first_of"></a>find_first_of</h2><p>Returns an iterator to the first element in the range <code>[first1,last1)</code> that <strong>matches any of the elements in <code>[first2,last2)</code>.</strong> If no such element is found, the function returns last1.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">InputIterator</span>, <span class="keyword">class</span> <span class="title">ForwardIterator</span>&gt;</span></span><br><span class="line">  <span class="function">InputIterator <span class="title">find_first_of</span> <span class="params">( InputIterator first1, InputIterator last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                                ForwardIterator first2, ForwardIterator last2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (first1!=last1) &#123;</span><br><span class="line">    <span class="keyword">for</span> (ForwardIterator it=first2; it!=last2; ++it) &#123;</span><br><span class="line">      <span class="keyword">if</span> (*it==*first1)          <span class="comment">// or: if (pred(*it,*first)) for version (2)</span></span><br><span class="line">        <span class="keyword">return</span> first1;</span><br><span class="line">    &#125;</span><br><span class="line">    ++first1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> last1;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="generate"><a href="#generate" class="headerlink" title="generate"></a>generate</h2><p>Assigns the value returned by successive calls to gen to the elements in the range <code>[first,last)</code>.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">ForwardIterator</span>, <span class="keyword">class</span> <span class="title">Generator</span>&gt;</span></span><br><span class="line">  <span class="function"><span class="keyword">void</span> <span class="title">generate</span> <span class="params">( ForwardIterator first, ForwardIterator last, Generator gen )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (first != last) &#123;</span><br><span class="line">    *first = <span class="built_in">gen</span>();</span><br><span class="line">    ++first;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="includes"><a href="#includes" class="headerlink" title="includes"></a>includes</h2><p>Returns true if the <strong>sorted</strong> range <code>[first1,last1)</code> contains all the elements in the <strong>sorted</strong> range <code>[first2,last2)</code>.</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">template</span> &lt;<span class="class"><span class="keyword">class</span> <span class="title">InputIterator1</span>, <span class="keyword">class</span> <span class="title">InputIterator2</span>&gt;</span></span><br><span class="line">  <span class="function"><span class="keyword">bool</span> <span class="title">includes</span> <span class="params">(InputIterator1 first1, InputIterator1 last1,</span></span></span><br><span class="line"><span class="function"><span class="params">                 InputIterator2 first2, InputIterator2 last2)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="keyword">while</span> (first2!=last2) &#123;</span><br><span class="line">    <span class="keyword">if</span> ( (first1==last1) || (*first2&lt;*first1) ) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    <span class="keyword">if</span> (!(*first1&lt;*first2)) ++first2;<span class="comment">//only when *first1==*first2, first2++</span></span><br><span class="line">    ++first1;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="make-heap"><a href="#make-heap" class="headerlink" title="make_heap"></a>make_heap</h2><table>
+<thead>
+<tr>
+<th align="right">default (1)</th>
+<th><code>template &lt;class RandomAccessIterator&gt;  void make_heap (RandomAccessIterator first, RandomAccessIterator last); </code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">custom (2)</td>
+<td><code>template &lt;class RandomAccessIterator, class Compare&gt;  void make_heap (RandomAccessIterator first, RandomAccessIterator last, Compare comp );</code></td>
+</tr>
+</tbody></table>
+<p>Rearranges the elements in the range <code>[first,last)</code> in such a way that they form a <em>heap</em>.</p>
+<p>A heap is a way to organize the elements of a range that allows for fast retrieval(检索) of the element with the highest value at any moment (with <a target="_blank" rel="noopener" href="https://www.cplusplus.com/pop_heap">pop_heap</a>), even repeatedly, while allowing for fast insertion of new elements (with <a target="_blank" rel="noopener" href="https://www.cplusplus.com/push_heap">push_heap</a>).</p>
+<p><strong>The element with the highest value is always pointed by first.</strong> The order of the other elements depends on the particular implementation, but it is consistent throughout all heap-related functions of this header.</p>
+<p>The elements are compared using <code>operator&lt;</code> (for the first version), or comp (for the second): The element with the highest value is an element for which this would return <code>false</code> when compared to every other element in the range.</p>
+<p>The standard container adaptor <a target="_blank" rel="noopener" href="https://www.cplusplus.com/priority_queue">priority_queue</a> calls make_heap, <a target="_blank" rel="noopener" href="https://www.cplusplus.com/push_heap">push_heap</a> and <a target="_blank" rel="noopener" href="https://www.cplusplus.com/pop_heap">pop_heap</a> automatically to maintain <em>heap properties</em> for a container.</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/6b526aa481b1">see more for heap</a></p>
+<p>堆分为两种：<em>最大堆</em>和<em>最小堆</em>，两者的差别在于节点的排序方式。</p>
+<p>在最大堆中，父节点的值比每一个子节点的值都要大。在最小堆中，父节点的值比每一个子节点的值都要小。这就是所谓的“堆属性”，并且这个属性对堆中的每一个节点都成立。</p>
+<p>如果 <code>i</code> 是节点的索引，那么下面的公式就给出了它的父节点和子节点在数组中的位置：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">parent(i) = floor((i - <span class="number">1</span>)/<span class="number">2</span>)</span><br><span class="line">left(i)   = <span class="number">2i</span> + <span class="number">1</span></span><br><span class="line">right(i)  = <span class="number">2i</span> + <span class="number">2</span></span><br></pre></td></tr></table></figure>
+
+<p>insert, 插入到数组最后, shift_up</p>
+<p>remove, 数组最后替代删除节点, shift_down</p>
+</blockquote>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        
+                            <li title='0' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                        
+                            <li title='1' data-url='http://link.hhtjim.com/163/425570952.mp3'></li>
+                        
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+		data-enable='false'
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+        <div class='side'>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#global-function"><span class="toc-number">1.</span> <span class="toc-text">global function</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#remove"><span class="toc-number">1.1.</span> <span class="toc-text">remove</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#move-forward"><span class="toc-number">1.2.</span> <span class="toc-text">move forward</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#iterator"><span class="toc-number">1.3.</span> <span class="toc-text">iterator</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#container"><span class="toc-number">2.</span> <span class="toc-text">container</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#vector"><span class="toc-number">2.1.</span> <span class="toc-text">vector</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#constructor-NaN"><span class="toc-number">2.1.1.</span> <span class="toc-text">constructor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#clear"><span class="toc-number">2.1.2.</span> <span class="toc-text">clear</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#erase"><span class="toc-number">2.1.3.</span> <span class="toc-text">erase</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#assign"><span class="toc-number">2.1.4.</span> <span class="toc-text">assign</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#push-back"><span class="toc-number">2.1.5.</span> <span class="toc-text">push_back</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pop-back"><span class="toc-number">2.1.6.</span> <span class="toc-text">pop_back</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#insert"><span class="toc-number">2.1.7.</span> <span class="toc-text">insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#swap"><span class="toc-number">2.1.8.</span> <span class="toc-text">swap</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#emplace"><span class="toc-number">2.1.9.</span> <span class="toc-text">emplace</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#emplace-back"><span class="toc-number">2.1.10.</span> <span class="toc-text">emplace_back</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#deque"><span class="toc-number">2.2.</span> <span class="toc-text">deque</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#push-front"><span class="toc-number">2.2.1.</span> <span class="toc-text">push_front</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#pop-front"><span class="toc-number">2.2.2.</span> <span class="toc-text">pop_front</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#emplace-front"><span class="toc-number">2.2.3.</span> <span class="toc-text">emplace_front</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#forward-list"><span class="toc-number">2.2.4.</span> <span class="toc-text">forward_list</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#resize"><span class="toc-number">2.2.5.</span> <span class="toc-text">resize</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#splice-after"><span class="toc-number">2.2.6.</span> <span class="toc-text">splice_after</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#remove-1"><span class="toc-number">2.2.7.</span> <span class="toc-text">remove</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#remove-if"><span class="toc-number">2.2.8.</span> <span class="toc-text">remove_if</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#unique"><span class="toc-number">2.2.9.</span> <span class="toc-text">unique</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#merge"><span class="toc-number">2.2.10.</span> <span class="toc-text">merge</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#sort"><span class="toc-number">2.2.11.</span> <span class="toc-text">sort</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reverse"><span class="toc-number">2.2.12.</span> <span class="toc-text">reverse</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#list"><span class="toc-number">2.3.</span> <span class="toc-text">list</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#splice"><span class="toc-number">2.3.1.</span> <span class="toc-text">splice</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#map"><span class="toc-number">2.4.</span> <span class="toc-text">map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#insert-1"><span class="toc-number">2.4.1.</span> <span class="toc-text">insert</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#find"><span class="toc-number">2.4.2.</span> <span class="toc-text">find</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#count"><span class="toc-number">2.4.3.</span> <span class="toc-text">count</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#lower-bound"><span class="toc-number">2.4.4.</span> <span class="toc-text">lower_bound</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#upper-bound"><span class="toc-number">2.4.5.</span> <span class="toc-text">upper_bound</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#equal-range"><span class="toc-number">2.4.6.</span> <span class="toc-text">equal_range</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#multimap"><span class="toc-number">2.5.</span> <span class="toc-text">multimap</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unordered-map"><span class="toc-number">2.6.</span> <span class="toc-text">unordered_map</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#bucket"><span class="toc-number">2.6.1.</span> <span class="toc-text">bucket</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#hash"><span class="toc-number">2.6.2.</span> <span class="toc-text">hash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#load-factor"><span class="toc-number">2.6.3.</span> <span class="toc-text">load_factor</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#rehash"><span class="toc-number">2.6.4.</span> <span class="toc-text">rehash</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#reserve"><span class="toc-number">2.6.5.</span> <span class="toc-text">reserve</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#set"><span class="toc-number">2.7.</span> <span class="toc-text">set</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#multiset"><span class="toc-number">2.8.</span> <span class="toc-text">multiset</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#unordered-set"><span class="toc-number">2.9.</span> <span class="toc-text">unordered_set</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#algorithm"><span class="toc-number">3.</span> <span class="toc-text">algorithm</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#find-end"><span class="toc-number">3.1.</span> <span class="toc-text">find_end</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#find-first-of"><span class="toc-number">3.2.</span> <span class="toc-text">find_first_of</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#generate"><span class="toc-number">3.3.</span> <span class="toc-text">generate</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#includes"><span class="toc-number">3.4.</span> <span class="toc-text">includes</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#make-heap"><span class="toc-number">3.5.</span> <span class="toc-text">make_heap</span></a></li></ol></li></ol>	
+        </div>
+    
+</div>
+
+
+    </div>
+</div>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body>
+
+
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/typed.js"></script>
+<script src="/js/diaspora.js"></script>
+
+
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+
+
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+</html>
