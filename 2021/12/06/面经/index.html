@@ -14,12 +14,8 @@
 
 
 
-
-
-算法动态规划fibfib(n) = fib(n-1) + fib(n-2)
-
-classic
-1234int fib(int n)&amp;#123;  if (n&amp;lt;=2) return ,"> 
+动态规划　　我们能这样干，取决于问题的性质：求出f(n)，只需要知道几个更小的f(c)。我们将求解f(c)称作求解f(n)的“子问题”。
+　　这就是DP（动态规划，dynamic progr,"> 
     <meta name="author" content="Sinos_wei"> 
     <link rel="alternative" href="atom.xml" title="Sinos_wei&#39;s blog" type="application/atom+xml"> 
     <link rel="icon" href="/img/a33.jpg"> 
@@ -73,23 +69,24 @@ classic
 </blockquote>
 <span id="more"></span>
 
-
-
-<h1 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h1><h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><h3 id="fib"><a href="#fib" class="headerlink" title="fib"></a>fib</h3><p>fib(n) = fib(n-1) + fib(n-2)</p>
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><p>　　我们能这样干，取决于问题的性质：求出f(n)，只需要知道几个更小的f(c)。我们将求解f(c)称作求解f(n)的“子问题”。</p>
+<p>　　这就是DP（动态规划，dynamic programming）.</p>
+<p>　　将一个问题拆成几个子问题，分别求解这些子问题，即可推断出大问题的解。</p>
+<h2 id="fib"><a href="#fib" class="headerlink" title="fib"></a>fib</h2><p>fib(n) = fib(n-1) + fib(n-2)</p>
 <ul>
 <li><p>classic</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (n&lt;=<span class="number">2</span>) <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">fib</span>(n<span class="number">-1</span>) + <span class="built_in">fib</span>(n<span class="number">-2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>memoization</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">vector&lt;<span class="keyword">int</span>&gt; <span class="title">memo</span><span class="params">(<span class="number">50</span>, <span class="number">-1</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fib</span><span class="params">(<span class="keyword">int</span> n)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n &lt;= <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span>(memo[n] != <span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> memo[n];</span><br><span class="line">    memo[n] = <span class="built_in">fib</span>(n<span class="number">-1</span>) + <span class="built_in">fib</span>(n<span class="number">-2</span>);</span><br><span class="line">    <span class="keyword">return</span> memo[n];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="grid-travel"><a href="#grid-travel" class="headerlink" title="grid travel"></a>grid travel</h3><p>gridtravel(x, y) = gridtravel(x-1, y) + gridtravel(x, y-1)</p>
+<h2 id="grid-travel"><a href="#grid-travel" class="headerlink" title="grid travel"></a>grid travel</h2><p>gridtravel(x, y) = gridtravel(x-1, y) + gridtravel(x, y-1)</p>
 <ul>
 <li><p>classical</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">gridtravel</span><span class="params">(m, n)</span></span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(m==<span class="number">1</span> &amp;&amp; n==<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">if</span>(m==<span class="number">0</span> || n==<span class="number">0</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">gridtravel</span>(m<span class="number">-1</span>, n) + <span class="built_in">gridtravel</span>(m, n<span class="number">-1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
 <li><p>memoization</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">unordered_map&lt;string, <span class="keyword">long</span> <span class="keyword">long</span>&gt; memo;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">long</span> <span class="keyword">long</span> <span class="title">gridtravel</span><span class="params">(<span class="keyword">int</span> m, <span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line">    string key = <span class="built_in">to_string</span>(m) + <span class="string">&quot;|&quot;</span> + <span class="built_in">to_string</span>(n);</span><br><span class="line">    <span class="keyword">if</span>(memo.<span class="built_in">find</span>(key) == memo.<span class="built_in">end</span>())&#123;</span><br><span class="line">        <span class="keyword">if</span>(m==<span class="number">1</span> &amp;&amp; n==<span class="number">1</span>)</span><br><span class="line">            memo[key] = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">else</span> <span class="keyword">if</span>(m==<span class="number">0</span> || n==<span class="number">0</span>)</span><br><span class="line">            memo[key] = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">else</span></span><br><span class="line">            memo[key] = <span class="built_in">gridtravel</span>(m<span class="number">-1</span>, n) + <span class="built_in">gridtravel</span>(m, n<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> memo[key];</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可优化: 4,3 == 3, 4</span></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="can-sum"><a href="#can-sum" class="headerlink" title="can sum"></a>can sum</h3><blockquote>
+<h2 id="can-sum"><a href="#can-sum" class="headerlink" title="can sum"></a>can sum</h2><blockquote>
 <p>canSum(7, [5, 3, 4, 7])  true</p>
 </blockquote>
 <ul>
@@ -131,7 +128,7 @@ classic
     </div>
     
         <div class='side'>
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">1.1.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#fib"><span class="toc-number">1.1.1.</span> <span class="toc-text">fib</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#grid-travel"><span class="toc-number">1.1.2.</span> <span class="toc-text">grid travel</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#can-sum"><span class="toc-number">1.1.3.</span> <span class="toc-text">can sum</span></a></li></ol></li></ol></li></ol>	
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-number">1.</span> <span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#fib"><span class="toc-number">1.1.</span> <span class="toc-text">fib</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#grid-travel"><span class="toc-number">1.2.</span> <span class="toc-text">grid travel</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#can-sum"><span class="toc-number">1.3.</span> <span class="toc-text">can sum</span></a></li></ol></li></ol>	
         </div>
     
 </div>
