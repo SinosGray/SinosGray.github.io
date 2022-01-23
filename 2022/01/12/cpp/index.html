@@ -620,7 +620,7 @@ mac 下的 c++ 头文件位置 /Applications/Xcode.app/Contents/Developer/Platfo
 <p>As is stated in <a target="_blank" rel="noopener" href="https://isocpp.org/wiki/faq/cpp14-language#decltype-auto">this C++ FAQ</a>, <code>decltype(auto)</code> is primarily useful for deducing the return type of forwarding functions and similar wrappers. However, it is not intended to be a widely used feature beyond that. And indeed, <a target="_blank" rel="noopener" href="http://stackoverflow.com/questions/38421392/range-based-for-loop-with-decltypeauto">there seems to be <strong>no reason</strong> for using it in range-based for loops</a>.</p>
 <h3 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h3><p>To summarize:</p>
 <ul>
-<li>Use <code>auto</code> when you want to work with a copy of elements in the range.</li>
+<li>Use <code>auto</code> when you want to work with a <strong>copy</strong> of elements in the range.(<strong>except for bool,</strong> use bool instead of auto)</li>
 <li>Use <code>auto&amp;</code> when you want to <strong>modify elements in the range in non-generic code.</strong></li>
 <li>Use <code>auto&amp;&amp;</code> when you want to <strong>modify elements in the range in generic code.</strong></li>
 <li>Use <code>const auto&amp;</code> when you want <strong>read-only</strong> access to elements in the range (even in generic code).</li>

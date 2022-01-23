@@ -388,7 +388,16 @@ global functionremove1234567891011121314template &amp;lt;class ForwardIterator, 
 <p>Returns the bucket number where the element with key <em>k</em> is located.</p>
 <p>A bucket is a slot in the container’s internal hash table to which elements are assigned based on the hash value of their key. Buckets are numbered from <code>0</code> to <code>(bucket_count-1)</code>.</p>
 <p>Individual elements in a bucket can be accessed by means of the range iterators returned by <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::begin">unordered_map::begin</a> and <a target="_blank" rel="noopener" href="https://www.cplusplus.com/unordered_map::end">unordered_map::end</a>.</p>
-<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/17016175/c-unordered-map-using-a-custom-class-type-as-the-key">hash function for customed class</a></p>
+<h3 id="hash"><a href="#hash" class="headerlink" title="hash"></a>hash</h3><blockquote>
+<p>hash container in stl:</p>
+<ul>
+<li><code>unordered_map</code></li>
+<li><code>unordered_set</code></li>
+<li><code>unordered_multimap</code></li>
+<li><code>unordered_multiset</code></li>
+</ul>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/17016175/c-unordered-map-using-a-custom-class-type-as-the-key">hash function for customed class</a></p>
 <p>To be able to use <code>std::unordered_map</code> (or one of the other unordered associative containers) with a user-defined key-type, you need to define two things:</p>
 <ol>
 <li>A <strong>hash function</strong>; this must be a class that overrides <code>operator()</code> and calculates the hash value given an object of the key-type. One particularly straight-forward way of doing this is to specialize the <code>std::hash</code> template for your key-type.</li>
@@ -428,6 +437,31 @@ global functionremove1234567891011121314template &amp;lt;class ForwardIterator, 
 <p>unique elements following a specific order.</p>
 <p>The value of the elements in a <code>set</code> cannot be modified once in the container (the elements are <strong>always const</strong>), but they can be inserted or removed from the container.</p>
 </blockquote>
+<table>
+<thead>
+<tr>
+<th align="right">single element (1)</th>
+<th><code>pair&lt;iterator,bool&gt; insert (const value_type&amp; val);</code><br /><code>pair&lt;iterator,bool&gt; insert (value_type&amp;&amp; val);</code></th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">with hint (2)</td>
+<td><code>iterator insert (const_iterator position, const value_type&amp; val);</code><br /><code>iterator insert (const_iterator position, value_type&amp;&amp; val);</code></td>
+</tr>
+<tr>
+<td align="right">range (3)</td>
+<td><code>template &lt;class InputIterator&gt;  </code><br /><code>void insert (InputIterator first, InputIterator last); </code></td>
+</tr>
+<tr>
+<td align="right">initializer list (4)</td>
+<td><code>void insert (initializer_list&lt;value_type&gt; il);</code></td>
+</tr>
+</tbody></table>
+<p>Extends the container by inserting new elements, effectively increasing the container <a target="_blank" rel="noopener" href="https://www.cplusplus.com/set::size">size</a> by the number of elements inserted.</p>
+<p>Because elements in a <a target="_blank" rel="noopener" href="https://www.cplusplus.com/set">set</a> are unique, the insertion operation <strong>checks whether each inserted element is equivalent to an element already in the container,</strong> and if so, the element is not inserted, returning an iterator to this existing element (if the function returns a value).</p>
+<p>For a similar container allowing for duplicate elements, see <a target="_blank" rel="noopener" href="https://www.cplusplus.com/multiset">multiset</a>.</p>
+<p>Internally, <a target="_blank" rel="noopener" href="https://www.cplusplus.com/set">set</a> containers keep all their elements sorted following the criterion specified by its <a target="_blank" rel="noopener" href="https://www.cplusplus.com/set::key_comp">comparison object</a>. The elements are always inserted in its respective position following this ordering.</p>
+<p>The parameters determine how many elements are inserted and to which values they are initialized:</p>
 <h2 id="multiset"><a href="#multiset" class="headerlink" title="multiset"></a>multiset</h2><blockquote>
 <p>special:</p>
 <p>following a specific order, and where multiple elements can have equivalent values.</p>
