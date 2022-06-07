@@ -5400,7 +5400,20 @@
 <p>提前启动内存读取有很多障碍。这可能就像没有足够的内存访问资源一样简单，也可能是由于加载的最终地址是另一条指令的结果。在这些情况下，负载成本不能（完全）隐藏。</p>
 <p>对于写操作，CPU 不必等到值安全地存储在内存中。只要执行接下来的指令看起来与将值存储在内存中具有相同的效果，就没有什么可以阻止 CPU 走捷径。它可以提前开始执行下一条指令。借助可以保存常规寄存器中不再可用的值的影子寄存器（shadow register），甚至可以更改要存储的不完整写操作中的值。</p>
 <p>图3.4</p>
-<p>有关缓存行为影响的说明，请参见图 3.4。稍后我们将讨论生成数据的程序；它是一个程序的简单模拟，它以随机方式重复访问可配置数量的内存。每个数据项都有固定的大小。元素的数量取决于所选的工作集。Y 轴显示处理一个元素所需的平均 CPU 周期数；请注意，Y 轴的刻度是对数的。这同样适用于 X 轴的所有此类图表。工作集的大小总是以 2 的幂表示。<br>该图显示了三个不同的平台。这并不奇怪：特定的处理器有 L1d 和 L2 缓存，但没有 L3。根据一些经验，我们可以推断出 L1d 的大小为 213 字节，而 L2 的大小为 220 字节。如果整个工作集适合 L1d，则每个元素的每次操作周期低于 1​​0。一旦超过 L1d 大小，处理器必须从 L2 加载数据，平均时间会上升到 28 左右。一旦 L2 不够时间再跳到 480 个周期甚至更多。这是许多或大多数操作必须从主存储器加载数据的时候。更糟糕的是：由于数据正在被修改，脏缓存行也必须被写回。<br>该图应该为研究有助于提高缓存使用率的编码改进提供足够的动力。我们在这里谈论的不是微不足道的百分之几的差异。我们谈论的是数量级的改进，这些改进有时是可能的。在第 6 节中，我们将讨论允许编写更高效代码的技术。下一节将详细介绍 CPU 缓存设计。这些知识是很好的，但对于论文的其余部分来说不是必需的。所以本节可以跳过。<br>3.3 CPU缓存实现细节<br>缓存实现者的问题是，巨大的主内存中的每个单元都可能需要被缓存。如果程序的工作集足够大，这意味着有许多主内存位置在为缓存中的每个位置而战。以前有人指出，高速缓存与主内存大小的比率为 1 比 1000 并不少见。<br>3.3.1 关联性<br>可以实现一个缓存，其中每个缓存行都可以保存任何内存位置的副本（参见图 3.5）。这称为完全关联缓存。为了访问高速缓存行，处理器内核必须将每个高速缓存行的标签与请求地址的标签进行比较。标签将由地址的整个部分组成，该部分不是缓存行的偏移量（这意味着，第 15 页上的图中的 S 为零）。<br>有一些缓存是这样实现的，但是通过查看当今使用的 L2 的数字，将表明这是不切实际的。给定一个 4MB 高速缓存和 64B 高速缓存行，该高速缓存将有 65,536 个条目。为了获得足够的性能，缓存逻辑必须能够在短短几个周期内从所有这些条目中挑选出与给定标签匹配的条目。</p>
+<p>有关缓存行为影响的说明，请参见图 3.4。稍后我们将讨论生成数据的程序；它是一个程序的简单模拟，它以随机方式重复访问可配置数量的内存。每个数据项都有固定的大小。元素的数量取决于所选的工作集。Y 轴显示处理一个元素所需的平均 CPU 周期数；请注意，Y 轴的刻度是对数。这同样适用于 X 轴的所有此类图表。工作集的大小总是以 2 的幂表示。</p>
+<p>该图显示了三个不同的平台。这并不奇怪：特定的处理器有 L1d 和 L2 缓存，但没有 L3。根据一些经验，我们可以推断出 L1d 的大小为 2^13^ 字节，而 L2 的大小为 2^20^ 字节。如果整个工作集适合 L1d，则每个元素的每次操作周期低于 1​​0。一旦超过 L1d 大小，处理器必须从 L2 加载数据，平均时间会上升到 28 左右。一旦 L2 不够时间再跳到 480 个周期甚至更多。这是许多或大多数操作必须从主存储器加载数据的时候。更糟糕的是：由于数据正在被修改，脏缓存行也必须被写回。</p>
+<p>该图应该为研究有助于提高缓存使用率的编码改进提供足够的动力。我们在这里谈论的不是微不足道的百分之几的差异。我们谈论的是数量级的改进，这些改进有时是可能的。在第 6 节中，我们将讨论允许编写更高效代码的技术。下一节将详细介绍 CPU 缓存设计。这些知识是很好的，但对于论文的其余部分来说不是必需的。所以本节可以跳过。</p>
+<h2 id="3-3-CPU缓存实现细节"><a href="#3-3-CPU缓存实现细节" class="headerlink" title="3.3 CPU缓存实现细节"></a>3.3 CPU缓存实现细节</h2><p>缓存实现者的问题是，巨大的主存中的每个单元都可能需要被缓存。如果程序的工作集足够大，这意味着有许多主存位置在争夺缓存中的位置。以前有人指出，高速缓存与主内存大小的比率为 1 比 1000 并不少见。</p>
+<h3 id="3-3-1-关联性"><a href="#3-3-1-关联性" class="headerlink" title="3.3.1 关联性"></a>3.3.1 关联性</h3><p>可以实现一个缓存，其中每个缓存行都可以保存任何内存位置的副本（参见图 3.5）。这称为<strong>完全关联缓存</strong>。为了访问高速缓存行，处理器内核必须将每个高速缓存行的标签与请求地址的标签进行比较。标签将由地址的整个部分组成，而不是缓存行的偏移量（这意味着，第 15 页上的图中的 S 为零）。</p>
+<p>有一些缓存是这样实现的，但是通过查看当今使用的 L2 的数据，将表明这是不切实际的。给定一个 4MB 缓存和 64B 缓存行，该高速缓存将有 65,536 个条目。为了获得足够的性能，缓存逻辑必须能够在短短几个周期内从所有这些条目中挑选出与给定标签匹配的条目。为了实现这个需要需要花费很大的努力。</p>
+<p>图3.5</p>
+<p>对于每个高速缓存行，需要一个比较器来比较标签（注意，S 为零）。每个连接旁边的字母表示宽度（以位为单位）。如果没有给出，则大小为1位。每个比较器必须比较两个 T 位宽的值。然后，根据结果，选择适当的缓存行内容并使其可用。这需要合并与缓存桶（cache bucket）一样多的O数据行集。实现单个比较器所需的晶体管数量很大，特别是因为它必须工作得非常快。没有迭代比较器是可用的。节省比较器数量的唯一方法是通过迭代比较标签来减少它们的数量。因为相同的原因这不适合迭代比较器：它需要太长时间。</p>
+<p>全关联高速缓存对于小型高速缓存很实用（例如，某些英特尔处理器上的 TLB（translation lookaside buffer） 高速缓存是全关联高速缓存），但这些高速缓存很小，非常小。我们最多谈论几十个条目。</p>
+<p>图3.6</p>
+<p>对于 L1i、L1d 和更高级别的缓存，需要不同的方法。可以做的是限制搜索。在最极端的限制下，每个标签都映射到一个缓存条目。计算很简单：给定具有 65,536 个条目的 4MB/64B 缓存，我们可以使用地址的第 6 位到第 21 位（16 位）直接寻址每个条目。低 6 位是缓存行的索引。</p>
+<p>这样一个<strong>直接映射缓存</strong>很快而且比较容易实现如图3.6所示。他只需要一个比较器，一个多路复用器（图中的两个，标签和数据是分开的，但这不是设计的硬性要求），以及一些仅选择有效缓存行内容的逻辑。由于速度要求，比较器很复杂，但现在只有一个；因此，可以花费更多的精力来加快速度。这种方法的真正复杂性在于多路复用器。简单多路复用器中的晶体管数量随 O(log N) 增长，其中 N 是高速缓存行的数量。这是可以容忍的，但可能会变慢，在这种情况下，可以通过在多路复用器中的晶体管上花费更多的空间来并行化一些工作和提高速度，从而提高速度。随着高速缓存大小的增加，晶体管的总数会缓慢增长，这使得该解决方案非常有吸引力。但它有一个缺点：只有当程序使用的地址相对于用于直接映射的位均匀分布时，它才能正常工作。如果它们不是，通常是这种情况，一些缓存条目被大量使用并因此被重复驱逐，而另一些则几乎不被使用或保持为空。 </p>
+<p>图 3.7：组关联缓存原理图 </p>
+<p>这个问题可以通过使缓存集关联来解决。<strong>组相联缓存</strong>结合了全相联缓存和直接映射缓存的优点，在很大程度上避免了这些设计的弱点。图 3.7 显示了组相    联缓存的设计。标记和数据存储分为一组，其中一组由高速缓存行的地址选择。这类似于直接映射缓存。但是，缓存中的每个设置值不是只有一个元素，而是为相同的设置值缓存了少量值。并行比较所有集合成员的标签，这类似于完全关联缓存的功能。结果是一个缓存不容易被不幸或故意选择具有相同组号的地址所破坏，同时缓存的大小不受比较器数量的限制，可以经济地实现。如果缓存增长，（在此图中）只是增加的列数，而不是行数。只有当缓存的关联性增加时，行数（因此比较器）才会增加。今天的处理器对 L2 高速缓存或更高的缓存使用了高达 24 的关联级别。 L1 缓存通常使用 8 组。</p>
 ]]></content>
       <categories>
         <category>cs</category>
@@ -11229,5 +11242,54 @@
       <tags>
         <tag>os</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>OS3pieces读书笔记</title>
+    <url>/2022/06/04/OS3pieces%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<blockquote>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="概要"><a href="#概要" class="headerlink" title="概要"></a>概要</h1><h2 id="virtualize"><a href="#virtualize" class="headerlink" title="virtualize"></a>virtualize</h2><p>process: a running program</p>
+<ul>
+<li>APIs<ul>
+<li>create:<br>load-&gt;stack-&gt;heap-&gt;relate IO-&gt;start main</li>
+<li>fork:<br>copy parent process<br>returns parent? pid_of_children : 0</li>
+<li>wait<br>parent wait for children</li>
+<li>exec<br>execution</li>
+</ul>
+</li>
+<li>status: running ready wait</li>
+<li>data structures: process list, struct proc</li>
+</ul>
+<p>machine state: memory, registers</p>
+<p>limited direct execution</p>
+<ul>
+<li>user mode, kernel mode, system call, trap(system call contains a trap instruction)</li>
+<li>switch<ul>
+<li>wait for system calls</li>
+<li>a timer</li>
+</ul>
+</li>
+</ul>
+<p>schedule<br>T<del>turnaround</del> = T<del>completion</del> - T<del>arrival</del></p>
+<p>T<del>response</del> = T<del>firstrun</del> - T<del>arrival</del></p>
+<ul>
+<li>FIFO/FCFS convoy effect bad</li>
+<li>SJF 当任务不是同时发生时 bad</li>
+<li>STCF/PSJF preempt</li>
+<li>RR time-slicing</li>
+<li>MLFQ 多级反馈队列<ul>
+<li>Rule 1: If Priority(A) &gt; Priority(B), A runs (B doesn’t).</li>
+<li>Rule 2: If Priority(A) = Priority(B), A &amp; B run in RR.</li>
+<li>Rule 3: When a job enters the system, it is placed at the highest priority (the topmost queue).</li>
+<li>Rule 4: Once a job uses up its time allotment at a given level (regardless of how many times it has given up the CPU), its priority is reduced (i.e., it moves down one queue).</li>
+<li>Rule 5: After some time period S, move all the jobs in the system to the topmost queue.</li>
+</ul>
+</li>
+<li>lottery: counter and ticket</li>
+<li>stride: take a stride and increase pass value</li>
+</ul>
+<h2 id="concurrency"><a href="#concurrency" class="headerlink" title="concurrency"></a>concurrency</h2><h2 id="persistence"><a href="#persistence" class="headerlink" title="persistence"></a>persistence</h2>]]></content>
   </entry>
 </search>
