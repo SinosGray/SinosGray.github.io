@@ -4692,16 +4692,26 @@
 <p>2-5 header lines</p>
 <figure class="highlight"><table><tr><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">/dir/page.html</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>xxx </span><br><span class="line"><span class="attribute">connection</span><span class="punctuation">: </span>close</span><br><span class="line"><span class="attribute">user-agent</span><span class="punctuation">: </span>mozilla/5.0</span><br><span class="line"><span class="attribute">accept-language</span><span class="punctuation">: </span>fr</span><br><span class="line"></span><br><span class="line">(entity body)</span><br></pre></td></tr></table></figure>
 
+<ol>
+<li>post 只能对已经存在url使用</li>
+</ol>
 <p>response</p>
 <p>status code</p>
+<p>101 switching protocols</p>
 <p>200 ok</p>
 <p>301 Moved Permanently</p>
-<p>304 not modified</p>
+<p>302 move temperory</p>
+<p>304 not modified 不返回资源</p>
+<p>305 use proxy</p>
 <p>308 Permanent Redirect</p>
 <p>400 bad request</p>
-<p>403 状态码意为服务器成功解析请求但是客户端没有访问该资源的权限</p>
+<p>401 unauthorized</p>
+<p>403 forbidden 状态码意为服务器成功解析请求但是客户端没有访问该资源的权限</p>
 <p>404 not found</p>
+<p>405 method no allowed</p>
 <p>408 request timeout</p>
+<p><strong><code>500 Internal Server Error</code></strong></p>
+<p>501 not implement</p>
 <p>502 bad gateway</p>
 <p>504 gateway timeout</p>
 <p>505 http version ot supported</p>
@@ -4803,6 +4813,7 @@
 <li>udp socket is identified by dest-IP and dest-port<br>tcp socket is identified by dest-IP, dest-port, source-IP and source-port</li>
 </ul>
 <p>3.3  Connectionless Transport: UDP 198</p>
+<p>UDP 使用场景: 语音视频通话, dns, 流媒体</p>
 <p>3.3.1  UDP Segment Structure 202</p>
 <p>3.3.2  UDP Checksum 202</p>
 <ul>
@@ -4937,9 +4948,9 @@
 </li>
 <li>四次挥手<ol>
 <li>c: FIN = 1, c-&gt;FIN_WAIT_1</li>
-<li>s: ACK, c-&gt;FIN_WAIT_2, s-&gt;CLOSE_WAIT</li>
+<li>s: ACK, c-&gt;FIN_WAIT_2, s-&gt;CLOSE_WAIT, 可能是半关闭状态</li>
 <li>s: FIN = 1, c-&gt;TIME_WAIT, s-&gt;LAST_ACK</li>
-<li>c: ACK, wait 30s, release resourses</li>
+<li>c: ACK, wait 30s(2MSL), release resourses</li>
 </ol>
 </li>
 <li>SYN cookie: server 的 initial seqnum 是 SYN segment 的 sourse dest ip port 做的 hash function(即 cookie)<br>当 client 发回 SYNACK 时, 用 hash function 再次计算, 如果得到的值和 ack 一样, 那么说明之前已经有过半连接</li>
@@ -5032,7 +5043,9 @@
 <p>5.1 Introduction to the Link Layer </p>
 <p>5.1.1 The Services Provided by the Link Layer</p>
 <p>5.1.2 Where Is the Link Layer Implemented? 5.2 Error-Detection and -Correction Techniques 5.2.1 Parity Checks 5.2.2 Checksumming Methods 5.2.3 Cyelic Redundancy Check (CRC) 5.3 Multiple Access Links and Protocols 5.3.1 Channel Partitioning Protocols 5.3.2 Random Access Protocols 5.3.3 Taking-Turns Protocols 5.3.4 DOCSIS: The Link-Layer Protocol for Cable Internet Access</p>
-<p>5.4 Switched Local Area Networks 5.4.1 Link-Layer Addressing and ARP 5.4.2 Ethernet 5.4.3 Link-Layer Switches 5.4.4 Virtual Local Area Networks (VLANs) 5.5 Link Virtualization: A Network as 2 Link Layer 5.5.1 Multiprotocol Label Switching (MPLS) 5.6 Data Center Networking 5.7 Retrospective: A Day in the Life of a Web Page Request 5.7.1 Getting Started: DHCP, UDP, IP, and Etheret 5.7.2 Still Getting Started: DNS and ARP 5.7.3 Still Getting Started: Intra-Domain Routing to the DNS Server 5.7.4 Web Client-Server Interaction: TCP and HTTP 5.8 Summary</p>
+<p>5.4 Switched Local Area Networks </p>
+<p>5.4.1 Link-Layer Addressing and ARP</p>
+<p> 5.4.2 Ethernet 5.4.3 Link-Layer Switches 5.4.4 Virtual Local Area Networks (VLANs) 5.5 Link Virtualization: A Network as 2 Link Layer 5.5.1 Multiprotocol Label Switching (MPLS) 5.6 Data Center Networking 5.7 Retrospective: A Day in the Life of a Web Page Request 5.7.1 Getting Started: DHCP, UDP, IP, and Etheret 5.7.2 Still Getting Started: DNS and ARP 5.7.3 Still Getting Started: Intra-Domain Routing to the DNS Server 5.7.4 Web Client-Server Interaction: TCP and HTTP 5.8 Summary</p>
 <p>Chapter 6 Wireless and Mobile Networks 6.1 Introduction 6.2 Wireless Links and Network Characteristics 6.2.1 CDMA 6.3 WiFi: 802.11 Wireless LANs 6.3.1 The 802.11 Architecture 6.3.2 The 802.11 MAC Protocol 6.3.3 The IEEE 802.11 Frame 6.3.4 Mobility in the Same IP Subnet 6.3.5 Advanced Features in 802.11 6.3.6 Personal Area Networks: Bluetooth and Zigbee 6.4 Cellular Internet Access 6.4.1 An Overview of Cellular Network Architecture 6.4.2 3G Cellular Data Networks: Extending the Internet to Cellular Subscribers 6.4.3 On to 4G: LTE 6.5 Mobility Management: Principles 6.5.1 Addressing 6.5.2 Routing to a Mobile Node 6.6 Mobile IP 6.7 Managing Mobility in Cellular Networks 6.7.1 Routing Calls to a Mobile User 6.7.2 Handoffs in GSM</p>
 <p>6.8 Wireless and Mobility: Impact on Higher-Layer Protocols 6.9 Summary</p>
 <h2 id="8-Security-in-Computer-Networks"><a href="#8-Security-in-Computer-Networks" class="headerlink" title="8 Security in Computer Networks"></a>8 Security in Computer Networks</h2><p>8.1 What Is Network Security? </p>
@@ -5093,7 +5106,7 @@
 <ol>
 <li>tcp three shake</li>
 <li>c: SSL hello(list of 加密算法, client nonce)</li>
-<li>s: sertification with public key (+选择的算法)</li>
+<li>s: certification with public key (+选择的算法)</li>
 <li>c: create MS(master secret), EMS = K^+^(MS), send EMS</li>
 <li>both client and server has MS</li>
 <li>The client sends a MAC of all the handshake messages.</li>
