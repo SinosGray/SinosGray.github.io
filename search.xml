@@ -7085,9 +7085,11 @@
 </li>
 </ul>
 <h1 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h1><ul>
-<li><p>sigmoid σ<br>$$<br>sigmoid(x) &#x3D; \frac{1}{1+exp(-x)}<br>$$</p>
+<li><p>sigmoid σ</p>
+<p>$$sigmoid(x) &#x3D; \frac{1}{1+exp(-x)}$$</p>
 </li>
-<li><p>tanh 解决了 sigmoid 函数不易收敛的问题<br>$$<br>tanh(x) &#x3D; \frac{1-exp(-2x)}{1+exp(-2x)}<br>$$</p>
+<li><p>tanh 解决了 sigmoid 函数不易收敛的问题</p>
+<p>$tanh(x) &#x3D; \frac{1-exp(-2x)}{1+exp(-2x)}$</p>
 </li>
 <li><p>ReLU rectified linear unit 解决了 tanh 梯度消失的问题, 有稀疏性<br>$$<br>ReLU(x) &#x3D; max(x, 0)<br>$$</p>
 </li>
@@ -7111,14 +7113,14 @@
 <figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">o1  o2  o3  o4</span><br><span class="line">|   |   |   |</span><br><span class="line"><span class="meta prompt_">h1-&gt;</span><span class="language-bash">h2-&gt;h3-&gt;h4</span></span><br><span class="line">    |   |   |</span><br><span class="line">    x1  x2  x3  x4</span><br></pre></td></tr></table></figure>
 
 <p>相比 MLP, 多了对 h<del>t-1</del>的权重</p>
-<h1 id="梯度下降GD"><a href="#梯度下降GD" class="headerlink" title="梯度下降GD"></a>梯度下降GD</h1><p>$$<br>\theta \gets \theta - \varepsilon g\<br>\varepsilon 学习率\<br>g 梯度<br>$$</p>
+<h1 id="梯度下降GD"><a href="#梯度下降GD" class="headerlink" title="梯度下降GD"></a>梯度下降GD</h1><p>$$\theta \gets \theta - \varepsilon g\<br>\varepsilon 学习率\<br>g 梯度$$</p>
 <h2 id="随机梯度下降-SGD"><a href="#随机梯度下降-SGD" class="headerlink" title="随机梯度下降: SGD"></a>随机梯度下降: SGD</h2><p>每次随机抽取样本计算梯度</p>
 <p>使用动量的随机梯度下降:  每次更新是给之前的梯度一个权重, 称之为动量</p>
-<p>学习率 AdaGrad 算法<br>$$<br>r \gets r + g^{2}\<br>\theta \gets \theta - \frac{\varepsilon}{\sqrt{r} + \delta}g\<br>\delta 为一个小量,稳定数值计算<br>$$<br>RMSProp 算法更新 r&lt;-ρr+(1-ρ)g^2^</p>
+<p>学习率 AdaGrad 算法<br>$$r \gets r + g^{2}\<br>\theta \gets \theta - \frac{\varepsilon}{\sqrt{r} + \delta}g\<br>\delta 为一个小量,稳定数值计算$$<br>RMSProp 算法更新 r&lt;-ρr+(1-ρ)g^2^</p>
 <h2 id="Adam-算法"><a href="#Adam-算法" class="headerlink" title="Adam 算法"></a>Adam 算法</h2><blockquote>
 <p>L 损失函数</p>
 </blockquote>
-<p>$$<br>g&#x3D;\frac{1}{m}\nabla_{\theta}\sum^{m}<em>{i&#x3D;1}L(f(x</em>{i}, \theta), y_{i})\<br>s\gets\rho_{1}s+(1-\rho_{1})g\<br>r\gets\rho_{2}r+(1-\rho_{2})g^{2}\<br>\hat{s}\gets\frac{s}{1-\rho^{t}<em>{1}}\<br>\hat{r}\gets\frac{r}{1-\rho^{t}</em>{}}\<br>\theta \gets \theta - \frac{\varepsilon \hat{s}}{\sqrt{\hat{r}} + \delta}\<br>$$</p>
+<p>$$g&#x3D;\frac{1}{m}\nabla_{\theta}\sum^{m}<em>{i&#x3D;1}L(f(x</em>{i}, \theta), y_{i})\<br>s\gets\rho_{1}s+(1-\rho_{1})g\<br>r\gets\rho_{2}r+(1-\rho_{2})g^{2}\<br>\hat{s}\gets\frac{s}{1-\rho^{t}<em>{1}}\<br>\hat{r}\gets\frac{r}{1-\rho^{t}</em>{}}\<br>\theta \gets \theta - \frac{\varepsilon \hat{s}}{\sqrt{\hat{r}} + \delta}\$$</p>
 <h1 id="反向传播bp"><a href="#反向传播bp" class="headerlink" title="反向传播bp"></a>反向传播bp</h1><p>反向传播算法就是神经网中加速计算参数梯度值的算法</p>
 <h1 id="GNN"><a href="#GNN" class="headerlink" title="GNN"></a>GNN</h1><p><a href="https://www.jianshu.com/p/5d3eaa1f5e20">https://www.jianshu.com/p/5d3eaa1f5e20</a></p>
 <h1 id="PyG"><a href="#PyG" class="headerlink" title="PyG"></a>PyG</h1><h1 id="DGL"><a href="#DGL" class="headerlink" title="DGL"></a>DGL</h1><h1 id="DyGNN"><a href="#DyGNN" class="headerlink" title="DyGNN"></a>DyGNN</h1><h1 id="SGCN"><a href="#SGCN" class="headerlink" title="SGCN"></a>SGCN</h1><h1 id="线性代数"><a href="#线性代数" class="headerlink" title="线性代数"></a>线性代数</h1><p>矩阵-&gt;每个列都是 基底, 每个矩阵代表了一种线性变换</p>
@@ -7132,7 +7134,7 @@
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">1 2 3   x    1</span><br><span class="line">0 1 2   y  = 1</span><br><span class="line">2 3 4   z    1</span><br><span class="line"></span><br><span class="line">1 2  x</span><br><span class="line">0 1  y 这是一个从二维到三维的变换</span><br><span class="line">2 3 </span><br></pre></td></tr></table></figure>
 
 
-<p>$$<br>A\vec{x} &#x3D; \vec{v}\<br>\vec{x} &#x3D; A^{-1}\vec{v}<br>$$</p>
+<p>$$A\vec{x} &#x3D; \vec{v}\<br>\vet{x} &#x3D; A^{-1}\vec{v}$$</p>
 ]]></content>
   </entry>
 </search>
