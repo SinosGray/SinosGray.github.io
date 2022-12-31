@@ -1,17 +1,17 @@
-<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>data_structure | Sinos_wei's blog</title><meta name="author" content="Sinos"><meta name="copyright" content="Sinos"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据结构tips int* a&#x3D;&amp;var;	int* 作为一个整体表示int类型指针  Typedef 建立一个类型别名的方法很简单，在传统的变量声明表达式里用类型名替代变量名，然后把关键字typedef加在该语句的开头   typedef char Line[81];     此时Line类型即代表了具有81个元素的字符数组">
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>data_structure | Sinos_wei's blog</title><meta name="author" content="Sinos"><meta name="copyright" content="Sinos"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="数据结构 tips  int* a&#x3D;&amp;var; int* 作为一个整体表示int类型指针 Typedef 建立一个类型别名的方法很简单，在传统的变量声明表达式里用类型名替代变量名，然后把关键字typedef加在该语句的开头  typedef char Line[81];    此时Line类型即代表了具有81个元素的字符数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="data_structure">
 <meta property="og:url" content="https://sinos_wei.gitee.io/2019/11/12/data_structure/index.html">
 <meta property="og:site_name" content="Sinos_wei&#39;s blog">
-<meta property="og:description" content="数据结构tips int* a&#x3D;&amp;var;	int* 作为一个整体表示int类型指针  Typedef 建立一个类型别名的方法很简单，在传统的变量声明表达式里用类型名替代变量名，然后把关键字typedef加在该语句的开头   typedef char Line[81];     此时Line类型即代表了具有81个元素的字符数组">
+<meta property="og:description" content="数据结构 tips  int* a&#x3D;&amp;var; int* 作为一个整体表示int类型指针 Typedef 建立一个类型别名的方法很简单，在传统的变量声明表达式里用类型名替代变量名，然后把关键字typedef加在该语句的开头  typedef char Line[81];    此时Line类型即代表了具有81个元素的字符数组">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://sinos_wei.gitee.io/img/cover/IMG_1975.JPG">
+<meta property="og:image" content="https://sinos_wei.gitee.io/img/cover/IMG_0708.JPG">
 <meta property="article:published_time" content="2019-11-12T10:42:13.000Z">
-<meta property="article:modified_time" content="2022-03-16T01:43:08.412Z">
+<meta property="article:modified_time" content="2022-12-21T08:13:03.563Z">
 <meta property="article:author" content="Sinos">
 <meta property="article:tag" content="ds">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://sinos_wei.gitee.io/img/cover/IMG_1975.JPG"><link rel="shortcut icon" href="/img/icon.JPG"><link rel="canonical" href="https://sinos_wei.gitee.io/2019/11/12/data_structure/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+<meta name="twitter:image" content="https://sinos_wei.gitee.io/img/cover/IMG_0708.JPG"><link rel="shortcut icon" href="/img/icon.JPG"><link rel="canonical" href="https://sinos_wei.gitee.io/2019/11/12/data_structure/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
 (function() {
   var hm = document.createElement("script");
   hm.src = "https://hm.baidu.com/hm.js?aeddd8219bc5c1e1efdcf5d9cc3218e6";
@@ -60,7 +60,7 @@
   isHome: false,
   isHighlightShrink: false,
   isToc: true,
-  postUpdate: '2022-03-16 09:43:08'
+  postUpdate: '2022-12-21 16:13:03'
 }</script><noscript><style type="text/css">
   #nav {
     opacity: 1
@@ -149,97 +149,92 @@
       }
     }
     detectApple()
-    })(window)</script><!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
-
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.PNG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover/IMG_1975.JPG')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Sinos_wei's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">data_structure</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-11-12T10:42:13.000Z" title="Created 2019-11-12 18:42:13">2019-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-03-16T01:43:08.412Z" title="Updated 2022-03-16 09:43:08">2022-03-16</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/cs/">cs</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="data_structure"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="数据结构"><a href="#数据结构" class="headerlink" title="数据结构"></a>数据结构</h1><h2 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h2><ul>
-<li><p>int* a&#x3D;&amp;var;	int* 作为一个整体表示int类型指针</p>
-</li>
-<li><p>Typedef 建立一个类型别名的方法很简单，在传统的变量声明表达式里用类型名替代变量名，然后把关键字typedef加在该语句的开头</p>
-</li>
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.PNG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover/IMG_0708.JPG')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Sinos_wei's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">data_structure</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2019-11-12T10:42:13.000Z" title="Created 2019-11-12 18:42:13">2019-11-12</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2022-12-21T08:13:03.563Z" title="Updated 2022-12-21 16:13:03">2022-12-21</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/cs/">cs</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="data_structure"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="数据结构">数据结构</h1>
+<h2 id="tips">tips</h2>
+<ul>
+<li><p>int* a=&amp;var; int* 作为一个整体表示int类型指针</p></li>
+<li><p>Typedef 建立一个类型别名的方法很简单，在传统的变量声明表达式里用类型名替代变量名，然后把关键字typedef加在该语句的开头</p></li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="type">char</span> Line[<span class="number">81</span>];   </span><br></pre></td></tr></table></figure>
-
 <p>此时Line类型即代表了具有81个元素的字符数组</p>
 <span id="more"></span>
-
 <ul>
 <li>null用于指针</li>
 <li>fwrite 函数</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">size_t</span> <span class="title function_">fwrite</span><span class="params">(<span class="type">const</span> <span class="type">void</span> *ptr, <span class="type">size_t</span> size, <span class="type">size_t</span> nmemb, FILE *stream)</span></span><br></pre></td></tr></table></figure>
-
-<p>​		ptr – 这是指向要被写入的元素数组的指针。<br>​		size – 这是要被写入的每个元素的大小，以字节为单位。<br>​		nmemb – 这是元素的个数，每个元素的大小为 size 字节。<br>​		stream – 这是指向 FILE 对象的指针，该 FILE 对象指定了一个输出流。</p>
+<p>​ ptr -- 这是指向要被写入的元素数组的指针。 ​ size -- 这是要被写入的每个元素的大小，以字节为单位。 ​ nmemb -- 这是元素的个数，每个元素的大小为 size 字节。 ​ stream -- 这是指向 FILE 对象的指针，该 FILE 对象指定了一个输出流。</p>
 <ul>
 <li>fread 函数</li>
 </ul>
 <figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="type">size_t</span> <span class="title function_">fread</span><span class="params">(<span class="type">void</span> *ptr, <span class="type">size_t</span> size, <span class="type">size_t</span> nmemb, FILE *stream)</span></span><br></pre></td></tr></table></figure>
-
-<p>​		ptr – 这是指向带有最小尺寸 size*nmemb 字节的内存块的指针。<br>​		size – 这是要读取的每个元素的大小，以字节为单位。<br>​		nmemb – 这是元素的个数，每个元素的大小为 size 字节。<br>​		stream – 这是指向 FILE 对象的指针，该 FILE 对象指定了一个输入流</p>
+<p>​ ptr -- 这是指向带有最小尺寸 size*nmemb 字节的内存块的指针。 ​ size -- 这是要读取的每个元素的大小，以字节为单位。 ​ nmemb -- 这是元素的个数，每个元素的大小为 size 字节。 ​ stream -- 这是指向 FILE 对象的指针，该 FILE 对象指定了一个输入流</p>
 <ul>
-<li><p>注释统一为&#x2F;&#x2F;or&#x2F;* *&#x2F;，暂定为写在注释对象上方，用&#x2F;&#x2F;</p>
-</li>
-<li><p>malloc 函数失败返回null</p>
-</li>
-<li><p>c++函数内部不能定义函数（但是lamda好像可以）</p>
-</li>
+<li><p>注释统一为//or/* */，暂定为写在注释对象上方，用//</p></li>
+<li><p>malloc 函数失败返回null</p></li>
+<li><p>c++函数内部不能定义函数（但是lamda好像可以）</p></li>
 <li><p>fopen</p>
 <table>
+<colgroup>
+<col style="width: 34%" />
+<col style="width: 65%" />
+</colgroup>
 <thead>
-<tr>
+<tr class="header">
 <th>控制读写权限的字符串（必须指明）</th>
-<th align="right"></th>
+<th style="text-align: right;"></th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>打开方式</td>
-<td align="right">说明</td>
+<td style="text-align: right;">说明</td>
 </tr>
-<tr>
-<td>“r”</td>
-<td align="right">以“只读”方式打开文件。只允许读取，不允许写入。文件必须存在，否则打开失败。</td>
+<tr class="even">
+<td>"r"</td>
+<td style="text-align: right;">以“只读”方式打开文件。只允许读取，不允许写入。文件必须存在，否则打开失败。</td>
 </tr>
-<tr>
-<td>“w”</td>
-<td align="right">以“写入”方式打开文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么清空文件内容（相当于删除原文件，再创建一个新文件）。</td>
+<tr class="odd">
+<td>"w"</td>
+<td style="text-align: right;">以“写入”方式打开文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么清空文件内容（相当于删除原文件，再创建一个新文件）。</td>
 </tr>
-<tr>
-<td>“a”</td>
-<td align="right">以“追加”方式打开文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么将写入的数据追加到文件的末尾（文件原有的内容保留）。</td>
+<tr class="even">
+<td>"a"</td>
+<td style="text-align: right;">以“追加”方式打开文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么将写入的数据追加到文件的末尾（文件原有的内容保留）。</td>
 </tr>
-<tr>
-<td>“r+”</td>
-<td align="right">以“读写”方式打开文件。既可以读取也可以写入，也就是随意更新文件。文件必须存在，否则打开失败。</td>
+<tr class="odd">
+<td>"r+"</td>
+<td style="text-align: right;">以“读写”方式打开文件。既可以读取也可以写入，也就是随意更新文件。文件必须存在，否则打开失败。</td>
 </tr>
-<tr>
-<td>“w+”</td>
-<td align="right">以“写入&#x2F;更新”方式打开文件，相当于<code>w</code>和<code>r+</code>叠加的效果。既可以读取也可以写入，也就是随意更新文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么清空文件内容（相当于删除原文件，再创建一个新文件）。</td>
+<tr class="even">
+<td>"w+"</td>
+<td style="text-align: right;">以“写入/更新”方式打开文件，相当于<code>w</code>和<code>r+</code>叠加的效果。既可以读取也可以写入，也就是随意更新文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么清空文件内容（相当于删除原文件，再创建一个新文件）。</td>
 </tr>
-<tr>
-<td>“a+”</td>
-<td align="right">以“追加&#x2F;更新”方式打开文件，相当于a和r+叠加的效果。既可以读取也可以写入，也就是随意更新文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么将写入的数据追加到文件的末尾（文件原有的内容保留）。</td>
+<tr class="odd">
+<td>"a+"</td>
+<td style="text-align: right;">以“追加/更新”方式打开文件，相当于a和r+叠加的效果。既可以读取也可以写入，也就是随意更新文件。如果文件不存在，那么创建一个新文件；如果文件存在，那么将写入的数据追加到文件的末尾（文件原有的内容保留）。</td>
 </tr>
-<tr>
+<tr class="even">
 <td>控制读写方式的字符串（可以不写）</td>
-<td align="right"></td>
+<td style="text-align: right;"></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>打开方式</td>
-<td align="right">说明</td>
+<td style="text-align: right;">说明</td>
 </tr>
-<tr>
-<td>“t”</td>
-<td align="right">文本文件。如果不写，默认为<code>&quot;t&quot;</code>。</td>
+<tr class="even">
+<td>"t"</td>
+<td style="text-align: right;">文本文件。如果不写，默认为<code>"t"</code>。</td>
 </tr>
-<tr>
-<td>“b”</td>
-<td align="right">二进制文件。</td>
+<tr class="odd">
+<td>"b"</td>
+<td style="text-align: right;">二进制文件。</td>
 </tr>
-</tbody></table>
-</li>
+</tbody>
+</table></li>
 </ul>
-<h2 id="第一章"><a href="#第一章" class="headerlink" title="第一章"></a>第一章</h2><p>vscode格式化：option+shift+f</p>
+<h2 id="第一章">第一章</h2>
+<p>vscode格式化：option+shift+f</p>
 <p>数据项是数据的最小不可分割单位</p>
 <p>数据结构是指数据元素的集合以及它们之间的关系</p>
 <p>原地工作算法：算法所需要的辅助空间不随着问题的规模而变化，是一个确定的值。</p>
@@ -248,98 +243,95 @@
 <li>数据</li>
 <li>数据元素：数据的基本单位，可由多个数据项组成。如一本书</li>
 <li>数据项：是数据的不可分割的最小单位。如书名，作者</li>
-<li>数据对象：性质相同的数据元素的集合。   如整数，字母</li>
-<li>数据结构：相互之间存在一种或多种特定关系的数据元素的集合。<ul>
+<li>数据对象：性质相同的数据元素的集合。 如整数，字母</li>
+<li>数据结构：相互之间存在一种或多种特定关系的数据元素的集合。
+<ul>
 <li>包括：集合，线性结构（特点：除了首尾元素，其他元素均只有一个前驱一个后继），树形结构，图状结构或者网状结构</li>
-</ul>
-</li>
+</ul></li>
 <li>逻辑结构：上述结构都是逻辑结构，即表示数据之间的关系</li>
-<li>存储结构（物理结构）：数据结构在计算机中的表示。<ul>
+<li>存储结构（物理结构）：数据结构在计算机中的表示。
+<ul>
 <li>包括：顺序存储结构，链式存储结构</li>
-</ul>
-</li>
+</ul></li>
 <li>数据类型：一个值的集合和定义在这个值上的一组操作的总称，是一个取值范围。可以分为原子类型和结构类型。</li>
 <li>抽象数据类型：一个数学模型以及定义在该模型上的一组操作，仅取决于一组逻辑特性</li>
 </ul>
-<p><img src="https://img-blog.csdn.net/20180129174653374?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzI2MjMzNjM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></p>
+<figure>
+<img src="https://img-blog.csdn.net/20180129174653374?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzI2MjMzNjM=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" /><figcaption aria-hidden="true">这里写图片描述</figcaption>
+</figure>
 <p><strong>算法特性</strong></p>
-<ol>
+<ol type="1">
 <li>输入：一个算法必须有零个或以上输入量。</li>
 <li>输出：一个算法应有一个或以上输出量，输出量是算法计算的结果。</li>
 <li>确定性：算法的描述必须无歧义，以保证算法的实际执行结果是精确地符合要求或期望，通常要求实际执行结果是确定的。</li>
-<li>有穷性：依据图灵的定义，一个演算法是能够被任何<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9B%BE%E7%81%B5%E5%AE%8C%E5%85%A8">图灵完备</a>系统模拟的一串运算，而<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%9C%96%E9%9D%88%E6%A9%9F">图灵机</a>只有有限个状态、有限个输入符号和有限个转移函数（指令）。而一些定义更规定演算法必须在有限个步骤内完成任务。</li>
+<li>有穷性：依据图灵的定义，一个演算法是能够被任何<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/图灵完全">图灵完备</a>系统模拟的一串运算，而<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/圖靈機">图灵机</a>只有有限个状态、有限个输入符号和有限个转移函数（指令）。而一些定义更规定演算法必须在有限个步骤内完成任务。</li>
 <li>可行性：又称可行性。能够实现，算法中描述的操作都是可以通过已经实现的基本运算执行有限次来实现。</li>
 </ol>
 <p><strong>设计要求</strong></p>
-<ol>
+<ol type="1">
 <li>正确性</li>
 <li>可读性</li>
 <li>健壮性</li>
 <li>效率与低存储量要求</li>
 </ol>
 <p><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/b36477f4ecee">逻辑结构与物理结构</a></p>
-<h2 id="第二章-线性表"><a href="#第二章-线性表" class="headerlink" title="第二章 线性表"></a>第二章 线性表</h2><ul>
+<h2 id="第二章-线性表">第二章 线性表</h2>
+<ul>
 <li><p>线性表存在与否和是否为空时两个概念</p>
 <p>处理方法：头结点；tag标记</p>
-<p>一般约定好null的用法</p>
-</li>
+<p>一般约定好null的用法</p></li>
 </ul>
-<h3 id="顺序表"><a href="#顺序表" class="headerlink" title="顺序表"></a>顺序表</h3><h3 id="单链表"><a href="#单链表" class="headerlink" title="单链表"></a>单链表</h3><ul>
-<li><p>带或不带表头</p>
-</li>
-<li><p>结构：数据域，指针域</p>
-</li>
-<li><p>生成单链表：先进先出，先进后出；</p>
-</li>
-<li><p>插入节点：节点之后（易）节点之前（难）</p>
-</li>
-<li><h4 id="算法"><a href="#算法" class="headerlink" title="算法"></a>算法</h4><ul>
-<li>将元素插入有序表：<ul>
+<h3 id="顺序表">顺序表</h3>
+<h3 id="单链表">单链表</h3>
+<ul>
+<li><p>带或不带表头</p></li>
+<li><p>结构：数据域，指针域</p></li>
+<li><p>生成单链表：先进先出，先进后出；</p></li>
+<li><p>插入节点：节点之后（易）节点之前（难）</p></li>
+<li><h4 id="算法">算法</h4>
+<ul>
+<li>将元素插入有序表：
+<ul>
 <li>不带表头：区分四种情况（p后，q前 是否为空）</li>
 <li>带表头：q一定不为空</li>
-</ul>
-</li>
-<li>指定位置插入：<ul>
+</ul></li>
+<li>指定位置插入：
+<ul>
 <li>计数记到i-1（保证插入当前节点之后</li>
-</ul>
-</li>
-<li>删除元素（记录前驱节点<ul>
+</ul></li>
+<li>删除元素（记录前驱节点
+<ul>
 <li>指定值（两个指针</li>
 <li>指定位置（i-1</li>
-</ul>
-</li>
+</ul></li>
 <li>两个有序单链表合并</li>
-</ul>
-</li>
+</ul></li>
 <li><p>循环链表</p>
 <ul>
 <li>可设尾指针</li>
 <li>循环指针指向头结点（如果有的话）</li>
-</ul>
-</li>
-<li><p>双向循环链表</p>
-</li>
-<li><p>结构：prior指针，next指针，data值域</p>
-</li>
+</ul></li>
+<li><p>双向循环链表</p></li>
+<li><p>结构：prior指针，next指针，data值域</p></li>
 <li><p>1、静态链表是用类似于数组方法实现的，是顺序的存储结构，在物理地址上是连续的，而且需要预先分配地址空间大小。所以静态链表的初始长度一般是固定的，在做插入和删除操作时不需要移动元素，仅需修改指针。</p>
 <ul>
-<li><h5 id="优点："><a href="#优点：" class="headerlink" title="优点："></a>优点：</h5><ul>
+<li><h5 id="优点">优点：</h5>
+<ul>
 <li>在插入和删除操作时，只需要修改游标，不需要移动元素，从而改进了在顺序存储结构中的插入和删除操作需要移动大量元素的缺点。</li>
-</ul>
-</li>
-<li><h5 id="缺点："><a href="#缺点：" class="headerlink" title="缺点："></a>缺点：</h5><ul>
+</ul></li>
+<li><h5 id="缺点">缺点：</h5>
+<ul>
 <li>没有解决连续存储分配(数组)带来的表长难以确定的问题。</li>
 <li>失去了顺序存储结构随机存取的特性。</li>
+</ul></li>
 </ul>
-</li>
+<p>2、动态链表是用内存申请函数（malloc/new）动态申请内存的，所以在链表的长度上没有限制。动态链表因为是动态申请内存的，所以每个节点的物理地址不连续，要通过指针来顺序访问。</p></li>
+<li><p>顺序表存储密度大，链表小（因为有指针</p></li>
 </ul>
-<p>2、动态链表是用内存申请函数（malloc&#x2F;new）动态申请内存的，所以在链表的长度上没有限制。动态链表因为是动态申请内存的，所以每个节点的物理地址不连续，要通过指针来顺序访问。</p>
-</li>
-<li><p>顺序表存储密度大，链表小（因为有指针</p>
-</li>
-</ul>
-<h2 id="第三章-栈与队列"><a href="#第三章-栈与队列" class="headerlink" title="第三章 栈与队列"></a>第三章 栈与队列</h2><p>插入对应的指针有两种方式，一个是最后一个元素，一个是下一个（空）元素</p>
-<h3 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h3><ul>
+<h2 id="第三章-栈与队列">第三章 栈与队列</h2>
+<p>插入对应的指针有两种方式，一个是最后一个元素，一个是下一个（空）元素</p>
+<h3 id="栈">栈</h3>
+<ul>
 <li>在表尾插入push删除pop</li>
 <li>顺序结构：base指针，top指针，stacksize</li>
 <li>栈顶：尾部，栈底：首部</li>
@@ -348,64 +340,58 @@
 <li>应用：括号匹配，表达式求值</li>
 <li>链式：栈顶在首节点处</li>
 </ul>
-<h3 id="队列"><a href="#队列" class="headerlink" title="队列"></a>队列</h3><ul>
-<li><p>队首：删除的一段</p>
-</li>
-<li><p>队尾：插入的一段</p>
-</li>
-<li><p>FIFO先进先出</p>
-</li>
-<li><h4 id="链式队列"><a href="#链式队列" class="headerlink" title="链式队列"></a>链式队列</h4><ul>
+<h3 id="队列">队列</h3>
+<ul>
+<li><p>队首：删除的一段</p></li>
+<li><p>队尾：插入的一段</p></li>
+<li><p>FIFO先进先出</p></li>
+<li><h4 id="链式队列">链式队列</h4>
+<ul>
 <li>front，rear两个指针，front：队首</li>
 <li>如果删除节点后队列为空，需要修改队尾指针</li>
-</ul>
-</li>
-<li><h4 id="顺序结构"><a href="#顺序结构" class="headerlink" title="顺序结构"></a>顺序结构</h4><ul>
+</ul></li>
+<li><h4 id="顺序结构">顺序结构</h4>
+<ul>
 <li>顺序循环队列结构：base指针，front，rear下标</li>
-<li>假溢出<ul>
-<li><ol>
+<li>假溢出
+<ul>
+<li><ol type="1">
 <li>移动元素？开销大</li>
 <li>循环表√</li>
-</ol>
-</li>
+</ol></li>
 <li>方案：取模，留出一个单元不用</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li><p>前中后缀表达式</p>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/Antineutrino/article/details/6763722">https://blog.csdn.net/Antineutrino/article/details/6763722</a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/37467928">https://zhuanlan.zhihu.com/p/37467928</a></p>
-</li>
+<p>https://blog.csdn.net/Antineutrino/article/details/6763722</p>
+<p>https://zhuanlan.zhihu.com/p/37467928</p></li>
 </ul>
-<h2 id="第五章-数组与广义表"><a href="#第五章-数组与广义表" class="headerlink" title="第五章 数组与广义表"></a>第五章 数组与广义表</h2><ul>
-<li><h3 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h3><ul>
+<h2 id="第五章-数组与广义表">第五章 数组与广义表</h2>
+<ul>
+<li><h3 id="数组">数组</h3>
+<ul>
 <li>行序优先，列序优先</li>
 <li>数组是一个定长的线性表，所以不能有元素的增加与删除操作✔️</li>
-</ul>
-</li>
+</ul></li>
 <li><p>特殊矩阵的压缩存储</p>
 <ul>
 <li><p>对称矩阵</p>
 <p>大小：1+2+3+。。。+n</p>
-<p>下三角：aij序号：k&#x3D;i(i-1)&#x2F;2 + j</p>
-<p>​				上三角aij&#x3D;aji				<img src="/Users/akunda/Desktop/hexo/source/images/%E6%88%AA%E5%B1%8F2019-12-22%E4%B8%8B%E5%8D%888.02.26.png" alt="截屏2019-12-22下午8.02.26"></p>
-</li>
+<p>下三角：aij序号：k=i(i-1)/2 + j</p>
+<p>​ 上三角aij=aji <img src="/Users/akunda/Desktop/hexo/source/images/截屏2019-12-22下午8.02.26.png" alt="截屏2019-12-22下午8.02.26" /></p></li>
 <li><p>三对角矩阵</p>
 <p>3n-2个元素</p>
-<p>k&#x3D;(3*(i-1)-1)+(j-i+2)&#x3D;2i+j-2</p>
-</li>
-</ul>
-</li>
+<p>k=(3*(i-1)-1)+(j-i+2)=2i+j-2</p></li>
+</ul></li>
 <li><p>稀疏矩阵压缩存储</p>
 <p>三元组表</p>
 <ul>
 <li>三元组顺序表（不能随机访问）（插入元素可能导致之后的元素依次向后递推）</li>
-<li>结构：<ul>
+<li>结构：
+<ul>
 <li>节点：行i，列j，值e</li>
 <li>节点数组，行数，列数，非零元数，mu，nu，tu</li>
-</ul>
-</li>
+</ul></li>
 </ul>
 <p>十字链表</p>
 <ul>
@@ -413,296 +399,275 @@
 <ul>
 <li>节点：i，j，e，指针：right, down</li>
 <li>行头数组，列头数组，mu，nu，tu</li>
-</ul>
-</li>
+</ul></li>
 <li><p>当某稀疏矩阵经常进行元素的赋值运算时，十字链表比三元组表更适合作为其存储结构。</p>
 <p>转置矩阵：保证行序优先，需要排序n^2（方便后续计算）</p>
-<p>​					改进：加两个数组，一个记录转置前每一行有几个元素，一个记录转制后每一行第一个元素在转制后三元组顺序表的位置</p>
-</li>
+<p>​ 改进：加两个数组，一个记录转置前每一行有几个元素，一个记录转制后每一行第一个元素在转制后三元组顺序表的位置</p></li>
 </ul>
-<p>稀疏矩阵的三种不同的存储方法，采用哪种方法要看程序具体要实现的功能：<br>如果想完成例如矩阵的转置这样的操作，宜采用三元组顺序表；<br>如果想实现矩阵的乘法这样的功能，宜采用行逻辑链接的顺序表；<br>如果矩阵运算过程中（例如矩阵的加法），需要不断地插入非 0 元素或删除变为 0 的元素，宜采用十字链表法</p>
-<p>使用三元组顺序表或十字链表作为稀疏矩阵中的物理结构，对元素的访问形式只能是顺序访问</p>
-</li>
-<li><h3 id="广义表"><a href="#广义表" class="headerlink" title="广义表"></a>广义表</h3><ul>
-<li><p><strong>广义表</strong>一般记作 LS &#x3D; (a1, a2, ···, an), n是它的长度，ai可以是单个元素(原子)，也可以是广义表(子表)，当广义表非空时，称第一个元素a1为LS的表头，称其余元素组成的表为LS的表尾。注意：表头是元素(可以是原子，也可以是广表)，表尾一定是广义表。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E5%B9%BF%E4%B9%89%E8%A1%A8#cite_note-1">1]</a>E&#x3D;(a, E)是一个递归的表。D&#x3D;(( ),(e),(a,(b,c,d)))是多层次的广义表，长度为3，深度为3。例：((a),a)的表头是(a)，表尾是(a)，((a))的表头是(a)，表尾是( )。</p>
-</li>
-<li><p>广义表(((a,b,(),c),d),e,((f),g))的长度是____,深度是____？</p>
-<p>广义表长度是数第一层括号内的逗号数目可以看到,只有一个元素,就是((a,b,(),c),d),e,((f),g)，所以长度是1，深度是数括号数目,深度是4。</p>
-</li>
+<p>稀疏矩阵的三种不同的存储方法，采用哪种方法要看程序具体要实现的功能： 如果想完成例如矩阵的转置这样的操作，宜采用三元组顺序表； 如果想实现矩阵的乘法这样的功能，宜采用行逻辑链接的顺序表； 如果矩阵运算过程中（例如矩阵的加法），需要不断地插入非 0 元素或删除变为 0 的元素，宜采用十字链表法</p>
+<p>使用三元组顺序表或十字链表作为稀疏矩阵中的物理结构，对元素的访问形式只能是顺序访问</p></li>
+<li><h3 id="广义表">广义表</h3>
+<ul>
+<li><p><strong>广义表</strong>一般记作 LS = (a1, a2, ···, an), n是它的长度，ai可以是单个元素(原子)，也可以是广义表(子表)，当广义表非空时，称第一个元素a1为LS的表头，称其余元素组成的表为LS的表尾。注意：表头是元素(可以是原子，也可以是广表)，表尾一定是广义表。[<a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/广义表#cite_note-1">1]</a>E=(a, E)是一个递归的表。D=(( ),(e),(a,(b,c,d)))是多层次的广义表，长度为3，深度为3。例：((a),a)的表头是(a)，表尾是(a)，((a))的表头是(a)，表尾是( )。</p></li>
+<li><p>广义表(((a,b,(),c),d),e,((f),g))的长度是_<strong><em>,深度是</em></strong>_？</p>
+<p>广义表长度是数第一层括号内的逗号数目可以看到,只有一个元素,就是((a,b,(),c),d),e,((f),g)，所以长度是1，深度是数括号数目,深度是4。</p></li>
 <li><p>a1表头，（a2，a3.。。。）表尾</p>
-<p>当广义表的元素是一个数据元素时，称其为原子，否则称为广义表的子表</p>
-</li>
-<li><p>广义表允许共享子表</p>
-</li>
-<li><p>广义表允许递归定义eg：G&#x3D;(a,G)</p>
-</li>
+<p>当广义表的元素是一个数据元素时，称其为原子，否则称为广义表的子表</p></li>
+<li><p>广义表允许共享子表</p></li>
+<li><p>广义表允许递归定义eg：G=(a,G)</p></li>
 <li><p>链式结构表示</p>
 <ul>
 <li>原子节点，列表节点（union），tag表示表结点还是原子节点</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="第六章-树与二叉树"><a href="#第六章-树与二叉树" class="headerlink" title="第六章 树与二叉树"></a>第六章 树与二叉树</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><ul>
-<li><p>满二叉树：深度为k，有2<sup>k</sup>-1个节点</p>
-</li>
+<h2 id="第六章-树与二叉树">第六章 树与二叉树</h2>
+<h3 id="定义">定义</h3>
+<ul>
+<li><p>满二叉树：深度为k，有2<sup>k</sup>-1个节点</p></li>
 <li><p>完全二叉树（顺序二叉树）：深度为k，编号与满二叉树一致，叶子节点只能在倒数两层上，2<sup>k</sup>-1&gt;n&gt;2<sup>k-1</sup>-1，节点i的双亲节点为log <sub>2</sub> i向下取整</p>
-<p>完全二叉树的n<sub>1</sub>&#x3D;0或1</p>
-</li>
+<p>完全二叉树的n<sub>1</sub>=0或1</p></li>
 </ul>
-<h3 id="性质"><a href="#性质" class="headerlink" title="性质"></a>性质</h3><p>n<sub>0</sub>&#x3D;n<sub>2</sub>+1 根节点+双节点</p>
-<p>n&#x3D;n<sub>0</sub>+n<sub>1</sub>+n<sub>2</sub></p>
-<h3 id="存储结构"><a href="#存储结构" class="headerlink" title="存储结构"></a>存储结构</h3><ul>
+<h3 id="性质">性质</h3>
+<p>n<sub>0</sub>=n<sub>2</sub>+1 根节点+双节点</p>
+<p>n=n<sub>0</sub>+n<sub>1</sub>+n<sub>2</sub></p>
+<h3 id="存储结构">存储结构</h3>
+<ul>
 <li>顺序存储：非完全二叉树浪费空间</li>
 <li>链式存储：二叉，三叉（包括指向双亲节点的指针）</li>
 </ul>
-<h3 id="遍历"><a href="#遍历" class="headerlink" title="遍历"></a>遍历</h3><p>先序，中序，后序</p>
+<h3 id="遍历">遍历</h3>
+<p>先序，中序，后序</p>
 <p>递归算法</p>
 <p>中序遍历的非递归算法 栈</p>
 <p><font color=red>后序遍历非递归算法</font></p>
 <p>层序遍历 队列</p>
 <ul>
-<li><p>确定二叉树</p>
+<li>确定二叉树
 <ul>
 <li>带空子树的序列可唯一确定二叉树</li>
-<li>中序后序两个序列：<ul>
+<li>中序后序两个序列：
+<ul>
 <li>根据后序找根节点，在中序划分左右子树，然后重复</li>
-</ul>
-</li>
-<li>先序中序两个序列<ul>
+</ul></li>
+<li>先序中序两个序列
+<ul>
 <li>根据前序找根节点，在中序划分左右子树，然后重复</li>
+</ul></li>
+</ul></li>
+<li>二叉树深度</li>
 </ul>
-</li>
-</ul>
-</li>
-<li><p>二叉树深度</p>
-</li>
-</ul>
-<h3 id="线索二叉树"><a href="#线索二叉树" class="headerlink" title="线索二叉树"></a>线索二叉树</h3><ul>
-<li>节点增加标志域ltag rtag，ltag&#x3D;0代表左链域指示左孩子，ltag&#x3D;1代表前驱，rtag&#x3D;0右孩子，rtag&#x3D;1后继节点</li>
+<h3 id="线索二叉树">线索二叉树</h3>
+<ul>
+<li>节点增加标志域ltag rtag，ltag=0代表左链域指示左孩子，ltag=1代表前驱，rtag=0右孩子，rtag=1后继节点</li>
 <li>原理是将原来的空指针合理利用（2*n-（n-1））</li>
 <li>线索添加参照遍历序列</li>
 <li>遍历方法：以中序为例：有后继找后继，无后继找右子孙的最左子孙</li>
 </ul>
-<h3 id="树的结构"><a href="#树的结构" class="headerlink" title="树的结构"></a>树的结构</h3><ul>
-<li>双亲表示法&#x2F;顺序表示法，一个数组存储节点数据和双亲的位置<ul>
-<li>结构：<ul>
+<h3 id="树的结构">树的结构</h3>
+<ul>
+<li>双亲表示法/顺序表示法，一个数组存储节点数据和双亲的位置
+<ul>
+<li>结构：
+<ul>
 <li>节点：data，parent位置下标</li>
 <li>节点数组，根的位置r，节点数n</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>孩子表示法&#x2F;链接表表示法，节点包括数据和孩子的指针（节点数量固定或者非固定）<ul>
-<li>结构<ul>
+</ul></li>
+</ul></li>
+<li>孩子表示法/链接表表示法，节点包括数据和孩子的指针（节点数量固定或者非固定）
+<ul>
+<li>结构
+<ul>
 <li>表结点：child，next指针</li>
 <li>数组节点：data，firstchild指针</li>
 <li>数组，根位置r，节点数n</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>孩子链表表示法&#x2F;单链表表示法，有点类似图的邻接表表示法，把弧节点换成孩子节点</li>
+</ul></li>
+</ul></li>
+<li>孩子链表表示法/单链表表示法，有点类似图的邻接表表示法，把弧节点换成孩子节点</li>
 <li>带双亲的孩子链表表示法，节点包括了双亲结点的位置</li>
-<li>孩子兄弟表示法&#x2F;二叉链表，节点：左孩子；节点值；右兄弟，相当于转换成二叉树<ul>
-<li>结构<ul>
+<li>孩子兄弟表示法/二叉链表，节点：左孩子；节点值；右兄弟，相当于转换成二叉树
+<ul>
+<li>结构
+<ul>
 <li>firchild，nextsibling，data</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li>树转化为二叉树：1. 加线：在兄弟之间加线 2. 抹线：把除了左孩子以外其他孩子的线去掉</li>
 <li>二叉树转换成树：1. 加线：若p是左孩子，则把p的沿分支所有右孩子与p的双亲相连 2. 抹线：抹掉原来二叉树双亲与右孩子的连线</li>
 <li>森林转化为二叉树：1.每棵树转化为二叉树 2. 根节点相连 3. 以第一棵树的根节点为根节点旋转得到目标二叉树</li>
 <li>二叉树转化为森林：1.根节点沿右侧所有右孩子连线抹掉，得到多颗二叉树 2.树还原二叉树</li>
-<li>树的遍历<ul>
-<li>先根遍历（先序）<ul>
+<li>树的遍历
+<ul>
+<li>先根遍历（先序）
+<ul>
 <li>访问根节点</li>
 <li>访问每一棵子树</li>
-</ul>
-</li>
-<li>后根遍历（相当于转化成二叉树以后的中序遍历）<ul>
+</ul></li>
+<li>后根遍历（相当于转化成二叉树以后的中序遍历）
+<ul>
 <li>遍历子树</li>
 <li>访问节点</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>森林的遍历<ul>
-<li>先序遍历<ul>
+</ul></li>
+</ul></li>
+<li>森林的遍历
+<ul>
+<li>先序遍历
+<ul>
 <li>访问根节点</li>
 <li>访问每一棵子树</li>
 <li>访问其他树</li>
-</ul>
-</li>
-<li>中序遍历<ul>
+</ul></li>
+<li>中序遍历
+<ul>
 <li>遍历子树</li>
 <li>访问节点</li>
 <li>访问其他树</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="哈弗曼树（最优二叉树）"><a href="#哈弗曼树（最优二叉树）" class="headerlink" title="哈弗曼树（最优二叉树）"></a>哈弗曼树（最优二叉树）</h3><ul>
+<h3 id="哈弗曼树最优二叉树">哈弗曼树（最优二叉树）</h3>
+<ul>
 <li>树的路径长度PL：从root到每一个节点的路径长度之和（完全二叉树最小，单支二叉树最大）</li>
 <li>树的带权路径长度WPL：每个叶子的权与该叶子的路径长度之和</li>
-<li>在有n个相同叶子的二叉树中，wpl最小的称为<b>最优二叉树</b><ul>
-<li>哈弗曼树的特点<ul>
+<li>在有n个相同叶子的二叉树中，wpl最小的称为<b>最优二叉树</b>
+<ul>
+<li>哈弗曼树的特点
+<ul>
 <li>完全二叉树不一定是哈夫曼树</li>
 <li>在哈夫曼树中，权值大的节点离根节点比较近</li>
 <li>哈弗曼树不唯一，但WPL相同</li>
 <li>不存在度为1的节点</li>
-</ul>
-</li>
-<li>哈夫曼算法（构造哈夫曼树）<ul>
+</ul></li>
+<li>哈夫曼算法（构造哈夫曼树）
+<ul>
 <li>选两个根节点权值最小的叶子作为左右子树构成一棵新的二叉树，根节点权值为左右子树权值之和</li>
 <li>重复上述过程</li>
-</ul>
-</li>
-<li>哈夫曼编码（最小冗余码）<ul>
+</ul></li>
+<li>哈夫曼编码（最小冗余码）
+<ul>
 <li>统计出现频率，作为叶子节点权值，构造哈弗曼树</li>
 <li>左分支标0，右分支标1，形成二进制串</li>
 <li>特点：任一编码不是其他编码的前缀</li>
 <li>编码从叶子到根，译码从根到叶子</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 </ul>
 <p>31</p>
-<p>二叉树的先序遍历序列和后序遍历序列正好相反：高度等于其节点数<a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/746019821869617732.html">https://zhidao.baidu.com/question/746019821869617732.html</a></p>
-<h2 id="第七章-图"><a href="#第七章-图" class="headerlink" title="第七章 图"></a>第七章 图</h2><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><ul>
+<p>二叉树的先序遍历序列和后序遍历序列正好相反：高度等于其节点数https://zhidao.baidu.com/question/746019821869617732.html</p>
+<h2 id="第七章-图">第七章 图</h2>
+<h3 id="概念">概念</h3>
+<ul>
 <li>连通图：任意两个顶点都有路径</li>
 <li>连通分量（极大连通图）</li>
 <li>生成树（极小连通图）</li>
 </ul>
-<h3 id="存储结构-1"><a href="#存储结构-1" class="headerlink" title="存储结构"></a>存储结构</h3><ol>
+<h3 id="存储结构-1">存储结构</h3>
+<ol type="1">
 <li><p>数组表示法：一个一维，一个二维，可以加权值</p>
-<img src="/images/截屏2019-12-03下午2.35.09.png" alt="截屏2019-12-03下午2.35.09" style="zoom:50%;" />
-</li>
+<p><img src="/images/截屏2019-12-03下午2.35.09.png" alt="截屏2019-12-03下午2.35.09" style="zoom:50%;" /></p></li>
 <li><p>邻接表表示法</p>
 <p>邻接表，逆邻接表（出入度）</p>
-<img src="/images/截屏2019-12-03下午2.39.20.png" alt="截屏2019-12-03下午2.39.20" style="zoom:50%;" />
-</li>
+<p><img src="/images/截屏2019-12-03下午2.39.20.png" alt="截屏2019-12-03下午2.39.20" style="zoom:50%;" /></p></li>
 <li><p>十字链表表示法（有向图）</p>
-<img src="/Users/akunda/Desktop/hexo/source/images/截屏2019-12-03下午2.41.12.png" alt="截屏2019-12-03下午2.41.12" style="zoom:50%;" />
-</li>
+<p><img src="/Users/akunda/Desktop/hexo/source/images/截屏2019-12-03下午2.41.12.png" alt="截屏2019-12-03下午2.41.12" style="zoom:50%;" /></p></li>
 <li><p>邻接多重表（无向图）</p>
 <p>每条弧节点包括：标志域（是否被搜索过），该边依附的两个顶点在顶点数组里的位置，指向下一条依附于两个顶点的边的指针</p>
-<img src="/images/截屏2019-12-03下午2.42.43.png" alt="截屏2019-12-03下午2.42.43" style="zoom:50%;" /></li>
+<p><img src="/images/截屏2019-12-03下午2.42.43.png" alt="截屏2019-12-03下午2.42.43" style="zoom:50%;" /></p></li>
 </ol>
-<h3 id="图的遍历"><a href="#图的遍历" class="headerlink" title="图的遍历"></a>图的遍历</h3><ol>
+<h3 id="图的遍历">图的遍历</h3>
+<ol type="1">
 <li><p>深度优先遍历</p>
 <p>递归，堆栈</p>
-<img src="/images/截屏2019-12-03下午6.25.27.png" alt="截屏2019-12-03下午6.25.27" style="zoom:50%;" />
-</li>
-<li><p>广度优先遍历</p>
-</li>
+<p><img src="/images/截屏2019-12-03下午6.25.27.png" alt="截屏2019-12-03下午6.25.27" style="zoom:50%;" /></p></li>
+<li><p>广度优先遍历</p></li>
 </ol>
-  <img src="/images/截屏2019-12-03下午6.30.30.png" alt="截屏2019-12-03下午6.30.30" style="zoom:50%;" />
-
-<h3 id="图的连通性"><a href="#图的连通性" class="headerlink" title="图的连通性"></a>图的连通性</h3><ul>
-<li><p>连通分量</p>
-</li>
-<li><p>生成树，dfs，bfs生成树</p>
-</li>
-<li><p>有向图强连通图，顺着一遍，逆着一遍，取交集</p>
-</li>
+<p><img src="/images/截屏2019-12-03下午6.30.30.png" alt="截屏2019-12-03下午6.30.30" style="zoom:50%;" /></p>
+<h3 id="图的连通性">图的连通性</h3>
+<ul>
+<li><p>连通分量</p></li>
+<li><p>生成树，dfs，bfs生成树</p></li>
+<li><p>有向图强连通图，顺着一遍，逆着一遍，取交集</p></li>
 <li><p>网的最小生成树</p>
 <p>mst性质</p>
 <ul>
-<li>prim算法	分成u，v-u，把点依次纳入u中<img src="/images/截屏2019-12-10下午8.25.48.png" alt="截屏2019-12-10下午8.25.48" style="zoom:50%;" /></li>
+<li>prim算法 分成u，v-u，把点依次纳入u中<img src="/images/截屏2019-12-10下午8.25.48.png" alt="截屏2019-12-10下午8.25.48" style="zoom:50%;" /></li>
 <li>kruskai算法：把边按照从小到大依次加入，保证不形成回路</li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="有向无环图（DAG图）"><a href="#有向无环图（DAG图）" class="headerlink" title="有向无环图（DAG图）"></a>有向无环图（DAG图）</h3><ul>
-<li><p>AOV图</p>
-</li>
+<h3 id="有向无环图dag图">有向无环图（DAG图）</h3>
+<ul>
+<li><p>AOV图</p></li>
 <li><p>拓扑排序（不能有回路DAG）先输出没有入度的</p>
 <ul>
 <li>顶点表示活动，弧表示约束关系</li>
 <li>拓扑排序产生计划</li>
-</ul>
-</li>
+</ul></li>
 <li><p>AOE网</p>
 <ul>
-<li><p>顶点表示事件，弧表示活动，权表示活动时间</p>
-</li>
-<li><p>只有一个源点和汇点</p>
-</li>
-<li><p>关键路径（最长路径）包括的活动叫关键活动</p>
-</li>
-<li><p>活动最早开始时间e（最长路径，max{前一个活动+弧长}），最晚开始时间l，活动余量l-e，关键活动l-e&#x3D;0</p>
-<p>最早发生时间顺推max最迟逆推min</p>
-</li>
-<li><p>按拓扑排序计算</p>
-</li>
+<li><p>顶点表示事件，弧表示活动，权表示活动时间</p></li>
+<li><p>只有一个源点和汇点</p></li>
+<li><p>关键路径（最长路径）包括的活动叫关键活动</p></li>
+<li><p>活动最早开始时间e（最长路径，max{前一个活动+弧长}），最晚开始时间l，活动余量l-e，关键活动l-e=0</p>
+<p>最早发生时间顺推max最迟逆推min</p></li>
+<li><p>按拓扑排序计算</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<h3 id="最短路径"><a href="#最短路径" class="headerlink" title="最短路径"></a>最短路径</h3><ul>
+<h3 id="最短路径">最短路径</h3>
+<ul>
 <li>dijkstra路径长度递增法 O(n<sup>2</sup>) 类似prim算法</li>
 <li>floyd算法O(n<sup>3</sup>)</li>
 </ul>
-<h2 id="第九章-查找"><a href="#第九章-查找" class="headerlink" title="第九章 查找"></a>第九章 查找</h2><p>静态查找表，动态查找表（可以增加删除）</p>
+<h2 id="第九章-查找">第九章 查找</h2>
+<p>静态查找表，动态查找表（可以增加删除）</p>
 <p>ASL平均查找长度</p>
 <p>动态查找表：表结构在查找过程中动态生成。eg二叉排序树，哈希表</p>
-<h3 id="顺序表查找（数组）"><a href="#顺序表查找（数组）" class="headerlink" title="顺序表查找（数组）"></a>顺序表查找（数组）</h3><p>哨兵技术：（消除越界判定的开销）把给定查找的元素放在第一个，然后从最后一个开始往前查找，从而保证不会越界</p>
-<p>ASL&#x3D;(n+1)&#x2F;2</p>
+<h3 id="顺序表查找数组">顺序表查找（数组）</h3>
+<p>哨兵技术：（消除越界判定的开销）把给定查找的元素放在第一个，然后从最后一个开始往前查找，从而保证不会越界</p>
+<p>ASL=(n+1)/2</p>
 <p>O(n)</p>
-<h3 id="折半查找法"><a href="#折半查找法" class="headerlink" title="折半查找法"></a>折半查找法</h3><p>有序顺序表（递增）</p>
+<h3 id="折半查找法">折半查找法</h3>
+<p>有序顺序表（递增）</p>
 <p>low mid high</p>
 <ul>
-<li><p>判定low&lt;&#x3D;high</p>
-<p>mid&#x3D;[(low+high)&#x2F;2]</p>
-<p>左边查找：low不变，high&#x3D;mid-1</p>
-<p>右边查找：high不变，low&#x3D;mid+1</p>
-</li>
+<li><p>判定low&lt;=high</p>
+<p>mid=[(low+high)/2]</p>
+<p>左边查找：low不变，high=mid-1</p>
+<p>右边查找：high不变，low=mid+1</p></li>
 </ul>
-<p>判定树：描述折半查找过程的二叉树，对于某一个节点N，从根节点到N的路径上包含的所有节点，实际上对应于在查找节点N时查找过的所有元素，查找次数&#x3D;树的层数</p>
+<p>判定树：描述折半查找过程的二叉树，对于某一个节点N，从根节点到N的路径上包含的所有节点，实际上对应于在查找节点N时查找过的所有元素，查找次数=树的层数</p>
 <p>O(log(n))</p>
-<p>asl&#x3D;1*1+2*2+3*4+4*8+5*…</p>
-<h3 id="分块查找法"><a href="#分块查找法" class="headerlink" title="分块查找法"></a>分块查找法</h3><p>分成很多块，块与块之间有序，块内无序；于是先折半查找，再顺序查找；需要借助索引表（包括每一个块的起始位置和最大值）</p>
-<p> ASL’blk&#x3D;(b+1)&#x2F;2+(s+1)&#x2F;2&#x3D;(s2+2s+n)&#x2F;(2s)</p>
-<p>s&#x3D;√n效率最高</p>
-<h3 id="二叉排序树查找法"><a href="#二叉排序树查找法" class="headerlink" title="二叉排序树查找法"></a>二叉排序树查找法</h3><ul>
+<p>asl=1*1+2*2+3*4+4*8+5*...</p>
+<h3 id="分块查找法">分块查找法</h3>
+<p>分成很多块，块与块之间有序，块内无序；于是先折半查找，再顺序查找；需要借助索引表（包括每一个块的起始位置和最大值）</p>
+<p>ASL'blk=(b+1)/2+(s+1)/2=(s2+2s+n)/(2s)</p>
+<p>s=√n效率最高</p>
+<h3 id="二叉排序树查找法">二叉排序树查找法</h3>
+<ul>
 <li><p>二叉排序树T：</p>
 <ul>
 <li><p>T左子树所有节点值小于T根节点的值</p>
 <p>T右子树所有节点值大于T根节点的值</p>
-<p>T左右子树均为二叉排序树</p>
-</li>
+<p>T左右子树均为二叉排序树</p></li>
 </ul>
-<p>对二叉排序树进行中序遍历，输出为递增序列</p>
-</li>
+<p>对二叉排序树进行中序遍历，输出为递增序列</p></li>
 <li><p>向二叉排序树插入数据</p>
-<p>相当于在查找失败时插入</p>
-</li>
+<p>相当于在查找失败时插入</p></li>
 <li><p>向二叉排序树删除数据</p>
 <p>根据删除节点的子树情况分四种讨论（这里删除的节点是双亲节点的左子树）</p>
 <ul>
-<li><p>左空右空：直接删除</p>
-</li>
-<li><p>左空右不空：将右子树接到双亲结点的左子树上</p>
-</li>
-<li><p>左不空右空：将左子树接到双亲结点的左子树上</p>
-</li>
+<li><p>左空右空：直接删除</p></li>
+<li><p>左空右不空：将右子树接到双亲结点的左子树上</p></li>
+<li><p>左不空右空：将左子树接到双亲结点的左子树上</p></li>
 <li><p><font color=red>左不空右不空</font>：</p>
 <p>P为删除节点，F为双亲结点，S为P最右边的没有右子树的节点</p>
 <ul>
 <li>法1 P的左子树接到F左，P右子树接到S右</li>
 <li>法2 S代替P，S左子树代替原来的S</li>
-</ul>
-</li>
-</ul>
-</li>
+</ul></li>
+</ul></li>
 <li><p>平衡二叉树T（AVL树）：</p>
 <p>T左右子树深度只差不超过1</p>
-<p>T左右子树均为平衡二叉树</p>
-</li>
+<p>T左右子树均为平衡二叉树</p></li>
 <li><p>创建平衡二叉树</p>
 <p>依次插入元素，如果不平衡了，对最小不平衡子树进行平衡化处理</p>
 <ul>
@@ -710,149 +675,130 @@
 </ul>
 <p>根据市区平衡的插入位置分类</p>
 <ul>
-<li>LL：单向右旋，右旋右靠 <img src="http://img.blog.csdn.net/20170713212023464?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>RR：单向左旋<img src="http://img.blog.csdn.net/20170713213413602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>LR：左旋右旋<img src="http://img.blog.csdn.net/20170713215031006?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
-<li>RL：右旋左旋<img src="http://img.blog.csdn.net/20170713214216909?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></li>
+<li>LL：单向右旋，右旋右靠 <img src="http://img.blog.csdn.net/20170713212023464?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" /></li>
+<li>RR：单向左旋<img src="http://img.blog.csdn.net/20170713213413602?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" /></li>
+<li>LR：左旋右旋<img src="http://img.blog.csdn.net/20170713215031006?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" /></li>
+<li>RL：右旋左旋<img src="http://img.blog.csdn.net/20170713214216909?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdGlhbnl1eGluZ3h1YW4=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述" /></li>
 </ul>
 <p>LL , LR ，RR ，RL其实已经为我们提供了最后哪个结点作为新的根指明了方向。如 LR 型最后的根结点为原来的根的左孩子的右孩子，RL 型最后的根结点为原来的根的右孩子的左孩子。只要记住这四种情况，可以很快地推导出所有的情况。</p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/56066942">https://zhuanlan.zhihu.com/p/56066942</a></p>
-<p>O(log(n))</p>
-</li>
+<p>https://zhuanlan.zhihu.com/p/56066942</p>
+<p>O(log(n))</p></li>
 </ul>
-<h3 id="哈希查找法（散列）"><a href="#哈希查找法（散列）" class="headerlink" title="哈希查找法（散列）"></a>哈希查找法（散列）</h3><ul>
-<li><p>哈希函数H(key)将key与在哈希表L中的存储位置对应起来</p>
-</li>
-<li><p>影响散列查找时间效率的主要因素：与散列表长和散列表中实际元素个数均相关asl&#x3D;元素个数&#x2F;哈希表长</p>
-</li>
+<h3 id="哈希查找法散列">哈希查找法（散列）</h3>
+<ul>
+<li><p>哈希函数H(key)将key与在哈希表L中的存储位置对应起来</p></li>
+<li><p>影响散列查找时间效率的主要因素：与散列表长和散列表中实际元素个数均相关asl=元素个数/哈希表长</p></li>
 <li><p>构造哈希函数：</p>
 <p>基本原则：均匀，避免冲突情况的过度集中，预期哈希查找的时间效率能达到最佳</p>
 <p>常见方法：</p>
 <ul>
 <li><p>直接定址法</p>
-<p>H(key)&#x3D;a*key+b</p>
-</li>
+<p>H(key)=a*key+b</p></li>
 <li><p>数字分析法</p>
-<p>事先分析关键字的每一位，从中选取若干随机位构成哈希地址</p>
-</li>
+<p>事先分析关键字的每一位，从中选取若干随机位构成哈希地址</p></li>
 <li><p>平方取中法</p>
-<p>取关键字平方后中间若干位作为哈希地址</p>
-</li>
+<p>取关键字平方后中间若干位作为哈希地址</p></li>
 <li><p>折叠法</p>
-<p>将关键字分成位数相同的若干个段，将各段求和作为哈希地址</p>
-</li>
+<p>将关键字分成位数相同的若干个段，将各段求和作为哈希地址</p></li>
 <li><p>余数法</p>
-<p>H(key)&#x3D;key mod p (p&lt;&#x3D;m) m为哈希表长，p为质数，或不含小于20质因数的合数</p>
-</li>
-</ul>
-</li>
+<p>H(key)=key mod p (p&lt;=m) m为哈希表长，p为质数，或不含小于20质因数的合数</p></li>
+</ul></li>
 <li><p>解决冲突的方法</p>
 <ul>
 <li><p>开放地址法</p>
 <p>在H(key)为起点，取一个增量di作为下一个探测的位置</p>
-<p>即H<sub>i</sub>(key)&#x3D;(H(key)+di) mod m   m为哈希表长</p>
+<p>即H<sub>i</sub>(key)=(H(key)+di) mod m m为哈希表长</p>
 <p>di取法</p>
 <ul>
 <li>线性探测，di取1，2，3……m-1</li>
-<li>二次探测，di&#x3D;1<sup>2</sup>，-1<sup>2</sup>，2<sup>2</sup>，-2<sup>2</sup>……+-k<sup>2</sup>   (k&lt;&#x3D;m&#x2F;2)</li>
+<li>二次探测，di=1<sup>2</sup>，-1<sup>2</sup>，2<sup>2</sup>，-2<sup>2</sup>……+-k<sup>2</sup> (k&lt;=m/2)</li>
 <li>伪随机探测</li>
-</ul>
-</li>
+</ul></li>
 <li><p>再哈希法</p>
-<p>使用其他哈希函数RH计算关键字key的下一个地址直到不再发生冲突</p>
-</li>
+<p>使用其他哈希函数RH计算关键字key的下一个地址直到不再发生冲突</p></li>
 <li><p>链地址法</p>
-<p>将关键字的同义词存储在各自的单链表中</p>
-</li>
+<p>将关键字的同义词存储在各自的单链表中</p></li>
 <li><p>公共溢出区法</p>
-<p>当遇到冲突时，统一将所有同义词存储到“公共溢出区”</p>
-</li>
+<p>当遇到冲突时，统一将所有同义词存储到“公共溢出区”</p></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-<p>哈希的装填因子a&#x3D;n&#x2F;m n为关键字数，m为表长</p>
-<h2 id="第十章-内部排序（在内存中排序）"><a href="#第十章-内部排序（在内存中排序）" class="headerlink" title="第十章 内部排序（在内存中排序）"></a>第十章 内部排序（在内存中排序）</h2><h3 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h3><h4 id="直接插入排序"><a href="#直接插入排序" class="headerlink" title="直接插入排序"></a>直接插入排序</h4><p>不断插入新的元素使之有序，要确定位置，移动后面元素的位置</p>
+<p>哈希的装填因子a=n/m n为关键字数，m为表长</p>
+<h2 id="第十章-内部排序在内存中排序">第十章 内部排序（在内存中排序）</h2>
+<h3 id="插入排序">插入排序</h3>
+<h4 id="直接插入排序">直接插入排序</h4>
+<p>不断插入新的元素使之有序，要确定位置，移动后面元素的位置</p>
 <p>不断将要插入的元素放到一个额外存储空间内，使得这个元素的位置空出来，从后往前比较</p>
 <ul>
-<li><p>最好：正序：比较n-1次，移动0次</p>
-</li>
-<li><p>最坏：逆序：比较（2+3+4+n）移动（2+1）+（3+1）+++（n+1）</p>
-</li>
+<li><p>最好：正序：比较n-1次，移动0次</p></li>
+<li><p>最坏：逆序：比较（2+3+4+n）移动（2+1）+（3+1）+++（n+1）</p></li>
 <li><p>分类</p>
 <ul>
 <li><p>折半插入排序</p>
-<p>顺序查找定位变为折半查找定位，比较次数变成nlogn，移动次数不变</p>
-</li>
+<p>顺序查找定位变为折半查找定位，比较次数变成nlogn，移动次数不变</p></li>
 <li><p>2-路插入排序</p>
 <p>需要辅助数组n</p>
-<p>首尾视为循环，比较次数不变，平均移动次数减半</p>
-</li>
+<p>首尾视为循环，比较次数不变，平均移动次数减半</p></li>
 <li><p>表插入排序</p>
-<p>运用循环静态链表，不断修改指针域</p>
-</li>
+<p>运用循环静态链表，不断修改指针域</p></li>
 <li><p>希尔排序</p>
 <p>不停分隔子序列，序列内部直接插入排序，最后整个排序</p>
 <p>记第i步序列分成的组数为di，总趟数为m，则</p>
 <ul>
-<li>dm&#x3D;1</li>
+<li>dm=1</li>
 <li>i&lt;j, di&gt;dj</li>
-<li>i&lt;j, i!&#x3D;j, di,dj最大公约数为1</li>
+<li>i&lt;j, i!=j, di,dj最大公约数为1</li>
+</ul></li>
+</ul></li>
 </ul>
-</li>
-</ul>
-</li>
-</ul>
-<h3 id="交换排序"><a href="#交换排序" class="headerlink" title="交换排序"></a>交换排序</h3><h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><p>走一趟就确定最后的一个元素</p>
-<h4 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h4><p>思想：low high，把low放到合适位置，并把以low划分为两个子表</p>
+<h3 id="交换排序">交换排序</h3>
+<h4 id="冒泡排序">冒泡排序</h4>
+<p>走一趟就确定最后的一个元素</p>
+<h4 id="快速排序">快速排序</h4>
+<p>思想：low high，把low放到合适位置，并把以low划分为两个子表</p>
 <p>low&lt;high时</p>
-<p>​	向左移动high，将首次遇到的小于L[low]的L[high]与L[low]交换</p>
-<p>​	向右移动low，将首次遇到的大于L[high]的L[low]与L[high]交换</p>
+<p>​ 向左移动high，将首次遇到的小于L[low]的L[high]与L[low]交换</p>
+<p>​ 向右移动low，将首次遇到的大于L[high]的L[low]与L[high]交换</p>
 <p>形成了一棵二叉树，O(n)-O(logn)</p>
 <p>辅助空间log(n)（递归啊）</p>
-<h3 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h3><p>选择最大元素与最后一个元素交换</p>
-<h4 id="简单选择排序"><a href="#简单选择排序" class="headerlink" title="简单选择排序"></a>简单选择排序</h4><p>顺序查找确定最大元素</p>
-<h4 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h4><ul>
+<h3 id="选择排序">选择排序</h3>
+<p>选择最大元素与最后一个元素交换</p>
+<h4 id="简单选择排序">简单选择排序</h4>
+<p>顺序查找确定最大元素</p>
+<h4 id="堆排序">堆排序</h4>
+<ul>
 <li><p>堆（大顶堆）：构建完全二叉树</p>
-<p>a<sub>i</sub>&gt;&#x3D;a<sub>2i</sub>, a<sub>i</sub>&gt;&#x3D;a<sub>2i+1</sub></p>
-</li>
+<p>a<sub>i</sub>&gt;=a<sub>2i</sub>, a<sub>i</sub>&gt;=a<sub>2i+1</sub></p></li>
 <li><p>调整堆：树的左右子树都为堆，但是仅根不满足堆的条件，将其转化为堆</p>
 <ul>
 <li>思想：将树根与左右子树的最大值交换，重复上述步骤，直到为堆</li>
+</ul></li>
+<li><p>创建堆：从最大序号的非叶子节点开始逐步到根进行调整堆，时间复杂度n</p></li>
+<li><p>堆排序算法：将L转化为大顶堆，将堆的根与最后一个叶子（L最后一个元素）交换，然后除最后一个叶子重复上述步骤，最后层序遍历得到递增序列</p></li>
+<li><p>T&lt;O(nlogn)，空间复杂度O(1)</p></li>
 </ul>
-</li>
-<li><p>创建堆：从最大序号的非叶子节点开始逐步到根进行调整堆，时间复杂度n</p>
-</li>
-<li><p>堆排序算法：将L转化为大顶堆，将堆的根与最后一个叶子（L最后一个元素）交换，然后除最后一个叶子重复上述步骤，最后层序遍历得到递增序列</p>
-</li>
-<li><p>T&lt;O(nlogn)，空间复杂度O(1)</p>
-</li>
-</ul>
-<h3 id="归并排序"><a href="#归并排序" class="headerlink" title="归并排序"></a>归并排序</h3><ul>
+<h3 id="归并排序">归并排序</h3>
+<ul>
 <li>思想：先把L（n）看做有n个子表，然后相邻表合并，重复</li>
-<li>分析：可以用二叉树表示，T&lt;O(nlogn), S&#x3D;O(n)</li>
+<li>分析：可以用二叉树表示，T&lt;O(nlogn), S=O(n)</li>
 </ul>
-<h3 id="基数排序法"><a href="#基数排序法" class="headerlink" title="基数排序法"></a>基数排序法</h3><ul>
+<h3 id="基数排序法">基数排序法</h3>
+<ul>
 <li><p>多关键字排序</p>
 <ul>
 <li>MSD最主位优先排序，从前往后，需要分割序列</li>
 <li>LSD最次位优先排序，从后往前，不需要分割，而且只能用稳定排序算法</li>
-</ul>
-</li>
+</ul></li>
 <li><p>基数排序：将每一个位视作一单关键字，采用LSD排序（桶，队列）</p>
 <ul>
 <li>思想：入桶,出桶重复多边</li>
-<li>T&#x3D;2nd, S&#x3D;基数*元素个数</li>
-</ul>
-</li>
-<li><p>稳定排序：冒泡排序，插入排序，归并排序，基数排序，希尔排序</p>
-</li>
-<li><p>不稳定排序：选择排序，快速排序，堆排序</p>
-</li>
-<li><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/codingmylife/archive/2012/10/21/2732980.html">https://www.cnblogs.com/codingmylife/archive/2012/10/21/2732980.html</a></p>
-</li>
+<li>T=2nd, S=基数*元素个数</li>
+</ul></li>
+<li><p>稳定排序：冒泡排序，插入排序，归并排序，基数排序，希尔排序</p></li>
+<li><p>不稳定排序：选择排序，快速排序，堆排序</p></li>
+<li><p>https://www.cnblogs.com/codingmylife/archive/2012/10/21/2732980.html</p></li>
 <li><table>
 <thead>
-<tr>
+<tr class="header">
 <th>排序方法</th>
 <th>最好情况</th>
 <th>平均时间</th>
@@ -861,7 +807,8 @@
 <th>稳定性</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr class="odd">
 <td>简单排序</td>
 <td>O(n)</td>
 <td>O(n2)</td>
@@ -869,7 +816,7 @@
 <td>O(1)</td>
 <td>稳定*</td>
 </tr>
-<tr>
+<tr class="even">
 <td>快速排序</td>
 <td>O(nlgn )</td>
 <td>O(nlgn)</td>
@@ -877,7 +824,7 @@
 <td>O(lgn)</td>
 <td>不稳定</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>堆排序</td>
 <td>O(nlgn )</td>
 <td>O(nlgn )</td>
@@ -885,7 +832,7 @@
 <td>O(1)</td>
 <td>不稳定</td>
 </tr>
-<tr>
+<tr class="even">
 <td>归并排序</td>
 <td>O(nlgn )</td>
 <td>O(nlgn )</td>
@@ -893,7 +840,7 @@
 <td>O(n) n</td>
 <td>稳定</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>基数排序</td>
 <td>O(d(n+rd))</td>
 <td>O(d(n+rd))</td>
@@ -901,7 +848,7 @@
 <td>O(rd)</td>
 <td>稳定</td>
 </tr>
-<tr>
+<tr class="even">
 <td></td>
 <td></td>
 <td></td>
@@ -909,7 +856,7 @@
 <td></td>
 <td></td>
 </tr>
-<tr>
+<tr class="odd">
 <td>简单选择</td>
 <td>O(n2)</td>
 <td>O(n2)</td>
@@ -917,7 +864,7 @@
 <td>O(1)</td>
 <td>不稳定*</td>
 </tr>
-<tr>
+<tr class="even">
 <td>直接插入</td>
 <td>O(n)正序，比较n-1，移动0</td>
 <td>O(n2)</td>
@@ -925,7 +872,7 @@
 <td>O(1)哨兵</td>
 <td>稳定</td>
 </tr>
-<tr>
+<tr class="odd">
 <td>折半插入</td>
 <td>O(nlgn )</td>
 <td>O(nlgn )</td>
@@ -933,14 +880,53 @@
 <td>O(1)</td>
 <td>稳定</td>
 </tr>
-</tbody></table>
-</li>
+</tbody>
+</table></li>
 <li><p>有序表的合并</p>
-<p>最好min{m,n}最坏n+m-1</p>
-</li>
+<p>最好min{m,n}最坏n+m-1</p></li>
 </ul>
-</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io">Sinos</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io/2019/11/12/data_structure/">https://sinos_wei.gitee.io/2019/11/12/data_structure/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ds/">ds</a></div><div class="post_share"><div class="social-share" data-image="/img/cover/IMG_1975.JPG" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/18/markdown/"><img class="prev-cover" src="/img/cover/IMG_2924.JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">markdown</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/10/python/"><img class="next-cover" src="/img/cover/IMG_2365.JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">python xjb学</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.PNG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Sinos</div><div class="author-info__description">己所不欲, 勿施于人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lightmanwei"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lightmanwei" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1143474942@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tips"><span class="toc-number">1.1.</span> <span class="toc-text">tips</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.2.</span> <span class="toc-text">第一章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">第二章 线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">顺序表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">单链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%82%B9%EF%BC%9A"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A"><span class="toc-number">1.3.2.1.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97"><span class="toc-number">1.4.</span> <span class="toc-text">第三章 栈与队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88"><span class="toc-number">1.4.1.</span> <span class="toc-text">栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">1.4.2.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%93%BE%E5%BC%8F%E9%98%9F%E5%88%97"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">链式队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">顺序结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%95%B0%E7%BB%84%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8"><span class="toc-number">1.5.</span> <span class="toc-text">第五章 数组与广义表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.5.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E8%A1%A8"><span class="toc-number">1.5.2.</span> <span class="toc-text">广义表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.6.</span> <span class="toc-text">第六章 树与二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.6.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.6.2.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.3.</span> <span class="toc-text">存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-number">1.6.4.</span> <span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.6.5.</span> <span class="toc-text">线索二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.6.</span> <span class="toc-text">树的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%BC%97%E6%9B%BC%E6%A0%91%EF%BC%88%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91%EF%BC%89"><span class="toc-number">1.6.7.</span> <span class="toc-text">哈弗曼树（最优二叉树）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE"><span class="toc-number">1.7.</span> <span class="toc-text">第七章 图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.7.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-1"><span class="toc-number">1.7.2.</span> <span class="toc-text">存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">1.7.3.</span> <span class="toc-text">图的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E8%BF%9E%E9%80%9A%E6%80%A7"><span class="toc-number">1.7.4.</span> <span class="toc-text">图的连通性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE%EF%BC%88DAG%E5%9B%BE%EF%BC%89"><span class="toc-number">1.7.5.</span> <span class="toc-text">有向无环图（DAG图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">1.7.6.</span> <span class="toc-text">最短路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%9F%A5%E6%89%BE"><span class="toc-number">1.8.</span> <span class="toc-text">第九章 查找</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%EF%BC%88%E6%95%B0%E7%BB%84%EF%BC%89"><span class="toc-number">1.8.1.</span> <span class="toc-text">顺序表查找（数组）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%E6%B3%95"><span class="toc-number">1.8.2.</span> <span class="toc-text">折半查找法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE%E6%B3%95"><span class="toc-number">1.8.3.</span> <span class="toc-text">分块查找法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE%E6%B3%95"><span class="toc-number">1.8.4.</span> <span class="toc-text">二叉排序树查找法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E6%9F%A5%E6%89%BE%E6%B3%95%EF%BC%88%E6%95%A3%E5%88%97%EF%BC%89"><span class="toc-number">1.8.5.</span> <span class="toc-text">哈希查找法（散列）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E5%86%85%E9%83%A8%E6%8E%92%E5%BA%8F%EF%BC%88%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E6%8E%92%E5%BA%8F%EF%BC%89"><span class="toc-number">1.9.</span> <span class="toc-text">第十章 内部排序（在内存中排序）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.1.</span> <span class="toc-text">插入排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">直接插入排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.2.</span> <span class="toc-text">交换排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">快速排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.3.</span> <span class="toc-text">选择排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.3.1.</span> <span class="toc-text">简单选择排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.3.2.</span> <span class="toc-text">堆排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.4.</span> <span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%E6%B3%95"><span class="toc-number">1.9.5.</span> <span class="toc-text">基数排序法</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/31/ai/" title="ai"><img src="/img/cover/IMG_2933.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ai"/></a><div class="content"><a class="title" href="/2022/12/31/ai/" title="ai">ai</a><time datetime="2022-12-31T12:12:20.277Z" title="Updated 2022-12-31 20:12:20">2022-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/17/tcpip%E8%AF%A6%E8%A7%A3%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="tcpip详解读书笔记"><img src="/img/cover/IMG_3302.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tcpip详解读书笔记"/></a><div class="content"><a class="title" href="/2022/12/17/tcpip%E8%AF%A6%E8%A7%A3%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="tcpip详解读书笔记">tcpip详解读书笔记</a><time datetime="2022-12-30T03:02:34.287Z" title="Updated 2022-12-30 11:02:34">2022-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/24/effective-cpp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="effective_cpp读书笔记"><img src="/img/cover/IMG_3357.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="effective_cpp读书笔记"/></a><div class="content"><a class="title" href="/2022/09/24/effective-cpp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="effective_cpp读书笔记">effective_cpp读书笔记</a><time datetime="2022-12-21T08:23:48.511Z" title="Updated 2022-12-21 16:23:48">2022-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/08/insidecpp/" title="insidecpp"><img src="/img/cover/IMG_3032.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="insidecpp"/></a><div class="content"><a class="title" href="/2022/11/08/insidecpp/" title="insidecpp">insidecpp</a><time datetime="2022-12-21T08:13:03.570Z" title="Updated 2022-12-21 16:13:03">2022-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/12/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="http权威指南读书笔记"><img src="/img/cover/IMG_2617.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="http权威指南读书笔记"/></a><div class="content"><a class="title" href="/2022/12/12/http%E6%9D%83%E5%A8%81%E6%8C%87%E5%8D%97%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="http权威指南读书笔记">http权威指南读书笔记</a><time datetime="2022-12-21T08:13:03.565Z" title="Updated 2022-12-21 16:13:03">2022-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Sinos</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css"><script src="https://cdn.jsdelivr.net/npm/katex/dist/contrib/copy-tex.min.js"></script><script>(() => {
-  document.querySelectorAll('#article-container span.katex-display').forEach(item => {
-    btf.wrap(item, 'div', { class: 'katex-wrap'})
-  })
-})()</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io">Sinos</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io/2019/11/12/data_structure/">https://sinos_wei.gitee.io/2019/11/12/data_structure/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/ds/">ds</a></div><div class="post_share"><div class="social-share" data-image="/img/cover/IMG_0708.JPG" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2019/11/18/markdown/"><img class="prev-cover" src="/img/cover/IMG_2617.JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">markdown</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/10/python/"><img class="next-cover" src="/img/cover/IMG_3301.JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">python xjb学</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.PNG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Sinos</div><div class="author-info__description">己所不欲, 勿施于人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">33</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/lightmanwei"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/lightmanwei" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1143474942@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#tips"><span class="toc-number">1.1.</span> <span class="toc-text">tips</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0"><span class="toc-number">1.2.</span> <span class="toc-text">第一章</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E7%BA%BF%E6%80%A7%E8%A1%A8"><span class="toc-number">1.3.</span> <span class="toc-text">第二章 线性表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8"><span class="toc-number">1.3.1.</span> <span class="toc-text">顺序表</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E9%93%BE%E8%A1%A8"><span class="toc-number">1.3.2.</span> <span class="toc-text">单链表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%97%E6%B3%95"><span class="toc-number">1.3.2.1.</span> <span class="toc-text">算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-number">1.3.2.1.1.</span> <span class="toc-text">优点：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-number">1.3.2.1.2.</span> <span class="toc-text">缺点：</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97"><span class="toc-number">1.4.</span> <span class="toc-text">第三章 栈与队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%88"><span class="toc-number">1.4.1.</span> <span class="toc-text">栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%9F%E5%88%97"><span class="toc-number">1.4.2.</span> <span class="toc-text">队列</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%93%BE%E5%BC%8F%E9%98%9F%E5%88%97"><span class="toc-number">1.4.2.1.</span> <span class="toc-text">链式队列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E7%BB%93%E6%9E%84"><span class="toc-number">1.4.2.2.</span> <span class="toc-text">顺序结构</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E6%95%B0%E7%BB%84%E4%B8%8E%E5%B9%BF%E4%B9%89%E8%A1%A8"><span class="toc-number">1.5.</span> <span class="toc-text">第五章 数组与广义表</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E7%BB%84"><span class="toc-number">1.5.1.</span> <span class="toc-text">数组</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%BF%E4%B9%89%E8%A1%A8"><span class="toc-number">1.5.2.</span> <span class="toc-text">广义表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%A0%91%E4%B8%8E%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.6.</span> <span class="toc-text">第六章 树与二叉树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">1.6.1.</span> <span class="toc-text">定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%B4%A8"><span class="toc-number">1.6.2.</span> <span class="toc-text">性质</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.3.</span> <span class="toc-text">存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%8D%E5%8E%86"><span class="toc-number">1.6.4.</span> <span class="toc-text">遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E7%B4%A2%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.6.5.</span> <span class="toc-text">线索二叉树</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%91%E7%9A%84%E7%BB%93%E6%9E%84"><span class="toc-number">1.6.6.</span> <span class="toc-text">树的结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%BC%97%E6%9B%BC%E6%A0%91%E6%9C%80%E4%BC%98%E4%BA%8C%E5%8F%89%E6%A0%91"><span class="toc-number">1.6.7.</span> <span class="toc-text">哈弗曼树（最优二叉树）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E5%9B%BE"><span class="toc-number">1.7.</span> <span class="toc-text">第七章 图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-number">1.7.1.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84-1"><span class="toc-number">1.7.2.</span> <span class="toc-text">存储结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E9%81%8D%E5%8E%86"><span class="toc-number">1.7.3.</span> <span class="toc-text">图的遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%BE%E7%9A%84%E8%BF%9E%E9%80%9A%E6%80%A7"><span class="toc-number">1.7.4.</span> <span class="toc-text">图的连通性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BEdag%E5%9B%BE"><span class="toc-number">1.7.5.</span> <span class="toc-text">有向无环图（DAG图）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E7%9F%AD%E8%B7%AF%E5%BE%84"><span class="toc-number">1.7.6.</span> <span class="toc-text">最短路径</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E6%9F%A5%E6%89%BE"><span class="toc-number">1.8.</span> <span class="toc-text">第九章 查找</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A1%BA%E5%BA%8F%E8%A1%A8%E6%9F%A5%E6%89%BE%E6%95%B0%E7%BB%84"><span class="toc-number">1.8.1.</span> <span class="toc-text">顺序表查找（数组）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E5%8D%8A%E6%9F%A5%E6%89%BE%E6%B3%95"><span class="toc-number">1.8.2.</span> <span class="toc-text">折半查找法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E5%9D%97%E6%9F%A5%E6%89%BE%E6%B3%95"><span class="toc-number">1.8.3.</span> <span class="toc-text">分块查找法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91%E6%9F%A5%E6%89%BE%E6%B3%95"><span class="toc-number">1.8.4.</span> <span class="toc-text">二叉排序树查找法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%88%E5%B8%8C%E6%9F%A5%E6%89%BE%E6%B3%95%E6%95%A3%E5%88%97"><span class="toc-number">1.8.5.</span> <span class="toc-text">哈希查找法（散列）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E5%86%85%E9%83%A8%E6%8E%92%E5%BA%8F%E5%9C%A8%E5%86%85%E5%AD%98%E4%B8%AD%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.</span> <span class="toc-text">第十章 内部排序（在内存中排序）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.1.</span> <span class="toc-text">插入排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.1.1.</span> <span class="toc-text">直接插入排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.2.</span> <span class="toc-text">交换排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.2.1.</span> <span class="toc-text">冒泡排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.2.2.</span> <span class="toc-text">快速排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.3.</span> <span class="toc-text">选择排序</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.3.1.</span> <span class="toc-text">简单选择排序</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A0%86%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.3.2.</span> <span class="toc-text">堆排序</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F"><span class="toc-number">1.9.4.</span> <span class="toc-text">归并排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F%E6%B3%95"><span class="toc-number">1.9.5.</span> <span class="toc-text">基数排序法</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/12/31/ai/" title="ai"><img src="/img/cover/IMG_0855.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ai"/></a><div class="content"><a class="title" href="/2022/12/31/ai/" title="ai">ai</a><time datetime="2022-12-31T12:44:56.626Z" title="Updated 2022-12-31 20:44:56">2022-12-31</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/17/tcpip%E8%AF%A6%E8%A7%A3%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="tcpip详解读书笔记"><img src="/img/cover/IMG_2490.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tcpip详解读书笔记"/></a><div class="content"><a class="title" href="/2022/12/17/tcpip%E8%AF%A6%E8%A7%A3%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="tcpip详解读书笔记">tcpip详解读书笔记</a><time datetime="2022-12-30T03:02:34.287Z" title="Updated 2022-12-30 11:02:34">2022-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/08/insidecpp/" title="insidecpp"><img src="/img/cover/IMG_2367.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="insidecpp"/></a><div class="content"><a class="title" href="/2022/11/08/insidecpp/" title="insidecpp">insidecpp</a><time datetime="2022-12-25T03:20:03.892Z" title="Updated 2022-12-25 11:20:03">2022-12-25</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/09/24/effective-cpp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="effective_cpp读书笔记"><img src="/img/cover/IMG_1510.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="effective_cpp读书笔记"/></a><div class="content"><a class="title" href="/2022/09/24/effective-cpp%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="effective_cpp读书笔记">effective_cpp读书笔记</a><time datetime="2022-12-21T08:23:48.511Z" title="Updated 2022-12-21 16:23:48">2022-12-21</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2020/10/22/%E7%9B%91%E6%8E%A7%E7%82%B9%E8%AE%BE%E5%A4%87%E5%88%97%E8%A1%A8%E7%BC%96%E8%BE%91/" title="设备列表编辑"><img src="/img/cover/IMG_2127.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设备列表编辑"/></a><div class="content"><a class="title" href="/2020/10/22/%E7%9B%91%E6%8E%A7%E7%82%B9%E8%AE%BE%E5%A4%87%E5%88%97%E8%A1%A8%E7%BC%96%E8%BE%91/" title="设备列表编辑">设备列表编辑</a><time datetime="2022-12-21T08:14:12.357Z" title="Updated 2022-12-21 16:14:12">2022-12-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2022 By Sinos</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>
