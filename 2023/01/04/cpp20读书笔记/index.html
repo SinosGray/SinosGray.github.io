@@ -1,0 +1,240 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>cpp20读书笔记 | Sinos_wei's blog</title><meta name="author" content="Sinos"><meta name="copyright" content="Sinos"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta property="og:type" content="article">
+<meta property="og:title" content="cpp20读书笔记">
+<meta property="og:url" content="https://sinos_wei.gitee.io/2023/01/04/cpp20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/index.html">
+<meta property="og:site_name" content="Sinos_wei&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sinos_wei.gitee.io/img/cover/IMG_6598.JPG">
+<meta property="article:published_time" content="2023-01-04T04:25:28.000Z">
+<meta property="article:modified_time" content="2023-01-08T08:52:11.949Z">
+<meta property="article:author" content="Sinos">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sinos_wei.gitee.io/img/cover/IMG_6598.JPG"><link rel="shortcut icon" href="/img/icon.JPG"><link rel="canonical" href="https://sinos_wei.gitee.io/2023/01/04/cpp20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aeddd8219bc5c1e1efdcf5d9cc3218e6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"languages":{"hits_empty":"We didn't find any results for the search: ${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'cpp20读书笔记',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-01-08 16:52:11'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.PNG" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover/IMG_6598.JPG')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Sinos_wei's blog</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">cpp20读书笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2023-01-04T04:25:28.000Z" title="Created 2023-01-04 12:25:28">2023-01-04</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-01-08T08:52:11.949Z" title="Updated 2023-01-08 16:52:11">2023-01-08</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="cpp20读书笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+
+</blockquote>
+<span id="more"></span>
+<h1 id="basic-ideas">1. Basic Ideas</h1>
+<h1 id="introducing-fundamental-types-of-data">2. Introducing Fundamental Types of Data</h1>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> braced_init &#123;<span class="number">15</span>&#125;;</span><br><span class="line"><span class="comment">//The braced initializer form, however, is slightly safer when it comes to so-called narrowing conversions窄化转换 . A narrowing conversion changes a value to a type with a more limited range of values范围变小. Any such conversion thus has the potential to lose information.</span></span><br><span class="line"><span class="comment">//大括号初始化如果窄化转换,标准编译器会提出 warning, 其他的则不一定</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">function_notation</span><span class="params">(<span class="number">15</span>)</span></span>;</span><br><span class="line"><span class="type">int</span> assignment_notation = <span class="number">15</span>;</span><br></pre></td></tr></table></figure>
+<p>Type signed char is always one byte</p>
+<p>The signed modifier is mostly optional; if omitted, your type will <strong>be signed by default.</strong> The only <strong>exception to this rule is char</strong>. While the unmodified type char does exist, it is compiler-dependent whether it is signed or unsigned.</p>
+<p>Only use variables of the unmodified char type to store letter characters. To store numbers, you should use either signed char or unsigned char. std::byte type to store binary data</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">int</span> counter &#123;&#125;; <span class="comment">// counter starts at zero</span></span><br><span class="line"><span class="comment">//Zero initialization works for any fundamental type. For all fundamental numeric types, for instance, an empty braced initializer is always assumed to contain the number zero.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>Ever since C++14, you can use the single quote character, ', to make numeric literals more readable. Here’s an example: <code>22'333 -1'234LL 12'345ULL</code></p>
+<p>there are situations where you do need to add the correct literal suffixes, such as when you initialize a variable with type <strong>auto</strong></p>
+<p>Binary literals were introduced by the C++14 standard. You write a binary integer literal as a sequence of binary digits (0 or 1) prefixed by either <strong>0b or 0B</strong>, eg: <code>0b1010101</code></p>
+<p><code>import &lt;numbers&gt;;</code> <code>std::numbers::e</code> <code>std::numbers::e_v&lt;float&gt;</code> 特定长度 <code>#include &lt;cmath&gt;</code></p>
+<p><strong>implicit conversions</strong> . The way this works is that the variable of a type with the more limited range is converted to the type of the other. order:<strong>signed 优先度低于 unsigned</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">long</span> <span class="type">double</span></span><br><span class="line"><span class="type">double</span></span><br><span class="line"><span class="type">float</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span> <span class="type">long</span> </span><br><span class="line"><span class="type">long</span> <span class="type">long</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">long</span></span><br><span class="line"><span class="type">long</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span></span><br><span class="line"><span class="type">int</span></span><br><span class="line"><span class="type">unsigned</span> <span class="type">int</span> x &#123;<span class="number">20u</span>&#125;;</span><br><span class="line"><span class="type">int</span> y &#123;<span class="number">30</span>&#125;;</span><br><span class="line">x-y <span class="comment">// type is unsigned int</span></span><br></pre></td></tr></table></figure>
+<p><code>std::format</code> available in cpp20</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::cout &lt;&lt; std::format(<span class="string">&quot;Pond diameter required for &#123;&#125; fish is &#123;:.2&#125; feet.\n&quot;</span>, fish_count, pond_diameter);</span><br><span class="line"></span><br><span class="line"><span class="comment">//[[fill]align][sign][#][0][width][.precision][type]</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  <span class="comment">// Default alignment: right for numbers, left otherwise </span></span><br><span class="line">  std::cout &lt;&lt; std::format(<span class="string">&quot;&#123;:7&#125;|&#123;:7&#125;|&#123;:7&#125;|&#123;:7&#125;|&#123;:7&#125;\n&quot;</span>, <span class="number">1</span>, <span class="number">-.2</span>, <span class="string">&quot;str&quot;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="literal">true</span>); </span><br><span class="line">  <span class="comment">//Left and right alignment + custom fill character</span></span><br><span class="line">  std::cout &lt;&lt; std::format(<span class="string">&quot;&#123;:*&lt;7&#125;|&#123;:*&lt;7&#125;|&#123;:*&gt;7&#125;|&#123;:*&gt;7&#125;|&#123;:*&gt;7&#125;\n&quot;</span>, <span class="number">1</span>,<span class="number">-.2</span>,<span class="string">&quot;str&quot;</span>,<span class="string">&#x27;c&#x27;</span>,<span class="literal">true</span>); </span><br><span class="line">  <span class="comment">//Centered alignment + 0 formatting option for numbers </span></span><br><span class="line">  std::cout &lt;&lt; std::format(<span class="string">&quot;&#123;:^07&#125;|&#123;:^07&#125;|&#123;:^7&#125;|&#123;:^7&#125;|&#123;:^7&#125;\n&quot;</span>, <span class="number">1</span>, <span class="number">-.2</span>, <span class="string">&quot;str&quot;</span>, <span class="string">&#x27;c&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1| -0.2|str |c |true</span></span><br><span class="line"><span class="comment">1******|-0.2***|****str|******c|***true </span></span><br><span class="line"><span class="comment">0000001|-0000.2| str | c | true</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><code>&lt;limits&gt;</code></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">std::cout &lt;&lt; <span class="string">&quot;Maximum value of type double is &quot;</span> &lt;&lt; std::numeric_limits&lt;<span class="type">double</span>&gt;::<span class="built_in">max</span>();</span><br></pre></td></tr></table></figure>
+<p>Type <strong>wchar_t</strong> is a fundamental type intended for character sets where a single character does not fit into one byte. Hence its name: wchar_t derives from wide character , because the character is “wider” than the usual one-byte character. By contrast, type char is referred to as “narrow” because of the limited range of character codes that are available. You define wide-character literals in a similar way to literals of type char, but you prefix them with L. Here’s an example:<code>wchar_t z &#123;L'Z'&#125;;</code> use <strong>char8_t, char16_t, or char32_t</strong> instead. Values of these types are intended to store characters encoded as UTF-8, UTF-16, or UTF-32, their prefix are: u8, u16/u, U</p>
+<h2 id="auto">auto</h2>
+<p><strong>Caution</strong> You need to be careful when using braced initializers with the auto keyword. For example, suppose you write this (notice the equals sign!):</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">auto</span> m = &#123;<span class="number">10</span>&#125;; </span><br><span class="line"><span class="comment">// m has type std::initializer_list&lt;int&gt;</span></span><br></pre></td></tr></table></figure>
+<p>To summarize, if your compiler properly supports <strong>C++17</strong>, you can use braced initialization to initialize any variable with a single value, provided you do not combine it with an assignment. If your compiler is not fully up-to-date yet, however, you should simply never use braced initializers with auto. Instead, either explicitly state the type or use assignment or functional notation.</p>
+<h1 id="working-with-fundamental-data-types">3. Working with Fundamental Data Types</h1>
+<p>Remember that the lifetime and scope of a variable are different things. Lifetime is the period of execution time over which a variable survives. Scope is the region of program code over which the variable name can be used. It’s important not to get these two ideas confused.</p>
+<p>Variables defined outside of all blocks and classes are also called <strong>globals and have global scope</strong> (which is also called global namespace scope). This means they’re accessible in all the functions <strong>in the source file</strong> following the point at which they’re defined. If you define them at the beginning of a source file, they’ll be accessible throughout the file. In Chapter 11, we’ll show how to declare variables that can be used in multiple files.Global variables have static storage duration by default. use <code>::</code>to access</p>
+<h1 id="making-decisions">4. Making Decisions</h1>
+<h1 id="arrays-and-loops">5. Arrays and Loops</h1>
+<h1 id="pointers-and-references">6. Pointers and References</h1>
+<h1 id="working-with-strings">7. Working with Strings</h1>
+<h1 id="defining-functions">8. Defining Functions</h1>
+<h1 id="vocabulary-types">9. Vocabulary Types</h1>
+<h1 id="function-templates">10. Function Templates</h1>
+<h1 id="modules-and-namespaces">11. Modules and Namespaces</h1>
+<h1 id="defining-your-own-data-types">12. Defining Your Own Data Types</h1>
+<h1 id="operator-overloading">13. Operator Overloading</h1>
+<h1 id="inheritance">14. Inheritance</h1>
+<h1 id="polymorphism">15. Polymorphism</h1>
+<h1 id="runtime-errors-and-exceptions">16. Runtime Errors and Exceptions</h1>
+<h1 id="class-templates">17. Class Templates</h1>
+<h1 id="move-semantics">18. Move Semantics</h1>
+<h1 id="first-class-functions">19. First-Class Functions</h1>
+<h1 id="containers-and-algorithms">20. Containers and Algorithms</h1>
+<h1 id="constrained-templates-and-concepts">21. Constrained Templates and Concepts</h1>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io">Sinos</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io/2023/01/04/cpp20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/">https://sinos_wei.gitee.io/2023/01/04/cpp20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/cover/IMG_6598.JPG" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2023/01/07/cmake/"><img class="prev-cover" src="/img/cover/IMG_7370.JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">cmake</div></div></a></div><div class="next-post pull-right"><a href="/2022/12/31/ai/"><img class="next-cover" src="/img/cover/IMG_2232.JPG" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">ai</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.PNG" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Sinos</div><div class="author-info__description">己所不欲, 勿施于人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">35</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">16</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">6</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SinosGray"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SinosGray" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1143474942@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#basic-ideas"><span class="toc-number">1.</span> <span class="toc-text">1. Basic Ideas</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#introducing-fundamental-types-of-data"><span class="toc-number">2.</span> <span class="toc-text">2. Introducing Fundamental Types of Data</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#auto"><span class="toc-number">2.1.</span> <span class="toc-text">auto</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#working-with-fundamental-data-types"><span class="toc-number">3.</span> <span class="toc-text">3. Working with Fundamental Data Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#making-decisions"><span class="toc-number">4.</span> <span class="toc-text">4. Making Decisions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#arrays-and-loops"><span class="toc-number">5.</span> <span class="toc-text">5. Arrays and Loops</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#pointers-and-references"><span class="toc-number">6.</span> <span class="toc-text">6. Pointers and References</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#working-with-strings"><span class="toc-number">7.</span> <span class="toc-text">7. Working with Strings</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#defining-functions"><span class="toc-number">8.</span> <span class="toc-text">8. Defining Functions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#vocabulary-types"><span class="toc-number">9.</span> <span class="toc-text">9. Vocabulary Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#function-templates"><span class="toc-number">10.</span> <span class="toc-text">10. Function Templates</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#modules-and-namespaces"><span class="toc-number">11.</span> <span class="toc-text">11. Modules and Namespaces</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#defining-your-own-data-types"><span class="toc-number">12.</span> <span class="toc-text">12. Defining Your Own Data Types</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#operator-overloading"><span class="toc-number">13.</span> <span class="toc-text">13. Operator Overloading</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#inheritance"><span class="toc-number">14.</span> <span class="toc-text">14. Inheritance</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#polymorphism"><span class="toc-number">15.</span> <span class="toc-text">15. Polymorphism</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#runtime-errors-and-exceptions"><span class="toc-number">16.</span> <span class="toc-text">16. Runtime Errors and Exceptions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#class-templates"><span class="toc-number">17.</span> <span class="toc-text">17. Class Templates</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#move-semantics"><span class="toc-number">18.</span> <span class="toc-text">18. Move Semantics</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#first-class-functions"><span class="toc-number">19.</span> <span class="toc-text">19. First-Class Functions</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#containers-and-algorithms"><span class="toc-number">20.</span> <span class="toc-text">20. Containers and Algorithms</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#constrained-templates-and-concepts"><span class="toc-number">21.</span> <span class="toc-text">21. Constrained Templates and Concepts</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2023/01/07/cmake/" title="cmake"><img src="/img/cover/IMG_7370.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cmake"/></a><div class="content"><a class="title" href="/2023/01/07/cmake/" title="cmake">cmake</a><time datetime="2023-01-10T10:17:20.643Z" title="Updated 2023-01-10 18:17:20">2023-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/01/04/cpp20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="cpp20读书笔记"><img src="/img/cover/IMG_6598.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="cpp20读书笔记"/></a><div class="content"><a class="title" href="/2023/01/04/cpp20%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="cpp20读书笔记">cpp20读书笔记</a><time datetime="2023-01-08T08:52:11.949Z" title="Updated 2023-01-08 16:52:11">2023-01-08</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/31/ai/" title="ai"><img src="/img/cover/IMG_2232.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ai"/></a><div class="content"><a class="title" href="/2022/12/31/ai/" title="ai">ai</a><time datetime="2023-01-03T12:55:00.573Z" title="Updated 2023-01-03 20:55:00">2023-01-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/17/tcpip%E8%AF%A6%E8%A7%A3%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="tcpip详解读书笔记"><img src="/img/cover/IMG_2490.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tcpip详解读书笔记"/></a><div class="content"><a class="title" href="/2022/12/17/tcpip%E8%AF%A6%E8%A7%A3%E8%AF%BB%E4%B9%A6%E7%AC%94%E8%AE%B0/" title="tcpip详解读书笔记">tcpip详解读书笔记</a><time datetime="2022-12-30T03:02:34.287Z" title="Updated 2022-12-30 11:02:34">2022-12-30</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/08/insidecpp/" title="insidecpp"><img src="/img/cover/IMG_2367.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="insidecpp"/></a><div class="content"><a class="title" href="/2022/11/08/insidecpp/" title="insidecpp">insidecpp</a><time datetime="2022-12-25T03:20:03.892Z" title="Updated 2022-12-25 11:20:03">2022-12-25</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sinos</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typeset()
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>
