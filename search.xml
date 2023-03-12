@@ -1407,10 +1407,10 @@ A\vec{x} = \vec{v}\\
       </categories>
       <tags>
         <tag>git</tag>
-        <tag>截屏2020</tag>
         <tag>commit</tag>
         <tag>objects</tag>
         <tag>txt</tag>
+        <tag>file</tag>
       </tags>
   </entry>
   <entry>
@@ -2815,7 +2815,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>font</tag>
         <tag>face</tag>
         <tag>color</tag>
-        <tag>233</tag>
+        <tag>yes</tag>
       </tags>
   </entry>
   <entry>
@@ -3556,7 +3556,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>num</tag>
         <tag>order</tag>
         <tag>email</tag>
-        <tag>name</tag>
+        <tag>prod</tag>
       </tags>
   </entry>
   <entry>
@@ -5061,10 +5061,10 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
       </categories>
       <tags>
         <tag>cstring</tag>
-        <tag>255</tag>
         <tag>module</tag>
         <tag>loadstring</tag>
         <tag>ids</tag>
+        <tag>str</tag>
       </tags>
   </entry>
   <entry>
@@ -5087,55 +5087,10 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
       </categories>
       <tags>
         <tag>org</tag>
-        <tag>255</tag>
         <tag>wiki</tag>
         <tag>ethernet</tag>
         <tag>wikipedia</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>gatsbyjs</title>
-    <url>/2023/03/326c1c55cb87.html</url>
-    <content><![CDATA[<div class="hbe hbe-container" id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
-  <script id="hbeData" type="hbeData" data-hmacdigest="ce0370328d21cead7af143e113368d32bf43620a9637c7d9695569f3cd805b09">3a5a033e128904461ecff31443a75b85773732e839f348154716694284a812f5c8d52bd5b6b064c9d90abb21d775268a3f7080bde86c643b0f954e35aa8e5c8a1b952b38a9e65e6dc98d1bb6c6732b59a2c94f526928fbe910b06d1720d7c029</script>
-  <div class="hbe hbe-content">
-    <div class="hbe hbe-input hbe-input-default">
-      <input class="hbe hbe-input-field hbe-input-field-default" type="password" id="hbePass">
-      <label class="hbe hbe-input-label hbe-input-label-default" for="hbePass">
-        <span class="hbe hbe-input-label-content hbe-input-label-content-default">Hey, password is required here.</span>
-      </label>
-    </div>
-  </div>
-</div>
-<script data-pjax src="/lib/hbe.js"></script><link href="/css/hbe.style.css" rel="stylesheet" type="text/css">]]></content>
-      <categories>
-        <category>undefined</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>rust</title>
-    <url>/2023/03/8e79e78184fa.html</url>
-    <content><![CDATA[<blockquote>
-
-</blockquote>
-<span id="more"></span>
-<h1 id="安装">安装</h1>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl --proto &#x27;=https&#x27; --tlsv1.2 https://sh.rustup.rs -sSf | sh</span><br></pre></td></tr></table></figure>
-<p>检查环境变量</p>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
-<h2 id="section">?</h2>
-<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Tuples can be used as function arguments and as return values</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">reverse</span>(pair: (<span class="type">i32</span>, <span class="type">bool</span>)) <span class="punctuation">-&gt;</span> (<span class="type">bool</span>, <span class="type">i32</span>) &#123;</span><br><span class="line">    <span class="comment">// `let` can be used to bind the members of a tuple to variables</span></span><br><span class="line">    <span class="keyword">let</span> (int_param, bool_param) = pair;</span><br><span class="line"></span><br><span class="line">    (bool_param, int_param)</span><br><span class="line">  <span class="comment">//return ?</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// The following struct is for the activity.</span></span><br><span class="line"><span class="meta">#[derive(Debug)]</span><span class="comment">//?</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Matrix</span>(<span class="type">f32</span>, <span class="type">f32</span>, <span class="type">f32</span>, <span class="type">f32</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="comment">// A tuple with a bunch of different types</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">long_tuple</span> = (<span class="number">1u8</span>, <span class="number">2u16</span>, <span class="number">3u32</span>, <span class="number">4u64</span>,</span><br><span class="line">                      -<span class="number">1i8</span>, -<span class="number">2i16</span>, -<span class="number">3i32</span>, -<span class="number">4i64</span>,</span><br><span class="line">                      <span class="number">0.1f32</span>, <span class="number">0.2f64</span>,</span><br><span class="line">                      <span class="string">&#x27;a&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Values can be extracted from the tuple using tuple indexing</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;long tuple first value: &#123;&#125;&quot;</span>, long_tuple.<span class="number">0</span>);<span class="comment">// .</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;long tuple second value: &#123;&#125;&quot;</span>, long_tuple.<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Tuples can be tuple members</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">tuple_of_tuples</span> = ((<span class="number">1u8</span>, <span class="number">2u16</span>, <span class="number">2u32</span>), (<span class="number">4u64</span>, -<span class="number">1i8</span>), -<span class="number">2i16</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Tuples are printable</span></span><br><span class="line">  <span class="comment">//&#123;:?&#125;?</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;tuple of tuples: &#123;:?&#125;&quot;</span>, tuple_of_tuples);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// But long Tuples (more than 12 elements) cannot be printed</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">pair</span> = (<span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;pair is &#123;:?&#125;&quot;</span>, pair);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;the reversed pair is &#123;:?&#125;&quot;</span>, <span class="title function_ invoke__">reverse</span>(pair));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// To create one element tuples, the comma is required to tell them apart</span></span><br><span class="line">    <span class="comment">// from a literal surrounded by parentheses</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;one element tuple: &#123;:?&#125;&quot;</span>, (<span class="number">5u32</span>,));</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;just an integer: &#123;:?&#125;&quot;</span>, (<span class="number">5u32</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//tuples can be destructured to create bindings</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">tuple</span> = (<span class="number">1</span>, <span class="string">&quot;hello&quot;</span>, <span class="number">4.5</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> (a, b, c, d) = tuple;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;:?&#125;, &#123;:?&#125;, &#123;:?&#125;, &#123;:?&#125;&quot;</span>, a, b, c, d);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">matrix</span> = <span class="title function_ invoke__">Matrix</span>(<span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">2.1</span>, <span class="number">2.2</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;:?&#125;&quot;</span>, matrix);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="variable">xs</span>: [<span class="type">i32</span>; <span class="number">5</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// All elements can be initialized to the same value</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">ys</span>: [<span class="type">i32</span>; <span class="number">500</span>] = [<span class="number">0</span>; <span class="number">500</span>];</span><br></pre></td></tr></table></figure>
-<p>Slices are similar to arrays, but their length is not known at compile time. Instead, a slice is a two-word object, <strong>the first word is a pointer to the data, and the second word is the length of the slice.</strong></p>
-]]></content>
-      <categories>
-        <category>undefined</category>
-      </categories>
-      <tags>
-        <tag>tuple</tag>
-        <tag>tuples</tag>
-        <tag>println</tag>
-        <tag>let</tag>
-        <tag>pair</tag>
+        <tag>network</tag>
       </tags>
   </entry>
   <entry>
@@ -8070,7 +8025,7 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>cpu</tag>
         <tag>cas</tag>
         <tag>dma</tag>
-        <tag>截屏2021</tag>
+        <tag>channel</tag>
       </tags>
   </entry>
   <entry>
@@ -8831,7 +8786,7 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>networks</tag>
         <tag>server</tag>
         <tag>network</tag>
-        <tag>layer</tag>
+        <tag>routing</tag>
       </tags>
   </entry>
   <entry>
@@ -9455,6 +9410,800 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>vtable</tag>
         <tag>offset</tag>
         <tag>member</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>blogs</title>
+    <url>/2023/03/558c2ce4f43d.html</url>
+    <content><![CDATA[<blockquote>
+
+</blockquote>
+<span id="more"></span>
+<h1 id="what-is-chatgpt-doing-and-why-does-it-work">What Is ChatGPT Doing … and Why Does It Work?</h1>
+<p>“reasonable continuation”</p>
+<p>produces a ranked list of words that might follow, together with “probabilities</p>
+<p><strong>“temperature”</strong> parameter that determines how often lower-ranked words will be used, and for essay generation, it turns out that a “temperature” of 0.8 seems best.</p>
+<p>“large language model” (LLM)</p>
+<h1 id="how-browsers-work">How browsers work</h1>
+<p>W3C (World Wide Web Consortium)</p>
+<h2 id="main-conponents">main conponents</h2>
+<ol type="1">
+<li><strong>The user interface</strong>: this includes the address bar, back/forward button, bookmarking menu, etc. Every part of the browser display except the window where you see the requested page.</li>
+<li><strong>The browser engine</strong>: marshals actions between the UI and the rendering engine.</li>
+<li><strong>The rendering engine</strong>: responsible for displaying requested content. For example if the requested content is HTML, the rendering engine parses HTML and CSS, and displays the parsed content on the screen.(WebKit) include a <strong>parser</strong>(类似编译, 包括词法分析和语法分析) 其中注意, html 的解析允许有错误, 并且可能被一边翻译一边修改(执行脚本), 不是 context free grammar, 而 CSS 是 context free 的 render dirty bit</li>
+<li><strong>Networking</strong>: for network calls such as HTTP requests, using different implementations for different platform behind a platform-independent interface.</li>
+<li><strong>UI backend</strong>: used for drawing basic widgets like combo boxes and windows. This backend exposes a generic interface that is not platform specific. Underneath it uses operating system user interface methods.</li>
+<li><strong>JavaScript interpreter</strong>. Used to parse and execute JavaScript code.</li>
+<li><strong>Data storage</strong>. This is a persistence layer. The browser may need to save all sorts of data locally, such as cookies. Browsers also support storage mechanisms such as localStorage, IndexedDB, WebSQL and FileSystem.</li>
+</ol>
+<figure>
+<img src="https://raindrop-preview-prod.exentrich.workers.dev/img?url=https%3A%2F%2Fweb-dev.imgix.net%2Fimage%2FT4FyVKpzu4WKF1kBNvXepbi08t52%2FPgPX6ZMyKSwF6kB8zIhB.png%3Fauto%3Dformat" alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+<p>Chrome run multiple instances of the rendering engine: one for each tab. Each tab runs in a separate process.</p>
+<figure>
+<img src="https://raindrop-preview-prod.exentrich.workers.dev/img?url=https%3A%2F%2Fweb-dev.imgix.net%2Fimage%2FT4FyVKpzu4WKF1kBNvXepbi08t52%2FS9TJhnMX1cu1vrYuQRqM.png%3Fauto%3Dformat" alt="img" /><figcaption aria-hidden="true">img</figcaption>
+</figure>
+]]></content>
+      <tags>
+        <tag>interface</tag>
+        <tag>img</tag>
+        <tag>https</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>rust</title>
+    <url>/2023/03/8e79e78184fa.html</url>
+    <content><![CDATA[<blockquote>
+
+</blockquote>
+<span id="more"></span>
+<h1 id="安装">安装</h1>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">curl --proto &#x27;=https&#x27; --tlsv1.2 https://sh.rustup.rs -sSf | sh</span><br></pre></td></tr></table></figure>
+<p>检查环境变量</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;</span><br></pre></td></tr></table></figure>
+<h2 id="section">?</h2>
+<figure class="highlight rust"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Tuples can be used as function arguments and as return values</span></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">reverse</span>(pair: (<span class="type">i32</span>, <span class="type">bool</span>)) <span class="punctuation">-&gt;</span> (<span class="type">bool</span>, <span class="type">i32</span>) &#123;</span><br><span class="line">    <span class="comment">// `let` can be used to bind the members of a tuple to variables</span></span><br><span class="line">    <span class="keyword">let</span> (int_param, bool_param) = pair;</span><br><span class="line"></span><br><span class="line">    (bool_param, int_param)</span><br><span class="line">  <span class="comment">//return ?</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// The following struct is for the activity.</span></span><br><span class="line"><span class="meta">#[derive(Debug)]</span><span class="comment">//?</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">Matrix</span>(<span class="type">f32</span>, <span class="type">f32</span>, <span class="type">f32</span>, <span class="type">f32</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">fn</span> <span class="title function_">main</span>() &#123;</span><br><span class="line">    <span class="comment">// A tuple with a bunch of different types</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">long_tuple</span> = (<span class="number">1u8</span>, <span class="number">2u16</span>, <span class="number">3u32</span>, <span class="number">4u64</span>,</span><br><span class="line">                      -<span class="number">1i8</span>, -<span class="number">2i16</span>, -<span class="number">3i32</span>, -<span class="number">4i64</span>,</span><br><span class="line">                      <span class="number">0.1f32</span>, <span class="number">0.2f64</span>,</span><br><span class="line">                      <span class="string">&#x27;a&#x27;</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Values can be extracted from the tuple using tuple indexing</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;long tuple first value: &#123;&#125;&quot;</span>, long_tuple.<span class="number">0</span>);<span class="comment">// .</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;long tuple second value: &#123;&#125;&quot;</span>, long_tuple.<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Tuples can be tuple members</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">tuple_of_tuples</span> = ((<span class="number">1u8</span>, <span class="number">2u16</span>, <span class="number">2u32</span>), (<span class="number">4u64</span>, -<span class="number">1i8</span>), -<span class="number">2i16</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Tuples are printable</span></span><br><span class="line">  <span class="comment">//&#123;:?&#125;?</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;tuple of tuples: &#123;:?&#125;&quot;</span>, tuple_of_tuples);</span><br><span class="line">    </span><br><span class="line">    <span class="comment">// But long Tuples (more than 12 elements) cannot be printed</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">pair</span> = (<span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;pair is &#123;:?&#125;&quot;</span>, pair);</span><br><span class="line"></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;the reversed pair is &#123;:?&#125;&quot;</span>, <span class="title function_ invoke__">reverse</span>(pair));</span><br><span class="line"></span><br><span class="line">    <span class="comment">// To create one element tuples, the comma is required to tell them apart</span></span><br><span class="line">    <span class="comment">// from a literal surrounded by parentheses</span></span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;one element tuple: &#123;:?&#125;&quot;</span>, (<span class="number">5u32</span>,));</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;just an integer: &#123;:?&#125;&quot;</span>, (<span class="number">5u32</span>));</span><br><span class="line"></span><br><span class="line">    <span class="comment">//tuples can be destructured to create bindings</span></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">tuple</span> = (<span class="number">1</span>, <span class="string">&quot;hello&quot;</span>, <span class="number">4.5</span>, <span class="literal">true</span>);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> (a, b, c, d) = tuple;</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;:?&#125;, &#123;:?&#125;, &#123;:?&#125;, &#123;:?&#125;&quot;</span>, a, b, c, d);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">let</span> <span class="variable">matrix</span> = <span class="title function_ invoke__">Matrix</span>(<span class="number">1.1</span>, <span class="number">1.2</span>, <span class="number">2.1</span>, <span class="number">2.2</span>);</span><br><span class="line">    <span class="built_in">println!</span>(<span class="string">&quot;&#123;:?&#125;&quot;</span>, matrix);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="variable">xs</span>: [<span class="type">i32</span>; <span class="number">5</span>] = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line">    <span class="comment">// All elements can be initialized to the same value</span></span><br><span class="line"><span class="keyword">let</span> <span class="variable">ys</span>: [<span class="type">i32</span>; <span class="number">500</span>] = [<span class="number">0</span>; <span class="number">500</span>];</span><br></pre></td></tr></table></figure>
+<p>Slices are similar to arrays, but their length is not known at compile time. Instead, a slice is a two-word object, <strong>the first word is a pointer to the data, and the second word is the length of the slice.</strong></p>
+]]></content>
+      <categories>
+        <category>undefined</category>
+      </categories>
+      <tags>
+        <tag>tuple</tag>
+        <tag>tuples</tag>
+        <tag>println</tag>
+        <tag>let</tag>
+        <tag>pair</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>代码大全读书笔记</title>
+    <url>/2023/03/8fb81ad8abe1.html</url>
+    <content><![CDATA[<blockquote>
+
+</blockquote>
+<span id="more"></span>
+<h1 id="第1章-欢迎进入软件构建的世界">第1章 欢迎进入软件构建的世界</h1>
+<h2 id="什么是软件构建">1.1 什么是软件构建</h2>
+<p>详细设计, 编码, 调试, 集成, 开发者测试 构建产生源代码</p>
+<h2 id="软件构建为何如此重要">1.2 软件构建为何如此重要</h2>
+<h2 id="如何阅读本书">1.3 如何阅读本书</h2>
+<h1 id="第2章-用隐喻来更充分地理解软件开发">第2章 用隐喻来更充分地理解软件开发</h1>
+<h2 id="隐喻的重要性">2.1 隐喻的重要性</h2>
+<p>建模</p>
+<h2 id="如何使用软件隐喻">2.2 如何使用软件隐喻</h2>
+<h2 id="常见的软件隐喻">2.3 常见的软件隐喻</h2>
+<h1 id="第3章-三思而后行前期准备">第3章 三思而后行：前期准备</h1>
+<h2 id="前期准备的重要性">3.1 前期准备的重要性</h2>
+<h2 id="辨明你所从事的软件的类型">3.2 辨明你所从事的软件的类型</h2>
+<h3 id="在序列式开发法和迭代式开发法之间做出选择">在序列式开发法和迭代式开发法之间做出选择</h3>
+<p>以下更适合序列化开发 - 需求稳定 - 设计直截了当 - 团队对此领域熟悉 - 风险小 - 需要长期可预测性 - 后期改变需求代价昂贵</p>
+<p>以下更适合迭代方法 - 需求不稳定 - 设计复杂 - 团队对领域不熟悉 - 风险多 - 不需要长期可预测性 - 后期改变需求代价低</p>
+<h2 id="问题定义的先决条件">3.3 问题定义的先决条件</h2>
+<p>从客户的角度出发</p>
+<h2 id="需求的先决条件">3.4 需求的先决条件</h2>
+<p>针对功能需求 - 是否详细定义了输入输出 - 是否定义输出格式 - 是否定义软硬件接口 - 是否定义通信接口协议 - 是否列出用户所有需求 - 是否定于每个任务需要和得到的数据</p>
+<h2 id="架构的先决条件">3.5 架构的先决条件</h2>
+<h3 id="架构的典型组成部分">架构的典型组成部分</h3>
+<ul>
+<li>程序组织</li>
+<li>主要的类</li>
+<li>数据设计</li>
+<li>业务规则</li>
+<li>ui</li>
+<li>资源管理</li>
+<li>安全性</li>
+<li>性能</li>
+<li>可伸缩性</li>
+<li>互用性</li>
+<li>国际化</li>
+<li>输入输出</li>
+<li>错误处理</li>
+<li>容错性</li>
+<li>可行性</li>
+<li>过度工程</li>
+</ul>
+<h2 id="花费在前期准备上的时间长度">3.6 花费在前期准备上的时间长度</h2>
+<h1 id="第4章-关键的构建决策">第4章 关键的“构建”决策</h1>
+<h2 id="选择编程语言">4.1 选择编程语言</h2>
+<h2 id="编程约定">4.2 编程约定</h2>
+<h2 id="你在技术浪潮中的位置">4.3 你在技术浪潮中的位置</h2>
+<h2 id="选择主要的构建实践方法">4.4 选择主要的构建实践方法</h2>
+<h1 id="第5章-软件构建中的设计">第5章 软件构建中的设计</h1>
+<h2 id="设计中的挑战">5.1 设计中的挑战</h2>
+<ul>
+<li>设计是一个险恶的问题 险恶(wicked)问题: 只有通过解决或者部分解决才能被明确的问题</li>
+<li>设计是个了无章法的过程（即使它能得出清爽的成果）</li>
+<li>设计就是确定取舍和调整顺序的过程</li>
+<li>设计受到诸多限制</li>
+<li>设计是不确定的</li>
+<li>设计是一个启发式过程(探索性)</li>
+<li>设计是自然而然形成的</li>
+</ul>
+<h2 id="关键的设计概念">5.2 关键的设计概念</h2>
+<h3 id="软件的首要技术任务管理复杂度">软件的首要技术任务：管理复杂度</h3>
+<h3 id="理想的设计特征">理想的设计特征</h3>
+<h3 id="设计的层次">设计的层次</h3>
+<ul>
+<li>软件系统</li>
+<li>子系统或包</li>
+<li>类</li>
+<li>子程序</li>
+<li>子程序内部</li>
+</ul>
+<h2 id="设计构造块启发式方法">5.3 设计构造块：启发式方法</h2>
+<h3 id="关于设计启发的总结">关于设计启发的总结</h3>
+<ul>
+<li>寻找现实世界的对象</li>
+<li>形成一致的抽象画</li>
+<li>封装实现细节</li>
+<li>在可能得情况下继承</li>
+<li>信息隐藏</li>
+<li>找到容易改变的区域</li>
+<li>松散耦合</li>
+<li>通用设计模式</li>
+</ul>
+<h2 id="设计实践">5.4 设计实践</h2>
+<h2 id="对流行的设计方法的评论">5.5 对流行的设计方法的评论</h2>
+<h1 id="第6章-可以工作的类">第6章 可以工作的类</h1>
+<h2 id="类的基础抽象数据类型-abstract-data-types-adts">6.1 类的基础：抽象数据类型 abstract data types ADTs</h2>
+<h2 id="良好的类接口">6.2 良好的类接口</h2>
+<p><strong>少暴露信息</strong>! 可访问性尽可能低</p>
+<p>每个接口都由一个可编程(programmatic)的部分和 一个语义(sernantic)部分组成。可编程的部分由接又中的数据 类 型 和 其 他 属 性 构 成 ， 编 译 器 能 强 制 性 地 要 求 它 们 ( 在 编 译 时 检 查 错 误 )。 而 语 义 部分则由“本接口将会被怎样使用” 的假定组成，而这些是无法通过编译器来强 制实施的。</p>
+<p>Scott Meyers在《EffectiveC++》一书第2版中的第34条里介绍了可以解决 这个问题的一个惯用技法(Meyers 1998)。他建议你把类的接又与类的实现隔离开，并在类的声明中包含一个指针，让该指针指向类的实现，但不能包含任何其 他实现细节。</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Employee</span>&#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  ...</span><br><span class="line">  <span class="built_in">Employee</span>();</span><br><span class="line">  ...</span><br><span class="line">  <span class="function">FullName <span class="title">GetName</span><span class="params">()</span></span>;</span><br><span class="line">  <span class="function">String <span class="title">GetAddress</span><span class="params">()</span></span>;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  EmployeeImplementation *m_implementation;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="有关设计和实现的问题">6.3 有关设计和实现的问题</h2>
+<h3 id="包含有一个的关系">包含（“有一个……”的关系）</h3>
+<p>警惕有超过约7个数据成员的类 研究表明，人们在做其他事情时能记住的 离 散 项 目 的 个 数 是 <strong>7 士 2</strong> (Miller 1956)。</p>
+<h3 id="继承是一个关系">继承（“是一个……”关系）</h3>
+<p>什么时候继承</p>
+<ul>
+<li>如果多个类共享数据而非行为，应该创建这些类可以包含的共用对象。</li>
+<li>如果多个类共享行为而非数据，应该让它们从共同的基类继承而来，并在基 类里定义共用的子程序。</li>
+<li>如果多个类既共享数据也共享行为，应该让它们从一 个共同的基类继承而 来，并在基类里定义共用的数据和子程序。</li>
+<li>当你想由基类控制接口时，使用继承;当你想自己控制接口时，使用包含。</li>
+</ul>
+<h2 id="创建类的原因">6.4 创建类的原因</h2>
+<ul>
+<li>为现实世界中的对象建模</li>
+<li>为抽象的对象建模</li>
+<li>降低复杂度</li>
+<li>隔离复杂度</li>
+<li>隐藏实现细节</li>
+<li>限制变动的影响范围</li>
+<li>建立中心控制点</li>
+<li>代码重用</li>
+</ul>
+<h2 id="与具体编程语言相关的问题">6.5 与具体编程语言相关的问题</h2>
+<p>virtual</p>
+<h2 id="超越类包">6.6 超越类：包</h2>
+<h1 id="第7章-高质量的子程序">第7章 高质量的子程序</h1>
+<h2 id="创建子程序的正当理由">7.1 创建子程序的正当理由</h2>
+<ul>
+<li>降低复杂度, 特别是嵌套层次很深时</li>
+<li>引入中间抽象, 用子程序说明代码用意</li>
+<li>避免代码重复</li>
+<li>隐藏执行顺序</li>
+<li>简化 bool 判断</li>
+</ul>
+<h3 id="似乎过于简单而没必要写成子程序的操作">似乎过于简单而没必要写成子程序的操作</h3>
+<p>可以增加可读性</p>
+<h2 id="在子程序层上设计">7.2 在子程序层上设计</h2>
+<p><strong>内聚性</strong></p>
+<p>最好的内聚性: 功能内聚性</p>
+<h2 id="好的子程序名字">7.3 好的子程序名字</h2>
+<ul>
+<li><p>好的子程序名字应该描述所有的输出结果和副作用</p></li>
+<li><p>使用准确的动词和动宾短语</p></li>
+<li><p>不要有数字(1, 2, 3)</p></li>
+<li><p>9~15 字符</p></li>
+<li><p>对仗 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">add/remove  </span><br><span class="line">begin/end </span><br><span class="line">create/destroy </span><br><span class="line">first/last</span><br><span class="line">get/put </span><br><span class="line">get/set</span><br><span class="line">increment/decrement </span><br><span class="line">insert/delete </span><br><span class="line">lock/unlock </span><br><span class="line">min/max</span><br><span class="line">next/previous </span><br><span class="line">old/new</span><br><span class="line">open/close </span><br><span class="line">show/hide</span><br><span class="line">source/target </span><br><span class="line">start/stop</span><br><span class="line">up/down</span><br></pre></td></tr></table></figure></p></li>
+</ul>
+<h2 id="子程序可以写多长">7.4 子程序可以写多长</h2>
+<p>50 rows</p>
+<h2 id="如何使用子程序参数">7.5 如何使用子程序参数</h2>
+<ul>
+<li>按照输入-修改-输出排列参数</li>
+<li>不同子程序的类似参数要顺序一致</li>
+<li>状态变量放在最后</li>
+<li>不要把子程序参数用作 工作变量</li>
+<li>断言判断参数假定</li>
+<li>参数&lt;=7 个</li>
+</ul>
+<h2 id="使用函数时要特别考虑的问题">7.6 使用函数时要特别考虑的问题</h2>
+<p>不要返回局部数据的引用和指针</p>
+<h2 id="宏子程序和内联子程序">7.7 宏子程序和内联子程序</h2>
+<h1 id="第8章-防范式编程">第8章 防范式编程</h1>
+<h2 id="保护程序免遭无效输入数据的破坏">8.1 保护程序免遭无效输入数据的破坏</h2>
+<ul>
+<li>检查来源于外部的数据的值</li>
+<li>检查子程序输入参数的值</li>
+<li>决定如何处理错误的输出数据</li>
+</ul>
+<h2 id="断言">8.2 断言</h2>
+<ul>
+<li>用错误处理代码来处理预期会发生的状况，用断言来处理绝不应该发生的状 况</li>
+<li>避免把需要执行的代码放到断言中</li>
+<li>用断言来注解并验证前条件和后条件</li>
+</ul>
+<h2 id="错误处理技术">8.3 错误处理技术</h2>
+<h2 id="异常">8.4 异常</h2>
+<h2 id="隔离程序以免遭由错误造成的损害">8.5 隔离程序以免遭由错误造成的损害</h2>
+<h2 id="辅助调试代码">8.6 辅助调试代码</h2>
+<h3 id="不要自动地把产品版本的限制强加于开发版本之上">不要自动地把产品版本的限制强加于开发版本之上</h3>
+<h3 id="尽早引入辅助调试的手段">尽早引入辅助调试的手段</h3>
+<h3 id="采用冒进式编程">采用冒进式编程</h3>
+<h3 id="计划移除调试辅助代码">计划移除调试辅助代码</h3>
+<h2 id="确定在产品代码中该保留多少防范式代码">8.7 确定在产品代码中该保留多少防范式代码</h2>
+<h2 id="防范式编程时保持防范">8.8 防范式编程时保持防范</h2>
+<h1 id="第9章-伪代码编程过程">第9章 伪代码编程过程</h1>
+<h2 id="创建类和子程序的步骤概述">9.1 创建类和子程序的步骤概述</h2>
+<h2 id="伪代码">9.2 伪代码</h2>
+<h2 id="通过伪代码编程过程创建子程序">9.3 通过伪代码编程过程创建子程序</h2>
+<h2 id="伪代码编程过程之外的其他方案">9.4 伪代码编程过程之外的其他方案</h2>
+<h1 id="第10章-使用变量的一般事项">第10章 使用变量的一般事项</h1>
+<h2 id="数据认知">10.1 数据认知</h2>
+<h2 id="轻松掌握变量定义">10.2 轻松掌握变量定义</h2>
+<h2 id="变量初始化原则">10.3 变量初始化原则</h2>
+<p>声明时初始化</p>
+<p>靠近时初始化</p>
+<h2 id="作用域">10.4 作用域</h2>
+<p>使变量引用局部化</p>
+<p>尽可能缩短变量的“存活”时间</p>
+<h2 id="持续性">10.5 持续性</h2>
+<h2 id="绑定时间">10.6 绑定时间</h2>
+<h2 id="数据类型和控制结构之间的关系">10.7 数据类型和控制结构之间的关系</h2>
+<h2 id="为变量指定单一用途">10.8 为变量指定单一用途</h2>
+<h1 id="第11章-变量名的力量">第11章 变量名的力量</h1>
+<h2 id="选择好变量名的注意事项">11.1 选择好变量名的注意事项</h2>
+<h3 id="最适当的名字长度">最适当的名字长度</h3>
+<p>10~16</p>
+<p>短的变量名用于临时变量</p>
+<h3 id="变量名字中的计算值限定词">变量名字中的计算值限定词</h3>
+<p>限定词放在最后</p>
+<p>(把计算的量放在名字最后的这条规则也有例外，那就是 Num限定词的位置已经是约定俗成的。Num放在变量名的开始位置代表 一个总数)</p>
+<h3 id="变量名字中的常用对仗词">变量名字中的常用对仗词</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">begin/end</span><br><span class="line">first/last</span><br><span class="line">locked/unlocked</span><br><span class="line">min/max</span><br><span class="line">next/previous</span><br><span class="line">old/new </span><br><span class="line">opened/closed </span><br><span class="line">visible/invisible</span><br><span class="line">source/target </span><br><span class="line">source/destination </span><br><span class="line">up/down</span><br></pre></td></tr></table></figure>
+<h2 id="为特定类型的数据命名">11.2 为特定类型的数据命名</h2>
+<h3 id="为状态变量命名">为状态变量命名</h3>
+<p>少用<code>flag</code>多用 bool</p>
+<h3 id="为临时变量命名">为临时变量命名</h3>
+<h3 id="为布尔变量命名">为布尔变量命名</h3>
+<ul>
+<li>done</li>
+<li>error</li>
+<li>found</li>
+<li>success/ok</li>
+<li>not</li>
+</ul>
+<h3 id="为枚举类型命名">为枚举类型命名</h3>
+<p><code>Color_Red</code></p>
+<h2 id="命名规则的力量">11.3 命名规则的力量</h2>
+<h2 id="非正式命名规则">11.4 非正式命名规则</h2>
+<h3 id="语言无关规则的指导原则">语言无关规则的指导原则</h3>
+<p>区分变量和子程序</p>
+<p>区分类和对象</p>
+<p>标识全局变量</p>
+<p>标识成员变量</p>
+<p>标识类型</p>
+<p>标识具名常量</p>
+<p>标识枚举</p>
+<p>标识只读</p>
+<h3 id="语言相关规则的指导原则">语言相关规则的指导原则</h3>
+<h3 id="混合语言编程的注意事项">混合语言编程的注意事项</h3>
+<h2 id="标准前缀">11.5 标准前缀</h2>
+<h3 id="用户自定义类型缩写">用户自定义类型缩写</h3>
+<p>比如, ch, doc, scr, wn</p>
+<h3 id="语义前缀">语义前缀</h3>
+<p>c, m, g</p>
+<h2 id="创建具备可读性的短名称">11.6 创建具备可读性的短名称</h2>
+<h3 id="一般的缩写指导原则">一般的缩写指导原则</h3>
+<p>去掉非前置元音</p>
+<h3 id="语音缩写">语音缩写</h3>
+<p>不提倡</p>
+<h2 id="应该避免的名称">11.7 应该避免的名称</h2>
+<h1 id="第12章-基本数据类型">第12章 基本数据类型</h1>
+<h2 id="使用数的普遍规则">12.1 使用数的普遍规则</h2>
+<p>magic number: 没有经过解释的数值文字量</p>
+<p>预防除 0</p>
+<h2 id="整数">12.2 整数</h2>
+<p>除法, 溢出</p>
+<h2 id="浮点数">12.3 浮点数</h2>
+<p>避免数量级相差太大的加减</p>
+<p>避免等量判断</p>
+<p>舍入</p>
+<h2 id="字符和字符串">12.4 字符和字符串</h2>
+<p>避免 magic str</p>
+<p>国际化</p>
+<p>unicode</p>
+<h2 id="布尔变量">12.5 布尔变量</h2>
+<p>用布尔变量说明代码含义</p>
+<h2 id="枚举类型">12.6 枚举类型</h2>
+<p>枚举提高可靠性</p>
+<p>检查非法数值</p>
+<p>定义第一项和最后一项用于循环边界</p>
+<p>将第一个元素预留作为非法值</p>
+<h2 id="命名常量">12.7 命名常量</h2>
+<p>避免使用文字量</p>
+<h2 id="数组">12.8 数组</h2>
+<p>越界, 边界</p>
+<p>用容器替代</p>
+<h2 id="创建你自己的类型类型别名">12.9 创建你自己的类型（类型别名）</h2>
+<ul>
+<li>减少信息分发(隐藏信息)</li>
+<li>用于代码说明</li>
+<li>便于移植</li>
+</ul>
+<h1 id="第13章-不常见的数据类型">第13章 不常见的数据类型</h1>
+<h2 id="结构">13.1 结构</h2>
+<p>用结构体简化参数列表</p>
+<h2 id="指针">13.2 指针</h2>
+<p>从概念上看，每一个指针都包舍两个部分:内存中的某处位置，以及如何解 释该位置中的内容。</p>
+<ul>
+<li>把指针操作限制在子程序或者类中</li>
+<li>同时声明和定义</li>
+<li>分配和释放</li>
+<li>使用前检查</li>
+<li>狗牌(tag, 增加荣誉)</li>
+<li>删除后置空</li>
+</ul>
+<h2 id="全局数据">13.3 全局数据</h2>
+<h3 id="用访问子程序来取代全局数据">用访问子程序来取代全局数据</h3>
+<h1 id="第14章-组织直线型代码">第14章 组织直线型代码</h1>
+<h2 id="必须有明确顺序的语句">14.1 必须有明确顺序的语句</h2>
+<ul>
+<li>使子程序名能突显依赖关系</li>
+<li>利用子程序参数明确依赖关系</li>
+</ul>
+<h2 id="顺序无关的语句">14.2 顺序无关的语句</h2>
+<h3 id="把相关的语句组织在一起">把相关的语句组织在一起</h3>
+<h1 id="第15章-使用条件语句">第15章 使用条件语句</h1>
+<h2 id="if语句">15.1 if语句</h2>
+<ul>
+<li>先写正常代码路径, 再写不正常</li>
+<li>正常情况放在 if 后而不是 else 后</li>
+<li>if 后跟一个有意义的语句</li>
+</ul>
+<h2 id="case语句">15.2 case语句</h2>
+<h3 id="为case选择最有效的排序">为case选择最有效的排序</h3>
+<p>最常执行的放在最前面</p>
+<p>不要刻意使用 case, 如果处理复杂请使用 if</p>
+<h1 id="第16章-控制循环">第16章 控制循环</h1>
+<h2 id="选择循环的种类">16.1 选择循环的种类</h2>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line">score = <span class="number">0</span>;</span><br><span class="line"><span class="built_in">GetNextRating</span>(&amp;ratingIncrement);</span><br><span class="line">rating = rating + ratingIncrement;</span><br><span class="line"><span class="keyword">while</span> ((score &lt; targetScore) &amp;&amp; (ratingIncrement != <span class="number">0</span>)) &#123;</span><br><span class="line">    <span class="built_in">GetNextScore</span>(&amp;scoreIncrement);</span><br><span class="line">    score = score + scoreIncrement;</span><br><span class="line">    <span class="built_in">GetNextRating</span>(&amp;ratingIncrement);</span><br><span class="line">    rating = rating + ratingIncrement;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//修改为↓</span></span><br><span class="line">score = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="built_in">GetNextRating</span>(&amp;ratingIncrement);</span><br><span class="line">    rating = rating + ratingIncrement;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (!((score &lt; targetScore) &amp;&amp; (ratingIncrement ! = <span class="number">0</span>)))</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">GetextScore</span>(&amp;scoreIncrement);</span><br><span class="line">    score = score + scoreincrement;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把退出条件写在一起</li>
+</ul>
+<h2 id="循环控制">16.2 循环控制</h2>
+<h3 id="进入循环">进入循环</h3>
+<p>初始化代码紧跟循环开始之后</p>
+<h3 id="处理好循环体">处理好循环体</h3>
+<p>循环内务放在最后(计数器等)</p>
+<h3 id="退出循环">退出循环</h3>
+<h3 id="检查端点">检查端点</h3>
+<p>off-by-one</p>
+<h3 id="使用循环变量">使用循环变量</h3>
+<h3 id="循环应该有多长">循环应该有多长</h3>
+<p>同子程序</p>
+<h2 id="轻松创建循环由内而外">16.3 轻松创建循环——由内而外</h2>
+<h2 id="循环和数组的关系">16.4 循环和数组的关系</h2>
+<h1 id="第17章-不常见的控制结构">第17章 不常见的控制结构</h1>
+<h2 id="子程序中的多个返回">17.1 子程序中的多个返回</h2>
+<p>及时循环避免多层 if 嵌套</p>
+<h2 id="递归">17.2 递归</h2>
+<ul>
+<li>安全计数器防止无限递归</li>
+</ul>
+<h2 id="goto">17.3 goto</h2>
+<h2 id="对不常见控制结构的看法">17.4 对不常见控制结构的看法</h2>
+<h1 id="第18章-表驱动方法">第18章 表驱动方法</h1>
+<h2 id="表驱动方法使用总则">18.1 表驱动方法使用总则</h2>
+<h2 id="直接访问表">18.2 直接访问表</h2>
+<h3 id="示例一个月中的天数days-in-month">示例：一个月中的天数（Days-in-Month）</h3>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">daysPerMonth = &#123; 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 &#125;</span><br><span class="line">days = daysPerMonth[month-1]</span><br></pre></td></tr></table></figure>
+<h2 id="索引访问表">18.3 索引访问表</h2>
+<h2 id="阶梯访问表">18.4 阶梯访问表</h2>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">rangeLimit[] = &#123;<span class="number">50.0</span>, <span class="number">65.0</span>, <span class="number">75.0</span>, <span class="number">90.0</span>, <span class="number">100.0</span>&#125;;</span><br><span class="line">grade[] As String = (<span class="string">&quot;F&quot;</span>, <span class="string">&quot;E&quot;</span>, <span class="string">&quot;D&quot;</span>, <span class="string">&quot;C&quot;</span>, <span class="string">&quot;B&quot;</span>, <span class="string">&quot;A&quot;</span>);</span><br><span class="line">maxGradeLevel = grade.length - <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">gradeLevel = <span class="number">0</span>;</span><br><span class="line">studentGrade = <span class="string">&quot;A&quot;</span>;</span><br><span class="line"><span class="keyword">while</span> ((studentGrade = <span class="string">&quot;A&quot;</span>) <span class="built_in">and</span> (gradeLevel &lt; maxGradeLevel)) &#123;</span><br><span class="line">    <span class="built_in">If</span>(studentScore &lt; <span class="built_in">rangeLimit</span>(gradeLevel)) </span><br><span class="line">      	studentGrade = <span class="built_in">grade</span>(gradeLevel);</span><br><span class="line">    gradeLevel = gradeLevel + <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="表查询的其他示例">18.5 表查询的其他示例</h2>
+<p>--- 未完待续</p>
+<h1 id="第19章-一般控制问题">第19章 一般控制问题</h1>
+<h2 id="布尔表达式">19.1 布尔表达式</h2>
+<h1 id="用true和false做布尔判断">用true和false做布尔判断</h1>
+<h1 id="简化复杂的表达式">简化复杂的表达式</h1>
+<h1 id="编写肯定形式的布尔表达式">编写肯定形式的布尔表达式</h1>
+<h1 id="用括号使布尔表达式更清晰">用括号使布尔表达式更清晰</h1>
+<h1 id="理解布尔表达式是如何求值的">理解布尔表达式是如何求值的</h1>
+<h1 id="按照数轴的顺序编写数值表达式">按照数轴的顺序编写数值表达式</h1>
+<h1 id="与0比较的指导原则">与0比较的指导原则</h1>
+<h1 id="布尔表达式的常见问题">布尔表达式的常见问题</h1>
+<h2 id="复合语句块">19.2 复合语句（块）</h2>
+<h2 id="空语句">19.3 空语句</h2>
+<h2 id="驯服危险的深层嵌套">19.4 驯服危险的深层嵌套</h2>
+<h1 id="对减少嵌套层次的技术的总结">对减少嵌套层次的技术的总结</h1>
+<h2 id="编程基础结构化编程">19.5 编程基础：结构化编程</h2>
+<h1 id="结构化编程的三个组成部分">结构化编程的三个组成部分</h1>
+<h2 id="控制结构与复杂度">19.6 控制结构与复杂度</h2>
+<h1 id="复杂度的重要性">复杂度的重要性</h1>
+<h1 id="降低复杂度的一般原则">降低复杂度的一般原则</h1>
+<h1 id="其它类型的复杂度">其它类型的复杂度</h1>
+<h1 id="关键点">关键点</h1>
+<h1 id="第20章-软件质量概述">第20章 软件质量概述</h1>
+<h2 id="软件质量的特性">20.1 软件质量的特性</h2>
+<h2 id="改善软件质量的技术">20.2 改善软件质量的技术</h2>
+<h1 id="开发过程">开发过程</h1>
+<h1 id="设置目标">设置目标</h1>
+<h2 id="不同质量保障技术的相对效能">20.3 不同质量保障技术的相对效能</h2>
+<h1 id="缺陷检测率">缺陷检测率</h1>
+<h1 id="找出缺陷的成本">找出缺陷的成本</h1>
+<h1 id="修正缺陷的成本">修正缺陷的成本</h1>
+<h2 id="什么时候进行质量保证工作">20.4 什么时候进行质量保证工作</h2>
+<h2 id="软件质量的普遍原理">20.5 软件质量的普遍原理</h2>
+<h1 id="推荐读物">推荐读物</h1>
+<h1 id="相关标准">相关标准</h1>
+<h1 id="关键点-1">关键点</h1>
+<h1 id="第21章-协同构造">第21章 协同构造</h1>
+<h2 id="协同开发实践概要">21.1 协同开发实践概要</h2>
+<h1 id="协同构造是其他质量保证技术的补充">协同构造是其他质量保证技术的补充</h1>
+<h1 id="协同构造有利于传授公司文化以及编程专业知识">协同构造有利于传授公司文化以及编程专业知识</h1>
+<h1 id="集体所有权适用于所有形式的协同构造">集体所有权适用于所有形式的协同构造</h1>
+<h1 id="在构造前后都应保持协作">在构造前后都应保持协作</h1>
+<h2 id="结对编程">21.2 结对编程</h2>
+<h1 id="成功运用结对编程的关键">成功运用结对编程的关键</h1>
+<h1 id="结对编程的好处">结对编程的好处</h1>
+<h2 id="正式检查">21.3 正式检查</h2>
+<h1 id="你期望检查能够带来什么结果">你期望检查能够带来什么结果</h1>
+<h1 id="检查中的人员角色">检查中的人员角色</h1>
+<h1 id="检查的一般步骤">检查的一般步骤</h1>
+<h1 id="检查中的自尊心">检查中的自尊心</h1>
+<h1 id="检查和代码大全">检查和代码大全</h1>
+<h1 id="检查总结">检查总结</h1>
+<h2 id="其他类型的协同开发实践">21.4 其他类型的协同开发实践</h2>
+<h1 id="走查">走查</h1>
+<h1 id="代码阅读">代码阅读</h1>
+<h1 id="大型演示">大型演示</h1>
+<h1 id="协同构造技术的比较">协同构造技术的比较</h1>
+<h1 id="参考资料">参考资料</h1>
+<h1 id="结对编程-1">结对编程</h1>
+<h1 id="检查">检查</h1>
+<h1 id="相关标准-1">相关标准</h1>
+<h1 id="关键点-2">关键点</h1>
+<h1 id="第22章-开发者测试">第22章 开发者测试</h1>
+<h2 id="开发者测试在软件质量中的角色">22.1 开发者测试在软件质量中的角色</h2>
+<h1 id="构造中测试">构造中测试</h1>
+<h2 id="推荐的开发者测试方法">22.2 推荐的开发者测试方法</h2>
+<h1 id="先测试还是后测试">先测试还是后测试</h1>
+<h1 id="开发者测试的局限性">开发者测试的局限性</h1>
+<h2 id="测试技巧锦囊">22.3 测试技巧锦囊</h2>
+<h1 id="不完整的测试">不完整的测试</h1>
+<h1 id="结构化的基础测试">结构化的基础测试</h1>
+<h1 id="数据流测试">数据流测试</h1>
+<h1 id="等价类划分">等价类划分</h1>
+<h1 id="猜测错误">猜测错误</h1>
+<h1 id="边界值分析">边界值分析</h1>
+<h1 id="几类坏数据">几类坏数据</h1>
+<h1 id="几类好数据">几类好数据</h1>
+<h1 id="采用容易手工检查的测试用例">采用容易手工检查的测试用例</h1>
+<h2 id="典型错误">22.4 典型错误</h2>
+<h1 id="哪些类包含最多的错误">哪些类包含最多的错误？</h1>
+<h1 id="错误的分类">错误的分类</h1>
+<h1 id="不完善的构造过程引发错误所占的比例">不完善的构造过程引发错误所占的比例</h1>
+<h1 id="你期望能发现多少错误">你期望能发现多少错误</h1>
+<h1 id="测试本身的错误">测试本身的错误</h1>
+<h2 id="测试支持工具">22.5 测试支持工具</h2>
+<h1 id="为测试各个类构造脚手架">为测试各个类构造脚手架</h1>
+<h1 id="diff工具">Diff工具</h1>
+<h1 id="测试数据生成器">测试数据生成器</h1>
+<h1 id="覆盖率监视器">覆盖率监视器</h1>
+<h1 id="数据记录器日志记录器">数据记录器/日志记录器</h1>
+<h1 id="符号调试工具">符号调试工具</h1>
+<h1 id="系统干扰器">系统干扰器</h1>
+<h1 id="错误数据库">错误数据库</h1>
+<h2 id="改善测试过程">22.6 改善测试过程</h2>
+<h1 id="有计划的测试">有计划的测试</h1>
+<h1 id="重新测试回归测试">重新测试（回归测试）</h1>
+<h1 id="自动化测试">自动化测试</h1>
+<h2 id="保留测试记录">22.7 保留测试记录</h2>
+<h1 id="个人测试记录">个人测试记录</h1>
+<h1 id="推荐读物-1">推荐读物</h1>
+<h1 id="测试">测试</h1>
+<h1 id="测试脚手架">测试脚手架</h1>
+<h1 id="测试优先的开发">测试优先的开发</h1>
+<h1 id="相关标准-2">相关标准</h1>
+<h1 id="关键点-3">关键点</h1>
+<h1 id="第23章-调-试">第23章 调 试</h1>
+<h2 id="调试概述">23.1 调试概述</h2>
+<h1 id="调试在软件质量中所扮演的角色">调试在软件质量中所扮演的角色</h1>
+<h1 id="调试效率的巨大差异">调试效率的巨大差异</h1>
+<h1 id="让你有所收获的缺陷">让你有所收获的缺陷</h1>
+<h1 id="一种效率低下的调试方法">一种效率低下的调试方法</h1>
+<h2 id="寻找缺陷">23.2 寻找缺陷</h2>
+<h1 id="科学的调试方法">科学的调试方法</h1>
+<h1 id="寻找缺陷的一些小建议">寻找缺陷的一些小建议</h1>
+<h1 id="语法错误">语法错误</h1>
+<h2 id="修正缺陷">23.3 修正缺陷</h2>
+<h2 id="调试中的心理因素">23.4 调试中的心理因素</h2>
+<h1 id="心理取向如何导致调试时的盲目">心理取向如何导致调试时的盲目</h1>
+<h1 id="心理距离在调试中的作用">“心理距离”在调试中的作用</h1>
+<h2 id="调试工具明显的和不那么明显的">23.5 调试工具——明显的和不那么明显的</h2>
+<h1 id="源代码比较工具">源代码比较工具</h1>
+<h1 id="编译器的警告消息">编译器的警告消息</h1>
+<h1 id="扩展的语法和逻辑检查">扩展的语法和逻辑检查</h1>
+<h1 id="执行性能分析器">执行性能分析器</h1>
+<h1 id="测试框架">测试框架</h1>
+<h1 id="调试器">调试器</h1>
+<h1 id="其它资源">其它资源</h1>
+<h1 id="关键点-4">关键点</h1>
+<h1 id="第24章-重构">第24章 重构</h1>
+<h2 id="软件进化的类型">24.1 软件进化的类型</h2>
+<h1 id="软件进化的哲学">软件进化的哲学</h1>
+<h2 id="重构简介">24.2 重构简介</h2>
+<h1 id="重构的理由">重构的理由</h1>
+<h1 id="拒绝重构的理由">拒绝重构的理由</h1>
+<h2 id="特定的重构">24.3 特定的重构</h2>
+<h1 id="数据级的重构">数据级的重构</h1>
+<h1 id="语句级的重构">语句级的重构</h1>
+<h1 id="子程序级重构">子程序级重构</h1>
+<h1 id="类实现的重构">类实现的重构</h1>
+<h1 id="类接口的重构">类接口的重构</h1>
+<h1 id="系统级重构">系统级重构</h1>
+<h2 id="安全的重构">24.4 安全的重构</h2>
+<h1 id="不宜重构的情况">不宜重构的情况</h1>
+<h2 id="重构策略">24.5 重构策略</h2>
+<h1 id="推荐读物-2">推荐读物</h1>
+<h1 id="关键点-5">关键点</h1>
+<h1 id="第25章-代码调整策略">第25章 代码调整策略</h1>
+<h2 id="性能概述">25.1 性能概述</h2>
+<h1 id="质量特性和性能">质量特性和性能</h1>
+<h1 id="性能和代码调整">性能和代码调整</h1>
+<h2 id="代码调整简介">25.2 代码调整简介</h2>
+<h1 id="pareto法则">Pareto法则</h1>
+<h1 id="一些无稽之谈">一些无稽之谈</h1>
+<h1 id="何时调整代码">何时调整代码</h1>
+<h1 id="编译器优化">编译器优化</h1>
+<h2 id="蜜糖和哥斯拉">25.3 蜜糖和哥斯拉</h2>
+<h1 id="常见的低效率之源">常见的低效率之源</h1>
+<h1 id="常见操作的相对效率">常见操作的相对效率</h1>
+<h2 id="性能测量">25.4 性能测量</h2>
+<h1 id="性能测量应当精确">性能测量应当精确</h1>
+<h2 id="反复调整">25.5 反复调整</h2>
+<h2 id="代码调整方法总结">25.6 代码调整方法总结</h2>
+<h1 id="推荐读物-3">推荐读物</h1>
+<h1 id="算法和数据类型">算法和数据类型</h1>
+<h1 id="关键点-6">关键点</h1>
+<h1 id="第26章-代码调整方法">第26章 代码调整方法</h1>
+<h2 id="逻辑">26.1 逻辑</h2>
+<h1 id="在知道答案后停止判断">在知道答案后停止判断</h1>
+<h1 id="按照出现频率来调整判断顺序">按照出现频率来调整判断顺序</h1>
+<h1 id="相似逻辑结构之间的性能比较">相似逻辑结构之间的性能比较</h1>
+<h1 id="用查找表替代复杂表达式">用查找表替代复杂表达式</h1>
+<h1 id="使用惰性求值">使用惰性求值</h1>
+<h2 id="循环">26.2 循环</h2>
+<h1 id="将判断外提unswitching">将判断外提（Unswitching）</h1>
+<h1 id="合并循环">合并循环</h1>
+<h1 id="展开">？？？？？展开</h1>
+<h1 id="尽可能减少再循环内部做的工作">尽可能减少再循环内部做的工作</h1>
+<h1 id="哨兵值">哨兵值</h1>
+<h1 id="把最忙的循环放在最内层">把最忙的循环放在最内层</h1>
+<h1 id="削减强度">削减强度</h1>
+<h2 id="数据变换">26.3 数据变换</h2>
+<h1 id="使用整型数而不是浮点数">使用整型数而不是浮点数</h1>
+<h1 id="数组维度尽可能少">数组维度尽可能少</h1>
+<h1 id="尽可能减少数组引用">尽可能减少数组引用</h1>
+<h1 id="使用辅助索引">使用辅助索引</h1>
+<h1 id="使用缓存机制">使用缓存机制</h1>
+<h2 id="表达式">26.4 表达式</h2>
+<h1 id="利用代数恒等式">利用代数恒等式</h1>
+<h1 id="削弱运算强度">削弱运算强度</h1>
+<h1 id="编译时初始化">编译时初始化</h1>
+<h1 id="小心系统函数">小心系统函数</h1>
+<h1 id="使用正确的常量类型">使用正确的常量类型</h1>
+<h1 id="预先算出结果">预先算出结果</h1>
+<h1 id="删除公共子表达式">删除公共子表达式</h1>
+<h2 id="子程序">26.5 子程序</h2>
+<h1 id="将函数重写为内联">将函数重写为内联</h1>
+<h2 id="用低级语言重写代码">26.6 用低级语言重写代码</h2>
+<h2 id="变得越多事情反而更没变">26.7 变得越多，事情反而更没变</h2>
+<h1 id="推荐读物-4">推荐读物</h1>
+<h1 id="关键点-7">关键点</h1>
+<h1 id="第27章-程序规模对构筑的影响">第27章 程序规模对“构筑”的影响</h1>
+<h2 id="交流和规模">27.1 交流和规模</h2>
+<h2 id="项目规模的范围">27.2 项目规模的范围</h2>
+<h2 id="项目规模对错误的影响">27.3 项目规模对错误的影响</h2>
+<h2 id="项目规模对生产率的影响">27.4 项目规模对生产率的影响</h2>
+<h2 id="项目规模对开发活动的影响">27.5 项目规模对开发活动的影响</h2>
+<h1 id="活动比例和项目规模">活动比例和项目规模</h1>
+<h1 id="程序产品系统和系统产品">程序、产品、系统和系统产品</h1>
+<h1 id="方法论和规模">方法论和规模</h1>
+<h1 id="额外资源">额外资源</h1>
+<h1 id="关键点-8">关键点</h1>
+<h1 id="第28章-管理构筑">第28章 管理“构筑”</h1>
+<h2 id="鼓励良好的编码实践">28.1 鼓励良好的编码实践</h2>
+<h1 id="设定标准的考虑事项">设定标准的考虑事项</h1>
+<h1 id="鼓励良好的编码实践的技术">鼓励良好的编码实践的技术</h1>
+<h1 id="本书的角色">本书的角色</h1>
+<h2 id="配置管理">28.2 配置管理</h2>
+<h1 id="什么是配置管理">什么是配置管理？</h1>
+<h1 id="需求变更和设计变更">需求变更和设计变更</h1>
+<h1 id="软件代码变更">软件代码变更</h1>
+<h1 id="工具版本">工具版本</h1>
+<h1 id="机器配置">机器配置</h1>
+<h1 id="备份计划">备份计划</h1>
+<h1 id="有关配置管理的额外资源">有关配置管理的额外资源</h1>
+<h2 id="评估构筑进度表">28.3 评估“构筑”进度表</h2>
+<h1 id="评估的方法">评估的方法</h1>
+<h1 id="评估构筑的工作量">评估“构筑”的工作量</h1>
+<h1 id="对进度的影响">对进度的影响</h1>
+<h1 id="评估与控制">评估与控制</h1>
+<h1 id="如果你落后了该怎么办">如果你落后了该怎么办</h1>
+<h1 id="有关软件评估的额外资源">有关软件评估的额外资源</h1>
+<h2 id="度量">28.4 度量</h2>
+<h1 id="有关软件度量的额外资源">有关软件度量的额外资源</h1>
+<h2 id="把程序员当人看">28.5 把程序员当人看</h2>
+<h1 id="程序员们怎样花费时间">程序员们怎样花费时间？</h1>
+<h1 id="性能差异与质量差异">性能差异与质量差异</h1>
+<h1 id="信仰问题">信仰问题</h1>
+<h1 id="物理环境">物理环境</h1>
+<h1 id="有关把程序员当人看的额外资源">有关“把程序员当人看”的额外资源</h1>
+<h2 id="管理你的管理者">28.6 管理你的管理者</h2>
+<h1 id="有关管理构造的额外资源">有关管理构造的额外资源</h1>
+<h1 id="相关标准-3">相关标准</h1>
+<h1 id="关键点-9">关键点</h1>
+<h1 id="第29章-集成">第29章 集成</h1>
+<h2 id="集成方式的重要性">29.1 集成方式的重要性</h2>
+<h2 id="集成频率阶段式集成还是增量集成">29.2 集成频率——阶段式集成还是增量集成</h2>
+<h1 id="阶段式集成">阶段式集成</h1>
+<h1 id="增量集成">增量集成</h1>
+<h1 id="增量集成的益处">增量集成的益处</h1>
+<h2 id="增量集成的策略">29.3 增量集成的策略</h2>
+<h1 id="自顶向下集成">自顶向下集成</h1>
+<h1 id="自底向上集成">自底向上集成</h1>
+<h1 id="三明治集成">三明治集成</h1>
+<h1 id="风险导向的集成">风险导向的集成</h1>
+<h1 id="功能导向的集成">功能导向的集成</h1>
+<h1 id="t-型集成">T-型集成</h1>
+<h1 id="集成方法小结">集成方法小结</h1>
+<h1 id="持续集成">持续集成</h1>
+<h1 id="额外资源-1">额外资源</h1>
+<h1 id="关键点-10">关键点</h1>
+<h1 id="第30章-编程工具">第30章 编程工具</h1>
+<h2 id="设计工具">30.1 设计工具</h2>
+<h2 id="源代码工具">30.2 源代码工具</h2>
+<h1 id="编辑">编辑</h1>
+<h1 id="分析代码质量">分析代码质量</h1>
+<h1 id="重构源代码">重构源代码</h1>
+<h1 id="数据词典">数据词典</h1>
+<h2 id="可执行码工具">30.3 可执行码工具</h2>
+<h1 id="产生目标码">产生目标码</h1>
+<h1 id="除错">除错</h1>
+<h1 id="测试-1">测试</h1>
+<h1 id="代码微调">代码微调</h1>
+<h2 id="工具导向的环境">30.4 工具导向的环境</h2>
+<h2 id="打造你自己的编程工具">30.5 打造你自己的编程工具</h2>
+<h1 id="项目特有的工具">项目特有的工具</h1>
+<h1 id="脚本">脚本</h1>
+<h2 id="工具幻境">30.6 工具幻境</h2>
+<h1 id="额外资源-2">额外资源</h1>
+<h1 id="关键点-11">关键点</h1>
+<h1 id="第31章-布局与风格">第31章 布局与风格</h1>
+<h2 id="基本原则">31.1 基本原则</h2>
+<h1 id="布局的极端情况">布局的极端情况</h1>
+<h1 id="格式化的基本原理">格式化的基本原理</h1>
+<h1 id="人和计算机对程序的解读">人和计算机对程序的解读</h1>
+<h1 id="好布局有什么用">好布局有什么用？</h1>
+<h1 id="把布局作为一种信仰">把布局作为一种信仰</h1>
+<h1 id="良好布局的目标">良好布局的目标</h1>
+<h2 id="布局技术">31.2 布局技术</h2>
+<h1 id="空白区">空白区</h1>
+<h1 id="括号">括号</h1>
+<h2 id="布局风格">31.3 布局风格</h2>
+<h1 id="纯块结构">纯块结构</h1>
+<h1 id="模仿纯块结构">模仿纯块结构</h1>
+<h1 id="行尾布局">行尾布局</h1>
+<h1 id="哪种风格最优">哪种风格最优？</h1>
+<h2 id="控制结构的布局">31.4 控制结构的布局</h2>
+<h1 id="格式化控制结构块的要点">格式化控制结构块的要点</h1>
+<h1 id="其他考虑">其他考虑</h1>
+<h2 id="单条语句的布局">31.5 单条语句的布局</h2>
+<h1 id="语句长度">语句长度</h1>
+<h1 id="用空格使语句显得清楚">用空格使语句显得清楚</h1>
+<h1 id="格式化后续行">格式化后续行</h1>
+<h1 id="每行仅写一条语句">每行仅写一条语句</h1>
+<h1 id="数据声明的布局">数据声明的布局</h1>
+<h2 id="注释的布局">31.6 注释的布局</h2>
+<h2 id="子程序的布局">31.7 子程序的布局</h2>
+<h2 id="类的布局">31.8 类的布局</h2>
+<h1 id="类接口的布局">类接口的布局</h1>
+<h1 id="类实现的布局">类实现的布局</h1>
+<h1 id="文件和程序布局">文件和程序布局</h1>
+<h1 id="更多资源">更多资源</h1>
+<h1 id="关键点-12">关键点</h1>
+<h1 id="第32章-自说明代码">第32章 自说明代码</h1>
+<h2 id="外部文档">32.1 外部文档</h2>
+<h2 id="编程风格作文档">32.2 编程风格作文档</h2>
+<h2 id="注释或不注释">32.3 注释或不注释</h2>
+<h2 id="高效注释之关键">32.4 高效注释之关键</h2>
+<h1 id="注释种类">注释种类</h1>
+<h1 id="高效注释">高效注释</h1>
+<h1 id="最佳注释量">最佳注释量</h1>
+<h2 id="注释技术">32.5 注释技术</h2>
+<h1 id="注释单行">注释单行</h1>
+<h1 id="注释代码段">注释代码段</h1>
+<h1 id="注释数据声明">注释数据声明</h1>
+<h1 id="注释控制结构">注释控制结构</h1>
+<h1 id="注释子程序">注释子程序</h1>
+<h1 id="注释类文件和程序">注释类、文件和程序</h1>
+<h2 id="ieee标准">32.6 IEEE标准</h2>
+<h1 id="软件质量保证标准">软件质量保证标准</h1>
+<h1 id="更多资源-1">更多资源</h1>
+<h1 id="关键点-13">关键点</h1>
+<h1 id="第33章-个人性格">第33章 个人性格</h1>
+<h2 id="个人性格是否和本书话题无关">33.1 个人性格是否和本书话题无关</h2>
+<h2 id="聪明和谦虚">33.2 聪明和谦虚</h2>
+<h2 id="求知欲">33.3 求知欲</h2>
+<h2 id="诚实">33.4 诚实</h2>
+<h2 id="交流与合作">33.5 交流与合作</h2>
+<h2 id="创造力和纪律">33.6 创造力和纪律</h2>
+<h2 id="偷懒">33.7 偷懒</h2>
+<h2 id="不像你想象中那样起作用的性格">33.8 不像你想象中那样起作用的性格</h2>
+<h1 id="矜持">矜持</h1>
+<h1 id="经验">经验</h1>
+<h1 id="编程狂人">编程狂人</h1>
+<h2 id="习惯">33.9 习惯</h2>
+<h1 id="更多资源-2">更多资源</h1>
+<h1 id="关键点-14">关键点</h1>
+<h1 id="第34章-软件开发艺术的有关问题">第34章 软件开发艺术的有关问题</h1>
+<h2 id="克服复杂性">34.1 克服复杂性</h2>
+<h2 id="精选编程过程">34.2 精选编程过程</h2>
+<h2 id="为人写程序其次才是为机器">34.3 为人写程序，其次才是为机器</h2>
+<h2 id="以所用语言编程但思路不受其约束">34.4 以所用语言编程，但思路不受其约束</h2>
+<h2 id="借助规范集中注意力">34.5 借助规范集中注意力</h2>
+<h2 id="基于问题域编程">34.6 基于问题域编程</h2>
+<h1 id="将程序划分为不同层次的抽象">将程序划分为不同层次的抽象</h1>
+<h2 id="当心落石">34.7 “当心落石”</h2>
+<h2 id="反复再反复">34.8 反复，再反复</h2>
+<h2 id="不要顽固不化">34.9 不要顽固不化</h2>
+<h1 id="判断">判断</h1>
+<h1 id="折中主义">折中主义</h1>
+<h1 id="试验">试验</h1>
+<h1 id="关键点-15">关键点</h1>
+<h1 id="第35章-何处有更多信息">第35章 何处有更多信息</h1>
+<h2 id="关于软件创建的信息">35.1 关于软件创建的信息</h2>
+<h2 id="创建之外的话题">35.2 创建之外的话题</h2>
+<h1 id="综述资料">综述资料</h1>
+<h1 id="软件工程综览">软件工程综览</h1>
+<h1 id="其他注释过的参考书目">其他注释过的参考书目</h1>
+<h2 id="期刊">35.3 期刊</h2>
+<h1 id="初级程序员杂志">初级程序员杂志</h1>
+<h1 id="高级程序员杂志">高级程序员杂志</h1>
+<h1 id="专题出版物">专题出版物</h1>
+<h2 id="软件开发者的读书计划">35.4 软件开发者的读书计划</h2>
+<h1 id="入门级">入门级</h1>
+<h1 id="熟练级">熟练级</h1>
+<h1 id="精通级">精通级</h1>
+<h2 id="参加专业组织">35.5 参加专业组织</h2>
+]]></content>
+      <tags>
+        <tag>score</tag>
       </tags>
   </entry>
 </search>
