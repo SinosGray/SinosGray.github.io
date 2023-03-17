@@ -4768,7 +4768,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <h4 id="mov">mov</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">;mov 不能从内存到内存</span><br><span class="line">var word ?</span><br><span class="line">mov ax, var;将 var 内存的值赋给 ax 寄存器, 而不是地址, 所以 mov 指令叫数据传送指令</span><br><span class="line">;movzx 0 扩展</span><br><span class="line">;movsx 符号扩展</span><br><span class="line">;xchg 交换两个操作数的内容</span><br><span class="line">array byte 10h, 20h, 30h, 40h</span><br><span class="line">mov al, array;将 array 的第一个字节传送到 al</span><br><span class="line">mov al, [array+1];将 array 的第二个字节传送到 al</span><br><span class="line">mov al, [esi];解析 esi 中的偏移量, 将数据传到 al 中, 单独使用[esi]需要 ptr 限制大小</span><br></pre></td></tr></table></figure>
 <h4 id="算数指令">算数指令</h4>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">;自增自减 inc dec</span><br><span class="line">inc ax</span><br><span class="line"></span><br><span class="line">;加法 add</span><br><span class="line">add eax, var; eax+var-&gt;eax</span><br><span class="line"></span><br><span class="line">;减法 sub</span><br><span class="line">sub eax, var;eax-var-&gt;eax</span><br><span class="line"></span><br><span class="line">;取负 neg </span><br><span class="line">neg eax</span><br><span class="line"></span><br><span class="line">;乘法 mul 无符号数乘法</span><br><span class="line">mov al, 5h</span><br><span class="line">mov bl, 10h</span><br><span class="line">mul bl;bl*al-&gt;ax</span><br><span class="line">;乘法 imul 有符号数乘法</span><br><span class="line">;单操作数</span><br><span class="line">imul bx;ax*bx-&gt;dx:ax</span><br><span class="line">;双操作数</span><br><span class="line">imul ax, var;ax*var-&gt;ax 有截断</span><br><span class="line">;三操作数 imul reg, reg/mem, imm</span><br><span class="line">imul ax, bx, 8;bx*8-&gt;ax</span><br><span class="line"></span><br><span class="line">;除法 div 无符号数除法</span><br><span class="line">mov ax, 0083h</span><br><span class="line">mov bl, 2</span><br><span class="line">div bl;al = ax/bl, ah = ax%bl</span><br><span class="line">;除法 idiv 有符号数除法</span><br><span class="line">;单操作数</span><br><span class="line">.data</span><br><span class="line">byteval sbyte -48</span><br><span class="line">.code</span><br><span class="line">mov al, byteval</span><br><span class="line">cbw;扩展符号</span><br><span class="line">mov bl, +5</span><br><span class="line">idiv bl; al = -9, ah = -3</span><br><span class="line"></span><br><span class="line">;布尔运算: and, or, xor, not, test=and 但是不改变目标操作数</span><br><span class="line"></span><br><span class="line">;移位</span><br><span class="line">;shl 左移 sal 算数左移 rol 循环左移</span><br><span class="line">;shr 右移补 0 sar 算数右移补符号位 ror 循环右移</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">;自增自减 inc dec</span><br><span class="line">inc ax</span><br><span class="line"></span><br><span class="line">;加法 add</span><br><span class="line">add eax, var; eax+var-&gt;eax</span><br><span class="line"></span><br><span class="line">;减法 sub</span><br><span class="line">sub eax, var;eax-var-&gt;eax</span><br><span class="line"></span><br><span class="line">;取负 neg </span><br><span class="line">neg eax</span><br><span class="line"></span><br><span class="line">;乘法 mul 无符号数乘法</span><br><span class="line">mov al, 5h</span><br><span class="line">mov bl, 10h</span><br><span class="line"></span><br><span class="line">mul bl;bl*al-&gt;ax</span><br><span class="line">;乘法 imul 有符号数乘法</span><br><span class="line">;单操作数</span><br><span class="line">imul bx;ax*bx-&gt;dx:ax</span><br><span class="line">;双操作数</span><br><span class="line">imul ax, var;ax*var-&gt;ax 有截断</span><br><span class="line">;三操作数 imul reg, reg/mem, imm</span><br><span class="line">imul ax, bx, 8;bx*8-&gt;ax</span><br><span class="line"></span><br><span class="line">;除法 div 无符号数除法</span><br><span class="line">mov ax, 0083h</span><br><span class="line">mov bl, 2</span><br><span class="line">div bl;al = ax/bl, ah = ax%bl</span><br><span class="line">;除法 idiv 有符号数除法</span><br><span class="line">DIV (unsigned divide) 无符号数除法</span><br><span class="line"></span><br><span class="line">格式：DIV SRC</span><br><span class="line"></span><br><span class="line">执行的操作:</span><br><span class="line"></span><br><span class="line">　　字节操作：16位被除数在AX，8位除数为源操作数，结果的8位商在AL中，8位余数在AH中。表示为</span><br><span class="line"></span><br><span class="line">　　（AL）&lt;-(AX)/(SRC) 的商</span><br><span class="line">(AH) &lt;-(AX)/(SRC) 的余数</span><br><span class="line"></span><br><span class="line">　　字操作：32位被除数放在DX,AX中。其中DX为高位字，16位除数为源操作数，结果的16位端在AX中，16位余数在DX中。表示为</span><br><span class="line">(AX)&lt;-(DX,AX)/(SRC) 的商</span><br><span class="line">(DX)&lt;-(DX,AX)/(SRC) 的余数</span><br><span class="line"></span><br><span class="line">　　双字操作:64位被除数在EDX,EAX中，其中EDX为高位双字，32位除数为源操作数，结果的32位商在EAX中，32位余数在EDX中，表示为</span><br><span class="line">(EAX)&lt;-(EDX,EAX)/(SRC) 的商</span><br><span class="line">(EDX)&lt;-(EDX,EAX)/(SRC) 的余数。</span><br><span class="line">商和余数均为无符号数。</span><br><span class="line"></span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">;单操作数</span><br><span class="line">.data</span><br><span class="line">byteval sbyte -48</span><br><span class="line">.code</span><br><span class="line">mov al, byteval</span><br><span class="line">cbw;扩展符号</span><br><span class="line">mov bl, +5</span><br><span class="line">idiv bl; al = -9, ah = -3</span><br><span class="line"></span><br><span class="line">;布尔运算: and, or, xor, not, test=and 但是不改变目标操作数</span><br><span class="line"></span><br><span class="line">;移位</span><br><span class="line">;shl 左移 sal 算数左移 rol 循环左移</span><br><span class="line">;shr 右移补 0 sar 算数右移补符号位 ror 循环右移</span><br></pre></td></tr></table></figure>
 <h4 id="循环">循环</h4>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">;loop ecx 每次循环-1</span><br><span class="line">mov ax, 0</span><br><span class="line">mov ecx, 5; 初始化为 0 不停止</span><br><span class="line">L1:</span><br><span class="line">inc ax</span><br><span class="line">loop L1</span><br><span class="line">;loopz = loope, 等于 ecx=ecx-1, if ecx&gt;0 and zf=1 then jump to destination</span><br></pre></td></tr></table></figure>
 <h4 id="跳转">跳转</h4>
@@ -5002,7 +5002,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 </ul></li>
 </ul>
 <h3 id="指令合集">指令合集</h3>
-<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MOV OPD, OPS; MOVE DEST SRC</span><br><span class="line"></span><br><span class="line">XLAT; TRANSLATE ([BX+AL])-&gt;AL </span><br><span class="line"></span><br><span class="line">LEA OPD, OPS; LOAD EFFECTIVE ADDRESS 立即寻址 等价于 MOV OPD, OFFSET OPS, 其中 OPD 必须是 16/32 位寄存器</span><br><span class="line"></span><br><span class="line">;标志位?</span><br><span class="line"></span><br><span class="line">NEG OPD; NEGTIVE 将 OPD 的每一位取反最后加一, 包括符号位, 得到结论: 负数&quot;取补码&quot;得到绝对值</span><br><span class="line"></span><br><span class="line">IMUL OPD, OPS;INTEGER MULTIPLICATION (OPD)*(OPS)-&gt;OPD</span><br><span class="line">IMUL OPD, OPS, N; (OPS)*N-&gt;OPD</span><br><span class="line">IMUL OPS; </span><br><span class="line">(AL)*(OPS)-&gt;AX</span><br><span class="line">(AX)*(OPS)-&gt;DX, AX</span><br><span class="line">(EAX)*(OPS)-&gt;EDX, EAX</span><br><span class="line">MUL</span><br><span class="line"></span><br><span class="line">DIV OPS;</span><br><span class="line">(AX)/(OPS)-&gt;AL 商, AH 余数</span><br><span class="line">(DX, AX)/(OPS)-&gt;AX 商, AH 余数</span><br><span class="line">(EDX, EAX)/(OPS)-&gt;EAX商, EDX余数</span><br><span class="line">IDIV</span><br><span class="line"></span><br><span class="line">NOT OPD; 取反</span><br><span class="line">AND OPD, OPS; 逻辑与</span><br><span class="line">TEST OPD, OPS</span><br><span class="line">常见用法: TEST ECX, ECX 判断 ecx 是否为空, 如果为空则 zf=1</span><br><span class="line">总结: test 是逻辑与运算, cmp 是 sub 运算, cmp a1, a2 执行操作 a1-a2</span><br><span class="line">XOR OPD, OPS; 异或</span><br><span class="line"></span><br><span class="line">SAL OPD, N 或者 SHL OPD, N; ARITHMATIC SHIFT LEFT, SHIFT LEFT 左移, 逻辑算数都一样</span><br><span class="line">SHR OPD, N; 逻辑右移, 加 0</span><br><span class="line">SAR OPD, N; 算数右移, 加符号位</span><br><span class="line"></span><br><span class="line">ROL OPD, N; 循环左移</span><br><span class="line">ROR OPD, N</span><br><span class="line">RCL OPD, N; ROTATE LEFT WITH CARRY 带进位循环左移</span><br><span class="line">RCR OPD, N</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INT; INTERRUPT</span><br><span class="line"></span><br><span class="line">DW; DEFINE WORD</span><br><span class="line"></span><br><span class="line">PROC; PROCEDURE</span><br><span class="line"></span><br><span class="line">ENDS; END SEGMENT</span><br><span class="line"></span><br><span class="line">PTR; POINTER</span><br><span class="line"></span><br><span class="line">MOVSX; EXTENDED MOVE WITH SIGN DATA</span><br><span class="line">MOVZX; EXTENDED MOVE WITH ZERO DATA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***********************</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PUSH OPS; SP=SP-1</span><br><span class="line"></span><br><span class="line">POP OPD; SP=SP+1</span><br><span class="line"></span><br><span class="line">DIV;https://blog.csdn.net/loovejava/article/details/7044242</span><br><span class="line"></span><br><span class="line">IMUL OPD, OPS; 有符号数乘法</span><br><span class="line">IMUL OPD, OPS, N; OPS*N-&gt;OPD</span><br><span class="line">IMUL OPS; AL*OPS-&gt;AX 字节</span><br><span class="line">					AX*OPS-&gt;DX,AX 字</span><br><span class="line">					EAX*OPS-&gt;EDX,EAX 双字</span><br><span class="line">MUL;无符号乘法,用法同上</span><br><span class="line"></span><br><span class="line">ADD AX,10;把 ax 加上 10 再存到 ax 里</span><br><span class="line"></span><br><span class="line">SUB</span><br><span class="line"></span><br><span class="line">LOOP 标号</span><br><span class="line"></span><br><span class="line">逻辑移位, 总是用 0 补充</span><br><span class="line">SHL EDX, 7;EDX 左移 7 位</span><br><span class="line">shr ;右移</span><br><span class="line"></span><br><span class="line">算数移位, 用符号位补充</span><br><span class="line">sar;右移</span><br><span class="line"></span><br><span class="line">CBW ;将 AL 中的符号扩展到 AH 里</span><br><span class="line"></span><br><span class="line">;意义    无符号比较     有符号比较</span><br><span class="line">&gt;        JA, JNBE     JG, JNLE</span><br><span class="line">&gt;=			 JAE, JNB			JNC, JGE, JNL</span><br><span class="line">&lt;				 JB, JNAE			JC, JL, JN, JNGE</span><br><span class="line">&lt;				 JBE, JNA			JLE, JNG</span><br><span class="line"></span><br><span class="line">CMP BYTE PTR[SI],&quot;#&quot; ;ptr前面的类型有byte（字节）、word（字）、dword（双字）、qword（四字）、tbyte（十字节）、far（远类型）和near（近类型）</span><br><span class="line"></span><br><span class="line">LEA </span><br><span class="line">lea指令</span><br><span class="line">load effective address, 加载有效地址，可以将有效地址传送到指定的的寄存器。指令形式是从存储器读数据到寄存器, 效果是将存储器的有效地址写入到目的操作数, 简单说, 就是C语言中的”&amp;”.</span><br><span class="line">mov指令</span><br><span class="line">在CPU内或CPU和存储器之间传送字或字节，它传送的信息可以从寄存器到寄存器，立即数到寄存器，立即数到存储单元，从存储单元到寄存器，从寄存器到存储单元，从寄存器或存储单元到除CS外的段寄存器(注意立即数不能直接送段寄存器)，从段寄存器到寄存器或存储单元。</span><br><span class="line">但是注意</span><br><span class="line">（1） MOV指令中的源操作数绝对不能是立即数和代码段CS寄存器；</span><br><span class="line">（2） MOV指令中绝对不允许在两个存储单元之间直接传送数据；</span><br><span class="line">（3） MOV指令中绝对不允许在两个段寄存器之间直接传送数据；</span><br><span class="line">（4） MOV指令不会影响标志位</span><br><span class="line">使用[]区别</span><br><span class="line">第二操作数加不加中括号[]的区别就是:</span><br><span class="line">lea对变量没有影响是取地址,对寄存器来说加[]时取值,第二操作数不加[]非法</span><br><span class="line">mov对变量来说没有影响是取值,对寄存器来说是加[]时取地址,第二操作数不加[]是取值</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MOV OPD, OPS; MOVE DEST SRC</span><br><span class="line"></span><br><span class="line">XLAT; TRANSLATE ([BX+AL])-&gt;AL </span><br><span class="line"></span><br><span class="line">LEA OPD, OPS; LOAD EFFECTIVE ADDRESS 立即寻址 等价于 MOV OPD, OFFSET OPS, 其中 OPD 必须是 16/32 位寄存器</span><br><span class="line"></span><br><span class="line">;标志位?</span><br><span class="line"></span><br><span class="line">NEG OPD; NEGTIVE 将 OPD 的每一位取反最后加一, 包括符号位, 得到结论: 负数&quot;取补码&quot;得到绝对值</span><br><span class="line"></span><br><span class="line">IMUL OPD, OPS;INTEGER MULTIPLICATION (OPD)*(OPS)-&gt;OPD</span><br><span class="line">IMUL OPD, OPS, N; (OPS)*N-&gt;OPD</span><br><span class="line">IMUL OPS; </span><br><span class="line">(AL)*(OPS)-&gt;AX</span><br><span class="line">(AX)*(OPS)-&gt;DX, AX</span><br><span class="line">(EAX)*(OPS)-&gt;EDX, EAX</span><br><span class="line">MUL</span><br><span class="line"></span><br><span class="line">DIV OPS;</span><br><span class="line">(AX)/(OPS)-&gt;AL 商, AH 余数</span><br><span class="line">(DX, AX)/(OPS)-&gt;AX 商, AH 余数</span><br><span class="line">(EDX, EAX)/(OPS)-&gt;EAX商, EDX余数</span><br><span class="line">IDIV</span><br><span class="line"></span><br><span class="line">NOT OPD; 取反</span><br><span class="line">AND OPD, OPS; 逻辑与</span><br><span class="line">TEST OPD, OPS</span><br><span class="line">常见用法: TEST ECX, ECX 判断 ecx 是否为空, 如果为空则 zf=1</span><br><span class="line">总结: test 是逻辑与运算, cmp 是 sub 运算, cmp a1, a2 执行操作 a1-a2</span><br><span class="line">XOR OPD, OPS; 异或</span><br><span class="line"></span><br><span class="line">SAL OPD, N 或者 SHL OPD, N; ARITHMATIC SHIFT LEFT, SHIFT LEFT 左移, 逻辑算数都一样</span><br><span class="line">SHR OPD, N; 逻辑右移, 加 0</span><br><span class="line">SAR OPD, N; 算数右移, 加符号位</span><br><span class="line"></span><br><span class="line">ROL OPD, N; 循环左移</span><br><span class="line">ROR OPD, N</span><br><span class="line">RCL OPD, N; ROTATE LEFT WITH CARRY 带进位循环左移</span><br><span class="line">RCR OPD, N</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">INT; INTERRUPT</span><br><span class="line"></span><br><span class="line">DW; DEFINE WORD</span><br><span class="line"></span><br><span class="line">PROC; PROCEDURE</span><br><span class="line"></span><br><span class="line">ENDS; END SEGMENT</span><br><span class="line"></span><br><span class="line">PTR; POINTER</span><br><span class="line"></span><br><span class="line">MOVSX; EXTENDED MOVE WITH SIGN DATA</span><br><span class="line">MOVZX; EXTENDED MOVE WITH ZERO DATA</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">***********************</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">PUSH OPS; SP=SP-1</span><br><span class="line"></span><br><span class="line">POP OPD; SP=SP+1</span><br><span class="line"></span><br><span class="line">DIV;https://blog.csdn.net/loovejava/article/details/7044242</span><br><span class="line"></span><br><span class="line">IMUL OPD, OPS; 有符号数乘法</span><br><span class="line">IMUL OPD, OPS, N; OPS*N-&gt;OPD</span><br><span class="line">IMUL OPS; AL*OPS-&gt;AX 字节</span><br><span class="line">					AX*OPS-&gt;DX,AX 字</span><br><span class="line">					EAX*OPS-&gt;EDX,EAX 双字</span><br><span class="line">MUL;无符号乘法,用法同上</span><br><span class="line"></span><br><span class="line">ADD AX,10;把 ax 加上 10 再存到 ax 里</span><br><span class="line"></span><br><span class="line">SUB</span><br><span class="line"></span><br><span class="line">LOOP 标号</span><br><span class="line"></span><br><span class="line">逻辑移位, 总是用 0 补充</span><br><span class="line">SHL EDX, 7;EDX 左移 7 位</span><br><span class="line">shr ;右移</span><br><span class="line"></span><br><span class="line">算数移位, 用符号位补充</span><br><span class="line">sar;右移</span><br><span class="line"></span><br><span class="line">CBW ;将 AL 中的符号扩展到 AH 里</span><br><span class="line"></span><br><span class="line">;意义    无符号比较     有符号比较</span><br><span class="line">&gt;        JA, JNBE     JG, JNLE</span><br><span class="line">&gt;=			 JAE, JNB			JNC, JGE, JNL</span><br><span class="line">&lt;				 JB, JNAE			JC, JL, JN, JNGE</span><br><span class="line">&lt;				 JBE, JNA			JLE, JNG</span><br><span class="line"></span><br><span class="line">CMP BYTE PTR[SI],&quot;#&quot; ;ptr前面的类型有byte（字节）、word（字）、dword（双字）、qword（四字）、tbyte（十字节）、far（远类型）和near（近类型）</span><br><span class="line"></span><br><span class="line">LEA </span><br><span class="line">lea指令</span><br><span class="line">load effective address, 加载有效地址，可以将有效地址传送到指定的的寄存器。指令形式是从存储器读数据到寄存器, 效果是将存储器的有效地址写入到目的操作数, 简单说, 就是C语言中的”&amp;”.</span><br><span class="line">mov指令</span><br><span class="line">在CPU内或CPU和存储器之间传送字或字节，它传送的信息可以从寄存器到寄存器，立即数到寄存器，立即数到存储单元，从存储单元到寄存器，从寄存器到存储单元，从寄存器或存储单元到除CS外的段寄存器(注意立即数不能直接送段寄存器)，从段寄存器到寄存器或存储单元。</span><br><span class="line">但是注意</span><br><span class="line">（1） MOV指令中的源操作数绝对不能是立即数和代码段CS寄存器；</span><br><span class="line">（2） MOV指令中绝对不允许在两个存储单元之间直接传送数据；</span><br><span class="line">（3） MOV指令中绝对不允许在两个段寄存器之间直接传送数据；</span><br><span class="line">（4） MOV指令不会影响标志位</span><br><span class="line">使用[]区别</span><br><span class="line">第二操作数加不加中括号[]的区别就是:</span><br><span class="line">lea对变量没有影响是取地址,对寄存器来说加[]时取值,第二操作数不加[]非法</span><br><span class="line">mov对变量来说没有影响是取值,对寄存器来说是加[]时取地址,第二操作数不加[]是取值</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">判断正负</span><br><span class="line">mov ax, your_number   ; 将要判断的数存入寄存器ax中</span><br><span class="line">test ax, 8000h        ; 测试ax的最高位是否为1</span><br><span class="line">jnz negative          ; 如果最高位为1，跳转到negative标签</span><br><span class="line"></span><br><span class="line">; 如果最高位不是1，则继续执行下面的代码</span><br><span class="line">positive:</span><br><span class="line">    ; 这里是正数的处理代码</span><br><span class="line">    jmp end</span><br><span class="line"></span><br><span class="line">negative:</span><br><span class="line">    ; 这里是负数的处理代码</span><br><span class="line">    jmp end</span><br><span class="line"></span><br><span class="line">end:</span><br><span class="line">    ; 程序结束</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>language</category>
@@ -7684,30 +7684,62 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <p>方案 3</p>
 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="type">double</span> previous = <span class="built_in">getCurrentTime</span>();</span><br><span class="line"><span class="type">double</span> lag = <span class="number">0.0</span>;</span><br><span class="line"><span class="keyword">while</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    <span class="type">double</span> current = <span class="built_in">getCurrentTime</span>();</span><br><span class="line">    <span class="type">double</span> elapsed = current - previous;</span><br><span class="line">    previous = current;</span><br><span class="line">    lag += elapsed;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">processInput</span>();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> (lag &gt;= MS_ PER_UPDATE) &#123;</span><br><span class="line">        <span class="built_in">update</span>();</span><br><span class="line">        lag -= MS_ PER_ UPDATE;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">render</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="更新方法">更新方法</h2>
-<p>对象独立, 跟着时间进行模拟</p>
+<p>对象独立, 跟着时间进行模拟<code>update()</code></p>
+<p>每一帧, 游戏循环遍历集合, 在每个对象上调用 update()方法</p>
+<p>(可能需要用到双缓冲, 可能需要传入消逝的时间)</p>
 <h1 id="行为模式">行为模式</h1>
-<h2 id="字节码">字节码</h2>
+<h2 id="字节码解释器模式">字节码(解释器模式)</h2>
+<p>将行为编码为虚拟机上的指令</p>
+<p><strong>指令集</strong>定义可执行的底层操作 一系列指令被编码为<strong>字节序列</strong> (可以想象成, <strong>每个字节码代表一个指令, 高层只需要使用字节码就能编写高层行为</strong>) <strong>虚拟机</strong>(解释器, 对字节码进行解析, 输入字节码, 执行对应的指令, <strong>可以使用栈</strong>来存储字节码和参数)使用中间值堆栈执行这些指令 通过组合指令定义复杂<strong>高层行为</strong></p>
 <h2 id="子类沙箱">子类沙箱</h2>
+<p>用一系列由<strong>基类提供的操作</strong>定义子类中的行为</p>
+<p>比如: 在基类中提供 protected 方法, 这些方法是可供子类使用的基本单元 子类只需要继承基类, 然后在用基类的基本方法实现自己的<code>activate()</code>方法</p>
+<p>但是这会导致 <strong>脆弱的基类</strong>问题: 基类变得难以改变</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Superpower</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="keyword">virtual</span> ~<span class="built_in">Superpower</span>() &#123;&#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">protected</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">activate</span><span class="params">()</span> </span>= <span class="number">0</span>;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">move</span><span class="params">(<span class="type">double</span> x, <span class="type">double</span> y, <span class="type">double</span> z)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">playSound</span><span class="params">(SoundId sound, <span class="type">double</span> volume)</span> </span>&#123;</span><br><span class="line">      <span class="comment">//这里的实现可以转发给其他组件 engine</span></span><br><span class="line">      <span class="comment">//soundEngine_play (sound, volume);</span></span><br><span class="line">      </span><br><span class="line">      <span class="comment">//也可以返回对象, 减少基类复杂度</span></span><br><span class="line">      <span class="comment">//return soundPlayer;</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">spawnParticles</span><span class="params">(ParticleType type, <span class="type">int</span> count)</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="类型对象">类型对象</h2>
+<p>让类 A 灵活的创造新类型, 类 A 的每个实例都代表了不同的对象类型</p>
+<p>eg: 要创建多种 monster</p>
+<p>本质上是将部分的类型系统从硬编码的继承结构拉出, 放到可以运行时定义的数据中, 但是这样定义类型相关的行为就会变得困难</p>
+<p>典型的例子就是 <strong>虚函数表</strong></p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Breed</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">Breed</span>(<span class="type">int</span> health, <span class="type">const</span> <span class="type">char</span>* attack) : <span class="built_in">health_</span>(health), <span class="built_in">attack_</span>(attack) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">Monster* <span class="title">newMonster</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Monster</span>(*<span class="keyword">this</span>); &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">int</span> <span class="title">getHealth</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (health_ != <span class="number">0</span> || parent_ == <span class="literal">NULL</span>)</span><br><span class="line">            <span class="keyword">return</span> health_;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> parent_-&gt;<span class="built_in">getHealth</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">getAttack</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> attack_; &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    <span class="type">int</span> health_;</span><br><span class="line">    <span class="type">const</span> <span class="type">char</span>* attack_;</span><br><span class="line">    Breed* parent_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Monster</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">const</span> <span class="type">char</span>* <span class="title">getAttack</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> breed_.<span class="built_in">getAttack</span>(); &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">Monster</span>(Breed&amp; breed) : <span class="built_in">health_</span>(breed.<span class="built_in">getHealth</span>()), <span class="built_in">breed_</span>(breed) &#123;&#125;</span><br><span class="line">    <span class="type">int</span> health_;</span><br><span class="line">    Breed&amp; breed_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">Monster* monster = someBreed.<span class="built_in">newMonster</span>();</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <h1 id="解耦模式">解耦模式</h1>
 <h2 id="组件模式">组件模式</h2>
+<p>允许单一实体 跨越多个领域 而不导致这些领域彼此耦合</p>
+<p>但是这样会导致: 对象需要实例化初始化, 正确的连接, 不同组件间沟通会有困难, 控制他们如何使用内存会更复杂</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bjorn</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="type">int</span> velocity;</span><br><span class="line">    <span class="type">int</span> x, Y;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">update</span><span class="params">(World&amp; world, Graphics&amp; graphics)</span> </span>&#123;</span><br><span class="line">        input_.<span class="built_in">update</span>(*<span class="keyword">this</span>);</span><br><span class="line">        physics_.<span class="built_in">update</span>(*<span class="keyword">this</span>, world);</span><br><span class="line">        graphics_.<span class="built_in">update</span>(*<span class="keyword">this</span>, graphics);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    InputComponent* input_;</span><br><span class="line">    PhysicsComponent physics_;</span><br><span class="line">    GraphicsComponent graphics_;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="事件队列">事件队列</h2>
+<p>解耦发出消息的时间 和 处理他的时间</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span> (running) &#123;</span><br><span class="line">    Event event = <span class="built_in">getNextEvent</span>();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>环形队列</p>
+<p>等等(?)</p>
 <h2 id="服务定位器">服务定位器</h2>
+<p>提供服务的全局接入点, 避免使用者和服务类耦合</p>
+<p><strong>服务类</strong>定义了操作的抽象接口, 分离的<strong>服务定位器</strong>提供查询获取服务的方法, 同时隐藏服务提供者的具体细节和定位它的过程</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">ConsoleAudio</span> : <span class="keyword">public</span> Audio &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">playSound</span><span class="params">(<span class="type">int</span> soundID)</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">stopSound</span><span class="params">(<span class="type">int</span> soundID)</span> </span>&#123;&#125;</span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">stopAllSounds</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Locator</span> &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">initialize</span><span class="params">()</span> </span>&#123; service_ = &amp;nullService_; &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="type">static</span> Audio&amp; <span class="title">getAudio</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> *service_; &#125;</span><br><span class="line">  </span><br><span class="line">    <span class="function"><span class="type">static</span> <span class="type">void</span> <span class="title">provide</span><span class="params">(Audio* service)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (service == <span class="literal">NULL</span>) </span><br><span class="line">            service = &amp;nullService_;</span><br><span class="line">        <span class="keyword">else</span> </span><br><span class="line">            service_ = service;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    <span class="type">static</span> Audio* service_;</span><br><span class="line">    <span class="type">static</span> NullAudio nullService_;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>日志系统的实现</p>
+<figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">LoggedAudio</span> : <span class="keyword">public</span> Audio &#123;</span><br><span class="line">  <span class="keyword">public</span>:</span><br><span class="line">    <span class="built_in">LoggedAudio</span>(Audio&amp; wrapped) : <span class="built_in">wrapped_</span>(wrapped) &#123;&#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">playSound</span><span class="params">(<span class="type">int</span> soundID)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">log</span>(<span class="string">&quot;play sound&quot;</span>);</span><br><span class="line">        wrapped_.<span class="built_in">playSound</span>(soundID);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">stopSound</span><span class="params">(<span class="type">int</span> soundID)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">log</span>(<span class="string">&quot;stop sound&quot;</span>);</span><br><span class="line">        wrapped_.<span class="built_in">stopSound</span>(soundID);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">stopAllSounds</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="built_in">log</span>(<span class="string">&quot;stop all sounds&quot;</span>);</span><br><span class="line">        wrapped_.<span class="built_in">stopAllSounds</span>();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">log</span><span class="params">(<span class="type">const</span> <span class="type">char</span>* message)</span> </span>&#123;&#125;</span><br><span class="line">    Audio&amp; wrapped_;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">enableAudioLogging</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Audio* service = <span class="keyword">new</span> <span class="built_in">LoggedAudio</span>(Locator::<span class="built_in">getAudio</span>());</span><br><span class="line">    Locator::<span class="built_in">provide</span>(service);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>反射?: 编程语言在运行时与类型系统打交道的能力</p>
 <h1 id="优化模式">优化模式</h1>
 <h2 id="数据局部性">数据局部性</h2>
+<p>cpu 缓存</p>
+<p>c++ 中的指针访问, 虚函数都会导致内存访问不连续</p>
+<p>冷/热分割</p>
 <h2 id="脏标识模式">脏标识模式</h2>
+<p>将工作延期至需要其结果才去执行, 避免不必要的工作</p>
 <h2 id="对象池模式">对象池模式</h2>
+<p>放弃单独的分配和释放对象, 从固定的池中重用对象</p>
 <h2 id="空间分区">空间分区</h2>
+<p>将对象根据位置存储在数据结构中, 来高效的定位对象</p>
 ]]></content>
       <categories>
         <category>读书笔记</category>
       </categories>
       <tags>
+        <tag>public</tag>
+        <tag>class</tag>
         <tag>state</tag>
-        <tag>filesystem</tag>
-        <tag>observer</tag>
-        <tag>entity</tag>
         <tag>virtual</tag>
+        <tag>void</tag>
       </tags>
   </entry>
   <entry>
@@ -9448,6 +9480,7 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>interface</tag>
         <tag>img</tag>
         <tag>https</tag>
+        <tag>engine</tag>
       </tags>
   </entry>
   <entry>
@@ -9828,334 +9861,327 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <p>--- 未完待续</p>
 <h1 id="第19章-一般控制问题">第19章 一般控制问题</h1>
 <h2 id="布尔表达式">19.1 布尔表达式</h2>
-<h1 id="用true和false做布尔判断">用true和false做布尔判断</h1>
-<h1 id="简化复杂的表达式">简化复杂的表达式</h1>
-<h1 id="编写肯定形式的布尔表达式">编写肯定形式的布尔表达式</h1>
-<h1 id="用括号使布尔表达式更清晰">用括号使布尔表达式更清晰</h1>
-<h1 id="理解布尔表达式是如何求值的">理解布尔表达式是如何求值的</h1>
-<h1 id="按照数轴的顺序编写数值表达式">按照数轴的顺序编写数值表达式</h1>
-<h1 id="与0比较的指导原则">与0比较的指导原则</h1>
-<h1 id="布尔表达式的常见问题">布尔表达式的常见问题</h1>
+<p>注意短路(惰性求值)</p>
+<p>按照数轴的方式写表达式 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">MIN_ELEMENTS &lt;= i and i &lt;= MAX_ELEMENTS </span><br><span class="line">i &lt; MIN ELEMENTS or MAX_ ELEMENTS &lt; i</span><br></pre></td></tr></table></figure></p>
 <h2 id="复合语句块">19.2 复合语句（块）</h2>
 <h2 id="空语句">19.3 空语句</h2>
 <h2 id="驯服危险的深层嵌套">19.4 驯服危险的深层嵌套</h2>
-<h1 id="对减少嵌套层次的技术的总结">对减少嵌套层次的技术的总结</h1>
+<p>避免使用超过三层嵌套</p>
+<h3 id="减少嵌套的方法">减少嵌套的方法</h3>
+<ul>
+<li><p>重复测试 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (inputStatus == InputStatus_Success) &#123;</span><br><span class="line">    <span class="comment">// lots of code</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (printerRoutine != <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="comment">// lots of code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">if</span> ((inputstatus == InputStatus_Success) &amp;&amp; (printerRoutine != <span class="literal">NULL</span>) &amp;&amp;</span><br><span class="line">    <span class="built_in">SetupPage</span>()) &#123;</span><br><span class="line">    <span class="comment">// lots of code</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">AllocMem</span>(&amp;printData)) &#123;</span><br><span class="line">        <span class="comment">// lots of code</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+<li><p>break <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line"><span class="keyword">do</span> &#123; <span class="comment">// begin break block</span></span><br><span class="line">    <span class="keyword">if</span> (inputStatus != InputStatus_Success) &#123;</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">        <span class="comment">// break out of block</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// lots of code</span></span><br><span class="line">    <span class="keyword">if</span> (printerRoutine == <span class="literal">NULL</span>) &#123;</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// break out of block</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// lots of code</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">SetupPage</span>()) &#123;</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// break out of block</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// lots of code</span></span><br><span class="line">    <span class="keyword">if</span> (!<span class="built_in">AllocMem</span>(sprintData)) &#123;</span><br><span class="line">        <span class="keyword">break</span>; <span class="comment">// break out of block</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// lots of code</span></span><br><span class="line">&#125; <span class="keyword">while</span> (FALSE);</span><br><span class="line"><span class="comment">// end break block</span></span><br><span class="line"></span><br></pre></td></tr></table></figure></p></li>
+<li><p>case</p></li>
+<li><p>深层嵌套放入子程序</p></li>
+<li><p>面向对象 <figure class="highlight cpp"><table><tr><td class="code"><pre><span class="line">TransactionData transactionData;</span><br><span class="line">Transaction* transaction;</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> (!<span class="built_in">TransactionsComplete</span>()) &#123;</span><br><span class="line">    <span class="comment">// read transaction record and complete transaction</span></span><br><span class="line">    transactionData = <span class="built_in">ReadTransaction</span>();</span><br><span class="line">    transaction = TransactionFactory.<span class="built_in">Create</span>(transactionData);</span><br><span class="line">    transaction-&gt;<span class="built_in">Complete</span>();</span><br><span class="line">    <span class="keyword">delete</span> transaction;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p></li>
+</ul>
 <h2 id="编程基础结构化编程">19.5 编程基础：结构化编程</h2>
-<h1 id="结构化编程的三个组成部分">结构化编程的三个组成部分</h1>
+<p>结构化编程的核心思想很简单，那就是一个应用程序应该只采用一些单入单 出 的 控 制 结 构 ( 也 称 为 单 一 入 又 、 单 一 出 又 的 控 制 结 构 )。 单 入 单 出 的 控 制 结 构 指 的就是一个代码块，它只能从一个位置开始执行，并且只能结束于一个位置。</p>
 <h2 id="控制结构与复杂度">19.6 控制结构与复杂度</h2>
-<h1 id="复杂度的重要性">复杂度的重要性</h1>
-<h1 id="降低复杂度的一般原则">降低复杂度的一般原则</h1>
-<h1 id="其它类型的复杂度">其它类型的复杂度</h1>
-<h1 id="关键点">关键点</h1>
 <h1 id="第20章-软件质量概述">第20章 软件质量概述</h1>
 <h2 id="软件质量的特性">20.1 软件质量的特性</h2>
 <h2 id="改善软件质量的技术">20.2 改善软件质量的技术</h2>
-<h1 id="开发过程">开发过程</h1>
-<h1 id="设置目标">设置目标</h1>
 <h2 id="不同质量保障技术的相对效能">20.3 不同质量保障技术的相对效能</h2>
-<h1 id="缺陷检测率">缺陷检测率</h1>
-<h1 id="找出缺陷的成本">找出缺陷的成本</h1>
-<h1 id="修正缺陷的成本">修正缺陷的成本</h1>
+<h3 id="缺陷检测率">缺陷检测率</h3>
+<h3 id="找出缺陷的成本">找出缺陷的成本</h3>
+<h3 id="修正缺陷的成本">修正缺陷的成本</h3>
 <h2 id="什么时候进行质量保证工作">20.4 什么时候进行质量保证工作</h2>
 <h2 id="软件质量的普遍原理">20.5 软件质量的普遍原理</h2>
-<h1 id="推荐读物">推荐读物</h1>
-<h1 id="相关标准">相关标准</h1>
-<h1 id="关键点-1">关键点</h1>
 <h1 id="第21章-协同构造">第21章 协同构造</h1>
 <h2 id="协同开发实践概要">21.1 协同开发实践概要</h2>
-<h1 id="协同构造是其他质量保证技术的补充">协同构造是其他质量保证技术的补充</h1>
-<h1 id="协同构造有利于传授公司文化以及编程专业知识">协同构造有利于传授公司文化以及编程专业知识</h1>
-<h1 id="集体所有权适用于所有形式的协同构造">集体所有权适用于所有形式的协同构造</h1>
-<h1 id="在构造前后都应保持协作">在构造前后都应保持协作</h1>
+<h3 id="协同构造是其他质量保证技术的补充">协同构造是其他质量保证技术的补充</h3>
+<h3 id="协同构造有利于传授公司文化以及编程专业知识">协同构造有利于传授公司文化以及编程专业知识</h3>
+<h3 id="集体所有权适用于所有形式的协同构造">集体所有权适用于所有形式的协同构造</h3>
+<h3 id="在构造前后都应保持协作">在构造前后都应保持协作</h3>
 <h2 id="结对编程">21.2 结对编程</h2>
-<h1 id="成功运用结对编程的关键">成功运用结对编程的关键</h1>
-<h1 id="结对编程的好处">结对编程的好处</h1>
+<h3 id="成功运用结对编程的关键">成功运用结对编程的关键</h3>
+<h3 id="结对编程的好处">结对编程的好处</h3>
 <h2 id="正式检查">21.3 正式检查</h2>
-<h1 id="你期望检查能够带来什么结果">你期望检查能够带来什么结果</h1>
-<h1 id="检查中的人员角色">检查中的人员角色</h1>
-<h1 id="检查的一般步骤">检查的一般步骤</h1>
-<h1 id="检查中的自尊心">检查中的自尊心</h1>
-<h1 id="检查和代码大全">检查和代码大全</h1>
-<h1 id="检查总结">检查总结</h1>
+<h3 id="你期望检查能够带来什么结果">你期望检查能够带来什么结果</h3>
+<h3 id="检查中的人员角色">检查中的人员角色</h3>
+<h3 id="检查的一般步骤">检查的一般步骤</h3>
+<h3 id="检查中的自尊心">检查中的自尊心</h3>
+<h3 id="检查和代码大全">检查和代码大全</h3>
+<h3 id="检查总结">检查总结</h3>
 <h2 id="其他类型的协同开发实践">21.4 其他类型的协同开发实践</h2>
-<h1 id="走查">走查</h1>
-<h1 id="代码阅读">代码阅读</h1>
-<h1 id="大型演示">大型演示</h1>
-<h1 id="协同构造技术的比较">协同构造技术的比较</h1>
-<h1 id="参考资料">参考资料</h1>
-<h1 id="结对编程-1">结对编程</h1>
-<h1 id="检查">检查</h1>
-<h1 id="相关标准-1">相关标准</h1>
-<h1 id="关键点-2">关键点</h1>
+<h3 id="走查">走查</h3>
+<h3 id="代码阅读">代码阅读</h3>
+<h3 id="大型演示">大型演示</h3>
+<h3 id="协同构造技术的比较">协同构造技术的比较</h3>
+<h3 id="参考资料">参考资料</h3>
+<h3 id="结对编程-1">结对编程</h3>
+<h3 id="检查">检查</h3>
+<h3 id="相关标准">相关标准</h3>
+<h3 id="关键点">关键点</h3>
 <h1 id="第22章-开发者测试">第22章 开发者测试</h1>
 <h2 id="开发者测试在软件质量中的角色">22.1 开发者测试在软件质量中的角色</h2>
-<h1 id="构造中测试">构造中测试</h1>
+<h3 id="构造中测试">构造中测试</h3>
 <h2 id="推荐的开发者测试方法">22.2 推荐的开发者测试方法</h2>
-<h1 id="先测试还是后测试">先测试还是后测试</h1>
-<h1 id="开发者测试的局限性">开发者测试的局限性</h1>
+<h3 id="先测试还是后测试">先测试还是后测试</h3>
+<h3 id="开发者测试的局限性">开发者测试的局限性</h3>
 <h2 id="测试技巧锦囊">22.3 测试技巧锦囊</h2>
-<h1 id="不完整的测试">不完整的测试</h1>
-<h1 id="结构化的基础测试">结构化的基础测试</h1>
-<h1 id="数据流测试">数据流测试</h1>
-<h1 id="等价类划分">等价类划分</h1>
-<h1 id="猜测错误">猜测错误</h1>
-<h1 id="边界值分析">边界值分析</h1>
-<h1 id="几类坏数据">几类坏数据</h1>
-<h1 id="几类好数据">几类好数据</h1>
-<h1 id="采用容易手工检查的测试用例">采用容易手工检查的测试用例</h1>
+<h3 id="不完整的测试">不完整的测试</h3>
+<h3 id="结构化的基础测试">结构化的基础测试</h3>
+<h3 id="数据流测试">数据流测试</h3>
+<h3 id="等价类划分">等价类划分</h3>
+<h3 id="猜测错误">猜测错误</h3>
+<h3 id="边界值分析">边界值分析</h3>
+<h3 id="几类坏数据">几类坏数据</h3>
+<h3 id="几类好数据">几类好数据</h3>
+<h3 id="采用容易手工检查的测试用例">采用容易手工检查的测试用例</h3>
 <h2 id="典型错误">22.4 典型错误</h2>
-<h1 id="哪些类包含最多的错误">哪些类包含最多的错误？</h1>
-<h1 id="错误的分类">错误的分类</h1>
-<h1 id="不完善的构造过程引发错误所占的比例">不完善的构造过程引发错误所占的比例</h1>
-<h1 id="你期望能发现多少错误">你期望能发现多少错误</h1>
-<h1 id="测试本身的错误">测试本身的错误</h1>
+<h3 id="哪些类包含最多的错误">哪些类包含最多的错误？</h3>
+<h3 id="错误的分类">错误的分类</h3>
+<h3 id="不完善的构造过程引发错误所占的比例">不完善的构造过程引发错误所占的比例</h3>
+<h3 id="你期望能发现多少错误">你期望能发现多少错误</h3>
+<h3 id="测试本身的错误">测试本身的错误</h3>
 <h2 id="测试支持工具">22.5 测试支持工具</h2>
-<h1 id="为测试各个类构造脚手架">为测试各个类构造脚手架</h1>
-<h1 id="diff工具">Diff工具</h1>
-<h1 id="测试数据生成器">测试数据生成器</h1>
-<h1 id="覆盖率监视器">覆盖率监视器</h1>
-<h1 id="数据记录器日志记录器">数据记录器/日志记录器</h1>
-<h1 id="符号调试工具">符号调试工具</h1>
-<h1 id="系统干扰器">系统干扰器</h1>
-<h1 id="错误数据库">错误数据库</h1>
+<h3 id="为测试各个类构造脚手架">为测试各个类构造脚手架</h3>
+<h3 id="diff工具">Diff工具</h3>
+<h3 id="测试数据生成器">测试数据生成器</h3>
+<h3 id="覆盖率监视器">覆盖率监视器</h3>
+<h3 id="数据记录器日志记录器">数据记录器/日志记录器</h3>
+<h3 id="符号调试工具">符号调试工具</h3>
+<h3 id="系统干扰器">系统干扰器</h3>
+<h3 id="错误数据库">错误数据库</h3>
 <h2 id="改善测试过程">22.6 改善测试过程</h2>
-<h1 id="有计划的测试">有计划的测试</h1>
-<h1 id="重新测试回归测试">重新测试（回归测试）</h1>
-<h1 id="自动化测试">自动化测试</h1>
+<h3 id="有计划的测试">有计划的测试</h3>
+<h3 id="重新测试回归测试">重新测试（回归测试）</h3>
+<h3 id="自动化测试">自动化测试</h3>
 <h2 id="保留测试记录">22.7 保留测试记录</h2>
-<h1 id="个人测试记录">个人测试记录</h1>
-<h1 id="推荐读物-1">推荐读物</h1>
-<h1 id="测试">测试</h1>
-<h1 id="测试脚手架">测试脚手架</h1>
-<h1 id="测试优先的开发">测试优先的开发</h1>
-<h1 id="相关标准-2">相关标准</h1>
-<h1 id="关键点-3">关键点</h1>
+<h3 id="个人测试记录">个人测试记录</h3>
+<h3 id="推荐读物">推荐读物</h3>
+<h3 id="测试">测试</h3>
+<h3 id="测试脚手架">测试脚手架</h3>
+<h3 id="测试优先的开发">测试优先的开发</h3>
+<h3 id="相关标准-1">相关标准</h3>
+<h3 id="关键点-1">关键点</h3>
 <h1 id="第23章-调-试">第23章 调 试</h1>
 <h2 id="调试概述">23.1 调试概述</h2>
-<h1 id="调试在软件质量中所扮演的角色">调试在软件质量中所扮演的角色</h1>
-<h1 id="调试效率的巨大差异">调试效率的巨大差异</h1>
-<h1 id="让你有所收获的缺陷">让你有所收获的缺陷</h1>
-<h1 id="一种效率低下的调试方法">一种效率低下的调试方法</h1>
+<h3 id="调试在软件质量中所扮演的角色">调试在软件质量中所扮演的角色</h3>
+<h3 id="调试效率的巨大差异">调试效率的巨大差异</h3>
+<h3 id="让你有所收获的缺陷">让你有所收获的缺陷</h3>
+<h3 id="一种效率低下的调试方法">一种效率低下的调试方法</h3>
 <h2 id="寻找缺陷">23.2 寻找缺陷</h2>
-<h1 id="科学的调试方法">科学的调试方法</h1>
-<h1 id="寻找缺陷的一些小建议">寻找缺陷的一些小建议</h1>
-<h1 id="语法错误">语法错误</h1>
+<h3 id="科学的调试方法">科学的调试方法</h3>
+<h3 id="寻找缺陷的一些小建议">寻找缺陷的一些小建议</h3>
+<h3 id="语法错误">语法错误</h3>
 <h2 id="修正缺陷">23.3 修正缺陷</h2>
 <h2 id="调试中的心理因素">23.4 调试中的心理因素</h2>
-<h1 id="心理取向如何导致调试时的盲目">心理取向如何导致调试时的盲目</h1>
-<h1 id="心理距离在调试中的作用">“心理距离”在调试中的作用</h1>
+<h3 id="心理取向如何导致调试时的盲目">心理取向如何导致调试时的盲目</h3>
+<h3 id="心理距离在调试中的作用">“心理距离”在调试中的作用</h3>
 <h2 id="调试工具明显的和不那么明显的">23.5 调试工具——明显的和不那么明显的</h2>
-<h1 id="源代码比较工具">源代码比较工具</h1>
-<h1 id="编译器的警告消息">编译器的警告消息</h1>
-<h1 id="扩展的语法和逻辑检查">扩展的语法和逻辑检查</h1>
-<h1 id="执行性能分析器">执行性能分析器</h1>
-<h1 id="测试框架">测试框架</h1>
-<h1 id="调试器">调试器</h1>
-<h1 id="其它资源">其它资源</h1>
-<h1 id="关键点-4">关键点</h1>
+<h3 id="源代码比较工具">源代码比较工具</h3>
+<h3 id="编译器的警告消息">编译器的警告消息</h3>
+<h3 id="扩展的语法和逻辑检查">扩展的语法和逻辑检查</h3>
+<h3 id="执行性能分析器">执行性能分析器</h3>
+<h3 id="测试框架">测试框架</h3>
+<h3 id="调试器">调试器</h3>
+<h3 id="其它资源">其它资源</h3>
+<h3 id="关键点-2">关键点</h3>
 <h1 id="第24章-重构">第24章 重构</h1>
 <h2 id="软件进化的类型">24.1 软件进化的类型</h2>
-<h1 id="软件进化的哲学">软件进化的哲学</h1>
+<h3 id="软件进化的哲学">软件进化的哲学</h3>
 <h2 id="重构简介">24.2 重构简介</h2>
-<h1 id="重构的理由">重构的理由</h1>
-<h1 id="拒绝重构的理由">拒绝重构的理由</h1>
+<h3 id="重构的理由">重构的理由</h3>
+<h3 id="拒绝重构的理由">拒绝重构的理由</h3>
 <h2 id="特定的重构">24.3 特定的重构</h2>
-<h1 id="数据级的重构">数据级的重构</h1>
-<h1 id="语句级的重构">语句级的重构</h1>
-<h1 id="子程序级重构">子程序级重构</h1>
-<h1 id="类实现的重构">类实现的重构</h1>
-<h1 id="类接口的重构">类接口的重构</h1>
-<h1 id="系统级重构">系统级重构</h1>
+<h3 id="数据级的重构">数据级的重构</h3>
+<h3 id="语句级的重构">语句级的重构</h3>
+<h3 id="子程序级重构">子程序级重构</h3>
+<h3 id="类实现的重构">类实现的重构</h3>
+<h3 id="类接口的重构">类接口的重构</h3>
+<h3 id="系统级重构">系统级重构</h3>
 <h2 id="安全的重构">24.4 安全的重构</h2>
-<h1 id="不宜重构的情况">不宜重构的情况</h1>
+<h3 id="不宜重构的情况">不宜重构的情况</h3>
 <h2 id="重构策略">24.5 重构策略</h2>
-<h1 id="推荐读物-2">推荐读物</h1>
-<h1 id="关键点-5">关键点</h1>
+<h3 id="推荐读物-1">推荐读物</h3>
+<h3 id="关键点-3">关键点</h3>
 <h1 id="第25章-代码调整策略">第25章 代码调整策略</h1>
 <h2 id="性能概述">25.1 性能概述</h2>
-<h1 id="质量特性和性能">质量特性和性能</h1>
-<h1 id="性能和代码调整">性能和代码调整</h1>
+<h3 id="质量特性和性能">质量特性和性能</h3>
+<h3 id="性能和代码调整">性能和代码调整</h3>
 <h2 id="代码调整简介">25.2 代码调整简介</h2>
-<h1 id="pareto法则">Pareto法则</h1>
-<h1 id="一些无稽之谈">一些无稽之谈</h1>
-<h1 id="何时调整代码">何时调整代码</h1>
-<h1 id="编译器优化">编译器优化</h1>
+<h3 id="pareto法则">Pareto法则</h3>
+<h3 id="一些无稽之谈">一些无稽之谈</h3>
+<h3 id="何时调整代码">何时调整代码</h3>
+<h3 id="编译器优化">编译器优化</h3>
 <h2 id="蜜糖和哥斯拉">25.3 蜜糖和哥斯拉</h2>
-<h1 id="常见的低效率之源">常见的低效率之源</h1>
-<h1 id="常见操作的相对效率">常见操作的相对效率</h1>
+<h3 id="常见的低效率之源">常见的低效率之源</h3>
+<h3 id="常见操作的相对效率">常见操作的相对效率</h3>
 <h2 id="性能测量">25.4 性能测量</h2>
-<h1 id="性能测量应当精确">性能测量应当精确</h1>
+<h3 id="性能测量应当精确">性能测量应当精确</h3>
 <h2 id="反复调整">25.5 反复调整</h2>
 <h2 id="代码调整方法总结">25.6 代码调整方法总结</h2>
-<h1 id="推荐读物-3">推荐读物</h1>
-<h1 id="算法和数据类型">算法和数据类型</h1>
-<h1 id="关键点-6">关键点</h1>
+<h3 id="推荐读物-2">推荐读物</h3>
+<h3 id="算法和数据类型">算法和数据类型</h3>
+<h3 id="关键点-4">关键点</h3>
 <h1 id="第26章-代码调整方法">第26章 代码调整方法</h1>
 <h2 id="逻辑">26.1 逻辑</h2>
-<h1 id="在知道答案后停止判断">在知道答案后停止判断</h1>
-<h1 id="按照出现频率来调整判断顺序">按照出现频率来调整判断顺序</h1>
-<h1 id="相似逻辑结构之间的性能比较">相似逻辑结构之间的性能比较</h1>
-<h1 id="用查找表替代复杂表达式">用查找表替代复杂表达式</h1>
-<h1 id="使用惰性求值">使用惰性求值</h1>
+<h3 id="在知道答案后停止判断">在知道答案后停止判断</h3>
+<h3 id="按照出现频率来调整判断顺序">按照出现频率来调整判断顺序</h3>
+<h3 id="相似逻辑结构之间的性能比较">相似逻辑结构之间的性能比较</h3>
+<h3 id="用查找表替代复杂表达式">用查找表替代复杂表达式</h3>
+<h3 id="使用惰性求值">使用惰性求值</h3>
 <h2 id="循环">26.2 循环</h2>
-<h1 id="将判断外提unswitching">将判断外提（Unswitching）</h1>
-<h1 id="合并循环">合并循环</h1>
-<h1 id="展开">？？？？？展开</h1>
-<h1 id="尽可能减少再循环内部做的工作">尽可能减少再循环内部做的工作</h1>
-<h1 id="哨兵值">哨兵值</h1>
-<h1 id="把最忙的循环放在最内层">把最忙的循环放在最内层</h1>
-<h1 id="削减强度">削减强度</h1>
+<h3 id="将判断外提unswitching">将判断外提（Unswitching）</h3>
+<h3 id="合并循环">合并循环</h3>
+<h3 id="展开">？？？？？展开</h3>
+<h3 id="尽可能减少再循环内部做的工作">尽可能减少再循环内部做的工作</h3>
+<h3 id="哨兵值">哨兵值</h3>
+<h3 id="把最忙的循环放在最内层">把最忙的循环放在最内层</h3>
+<h3 id="削减强度">削减强度</h3>
 <h2 id="数据变换">26.3 数据变换</h2>
-<h1 id="使用整型数而不是浮点数">使用整型数而不是浮点数</h1>
-<h1 id="数组维度尽可能少">数组维度尽可能少</h1>
-<h1 id="尽可能减少数组引用">尽可能减少数组引用</h1>
-<h1 id="使用辅助索引">使用辅助索引</h1>
-<h1 id="使用缓存机制">使用缓存机制</h1>
+<h3 id="使用整型数而不是浮点数">使用整型数而不是浮点数</h3>
+<h3 id="数组维度尽可能少">数组维度尽可能少</h3>
+<h3 id="尽可能减少数组引用">尽可能减少数组引用</h3>
+<h3 id="使用辅助索引">使用辅助索引</h3>
+<h3 id="使用缓存机制">使用缓存机制</h3>
 <h2 id="表达式">26.4 表达式</h2>
-<h1 id="利用代数恒等式">利用代数恒等式</h1>
-<h1 id="削弱运算强度">削弱运算强度</h1>
-<h1 id="编译时初始化">编译时初始化</h1>
-<h1 id="小心系统函数">小心系统函数</h1>
-<h1 id="使用正确的常量类型">使用正确的常量类型</h1>
-<h1 id="预先算出结果">预先算出结果</h1>
-<h1 id="删除公共子表达式">删除公共子表达式</h1>
+<h3 id="利用代数恒等式">利用代数恒等式</h3>
+<h3 id="削弱运算强度">削弱运算强度</h3>
+<h3 id="编译时初始化">编译时初始化</h3>
+<h3 id="小心系统函数">小心系统函数</h3>
+<h3 id="使用正确的常量类型">使用正确的常量类型</h3>
+<h3 id="预先算出结果">预先算出结果</h3>
+<h3 id="删除公共子表达式">删除公共子表达式</h3>
 <h2 id="子程序">26.5 子程序</h2>
-<h1 id="将函数重写为内联">将函数重写为内联</h1>
+<h3 id="将函数重写为内联">将函数重写为内联</h3>
 <h2 id="用低级语言重写代码">26.6 用低级语言重写代码</h2>
 <h2 id="变得越多事情反而更没变">26.7 变得越多，事情反而更没变</h2>
-<h1 id="推荐读物-4">推荐读物</h1>
-<h1 id="关键点-7">关键点</h1>
+<h3 id="推荐读物-3">推荐读物</h3>
+<h3 id="关键点-5">关键点</h3>
 <h1 id="第27章-程序规模对构筑的影响">第27章 程序规模对“构筑”的影响</h1>
 <h2 id="交流和规模">27.1 交流和规模</h2>
 <h2 id="项目规模的范围">27.2 项目规模的范围</h2>
 <h2 id="项目规模对错误的影响">27.3 项目规模对错误的影响</h2>
 <h2 id="项目规模对生产率的影响">27.4 项目规模对生产率的影响</h2>
 <h2 id="项目规模对开发活动的影响">27.5 项目规模对开发活动的影响</h2>
-<h1 id="活动比例和项目规模">活动比例和项目规模</h1>
-<h1 id="程序产品系统和系统产品">程序、产品、系统和系统产品</h1>
-<h1 id="方法论和规模">方法论和规模</h1>
-<h1 id="额外资源">额外资源</h1>
-<h1 id="关键点-8">关键点</h1>
+<h3 id="活动比例和项目规模">活动比例和项目规模</h3>
+<h3 id="程序产品系统和系统产品">程序、产品、系统和系统产品</h3>
+<h3 id="方法论和规模">方法论和规模</h3>
+<h3 id="额外资源">额外资源</h3>
+<h3 id="关键点-6">关键点</h3>
 <h1 id="第28章-管理构筑">第28章 管理“构筑”</h1>
 <h2 id="鼓励良好的编码实践">28.1 鼓励良好的编码实践</h2>
-<h1 id="设定标准的考虑事项">设定标准的考虑事项</h1>
-<h1 id="鼓励良好的编码实践的技术">鼓励良好的编码实践的技术</h1>
-<h1 id="本书的角色">本书的角色</h1>
+<h3 id="设定标准的考虑事项">设定标准的考虑事项</h3>
+<h3 id="鼓励良好的编码实践的技术">鼓励良好的编码实践的技术</h3>
+<h3 id="本书的角色">本书的角色</h3>
 <h2 id="配置管理">28.2 配置管理</h2>
-<h1 id="什么是配置管理">什么是配置管理？</h1>
-<h1 id="需求变更和设计变更">需求变更和设计变更</h1>
-<h1 id="软件代码变更">软件代码变更</h1>
-<h1 id="工具版本">工具版本</h1>
-<h1 id="机器配置">机器配置</h1>
-<h1 id="备份计划">备份计划</h1>
-<h1 id="有关配置管理的额外资源">有关配置管理的额外资源</h1>
+<h3 id="什么是配置管理">什么是配置管理？</h3>
+<h3 id="需求变更和设计变更">需求变更和设计变更</h3>
+<h3 id="软件代码变更">软件代码变更</h3>
+<h3 id="工具版本">工具版本</h3>
+<h3 id="机器配置">机器配置</h3>
+<h3 id="备份计划">备份计划</h3>
+<h3 id="有关配置管理的额外资源">有关配置管理的额外资源</h3>
 <h2 id="评估构筑进度表">28.3 评估“构筑”进度表</h2>
-<h1 id="评估的方法">评估的方法</h1>
-<h1 id="评估构筑的工作量">评估“构筑”的工作量</h1>
-<h1 id="对进度的影响">对进度的影响</h1>
-<h1 id="评估与控制">评估与控制</h1>
-<h1 id="如果你落后了该怎么办">如果你落后了该怎么办</h1>
-<h1 id="有关软件评估的额外资源">有关软件评估的额外资源</h1>
+<h3 id="评估的方法">评估的方法</h3>
+<h3 id="评估构筑的工作量">评估“构筑”的工作量</h3>
+<h3 id="对进度的影响">对进度的影响</h3>
+<h3 id="评估与控制">评估与控制</h3>
+<h3 id="如果你落后了该怎么办">如果你落后了该怎么办</h3>
+<h3 id="有关软件评估的额外资源">有关软件评估的额外资源</h3>
 <h2 id="度量">28.4 度量</h2>
-<h1 id="有关软件度量的额外资源">有关软件度量的额外资源</h1>
+<h3 id="有关软件度量的额外资源">有关软件度量的额外资源</h3>
 <h2 id="把程序员当人看">28.5 把程序员当人看</h2>
-<h1 id="程序员们怎样花费时间">程序员们怎样花费时间？</h1>
-<h1 id="性能差异与质量差异">性能差异与质量差异</h1>
-<h1 id="信仰问题">信仰问题</h1>
-<h1 id="物理环境">物理环境</h1>
-<h1 id="有关把程序员当人看的额外资源">有关“把程序员当人看”的额外资源</h1>
+<h3 id="程序员们怎样花费时间">程序员们怎样花费时间？</h3>
+<h3 id="性能差异与质量差异">性能差异与质量差异</h3>
+<h3 id="信仰问题">信仰问题</h3>
+<h3 id="物理环境">物理环境</h3>
+<h3 id="有关把程序员当人看的额外资源">有关“把程序员当人看”的额外资源</h3>
 <h2 id="管理你的管理者">28.6 管理你的管理者</h2>
-<h1 id="有关管理构造的额外资源">有关管理构造的额外资源</h1>
-<h1 id="相关标准-3">相关标准</h1>
-<h1 id="关键点-9">关键点</h1>
+<h3 id="有关管理构造的额外资源">有关管理构造的额外资源</h3>
+<h3 id="相关标准-2">相关标准</h3>
+<h3 id="关键点-7">关键点</h3>
 <h1 id="第29章-集成">第29章 集成</h1>
 <h2 id="集成方式的重要性">29.1 集成方式的重要性</h2>
 <h2 id="集成频率阶段式集成还是增量集成">29.2 集成频率——阶段式集成还是增量集成</h2>
-<h1 id="阶段式集成">阶段式集成</h1>
-<h1 id="增量集成">增量集成</h1>
-<h1 id="增量集成的益处">增量集成的益处</h1>
+<h3 id="阶段式集成">阶段式集成</h3>
+<h3 id="增量集成">增量集成</h3>
+<h3 id="增量集成的益处">增量集成的益处</h3>
 <h2 id="增量集成的策略">29.3 增量集成的策略</h2>
-<h1 id="自顶向下集成">自顶向下集成</h1>
-<h1 id="自底向上集成">自底向上集成</h1>
-<h1 id="三明治集成">三明治集成</h1>
-<h1 id="风险导向的集成">风险导向的集成</h1>
-<h1 id="功能导向的集成">功能导向的集成</h1>
-<h1 id="t-型集成">T-型集成</h1>
-<h1 id="集成方法小结">集成方法小结</h1>
-<h1 id="持续集成">持续集成</h1>
-<h1 id="额外资源-1">额外资源</h1>
-<h1 id="关键点-10">关键点</h1>
+<h3 id="自顶向下集成">自顶向下集成</h3>
+<h3 id="自底向上集成">自底向上集成</h3>
+<h3 id="三明治集成">三明治集成</h3>
+<h3 id="风险导向的集成">风险导向的集成</h3>
+<h3 id="功能导向的集成">功能导向的集成</h3>
+<h3 id="t-型集成">T-型集成</h3>
+<h3 id="集成方法小结">集成方法小结</h3>
+<h3 id="持续集成">持续集成</h3>
+<h3 id="额外资源-1">额外资源</h3>
+<h3 id="关键点-8">关键点</h3>
 <h1 id="第30章-编程工具">第30章 编程工具</h1>
 <h2 id="设计工具">30.1 设计工具</h2>
 <h2 id="源代码工具">30.2 源代码工具</h2>
-<h1 id="编辑">编辑</h1>
-<h1 id="分析代码质量">分析代码质量</h1>
-<h1 id="重构源代码">重构源代码</h1>
-<h1 id="数据词典">数据词典</h1>
+<h3 id="编辑">编辑</h3>
+<h3 id="分析代码质量">分析代码质量</h3>
+<h3 id="重构源代码">重构源代码</h3>
+<h3 id="数据词典">数据词典</h3>
 <h2 id="可执行码工具">30.3 可执行码工具</h2>
-<h1 id="产生目标码">产生目标码</h1>
-<h1 id="除错">除错</h1>
-<h1 id="测试-1">测试</h1>
-<h1 id="代码微调">代码微调</h1>
+<h3 id="产生目标码">产生目标码</h3>
+<h3 id="除错">除错</h3>
+<h3 id="测试-1">测试</h3>
+<h3 id="代码微调">代码微调</h3>
 <h2 id="工具导向的环境">30.4 工具导向的环境</h2>
 <h2 id="打造你自己的编程工具">30.5 打造你自己的编程工具</h2>
-<h1 id="项目特有的工具">项目特有的工具</h1>
-<h1 id="脚本">脚本</h1>
+<h3 id="项目特有的工具">项目特有的工具</h3>
+<h3 id="脚本">脚本</h3>
 <h2 id="工具幻境">30.6 工具幻境</h2>
-<h1 id="额外资源-2">额外资源</h1>
-<h1 id="关键点-11">关键点</h1>
+<h3 id="额外资源-2">额外资源</h3>
+<h3 id="关键点-9">关键点</h3>
 <h1 id="第31章-布局与风格">第31章 布局与风格</h1>
 <h2 id="基本原则">31.1 基本原则</h2>
-<h1 id="布局的极端情况">布局的极端情况</h1>
-<h1 id="格式化的基本原理">格式化的基本原理</h1>
-<h1 id="人和计算机对程序的解读">人和计算机对程序的解读</h1>
-<h1 id="好布局有什么用">好布局有什么用？</h1>
-<h1 id="把布局作为一种信仰">把布局作为一种信仰</h1>
-<h1 id="良好布局的目标">良好布局的目标</h1>
+<h3 id="布局的极端情况">布局的极端情况</h3>
+<h3 id="格式化的基本原理">格式化的基本原理</h3>
+<h3 id="人和计算机对程序的解读">人和计算机对程序的解读</h3>
+<h3 id="好布局有什么用">好布局有什么用？</h3>
+<h3 id="把布局作为一种信仰">把布局作为一种信仰</h3>
+<h3 id="良好布局的目标">良好布局的目标</h3>
 <h2 id="布局技术">31.2 布局技术</h2>
-<h1 id="空白区">空白区</h1>
-<h1 id="括号">括号</h1>
+<h3 id="空白区">空白区</h3>
+<h3 id="括号">括号</h3>
 <h2 id="布局风格">31.3 布局风格</h2>
-<h1 id="纯块结构">纯块结构</h1>
-<h1 id="模仿纯块结构">模仿纯块结构</h1>
-<h1 id="行尾布局">行尾布局</h1>
-<h1 id="哪种风格最优">哪种风格最优？</h1>
+<h3 id="纯块结构">纯块结构</h3>
+<h3 id="模仿纯块结构">模仿纯块结构</h3>
+<h3 id="行尾布局">行尾布局</h3>
+<h3 id="哪种风格最优">哪种风格最优？</h3>
 <h2 id="控制结构的布局">31.4 控制结构的布局</h2>
-<h1 id="格式化控制结构块的要点">格式化控制结构块的要点</h1>
-<h1 id="其他考虑">其他考虑</h1>
+<h3 id="格式化控制结构块的要点">格式化控制结构块的要点</h3>
+<h3 id="其他考虑">其他考虑</h3>
 <h2 id="单条语句的布局">31.5 单条语句的布局</h2>
-<h1 id="语句长度">语句长度</h1>
-<h1 id="用空格使语句显得清楚">用空格使语句显得清楚</h1>
-<h1 id="格式化后续行">格式化后续行</h1>
-<h1 id="每行仅写一条语句">每行仅写一条语句</h1>
-<h1 id="数据声明的布局">数据声明的布局</h1>
+<h3 id="语句长度">语句长度</h3>
+<h3 id="用空格使语句显得清楚">用空格使语句显得清楚</h3>
+<h3 id="格式化后续行">格式化后续行</h3>
+<h3 id="每行仅写一条语句">每行仅写一条语句</h3>
+<h3 id="数据声明的布局">数据声明的布局</h3>
 <h2 id="注释的布局">31.6 注释的布局</h2>
 <h2 id="子程序的布局">31.7 子程序的布局</h2>
 <h2 id="类的布局">31.8 类的布局</h2>
-<h1 id="类接口的布局">类接口的布局</h1>
-<h1 id="类实现的布局">类实现的布局</h1>
-<h1 id="文件和程序布局">文件和程序布局</h1>
-<h1 id="更多资源">更多资源</h1>
-<h1 id="关键点-12">关键点</h1>
+<h3 id="类接口的布局">类接口的布局</h3>
+<h3 id="类实现的布局">类实现的布局</h3>
+<h3 id="文件和程序布局">文件和程序布局</h3>
+<h3 id="更多资源">更多资源</h3>
+<h3 id="关键点-10">关键点</h3>
 <h1 id="第32章-自说明代码">第32章 自说明代码</h1>
 <h2 id="外部文档">32.1 外部文档</h2>
 <h2 id="编程风格作文档">32.2 编程风格作文档</h2>
 <h2 id="注释或不注释">32.3 注释或不注释</h2>
 <h2 id="高效注释之关键">32.4 高效注释之关键</h2>
-<h1 id="注释种类">注释种类</h1>
-<h1 id="高效注释">高效注释</h1>
-<h1 id="最佳注释量">最佳注释量</h1>
+<h3 id="注释种类">注释种类</h3>
+<h3 id="高效注释">高效注释</h3>
+<h3 id="最佳注释量">最佳注释量</h3>
 <h2 id="注释技术">32.5 注释技术</h2>
-<h1 id="注释单行">注释单行</h1>
-<h1 id="注释代码段">注释代码段</h1>
-<h1 id="注释数据声明">注释数据声明</h1>
-<h1 id="注释控制结构">注释控制结构</h1>
-<h1 id="注释子程序">注释子程序</h1>
-<h1 id="注释类文件和程序">注释类、文件和程序</h1>
+<h3 id="注释单行">注释单行</h3>
+<h3 id="注释代码段">注释代码段</h3>
+<h3 id="注释数据声明">注释数据声明</h3>
+<h3 id="注释控制结构">注释控制结构</h3>
+<h3 id="注释子程序">注释子程序</h3>
+<h3 id="注释类文件和程序">注释类、文件和程序</h3>
 <h2 id="ieee标准">32.6 IEEE标准</h2>
-<h1 id="软件质量保证标准">软件质量保证标准</h1>
-<h1 id="更多资源-1">更多资源</h1>
-<h1 id="关键点-13">关键点</h1>
+<h3 id="软件质量保证标准">软件质量保证标准</h3>
+<h3 id="更多资源-1">更多资源</h3>
+<h3 id="关键点-11">关键点</h3>
 <h1 id="第33章-个人性格">第33章 个人性格</h1>
 <h2 id="个人性格是否和本书话题无关">33.1 个人性格是否和本书话题无关</h2>
 <h2 id="聪明和谦虚">33.2 聪明和谦虚</h2>
@@ -10165,12 +10191,12 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <h2 id="创造力和纪律">33.6 创造力和纪律</h2>
 <h2 id="偷懒">33.7 偷懒</h2>
 <h2 id="不像你想象中那样起作用的性格">33.8 不像你想象中那样起作用的性格</h2>
-<h1 id="矜持">矜持</h1>
-<h1 id="经验">经验</h1>
-<h1 id="编程狂人">编程狂人</h1>
+<h3 id="矜持">矜持</h3>
+<h3 id="经验">经验</h3>
+<h3 id="编程狂人">编程狂人</h3>
 <h2 id="习惯">33.9 习惯</h2>
-<h1 id="更多资源-2">更多资源</h1>
-<h1 id="关键点-14">关键点</h1>
+<h3 id="更多资源-2">更多资源</h3>
+<h3 id="关键点-12">关键点</h3>
 <h1 id="第34章-软件开发艺术的有关问题">第34章 软件开发艺术的有关问题</h1>
 <h2 id="克服复杂性">34.1 克服复杂性</h2>
 <h2 id="精选编程过程">34.2 精选编程过程</h2>
@@ -10178,32 +10204,39 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <h2 id="以所用语言编程但思路不受其约束">34.4 以所用语言编程，但思路不受其约束</h2>
 <h2 id="借助规范集中注意力">34.5 借助规范集中注意力</h2>
 <h2 id="基于问题域编程">34.6 基于问题域编程</h2>
-<h1 id="将程序划分为不同层次的抽象">将程序划分为不同层次的抽象</h1>
+<h3 id="将程序划分为不同层次的抽象">将程序划分为不同层次的抽象</h3>
 <h2 id="当心落石">34.7 “当心落石”</h2>
 <h2 id="反复再反复">34.8 反复，再反复</h2>
 <h2 id="不要顽固不化">34.9 不要顽固不化</h2>
-<h1 id="判断">判断</h1>
-<h1 id="折中主义">折中主义</h1>
-<h1 id="试验">试验</h1>
-<h1 id="关键点-15">关键点</h1>
+<h3 id="判断">判断</h3>
+<h3 id="折中主义">折中主义</h3>
+<h3 id="试验">试验</h3>
+<h3 id="关键点-13">关键点</h3>
 <h1 id="第35章-何处有更多信息">第35章 何处有更多信息</h1>
 <h2 id="关于软件创建的信息">35.1 关于软件创建的信息</h2>
 <h2 id="创建之外的话题">35.2 创建之外的话题</h2>
-<h1 id="综述资料">综述资料</h1>
-<h1 id="软件工程综览">软件工程综览</h1>
-<h1 id="其他注释过的参考书目">其他注释过的参考书目</h1>
+<h3 id="综述资料">综述资料</h3>
+<h3 id="软件工程综览">软件工程综览</h3>
+<h3 id="其他注释过的参考书目">其他注释过的参考书目</h3>
 <h2 id="期刊">35.3 期刊</h2>
-<h1 id="初级程序员杂志">初级程序员杂志</h1>
-<h1 id="高级程序员杂志">高级程序员杂志</h1>
-<h1 id="专题出版物">专题出版物</h1>
+<h3 id="初级程序员杂志">初级程序员杂志</h3>
+<h3 id="高级程序员杂志">高级程序员杂志</h3>
+<h3 id="专题出版物">专题出版物</h3>
 <h2 id="软件开发者的读书计划">35.4 软件开发者的读书计划</h2>
-<h1 id="入门级">入门级</h1>
-<h1 id="熟练级">熟练级</h1>
-<h1 id="精通级">精通级</h1>
+<h3 id="入门级">入门级</h3>
+<h3 id="熟练级">熟练级</h3>
+<h3 id="精通级">精通级</h3>
 <h2 id="参加专业组织">35.5 参加专业组织</h2>
 ]]></content>
+      <categories>
+        <category>读书笔记</category>
+      </categories>
       <tags>
         <tag>score</tag>
+        <tag>break</tag>
+        <tag>transaction</tag>
+        <tag>block</tag>
+        <tag>min</tag>
       </tags>
   </entry>
 </search>
