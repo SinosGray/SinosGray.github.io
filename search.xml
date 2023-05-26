@@ -82,10 +82,8 @@
 <p>Apple's operating system creates this file in apparently all directories to store meta information about its contents.</p>
 ]]></content>
       <tags>
-        <tag>engine</tag>
-        <tag>interface</tag>
-        <tag>img</tag>
         <tag>https</tag>
+        <tag>store</tag>
       </tags>
   </entry>
   <entry>
@@ -240,8 +238,8 @@
         <tag>class</tag>
         <tag>direction</tag>
         <tag>factory</tag>
-        <tag>client</tag>
-        <tag>shape</tag>
+        <tag>classdiagram</tag>
+        <tag>mermaid</tag>
       </tags>
   </entry>
   <entry>
@@ -1521,7 +1519,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>const</tag>
         <tag>std</tag>
         <tag>function</tag>
-        <tag>class</tag>
+        <tag>cppreference</tag>
       </tags>
   </entry>
   <entry>
@@ -3212,7 +3210,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>docs</tag>
         <tag>print</tag>
         <tag>org</tag>
-        <tag>init</tag>
+        <tag>html</tag>
       </tags>
   </entry>
   <entry>
@@ -3654,10 +3652,10 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 ]]></content>
       <tags>
         <tag>select</tag>
-        <tag>prod</tag>
         <tag>num</tag>
         <tag>order</tag>
         <tag>email</tag>
+        <tag>name</tag>
       </tags>
   </entry>
   <entry>
@@ -6752,7 +6750,7 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>ipv6</tag>
         <tag>internet</tag>
         <tag>ipv4</tag>
-        <tag>introduction</tag>
+        <tag>addresses</tag>
       </tags>
   </entry>
   <entry>
@@ -7482,7 +7480,7 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>score</tag>
         <tag>transaction</tag>
         <tag>block</tag>
-        <tag>min</tag>
+        <tag>success</tag>
       </tags>
   </entry>
   <entry>
@@ -8080,10 +8078,10 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
       </categories>
       <tags>
         <tag>public</tag>
-        <tag>class</tag>
         <tag>virtual</tag>
         <tag>state</tag>
         <tag>void</tag>
+        <tag>filesystem</tag>
       </tags>
   </entry>
   <entry>
@@ -8400,8 +8398,8 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>memory</tag>
         <tag>cpu</tag>
         <tag>cas</tag>
-        <tag>dma</tag>
-        <tag>channel</tag>
+        <tag>dram</tag>
+        <tag>sram</tag>
       </tags>
   </entry>
   <entry>
@@ -9158,11 +9156,11 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <category>读书笔记</category>
       </categories>
       <tags>
-        <tag>network</tag>
         <tag>internet</tag>
         <tag>networks</tag>
         <tag>server</tag>
         <tag>routing</tag>
+        <tag>layer</tag>
       </tags>
   </entry>
   <entry>
@@ -9317,8 +9315,8 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>class</tag>
         <tag>direction</tag>
         <tag>factory</tag>
-        <tag>client</tag>
-        <tag>shape</tag>
+        <tag>classdiagram</tag>
+        <tag>mermaid</tag>
       </tags>
   </entry>
   <entry>
@@ -9831,6 +9829,9 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <h1 id="语法">语法</h1>
 <figure class="highlight go"><table><tr><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">&quot;fmt&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> englishHelloPrefix = <span class="string">&quot;Hello, &quot;</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">Hello</span><span class="params">(name <span class="type">string</span>)</span></span> <span class="type">string</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> englishHelloPrefix + name</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    fmt.Println(Hello(<span class="string">&quot;?&quot;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
+      <tags>
+        <tag>hello</tag>
+      </tags>
   </entry>
   <entry>
     <title>深入理解并行编程读书笔记</title>
@@ -10180,6 +10181,13 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <h2 id="a.6-what-is-the-difference-between-concurrent-and-parallel">A.6 What is the Difference Between ''Concurrent'' and ''Parallel''?</h2>
 <h2 id="a.7-why-is-software-buggy">A.7 Why Is Software Buggy?</h2>
 ]]></content>
+      <tags>
+        <tag>locking</tag>
+        <tag>parallel</tag>
+        <tag>discussion</tag>
+        <tag>limit</tag>
+        <tag>counter</tag>
+      </tags>
   </entry>
   <entry>
     <title>cppdoc</title>
@@ -11124,7 +11132,11 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <category>language</category>
       </categories>
       <tags>
-        <tag>qt</tag>
+        <tag>html</tag>
+        <tag>property</tag>
+        <tag>doc</tag>
+        <tag>prop</tag>
+        <tag>indicates</tag>
       </tags>
   </entry>
   <entry>
@@ -11237,11 +11249,8 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <p>进程调度算法</p>
 ]]></content>
       <categories>
-        <category>ky</category>
+        <category>私密</category>
       </categories>
-      <tags>
-        <tag>ky</tag>
-      </tags>
   </entry>
   <entry>
     <title>books</title>
@@ -11269,6 +11278,9 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <li>原型与集体无意识</li>
 </ul>
 ]]></content>
+      <categories>
+        <category>私密</category>
+      </categories>
   </entry>
   <entry>
     <title>408读书笔记</title>
@@ -12205,5 +12217,15 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
 <h4 id="程序中断方式">7.3.2 程序中断方式</h4>
 <h4 id="dma-方式">7.3.3 DMA 方式</h4>
 ]]></content>
+      <categories>
+        <category>undefined</category>
+      </categories>
+      <tags>
+        <tag>int</tag>
+        <tag>visit</tag>
+        <tag>root</tag>
+        <tag>tree</tag>
+        <tag>pattern</tag>
+      </tags>
   </entry>
 </search>
