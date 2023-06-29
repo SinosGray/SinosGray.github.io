@@ -1,0 +1,573 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>how web work | Sinos_wei's blog</title><meta name="author" content="Sinos"><meta name="copyright" content="Sinos"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="网络是如何工作的  译者: 本文在 google 翻译的基础上进行意译, 并保留了一部分专有名词的英文方便查询其解释 2023.3.18  当我们在浏览器中输入 google.com 时，幕后发生了什么？ 目录  &quot;google&quot;的“g”键被按下 当你按下“Enter”键时 解析 URL 检查 HSTS 列表（已弃用） DNS 查询 打开套接字(socket) + TLS 握手 HTTP 协议 H">
+<meta property="og:type" content="article">
+<meta property="og:title" content="how web work">
+<meta property="og:url" content="https://sinos_wei.gitee.io/2020/01/b82f68184e81.html">
+<meta property="og:site_name" content="Sinos_wei&#39;s blog">
+<meta property="og:description" content="网络是如何工作的  译者: 本文在 google 翻译的基础上进行意译, 并保留了一部分专有名词的英文方便查询其解释 2023.3.18  当我们在浏览器中输入 google.com 时，幕后发生了什么？ 目录  &quot;google&quot;的“g”键被按下 当你按下“Enter”键时 解析 URL 检查 HSTS 列表（已弃用） DNS 查询 打开套接字(socket) + TLS 握手 HTTP 协议 H">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sinos_wei.gitee.io/img/cover/IMG_3302.jpg">
+<meta property="article:published_time" content="2020-01-25T04:31:30.000Z">
+<meta property="article:modified_time" content="2023-06-29T11:34:54.419Z">
+<meta property="article:author" content="Sinos">
+<meta property="article:tag" content="html">
+<meta property="article:tag" content="http">
+<meta property="article:tag" content="google">
+<meta property="article:tag" content="dns">
+<meta property="article:tag" content="css">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sinos_wei.gitee.io/img/cover/IMG_3302.jpg"><link rel="shortcut icon" href="/img/cover/IMG_2242.jpg"><link rel="canonical" href="https://sinos_wei.gitee.io/2020/01/b82f68184e81.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aeddd8219bc5c1e1efdcf5d9cc3218e6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'how web work',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2023-06-29 19:34:54'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/cover/IMG_2242.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">167</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover/IMG_3302.jpg')"><nav id="nav"><span id="blog-info"><a href="/" title="Sinos_wei's blog"><span class="site-name">Sinos_wei's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">how web work</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2020-01-25T04:31:30.000Z" title="Created 2020-01-25 12:31:30">2020-01-25</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2023-06-29T11:34:54.419Z" title="Updated 2023-06-29 19:34:54">2023-06-29</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="how web work"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="网络是如何工作的">网络是如何工作的</h1>
+<blockquote>
+<p>译者: 本文在 google 翻译的基础上进行意译, 并保留了一部分专有名词的英文方便查询其解释 2023.3.18</p>
+</blockquote>
+<p>当我们在浏览器中输入 google.com 时，幕后发生了什么？</p>
+<p><strong>目录</strong></p>
+<ul>
+<li><a href="#%22google%22%20的“g”键被按下">"google"的“g”键被按下</a></li>
+<li><a href="#当你按下“Enter”键时">当你按下“Enter”键时</a></li>
+<li><a href="#解析%20URL">解析 URL</a></li>
+<li><a href="#检查%20HSTS%20列表（已弃用）">检查 HSTS 列表（已弃用）</a></li>
+<li><a href="#DNS%20查询">DNS 查询</a></li>
+<li><a href="#打开套接字(socket)%20+%20TLS%20握手">打开套接字(socket) + TLS 握手</a></li>
+<li><a href="#HTTP%20协议">HTTP 协议</a></li>
+<li><a href="#HTTP%20服务器请求句柄(handle)">HTTP 服务器请求句柄(handle)</a></li>
+<li><a href="#服务器响应">服务器响应</a></li>
+<li><a href="#浏览器的幕后">浏览器的幕后</a></li>
+<li><a href="#浏览器的高层结构">浏览器的高层结构</a></li>
+<li><a href="#渲染(rendering)引擎">渲染(rendering)引擎</a></li>
+<li><a href="#主要流程">主要流程</a></li>
+<li><a href="#解析(parsing)基础">解析(parsing)基础</a></li>
+<li><a href="#DOM%20树">DOM 树</a>
+<ul>
+<li><a href="#为什么%20DOM%20很慢？">为什么 DOM 很慢？</a></li>
+</ul></li>
+<li><a href="#渲染树">渲染树</a></li>
+<li><a href="#渲染树与%20DOM%20树的关系">渲染树与 DOM 树的关系</a></li>
+<li><a href="#CSS%20解析">CSS 解析</a></li>
+<li><a href="#布局(layout)">布局(layout)</a></li>
+<li><a href="#绘图(painting)">绘图(painting)</a></li>
+<li><a href="#冷知识(trivia)">冷知识(trivia)</a>
+<ul>
+<li><a href="#网络的诞生">网络的诞生</a></li>
+</ul></li>
+</ul>
+<h2 id="google-的g键被按下">"google" 的“g”键被按下</h2>
+<p>当你按下“g”时，浏览器就会收到事件，整个自动完成机制就会启动。 根据您浏览器的算法以及您是否处于隐私/隐身模式，URL 栏下方的下拉框中会显示各种建议。 大多数这些算法根据搜索历史和书签对结果进行优先排序。 您将输入“google.com”，所以这些都无关紧要，但是在您到这一步之前会运行很多代码，并且每次按键都会改变显示的建议。 它甚至可能会在您键入之前显示“google.com”。</p>
+<h2 id="当你按下enter键时">当你按下“Enter”键时</h2>
+<p>要选择一个出发点，让我们选择键盘上的 Enter 键按下时。 此时，回车键的电路闭合（直接闭合或电容闭合）。 这允许少量电流流入键盘的逻辑电路，该逻辑电路扫描每个按键开关的状态，消除开关快速间歇闭合的电噪声，并将其转换为键码整数 13(译: keycode integer应该就是每个按键会对应一个整数)，键盘控制器然后对键码进行编码。 现在几乎普遍通过通用串行总线 (USB) 或蓝牙连接。</p>
+<p>如果是 USB 键盘：</p>
+<ul>
+<li>生成的键码由内部键盘电路存储器存储在称为“端点”(endpoint)的寄存器中。</li>
+<li>主机 USB 控制器每 ~10 毫秒轮询一次该“端点”，获取存储在其上的键码值。</li>
+<li>该值以最高 1.5 Mb/s (USB 2.0) 的速度发送到 USB SIE（串行接口引擎 serial interface engine）。</li>
+<li>该串行信号随后在计算机的主机 USB 控制器上解码，并由计算机的人机接口设备 (HID, human interface device) 通用键盘设备驱动进行解释。</li>
+<li>然后将按键的值传递到操作系统的硬件抽象层。</li>
+</ul>
+<p>对于触摸屏键盘：</p>
+<ul>
+<li>当用户将手指放在现代电容式触摸屏上时，少量电流会传输到手指。 这通过导电层的静电场导通了电路，并在屏幕上的那个点产生了电压降。 屏幕控制器然后引发中断报告“点击”的坐标。</li>
+<li>然后移动操作系统通知当前的应用程序在这个 GUI 元素中的单击事件。（现在是虚拟键盘应用程序按钮）</li>
+<li>虚拟键盘现在可以引发软件中断，用于将“按键按下”消息发送回操作系统。</li>
+<li>此中断将“按键按下”事件通知当前聚焦的应用程序。</li>
+</ul>
+<h2 id="解析-url">解析 URL</h2>
+<p>浏览器在 URL（统一资源定位符）中包含以下信息：</p>
+<ul>
+<li><p>协议“http”：使用“超文本传输协议”</p></li>
+<li><p>资源“/”：检索主（索引）页面</p></li>
+</ul>
+<p>当没有给出协议或有效域名时，浏览器继续将地址框中给出的文本提供给浏览器的默认网络搜索引擎。</p>
+<h2 id="检查-hsts-列表已弃用">检查 HSTS 列表（已弃用）</h2>
+<ul>
+<li>~浏览器检查其“预加载的 HSTS（HTTP 严格传输安全）”列表。 这是已请求仅通过 HTTPS 联系的网站列表。~</li>
+<li>~如果网站在列表中，浏览器将通过 HTTPS 而不是 HTTP 发送请求。 否则，初始请求通过HTTP发送。~</li>
+</ul>
+<p>注意：该网站不在 HSTS 列表中，仍然可以使用 HSTS 策略。 用户对网站的第一个 HTTP 请求将收到一个响应，要求用户只发送 HTTPS 请求。 然而，这个单一的 HTTP 请求可能会让用户容易受到<a target="_blank" rel="noopener" href="http://www.yourdictionary.com/downgrade-attack">降级攻击</a>，这就是现代网络浏览器中包含 HSTS 列表的原因。</p>
+<p>现代浏览器首先请求 https</p>
+<h2 id="dns-查询">DNS 查询</h2>
+<p>浏览器试图找出输入域的 IP 地址。 DNS 查找过程如下：</p>
+<ul>
+<li><strong>浏览器缓存：</strong>浏览器缓存 DNS 记录一段时间。 有趣的是，操作系统不会告诉浏览器每条 DNS 记录的生存时间，因此浏览器会将它们缓存一段固定的时间（因浏览器而异，2 - 30 分钟）。</li>
+<li><strong>OS 缓存：</strong> 如果浏览器缓存不包含所需的记录，浏览器将进行系统调用（Windows 中的 gethostbyname）。 操作系统有自己的缓存。</li>
+<li><strong>路由器缓存：</strong>请求继续到您的路由器，路由器通常有自己的 DNS 缓存。</li>
+<li><strong>ISP DNS 缓存：</strong> 下一个检查的地方是 ISP 的 DNS 服务器的缓存。</li>
+<li><strong>递归搜索：</strong>您的 ISP 的 DNS 服务器开始递归搜索，从根名称服务器，通过 .com 顶级名称服务器，到 Google 的名称服务器。 通常，DNS 服务器缓存中包含 .com 域名服务器的名称，因此无需访问根域名服务器。</li>
+</ul>
+<p>这是递归 DNS 搜索的示意图：</p>
+<p align="center">
+<img src="img/Example_of_an_iterative_DNS_resolver.svg" alt="Recursive DNS search"/>
+</p>
+<p>关于 DNS 的一个令人担忧的事情是，整个域（如 wikipedia.org 或 facebook.com）似乎映射到一个单一的 IP 地址。 幸运的是，有一些方法可以缓解瓶颈：</p>
+<ul>
+<li><strong>轮询(round-robin) DNS</strong> 是一种解决方案，其中 DNS 查找返回多个 IP 地址，而不仅仅是一个。 例如，facebook.com 实际上映射到四个 IP 地址。</li>
+<li><strong>负载均衡器</strong> 是一种硬件，它侦听特定的 IP 地址并将请求转发到其他服务器。 主要站点通常会使用昂贵的高性能负载平衡器。</li>
+<li><strong>地理 DNS</strong> 通过将域名映射到不同的 IP 地址来提高可扩展性，具体取决于客户端的地理位置。 这对于托管静态内容非常有用，这样不同的服务器就不必更新共享状态。</li>
+<li><strong>任播(anycast)</strong> 是一种路由技术，其中单个 IP 地址映射到多个物理服务器。 遗憾的是，任播与 TCP 不相适应，并且很少用于这种情况。</li>
+</ul>
+<p>大多数 DNS 服务器本身使用任播来实现 DNS 查找的高可用性和低延迟。 任播服务（DNS 是一个很好的例子）的用户将始终连接到“最近的”（从路由协议的角度来看）DNS 服务器。 这减少了延迟，并提供了一定程度的负载平衡（假设您的消费者均匀分布在您的网络中）。</p>
+<h2 id="打开套接字socket-tls-握手">打开套接字(socket) + TLS 握手</h2>
+<ul>
+<li>一旦浏览器接收到目标服务器的 IP 地址，它就用它和给定的端口号（HTTP 协议默认为端口 80，HTTPS 为端口 443），并调用名为socket 的系统库函数并请求 <a target="_blank" rel="noopener" href="http://www.webopedia.com/TERM/T/TCP.html">TCP</a> <a target="_blank" rel="noopener" href="http://www.webopedia.com/TERM/S/socket.html">套接字</a> 流。</li>
+<li>客户端计算机向服务器发送一条 ClientHello 消息，其中包含其 TLS(Transport Layer Security) 版本、可用的密码算法和压缩方法列表。</li>
+<li>服务器向客户端回复一条 ServerHello 消息，其中包含 TLS 版本、选择的密码、选择的压缩方法和由 CA（证书颁发机构 Certificate Authority）签署的公共证书。 该证书包含一个公钥，客户端将使用该公钥加密握手的其余部分，直到可以就对称密钥达成一致。</li>
+<li>客户端根据其受信任的 CA 列表验证服务器数字证书。 如果可以基于 CA 建立信任，则客户端生成一串伪随机字节并使用服务器的公钥对其进行加密。 这些随机字节可用于确定对称密钥。</li>
+<li>服务器使用其私钥解密随机字节，并使用这些字节生成自己的对称主密钥副本。</li>
+<li>客户端向服务器发送 Finished 消息，使用对称密钥加密传输的哈希值。</li>
+<li>服务器生成自己的哈希，然后解密客户端发送的哈希以验证它是否匹配。 如果是，它将自己的 Finished 消息发送给客户端，该消息也使用对称密钥加密。</li>
+<li>从现在开始，TLS 会话传输使用约定的对称密钥加密的应用程序 (HTTP) 数据。</li>
+</ul>
+<h2 id="http-协议">HTTP 协议</h2>
+<p>您可以非常确定不会从浏览器缓存中找到诸如 Facebook/Gmail 之类的动态站点，因为动态页面会很快或立即过期（过期日期设置为过去）。</p>
+<p>如果使用的 Web 浏览器是由 Google 编写的，那么它不会发送 HTTP 请求来检索页面，而是发送请求以尝试与服务器协商从 HTTP 到 SPDY 协议的“升级”。 请注意，在最新版本的 Chrome 中，SPDY 已被弃用，取而代之的是 HTTP/2。</p>
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line"><span class="keyword">GET</span> <span class="string">http://www.google.com/</span> <span class="meta">HTTP/1.1</span></span><br><span class="line"><span class="attribute">Accept</span><span class="punctuation">: </span>application/x-ms-application, image/jpeg, application/xaml+xml, [...]</span><br><span class="line"><span class="attribute">User-Agent</span><span class="punctuation">: </span>Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.1; WOW64; [...]</span><br><span class="line"><span class="attribute">Accept-Encoding</span><span class="punctuation">: </span>gzip, deflate</span><br><span class="line"><span class="attribute">Connection</span><span class="punctuation">: </span>Keep-Alive</span><br><span class="line"><span class="attribute">Host</span><span class="punctuation">: </span>google.com</span><br><span class="line"><span class="attribute">Cookie</span><span class="punctuation">: </span>datr=1265876274-[...]; locale=en_US; lsd=WW[...]; c_user=2101[...]</span><br></pre></td></tr></table></figure>
+<p>GET 请求指定要获取的 URL：“<a target="_blank" rel="noopener" href="http://www.google.com/">http://www.google.com/</a>”。 浏览器标识自己（User-Agent header），并说明它将接受什么类型的响应（Accept 和 Accept-Encoding header）。 Connection header 要求服务器保持 TCP 连接打开以供进一步请求。</p>
+<p>该请求还包含浏览器对该域的 cookie。 您可能已经知道，cookie 是键值对，用于在不同的页面请求之间跟踪网站的状态。 因此 cookie 存储登录用户的名称、服务器分配给用户的秘密数字、用户的一些设置等。cookie 将存储在客户端的文本文件中，并发送到每个请求的服务器。</p>
+<p>HTTP/1.1 为发送方定义了“close”连接选项，以表示连接将在响应完成后关闭。 例如，<code>Connection: close</code>.</p>
+<p>发送请求和 header 后，Web 浏览器向服务器发送一个空白换行符，表示请求内容已完成。 服务器以表示请求状态的响应代码进行响应，并以以下形式的响应进行响应：<strong>200 OK [response headers]</strong></p>
+<p>接着是一个换行符，然后发送 www.google.com 的 HTML 内容负载。 然后服务器可以关闭连接，或者如果客户端发送的 header 要求，则保持连接打开以供进一步请求重用。</p>
+<p>如果 Web 浏览器发送的 HTTP header 包含足够的信息，以便 Web 服务器确定 Web 浏览器缓存的文件版本自上次检索以来是否未被修改（即，如果 Web 浏览器包含 ETag header），则它可能会以以下形式的请求进行响应：<strong>304 Not Modified [response headers]</strong> 并且没有有效负载，并且 Web 浏览器会从其缓存中检索 HTML。</p>
+<p>解析 HTML 后，Web 浏览器（和服务器）对 HTML 页面引用的每个资源（图像、CSS、favicon.ico 等）重复此过程，除了 GET / HTTP/1.1 以外，请求将是 <strong>GET /$(URL relative to www.google.com) HTTP/1.1.</strong></p>
+<p>如果 HTML 引用了与 www.google.com 不同的域上的资源，Web 浏览器将返回到解析其他域所涉及的步骤，并执行该域的所有步骤。 请求中的主机header将设置为适当的服务器名称，而不是 google.com。</p>
+<p><strong>陷阱：</strong></p>
+<ul>
+<li>URL“<a target="_blank" rel="noopener" href="http://facebook.com/">http://facebook.com/</a>”中的尾部斜杠很重要。 在这种情况下，浏览器可以安全地添加斜线。 对于http://example.com/folderOrFile 形式的URL，浏览器无法自动添加斜杠，因为无法明确folderOrFile 是文件夹还是文件。 在这种情况下，浏览器将访问不带斜杠的 URL，服务器将以重定向响应，从而导致不必要的往返。</li>
+<li>服务器可能会响应 301 Moved Permanently 响应，告诉浏览器转到“<a target="_blank" rel="noopener" href="http://www.google.com/">http://www.google.com/</a>”而不是“<a target="_blank" rel="noopener" href="http://google.com/">http://google.com/</a>”。 服务器坚持重定向而不是立即响应用户想要查看的网页的原因很有趣。 原因之一与搜索引擎排名有关。 如果同一个页面有两个 URL，比如 http://www.vasanth.com/ 和 http://vasanth.com/，搜索引擎可能会认为它们是两个不同的站点，每个站点都有较少的传入链接, 因此排名较低。 搜索引擎理解永久重定向 (301)，并将来自两个来源的传入链接合并到一个排名(ranking)中。 此外，同一内容的多个 URL 不缓存友好。 当一段内容有多个名称时，它可能会在缓存中出现多次。</li>
+</ul>
+<p><strong>注意：</strong> HTTP 响应以服务器返回的状态代码开始。 以下是状态代码表示的非常简短的摘要：</p>
+<ul>
+<li>1xx 仅表示信息性消息</li>
+<li>2xx 表示某种成功</li>
+<li>3xx 将客户端重定向到另一个 URL</li>
+<li>4xx 表示客户端错误</li>
+<li>5xx 表示服务器端出错</li>
+</ul>
+<h2 id="http-服务器请求句柄handle">HTTP 服务器请求句柄(handle)</h2>
+<p>HTTPD（HTTP 守护进程）服务器是在服务器端处理请求/响应的服务器。 最常见的 HTTPD 服务器是用于 Linux 的 Apache 或 nginx 和用于 Windows 的 IIS。</p>
+<ul>
+<li>HTTPD（HTTP 守护进程）接收请求。</li>
+<li>服务器将请求分解为以下参数：
+<ul>
+<li>HTTP 请求方法（GET、POST、HEAD、PUT 和 DELETE）。 对于直接在地址栏中输入的 URL，这将是 GET。</li>
+<li>域(domain)，在本例中为 google.com。</li>
+<li>请求的路径/页面，在本例中为 <code>/</code> (即没有特定的路径/页面被请求, <code>/</code>是默认路径</li>
+<li>服务器验证在服务器上配置了与google.com对应的虚拟主机。</li>
+</ul></li>
+<li>服务器验证 google.com 可以接受 GET 请求。</li>
+<li>服务器验证是否允许客户端使用此方法（通过IP、身份验证等）。</li>
+<li>如果服务器安装了重写模块（如 Apache 的 mod_rewrite 或 IIS 的 URL Rewrite），它会尝试将请求与配置的规则之一相匹配。 如果找到匹配规则，服务器将使用该规则重写请求。</li>
+<li>服务器去拉取与请求对应的内容，在我们的例子中它会回退到索引文件，因为“/”是主文件（有些情况可以覆盖这个，但这是最常见的方法）。</li>
+<li>服务器根据请求处理器(handler)解析文件。 请求处理器是一个程序（在 ASP.NET中, PHP、Ruby 等），它读取请求并为响应生成 HTML。 如果 Google 在 PHP 上运行，则服务器使用 PHP 来解释索引文件，并将输出流式传输到客户端。</li>
+</ul>
+<p>注意：每个动态网站面临的一个有趣的困难是如何存储数据。 较小的站点通常只有一个 SQL 数据库来存储它们的数据，但是存储大量数据和/或有很多访问者的站点必须找到一种方法将数据库拆分到多台机器上。 解决方案包括分片(sharding)（根据主键将表拆分到多个数据库）、重复副本, 和使用一致性语义较弱的简化数据库。</p>
+<h2 id="服务器响应">服务器响应</h2>
+<p>这是服务器生成并发回的响应：</p>
+<figure class="highlight http"><table><tr><td class="code"><pre><span class="line"><span class="meta">HTTP/1.1</span> <span class="number">200</span> OK</span><br><span class="line"><span class="attribute">Cache-Control</span><span class="punctuation">: </span>private, no-store, no-cache, must-revalidate, post-check=0,</span><br><span class="line">    pre-check=0</span><br><span class="line"><span class="attribute">Expires</span><span class="punctuation">: </span>Sat, 01 Jan 2000 00:00:00 GMT</span><br><span class="line"><span class="attribute">P3P</span><span class="punctuation">: </span>CP=&quot;DSP LAW&quot;</span><br><span class="line"><span class="attribute">Pragma</span><span class="punctuation">: </span>no-cache</span><br><span class="line"><span class="attribute">Content-Encoding</span><span class="punctuation">: </span>gzip</span><br><span class="line"><span class="attribute">Content-Type</span><span class="punctuation">: </span>text/html; charset=utf-8</span><br><span class="line"><span class="attribute">X-Cnection</span><span class="punctuation">: </span>close</span><br><span class="line"><span class="attribute">Transfer-Encoding</span><span class="punctuation">: </span>chunked</span><br><span class="line"><span class="attribute">Date</span><span class="punctuation">: </span>Fri, 12 Feb 2010 09:05:55 GMT</span><br><span class="line"></span><br><span class="line"><span class="language-excel"><span class="number">2</span>b3</span></span><br><span class="line"><span class="language-excel">��������<span class="built_in">T</span>�<span class="built_in">n</span>�@����[...]</span></span><br></pre></td></tr></table></figure>
+<p>整个响应是 36 kB，其中大部分在我修剪的末尾中。</p>
+<p><strong>Content-Encoding</strong> header告诉浏览器响应主体是使用 gzip 算法压缩的。 解压缩 blob 后，您将看到您期望的 HTML：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span> <span class="keyword">PUBLIC</span> <span class="string">&quot;-//W3C//DTD XHTML 1.0 Strict//EN&quot;</span></span></span><br><span class="line"><span class="meta">       <span class="string">&quot;http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span> <span class="attr">xml:lang</span>=<span class="string">&quot;zh-cn&quot;</span></span></span><br><span class="line"><span class="tag">       <span class="attr">lang</span>=<span class="string">&quot;zh-cn&quot;</span> <span class="attr">id</span>=<span class="string">&quot;google&quot;</span> <span class="attr">class</span>=<span class="string">&quot;no_js&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">头</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;text/html; charset=utf-8&quot;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Content-language&quot;</span> <span class="attr">content</span>=<span class="string">&quot;en&quot;</span> /&gt;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>请注意将 Content-Type 设置为 text/html 的header。 header指示浏览器将响应内容呈现为 HTML，而不是说将其下载为文件。 浏览器将使用header来决定如何解释响应，但也会考虑其他因素，例如 URL 的扩展名。</p>
+<h2 id="浏览器的幕后">浏览器的幕后</h2>
+<p>一旦服务器向浏览器提供资源（HTML、CSS、JS、图像等），它就会经历以下过程：</p>
+<ul>
+<li>解析 - HTML、CSS、JS</li>
+<li>渲染 - 构建 DOM 树 → 渲染树 → 渲染树布局 → 绘制渲染树</li>
+</ul>
+<h2 id="浏览器的高层结构">浏览器的高层结构</h2>
+<ol type="1">
+<li><p><strong>用户界面：</strong> 包括地址栏、后退/前进按钮、书签菜单等。除了您看到请求页面的窗口外，浏览器显示的每个部分。</p></li>
+<li><p><strong>浏览器引擎：</strong> UI 和渲染引擎之间的序列化(<a target="_blank" rel="noopener" href="http://stackoverflow.com/a/5600887/1672655">Marshals</a>)操作。</p></li>
+<li><p><strong>渲染引擎：</strong>负责显示请求的内容。 例如。 渲染引擎解析HTML和CSS，并将解析后的内容显示在屏幕上。</p></li>
+<li><p><strong>网络：</strong>对于HTTP请求等网络调用，针对不同的平台使用不同的实现（在平台无关的接口后面）。</p></li>
+<li><p><strong>UI 后端：</strong> 用于绘制组合框和窗口等基本小部件。 该后端公开了一个非特定于平台的通用接口。 在它下面使用操作系统用户界面方法。</p></li>
+<li><p><strong>JavaScript 引擎：</strong> 用于解析和执行 JavaScript 代码的解释器。</p></li>
+<li><p><strong>数据存储：</strong>这是一个持久层。 浏览器可能需要在本地保存数据，例如 cookie。 浏览器还支持存储机制，例如 <a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage">localStorage</a>、<a target="_blank" rel="noopener" href="https://developer.mozilla.org/%20en-US/docs/Web/API/IndexedDB_API/Using_IndexedDB">IndexedDB</a> 和 <a target="_blank" rel="noopener" href="https://developer.chrome.com/apps/fileSystem">文件系统</a>。</p></li>
+</ol>
+<p align="center">
+<img src="img/layers.png" alt="Browser Components"/>
+</p>
+<p>让我们从最简单的情况开始：一个带有一些文本和一张图片的纯 HTML 页面。 浏览器需要做什么来处理这个简单的页面？</p>
+<ol type="1">
+<li><p><strong>转换：</strong>浏览器从磁盘或网络读取 HTML 的原始字节并将它们转换为单独的基于文件指定编码的字符（例如 UTF-8）。</p></li>
+<li><p><strong>标记化(tokenizing)：</strong>浏览器将字符串转换为 W3C HTML5 标准指定的不同标记 - 例如 “</p>
+<html>
+<p>”、“</p>
+<body>
+<p>”等“尖括号”内的字符串。 每个标记都有特殊的含义和一组规则。</p></li>
+<li><p><strong>词法分析(Lexing)：</strong>发出的标记被转换为定义其属性和规则的“对象”。</p></li>
+<li><p><strong>DOM 构造：</strong> 最后，由于 HTML 标记定义了不同标签之间的关系（一些标签包含在标签中），因此创建的对象链接在树数据结构中，该结构还捕获原始文件标记中定义的父子关系 ：HTML 对象是主体对象的父对象，主体是段落对象的父对象，等等。</p>
+<p align="center">
+<p><img src="img/full-process.png" alt="DOM Construction Process"/></p>
+</p>
+<p>整个过程的最终输出是文档对象模型，或者我们简单页面的“DOM”，浏览器使用它来对页面进行所有进一步处理。</p>
+<p>每次浏览器必须处理 HTML 标记时，它必须逐步完成上述所有步骤：将字节转换为字符、识别标记、将标记转换为节点以及构建 DOM 树。 整个过程可能需要一些时间，尤其是当我们要处理大量 HTML 时。</p>
+<p align="center">
+<p><img src="img/dom-timeline.png" alt="Tracing DOM construction in DevTools"/></p>
+</p>
+<p>如果您打开 Chrome DevTools 并在页面加载时记录时间线，您可以看到执行此步骤所花费的实际时间——在上面的示例中，我们花了大约 5 毫秒将一大块 HTML 字节转换为 DOM 树。 当然，如果页面较大（大多数页面都是这样），则此过程可能需要更长的时间。 在我们以后关于创建流畅动画的章节中，您将看到如果浏览器必须处理大量 HTML，这很容易成为您的瓶颈。</p></li>
+</ol>
+<h2 id="渲染rendering引擎">渲染(rendering)引擎</h2>
+<p>渲染引擎是一个软件组件，它获取标记的内容（如 HTML、XML、图像文件等）和格式化信息（如 CSS、XSL 等），并将格式化后的内容显示在屏幕上。</p>
+<table>
+<thead>
+<tr class="header">
+<th>Browser</th>
+<th style="text-align: center;">Engine</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Chrome</td>
+<td style="text-align: center;">Blink (a fork of WebKit)</td>
+</tr>
+<tr class="even">
+<td>Firefox</td>
+<td style="text-align: center;">Gecko</td>
+</tr>
+<tr class="odd">
+<td>Safari</td>
+<td style="text-align: center;">Webkit</td>
+</tr>
+<tr class="even">
+<td>Opera</td>
+<td style="text-align: center;">Blink (Presto if &lt; v15)</td>
+</tr>
+<tr class="odd">
+<td>Internet Explorer</td>
+<td style="text-align: center;">Trident</td>
+</tr>
+<tr class="even">
+<td>Edge</td>
+<td style="text-align: center;">Blink (EdgeHTML if &lt; v79)</td>
+</tr>
+</tbody>
+</table>
+<p>WebKit 是一个开源渲染引擎，最初是作为 Linux 平台的引擎，后来被 Apple 修改以支持 Mac 和 Windows。</p>
+<p>渲染引擎是单线程的。 除了网络操作之外，几乎所有的事情都发生在一个线程中。 在 Firefox 和 Safari 中，这是浏览器的主线程。 在 Chrome 中，它是选项卡进程主线程。 网络操作可以由多个并行线程执行。 并行连接的数量是有限的（通常每个主机名有 6-13 个连接）。</p>
+<p>浏览器主线程是一个事件循环。 这是一个无限循环，使进程保持活动状态。 它等待事件（如布局和绘制事件）并处理它们。</p>
+<p>注意：Chrome 等浏览器运行渲染引擎的多个实例：每个选项卡一个。 每个选项卡都在单独的进程中运行。</p>
+<h2 id="主要流程">主要流程</h2>
+<p>渲染引擎将开始从网络层获取请求文档的内容。 这通常以 8KB 块的形式完成。</p>
+<p>之后渲染引擎的基本流程是：</p>
+<p align="center">
+<img src="img/flow.png" alt="Rendering engine basic flow"/>
+</p>
+<p>呈现引擎将开始解析 HTML 文档并将元素转换为称为 <strong>“内容树”</strong> 的树中的 <a target="_blank" rel="noopener" href="http://domenlightenment.com/">DOM</a> 节点。</p>
+<p>引擎将解析样式数据，包括外部 CSS 文件和样式元素。 HTML 中的样式信息和视觉指令将用于创建另一棵树：<strong>渲染树</strong>。 渲染树包含具有视觉属性（如颜色和尺寸）的矩形。 矩形以正确的顺序显示在屏幕上。</p>
+<p>在构建渲染树之后，它会经历一个<strong>“布局”</strong>过程。 这意味着为每个节点提供它应该出现在屏幕上的确切坐标。</p>
+<p>下一阶段是<strong>绘图</strong>——将遍历渲染树并使用 UI 后端层绘制每个节点。</p>
+<p>重要的是要了解这是一个渐进的过程。 为了更好的用户体验，渲染引擎会尝试尽快将内容显示在屏幕上。 它不会等到所有 HTML 都被解析后才开始构建和布局渲染树。 部分内容将被解析和显示，同时继续处理来自网络的其余内容。</p>
+<p>下面给出的是 Webkit 的流程：</p>
+<p align="center">
+<img src="img/webkitflow.png" alt="Webkit main flow"/>
+</p>
+<h2 id="解析parsing基础">解析(parsing)基础</h2>
+<p><strong>解析：</strong> 将文档转换为代码可以使用的结构。 解析的结果通常是代表文档结构的节点树。</p>
+<p><strong>语法：</strong> 解析基于文档遵循的语法规则：编写它的语言或格式。您可以解析的每种格式都必须具有由词汇和语法规则组成的确定性语法。 它被称为<strong>上下文无关文法</strong>。</p>
+<p>解析可以分为两个子过程：词法分析和句法分析。</p>
+<p><strong>词法分析：</strong>将输入分解为标记的过程。 标记是语言词汇：有效构建块的集合。</p>
+<p><strong>语法分析：</strong>语言语法规则的应用。</p>
+<p>解析器通常将工作分为两个部分：负责将输入分解为有效标记的词法分析器（有时称为分词器），以及负责根据语言语法规则分析文档结构来构建解析树的解析器。 词法分析器知道如何去除不相关的字符，如空格和换行符。</p>
+<p align="center">
+<img src="img/image011.png" alt="Source document to parse tree"/>
+</p>
+<p>解析过程是迭代的。 解析器通常会向词法分析器询问一个新的标记，并尝试将该标记与其中一个语法规则相匹配。 如果一条规则被匹配，一个与该标记对应的节点将被添加到解析树中，解析器将请求另一个标记。</p>
+<p>如果没有规则匹配，解析器将在内部存储标记，并不断请求标记，直到找到匹配所有内部存储标记的规则。 如果未找到规则，则解析器将引发异常。 这意味着该文档无效并且包含语法错误。</p>
+<p>HTML 解析器的工作是将 HTML 标记解析为解析树。 HTML 定义采用 DTD（文档类型定义Document Type Definition）格式。 此格式用于定义 SGML 家族的语言。 该格式包含所有允许的元素、它们的属性和层次结构的定义。 正如我们之前看到的，HTML DTD 没有形成上下文无关语法。</p>
+<p>HTML 解析算法包括两个阶段：标记化和树构造。</p>
+<p><strong>标记化</strong>是词法分析，将输入解析为标记。 HTML 标记包括开始标记、结束标记、属性名称和属性值。 tokenizer 识别 token，将其交给树构造函数，并使用下一个字符来识别下一个 token，依此类推，直到输入结束。</p>
+<p align="center">
+<img src="img/image017.png" alt="HTML parsing flow"/>
+</p>
+<h2 id="dom-树">DOM 树</h2>
+<p>输出树（“解析树”）是 DOM 元素和属性节点的树。 DOM 是文档对象模型(Document Object Model)的缩写。 它是 HTML 文档的对象表示，是 HTML 元素与 JavaScript 一样对外的接口。 树的根是“文档”对象。</p>
+<p>DOM 与标记几乎是一对一的关系。 例如：</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">      Hello World</span><br><span class="line">    <span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span>&gt;</span> <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;example.png&quot;</span>/&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>此标记将被转换为以下 DOM 树：</p>
+<p align="center">
+<img src="img/image015.png" alt="DOM Tree"/>
+</p>
+<h3 id="为什么-dom-很慢">为什么 DOM 很慢？</h3>
+<p>简短的回答是 DOM 并不慢。 添加和删除 DOM 节点只是一些指针交换，只不过是在 JS 对象上设置一个属性。</p>
+<p>但是，布局(layout)很慢。 当您以任何方式接触 DOM 时，您都会在整棵树上设置一个脏位，告诉浏览器它需要重新弄清楚一切都去哪里了。 当 JS 将控制权交还给浏览器时，它会调用其布局算法（或者更专业地说，它会调用其 CSS 重新计算算法，然后进行布局，然后重新绘制，然后重新合成）以重新绘制屏幕。 布局算法非常复杂 - 阅读 CSS 规范以了解一些规则 - 这意味着它通常必须做出非局部决策。</p>
+<p>更糟糕的是，布局是通过访问某些属性同步触发的。 其中包括 getComputedStyleValue()、getBoundingClientWidth()、.offsetWidth、.offsetHeight 等，这使得它们非常容易撞上。 完整列表在 <a target="_blank" rel="noopener" href="https://gist.github.com/paulirish/5d52fb081b3570c81e3a">此处</a>。 正因为如此，很多 Angular 和 JQuery 代码都非常慢。 一种布局将耗尽您在移动设备上的整个框架预算。 当我测试 Google Instant c 2013 时。 它在一次查询中导致了13个布局，在移动设备上锁屏近2秒。 （此后已加快速度。）</p>
+<p>React 无助于加速布局——如果你想在移动网络浏览器上获得流畅的动画，你需要求助于其他技术，比如将你在一个帧中所做的一切限制为可以在 GPU 上执行的操作。 但真正有效的是确保每次更新页面状态时最多执行一个布局。 那经常对现状有相当大的改善。</p>
+<h2 id="渲染树">渲染树</h2>
+<p>在构建 DOM 树的同时，浏览器会构建另一棵树，即渲染树。 这棵树是按显示顺序排列的视觉元素。 它是文档的可视化表示。 这棵树的目的是能够以正确的顺序绘制内容。</p>
+<p>渲染器知道如何布局和绘制自身及其子项。 每个渲染器代表一个矩形区域，通常对应于节点的 CSS box。</p>
+<h2 id="渲染树与-dom-树的关系">渲染树与 DOM 树的关系</h2>
+<p>渲染器对应于 DOM 元素，但不是一对一的关系。 非可视化的 DOM 元素不会被插入到渲染树中。 一个例子是“head”元素。 显示值被分配为“none”的元素也不会出现在树中（而具有“hidden”可见性的元素将出现在树中）。</p>
+<p>有对应于多个可视对象的 DOM 元素。 这些通常是具有复杂结构的元素，无法用单个矩形来描述。 例如，“select”元素有三个渲染器：一个用于显示区域，一个用于下拉列表框，一个用于按钮。 此外，当文本因一行的宽度不够而被分成多行时，新行将作为额外的渲染器添加。</p>
+<p>一些渲染对象对应于一个 DOM 节点，但不在树中的同一位置。 浮动元素和绝对定位元素脱离主流，被放置在树的不同部分，并映射到真实的框架。 占位符框架是他们应该在的地方。</p>
+<p align="center">
+<img src="img/image025.png" alt="The render tree and the corresponding DOM tree"/>
+</p>
+<p>在 WebKit 中，解析样式和创建渲染器的过程称为“attachment”。 每个 DOM 节点都有一个“attach”方法。 attachment是同步的，节点插入 DOM 树调用新节点的“attach”方法。</p>
+<p>构建渲染树需要计算每个渲染对象的视觉属性。 这是通过计算每个元素的样式属性来完成的。 样式包括各种来源的样式表、内联样式元素和 HTML 中的视觉属性（如“bgcolor”属性）。后者会被翻译来匹配 CSS 样式属性。</p>
+<h2 id="css-解析">CSS 解析</h2>
+<p>CSS 选择器(selector)由浏览器引擎从右到左匹配。 请记住，当浏览器进行选择器匹配时，它有一个元素（它试图为其确定样式的那个）和所有规则及其选择器，它需要找到哪些规则与该元素匹配。 这与通常的 jQuery 不同，例如，您只有一个选择器，您需要找到与该选择器匹配的所有元素。</p>
+<p>选择器的确定是这样计算的：</p>
+<ul>
+<li>如果它来自的声明是“style”属性而不是带有选择器的规则，则计数 1，否则计数 0 (= a)</li>
+<li>统计选择器中ID选择器的个数(= b)</li>
+<li>统计选择器中类选择器、属性选择器、伪类(class selectors, attributes selectors, and pseudo-classes)的个数(= c)</li>
+<li>统计选择器中元素名和伪元素的个数(=d)</li>
+<li>忽略通用选择器</li>
+</ul>
+<p>连接三个数字 a-b-c-d（在具有大基数的数字系统中）给出了特异性。 您需要使用的基数由您在 a、b、c 和 d 之一中的最高计数定义。</p>
+<p>例子：</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">*               /* a=0 b=0 c=0 -&gt; specificity =   0 */</span><br><span class="line">LI              /* a=0 b=0 c=1 -&gt; specificity =   1 */</span><br><span class="line">UL LI           /* a=0 b=0 c=2 -&gt; specificity =   2 */</span><br><span class="line">UL OL+LI        /* a=0 b=0 c=3 -&gt; specificity =   3 */</span><br><span class="line">H1 + *[REL=up]  /* a=0 b=1 c=1 -&gt; specificity =  11 */</span><br><span class="line">UL OL LI.red    /* a=0 b=1 c=3 -&gt; specificity =  13 */</span><br><span class="line">LI.red.level    /* a=0 b=2 c=1 -&gt; specificity =  21 */</span><br><span class="line">#x34y           /* a=1 b=0 c=0 -&gt; specificity = 100 */</span><br><span class="line">#s12:not(FOO)   /* a=1 b=0 c=1 -&gt; specificity = 101 */</span><br></pre></td></tr></table></figure>
+<p>为什么 CSSOM 有树状结构？ 当计算页面上任何对象的最终样式集时，浏览器从适用于该节点的最通用规则开始（例如，如果它是 body 元素的子元素，则应用所有 body 样式），然后递归地优化计算出的样式 通过应用更具体的规则——即“向下级联(cascade down)”的规则。</p>
+<p>WebKit 使用一个标志来标记所有顶级样式表（包括@imports）是否已加载。 如果附加时样式未完全加载，则使用占位符并在文档中标记，一旦加载样式表将重新计算它们。</p>
+<h2 id="布局layout">布局(layout)</h2>
+<p>创建渲染器并将其添加到树中时，它没有位置和大小。 计算这些值称为布局或回流(reflow)。</p>
+<p>HTML 使用基于流的布局模型，这意味着大多数时候可以一次计算几何图形。 “流中”较晚的元素通常不会影响“流中”较早的元素的几何形状，因此布局可以从左到右、从上到下贯穿整个文档。 这个坐标系是相对于根框架的。 使用顶部和左侧坐标。</p>
+布局是一个递归过程。 它从根渲染器开始，对应于 HTML 文档的
+<html>
+<p>元素。 布局通过部分或全部帧层次结构递归地继续，为需要它的每个渲染器计算几何信息。</p>
+<p>根渲染器的位置是 0,0，它的尺寸是视口(viewpoint)——浏览器窗口的可见部分。 所有渲染器都有一个“layout”或“reflow”方法，每个渲染器调用其需要布局的子级的布局方法。</p>
+<p>为了不为每一个小的变化做一个完整的布局，浏览器使用了一个“脏位”系统。 更改或添加的渲染器将其自身及其子项标记为“脏”：需要布局。 有两个标志：“dirty”和“children are dirty”，这意味着尽管渲染器本身可能没问题，但它至少有一个子项需要布局。</p>
+<p>布局通常具有以下模式：</p>
+<ul>
+<li>父渲染器决定自己的宽度。</li>
+<li>父母越过孩子并且：
+<ul>
+<li>放置子渲染器（设置它的 x 和 y）。</li>
+<li>如果需要调用子布局——它们是脏的或者我们处于全局布局中，或者出于某些其他原因——计算子布局的高度。</li>
+</ul></li>
+<li>Parent 使用 children 的累积高度和 margins 和 padding 的高度来设置自己的高度——这将被 parent renderer 的 parent 使用。</li>
+<li>将其脏位设置为false。</li>
+</ul>
+<p>另请注意，布局抖动(layout thrashing)是指 Web 浏览器在“加载”页面之前必须多次回流或重新绘制网页。 在 JavaScript 流行之前的日子里，网站通常只回流和绘制一次，但现在越来越普遍的是，JavaScript 在页面加载时运行，这可能会导致对 DOM 的修改，从而导致额外的回流或重绘。 根据回流次数和网页的复杂性，加载页面时可能会造成严重延迟，尤其是在手机或平板电脑等低功率设备上。</p>
+<h2 id="绘图painting">绘图(painting)</h2>
+<p>在绘图阶段，遍历渲染树，调用渲染器的“paint()”方法在屏幕上显示内容。 绘图使用 UI 基础结构组件。</p>
+<p>像布局一样，绘制也可以是全局的——整个树都被绘制——或增量的。 在增量绘图中，一些渲染器的变化不会影响整个树。 更改后的渲染器使其在屏幕上的矩形无效。 这会导致操作系统将其视为“脏区”并生成“绘制”事件。 操作系统巧妙地做到了这一点，并将多个区域合并为一个区域。</p>
+<p>在重新绘制之前，WebKit 将旧矩形保存为位图。 然后它只绘制新旧矩形之间的增量。 浏览器会尝试执行最少的可能操作来响应更改。 所以改变元素的颜色只会导致元素的重绘。 元素位置的更改将导致元素及其子元素和可能的兄弟元素的布局和重绘。 添加 DOM 节点将导致节点的布局和重绘。 重大更改，如增加“html”元素的字体大小，将导致缓存失效、重新布局和重新绘制整个树。</p>
+<p>存在三种不同的定位方案：</p>
+<ul>
+<li><strong>普通：</strong>对象根据其在文档中的位置定位。 这意味着它在渲染树中的位置就像它在 DOM 树中的位置一样，并根据其框类型和尺寸进行布局</li>
+<li><strong>浮动：</strong>对象首先像正常流一样布局，然后尽可能向左或向右移动</li>
+<li><strong>绝对：</strong>对象在渲染树中的位置不同于 DOM 树中的位置</li>
+</ul>
+<p>定位方案由“position”属性和“float”属性设置。</p>
+<ul>
+<li>静态和相对导致正常流动</li>
+<li>absolute 和 fixed 导致绝对定位</li>
+</ul>
+<p>在静态定位中，没有定义任何位置，而是使用默认定位。 在其他方案中，作者指定了位置：top, bottom, left, right。</p>
+<p><strong>图层(layers)</strong> 由 z-index CSS 属性指定。 它表示盒子的第三维：它沿“z 轴”的位置。</p>
+<p>这些框被分成堆栈（称为堆栈上下文 stacking contexts）。 在每个堆栈中，后面的元素将首先绘制，前面的元素在顶部，更靠近用户。 在重叠的情况下，最前面的元素将隐藏前一个元素。 堆栈根据 z-index 属性排序。 具有“z-index”属性的框形成本地堆栈。</p>
+<h2 id="冷知识trivia">冷知识(trivia)</h2>
+<h3 id="网络的诞生">网络的诞生</h3>
+<p>CERN 的英国科学家 Tim Berners-Lee 于 1989 年发明了万维网 (World Wide Web, WWW)。Web 最初的构想和开发是为了满足世界各地大学和研究所的科学家之间自动共享信息的需求。</p>
+<p>CERN 的第一个网站——也是世界上的第一个网站——专门用于万维网项目本身，并托管在 Berners-Lee 的 NeXT 计算机上。 该网站描述了网络的基本特征； 如何交流处理其他人的文档以及如何设置自己的服务器。 NeXT 机器——最初的网络服务器——仍在 CERN。 作为恢复<a target="_blank" rel="noopener" href="http://info.cern.ch/">第一个网站</a> 项目的一部分，CERN 在 2013 年将世界上第一个网站恢复到其原始地址。</p>
+<p>1993 年 4 月 30 日，CERN 将万维网软件置于公共领域。 CERN 以开放许可的方式发布了下一个版本，作为一种更可靠的方式来最大限度地传播它。 通过这些行动，免费提供运行网络服务器所需的软件以及<a target="_blank" rel="noopener" href="http://line-mode.cern.ch/">基本浏览器</a> 和代码库，网络得以蓬勃发展。</p>
+<p><em>更多阅读：</em></p>
+<p><a target="_blank" rel="noopener" href="http://igoro.com/archive/what-really-happens-when-you-navigate-to-a-url/">What really happens when you navigate to a URL</a></p>
+<p><a target="_blank" rel="noopener" href="http://www.html5rocks.com/en/tutorials/internals/howbrowserswork/">How Browsers Work: Behind the scenes of modern web browsers</a></p>
+<p><a target="_blank" rel="noopener" href="http://superuser.com/questions/31468/what-exactly-happens-when-you-browse-a-website-in-your-browser">What exactly happens when you browse a website in your browser?</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/alex/what-happens-when">What happens when</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=SmE4OwHztCc">So how does the browser actually render a website</a></p>
+<p><a target="_blank" rel="noopener" href="https://developers.google.com/web/fundamentals/performance/critical-rendering-path/constructing-the-object-model">Constructing the Object Model</a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.freecodecamp.com/how-the-web-works-a-primer-for-newcomers-to-web-development-or-anyone-really-b4584e63585c#.7l3tokoh1">How the Web Works: A Primer for Newcomers to Web Development (or anyone, really)</a></p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io">Sinos</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io/2020/01/b82f68184e81.html">https://sinos_wei.gitee.io/2020/01/b82f68184e81.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/html/">html</a><a class="post-meta__tags" href="/tags/http/">http</a><a class="post-meta__tags" href="/tags/google/">google</a><a class="post-meta__tags" href="/tags/dns/">dns</a><a class="post-meta__tags" href="/tags/css/">css</a></div><div class="post_share"><div class="social-share" data-image="/img/cover/IMG_3302.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2020/01/c283701d8e64.html" title="java"><img class="cover" src="/img/cover/IMG_2127.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">java</div></div></a></div><div class="next-post pull-right"><a href="/2019/11/937fda21d4e1.html" title="git"><img class="cover" src="/img/cover/IMG_2082.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">git</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>Related Articles</span></div><div class="relatedPosts-list"><div><a href="/2019/11/d6ad260c52e8.html" title="python xjb学"><img class="cover" src="/img/cover/IMG_3300.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2019-11-10</div><div class="title">python xjb学</div></div></a></div><div><a href="/2021/04/0c582346e65f.html" title="qt"><img class="cover" src="/img/cover/IMG_3300.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2021-04-24</div><div class="title">qt</div></div></a></div><div><a href="/2022/12/968c41444c80.html" title="http权威指南读书笔记"><img class="cover" src="/img/cover/IMG_2241.jpg" alt="cover"><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2022-12-12</div><div class="title">http权威指南读书笔记</div></div></a></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/cover/IMG_2242.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Sinos</div><div class="author-info__description">己所不欲, 勿施于人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">49</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">167</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">7</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SinosGray"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SinosGray" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1143474942@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://8.130.42.149:5230" target="_blank" title="memo"><i class="fab fa-heart"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E6%98%AF%E5%A6%82%E4%BD%95%E5%B7%A5%E4%BD%9C%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">网络是如何工作的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#google-%E7%9A%84g%E9%94%AE%E8%A2%AB%E6%8C%89%E4%B8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">&quot;google&quot; 的“g”键被按下</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E4%BD%A0%E6%8C%89%E4%B8%8Benter%E9%94%AE%E6%97%B6"><span class="toc-number">1.2.</span> <span class="toc-text">当你按下“Enter”键时</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90-url"><span class="toc-number">1.3.</span> <span class="toc-text">解析 URL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5-hsts-%E5%88%97%E8%A1%A8%E5%B7%B2%E5%BC%83%E7%94%A8"><span class="toc-number">1.4.</span> <span class="toc-text">检查 HSTS 列表（已弃用）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dns-%E6%9F%A5%E8%AF%A2"><span class="toc-number">1.5.</span> <span class="toc-text">DNS 查询</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%93%E5%BC%80%E5%A5%97%E6%8E%A5%E5%AD%97socket-tls-%E6%8F%A1%E6%89%8B"><span class="toc-number">1.6.</span> <span class="toc-text">打开套接字(socket) + TLS 握手</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E5%8D%8F%E8%AE%AE"><span class="toc-number">1.7.</span> <span class="toc-text">HTTP 协议</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#http-%E6%9C%8D%E5%8A%A1%E5%99%A8%E8%AF%B7%E6%B1%82%E5%8F%A5%E6%9F%84handle"><span class="toc-number">1.8.</span> <span class="toc-text">HTTP 服务器请求句柄(handle)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E5%93%8D%E5%BA%94"><span class="toc-number">1.9.</span> <span class="toc-text">服务器响应</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E5%B9%95%E5%90%8E"><span class="toc-number">1.10.</span> <span class="toc-text">浏览器的幕后</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E9%AB%98%E5%B1%82%E7%BB%93%E6%9E%84"><span class="toc-number">1.11.</span> <span class="toc-text">浏览器的高层结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93rendering%E5%BC%95%E6%93%8E"><span class="toc-number">1.12.</span> <span class="toc-text">渲染(rendering)引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E6%B5%81%E7%A8%8B"><span class="toc-number">1.13.</span> <span class="toc-text">主要流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90parsing%E5%9F%BA%E7%A1%80"><span class="toc-number">1.14.</span> <span class="toc-text">解析(parsing)基础</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#dom-%E6%A0%91"><span class="toc-number">1.15.</span> <span class="toc-text">DOM 树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88-dom-%E5%BE%88%E6%85%A2"><span class="toc-number">1.15.1.</span> <span class="toc-text">为什么 DOM 很慢？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E6%A0%91"><span class="toc-number">1.16.</span> <span class="toc-text">渲染树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B8%B2%E6%9F%93%E6%A0%91%E4%B8%8E-dom-%E6%A0%91%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.17.</span> <span class="toc-text">渲染树与 DOM 树的关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css-%E8%A7%A3%E6%9E%90"><span class="toc-number">1.18.</span> <span class="toc-text">CSS 解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%83%E5%B1%80layout"><span class="toc-number">1.19.</span> <span class="toc-text">布局(layout)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%98%E5%9B%BEpainting"><span class="toc-number">1.20.</span> <span class="toc-text">绘图(painting)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B7%E7%9F%A5%E8%AF%86trivia"><span class="toc-number">1.21.</span> <span class="toc-text">冷知识(trivia)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-number">1.21.1.</span> <span class="toc-text">网络的诞生</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2022/11/c7cdc8607a22.html" title="设计模式读书笔记"><img src="/img/cover/IMG_3035.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="设计模式读书笔记"/></a><div class="content"><a class="title" href="/2022/11/c7cdc8607a22.html" title="设计模式读书笔记">设计模式读书笔记</a><time datetime="2023-06-29T11:34:54.510Z" title="Updated 2023-06-29 19:34:54">2023-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/08/5f9009e5e107.html" title="自顶向下读书笔记"><img src="/img/cover/IMG_1403.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="自顶向下读书笔记"/></a><div class="content"><a class="title" href="/2022/08/5f9009e5e107.html" title="自顶向下读书笔记">自顶向下读书笔记</a><time datetime="2023-06-29T11:34:54.507Z" title="Updated 2023-06-29 19:34:54">2023-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/02/5e52a7d197f6.html" title="游戏编程模式读书笔记"><img src="/img/cover/IMG_1603.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="游戏编程模式读书笔记"/></a><div class="content"><a class="title" href="/2023/02/5e52a7d197f6.html" title="游戏编程模式读书笔记">游戏编程模式读书笔记</a><time datetime="2023-06-29T11:34:54.504Z" title="Updated 2023-06-29 19:34:54">2023-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/12/331cfaa59458.html" title="tcpip详解读书笔记"><img src="/img/cover/IMG_2933.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="tcpip详解读书笔记"/></a><div class="content"><a class="title" href="/2022/12/331cfaa59458.html" title="tcpip详解读书笔记">tcpip详解读书笔记</a><time datetime="2023-06-29T11:34:54.496Z" title="Updated 2023-06-29 19:34:54">2023-06-29</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2022/11/6d8f378b26de.html" title="insidecpp"><img src="/img/cover/35042f1cdhcb8ffdd0e5ed71d205ca4e.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="insidecpp"/></a><div class="content"><a class="title" href="/2022/11/6d8f378b26de.html" title="insidecpp">insidecpp</a><time datetime="2023-06-29T11:34:54.491Z" title="Updated 2023-06-29 19:34:54">2023-06-29</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2023 By Sinos</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div><script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/hibiki.model.json"},"display":{"position":"right","width":145,"height":315},"mobile":{"show":true,"scale":0.5},"react":{"opacityDefault":0.7,"opacityOnHover":0.8},"log":false});</script></body></html>
