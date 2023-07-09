@@ -7131,7 +7131,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <h4 id="操作系统的特征">1.1.2 操作系统的特征</h4>
 <p>最基本的特征: 并发 共享</p>
 <ol type="1">
-<li>并发(同一时间间隔) 计算机系统重同时存在多个运行的程序, 注意区分并行(同一时刻) os 的并发是通过分时实现的</li>
+<li><strong>并发</strong>(同一时间间隔)(并行是指同时) 计算机系统重同时存在多个运行的程序, 注意区分并行(同一时刻) os 的并发是通过分时实现的</li>
 <li>共享 资源可被多个并发的进程共同使用, 分为
 <ol type="1">
 <li>互斥共享方式: 在一段时间内只允许一个进程访问该资源, 这种资源叫临界资源</li>
@@ -7514,12 +7514,12 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <li>交互进程&gt;非交互进程</li>
 <li>io 进程&gt;计算进程</li>
 </ol></li>
-<li><p>高响应比优先调度算法 主要用于作业调度</p>
+<li><p><strong>高响应比</strong>优先调度算法 主要用于作业调度</p>
 <p>每次调度选择响应比最高的进程运行 <span class="math inline">\(响应比R_p = \frac{等待时间+要求服务时间}{要求服务时间}\)</span></p>
 <p>综合了 FCFS 和 SJF</p></li>
 <li><p>时间片轮转算法 按 FCFS 排序队列, 但每次只运行一个时间片, 运行完后置于队列末尾</p></li>
 <li><p>多级队列调度算法 设置多个就绪队列, 每个队列使用不同调度方法</p></li>
-<li><p>多级反馈队列调度算法 时间片轮转+优先级调度 实现:</p>
+<li><p><strong>多级反馈</strong>队列调度算法 时间片轮转+优先级调度 实现:</p>
 <ol type="1">
 <li>设置多个就绪队列, 每个队列有不同优先级</li>
 <li>每个队列的时间片大小不同, 优先级越高的队列时间片越小</li>
@@ -7648,14 +7648,16 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 </ol>
 <h4 id="死锁检测和解除">2.4.4 死锁检测和解除</h4>
 <ol type="1">
-<li>资源分配图 <img src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/image-20230611122510659.png" alt="image-20230611122510659" style="zoom:33%;" /></li>
-<li>死锁定理 根据资源分配图判断死锁 空闲资源 = 资源数-出度 死锁条件为: 资源图不可完全简化(即边无法全部删除)</li>
-<li>死锁解除
+<li><p>资源分配图 <img src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/image-20230611122510659.png" alt="image-20230611122510659" style="zoom:33%;" /></p></li>
+<li><p>死锁定理 根据资源分配图判断死锁 空闲资源 = 资源数-出度 死锁条件为: 资源图不可完全简化(即边无法全部删除)</p></li>
+<li><p>死锁解除</p>
 <ol type="1">
 <li>资源剥夺法</li>
 <li>撤销进程法</li>
 <li>进程回退法</li>
 </ol></li>
+<li><p>鸽巢原理</p>
+<p>若有n个笼子和kn+1只鸽子，所有的鸽子都被关在鸽笼里，那么至少有一个笼子有至少k+1只鸽子。</p></li>
 </ol>
 <h2 id="第3章-内存管理">第3章 内存管理</h2>
 <h3 id="内存管理概念">3.1 内存管理概念</h3>
@@ -7694,8 +7696,8 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 </ol>
 <p>内存保护 保证每个进程有单独的内存空间, 进程之间不彼此影响</p>
 <ol type="1">
-<li>cpu 中设置一对上下限寄存器, 存放作业在 MM 中的上限地址和下限地址, 当 CPU 访问地址时先判断是否越界</li>
-<li>重定位寄存器(基地址寄存器)和界地址寄存器(限长寄存器) 重定位寄存器存放最小的物理地址值, 界地址寄存器存放逻辑地址的最大值 如果给定逻辑地址小于界地址寄存器, 则未越界, 加上重定位寄存器得到物理地址, 交给MM 加载这两个寄存器是特权指令</li>
+<li>cpu 中设置一对<strong>上下限寄存器</strong>, 存放作业在 MM 中的上限地址和下限地址, 当 CPU 访问地址时先判断是否越界</li>
+<li><strong>重定位寄存器(基地址寄存器)和界地址寄存器(限长寄存器)</strong> 重定位寄存器存放最小的物理地址值, 界地址寄存器存放逻辑地址的最大值 如果给定逻辑地址小于界地址寄存器, 则未越界, 加上重定位寄存器得到物理地址, 交给MM 加载这两个寄存器是特权指令</li>
 </ol>
 <p>内存 共享 可重入代码(纯代码): 允许多个进程同时访问但不允许被任何进程修改的代码</p>
 <p>内存分配与回收</p>
@@ -7878,6 +7880,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <li>基于索引节点 inode 的共享方式(硬链接) count 计数</li>
 <li>利用符号链实现文件共享(软链接) link类型新文件, 新文件中只包含链接文件的路径名</li>
 </ol>
+<p><strong>软链接 count 复制, 硬链接 count+1</strong> 删除文件时, 对软链接不可见, 如果发现文件被删除则软连接直接删除 创建硬链接对软链接也不可见 对硬链接只会使 count-1, 如果 count!=0 则不会删除文件</p>
 <h3 id="文件系统">4.3 文件系统</h3>
 <h4 id="文件系统结构">4.3.1 文件系统结构</h4>
 <ol type="1">
@@ -7978,7 +7981,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <ol type="1">
 <li>基本单位是数据块</li>
 <li>传送数据从设备直接到内存</li>
-<li>仅在传送的开始和结束需要 cpu 干预, 整个数据的传送由 dma 控制器控制</li>
+<li><strong>仅在传送的开始和结束需要 cpu 干预(数据块大小, 内存位置)</strong>, 整个数据的传送由 dma 控制器控制</li>
 </ol>
 <p>DMA 控制器中包括:</p>
 <ol type="1">
@@ -7987,8 +7990,8 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <li>数据寄存器 DR: 暂存数据</li>
 <li>数据计数器 DC: 存放要传输的字节数</li>
 </ol></li>
-<li><p>通道控制方式 io 通道是指专门负责输入输出的处理机</p>
-<p>当 CPU 要完成一组相关的读（或写）操作及有关控制时，只需向 io 通道发送一条 io 指令，以给出其所要执行的通道程序的首地址和要访问的 io 设备，通道找到该指令后，执行 通道程序便可完成 CPU 指定的 io 任务，数据传送结束时向 CPU 发中断请求。 io 通道与一般处理机的区别是：通道指令的类型单一，没有自己的内存，通道所执行的通道程序是放在内存中的，通道与CPU 共享内存。 io 通道与 DMA 方式的区别是：DMA 方式需要 CPU 来控制传输的数据块大小、传输的内存位置，而通道方式中这些信息是由通道控制的。另外，每个DMA 控制器对应一台设备与内存 传递数据，而一个通道可以控制多台设备与内存的数据交换。</p></li>
+<li><p>通道控制方式 io channel io 通道是指专门负责输入输出的处理机, I/O通道通常由专门的硬件设备或芯片来实现，例如网络接口卡、磁盘控制器等</p>
+<p>当 CPU 要完成一组相关的读（或写）操作及有关控制时，只需向 io 通道发送一条 io 指令，以给出其所要执行的通道程序的首地址和要访问的 io 设备，通道找到该指令后，执行 通道程序便可完成 CPU 指定的 io 任务，数据传送结束时向 CPU 发中断请求。 io 通道与一般处理机的区别是：通道指令的类型单一，<strong>没有自己的内存</strong>，通道所执行的通道程序是放在内存中的，通道与CPU 共享内存。 io 通道与 DMA 方式的区别是：<strong>通道方式中这些信息是由通道控制的</strong>。另外，每个DMA 控制器对应一台设备与内存 传递数据，而一个通道可以控制多台设备与内存的数据交换。</p></li>
 </ol>
 <h4 id="io-软件层次结构">5.1.3 I/O 软件层次结构</h4>
 <ol type="1">
@@ -8303,7 +8306,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <li><p>采用存储程序的工作方式</p>
 <p>存储程序思想: 将实现编制好的程序和原始数据送入主存后才能执行, 程序一旦启动无须人为干涉</p></li>
 <li><p>计算机硬件系统包括: 运算器, 存储器, 控制器, 输入输出 五大部分</p></li>
-<li><p>指令和数据以同等的地位存储在存储器中, 形式上无区别, 但计算机应能区分他们</p></li>
+<li><p>指令和数据以同等的地位存储在存储器中, 形式上无区别, 但计算机应能区分他们, <strong>区分是根据指令阶段区分</strong></p></li>
 <li><p>指令和数据均由二进制表示</p></li>
 <li><p>以运算单元为中心</p></li>
 <li><p>存储器是按地址访问、线性编址的空间</p></li>
@@ -8326,6 +8329,35 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">   ┌────┐           ┌────┐    ┌───┐</span><br><span class="line">   │cpu1│           │cpu2◄────►RAM│</span><br><span class="line">   └──▲─┘           └──▲─┘    └───┘</span><br><span class="line">      │                │</span><br><span class="line">      └────────┬───────┘ FSB</span><br><span class="line">               │</span><br><span class="line">  ┌───┐  ┌─────▼─────┐  ┌──┐   ┌───┐</span><br><span class="line">  │RAM◄──►northbridge◄──►MC◄───►RAM│</span><br><span class="line">  └───┘  └─────▲─────┘  └──┘   └───┘</span><br><span class="line">               │</span><br><span class="line">┌─────┐        │</span><br><span class="line">│PCI-E│  ┌─────▼─────┐</span><br><span class="line">│SATA ◄──►southbridge│</span><br><span class="line">│USB  │  └───────────┘</span><br><span class="line">└─────┘</span><br></pre></td></tr></table></figure>
 <p>缓存结构</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">              ┌───────────┐</span><br><span class="line">              │Main Memory│</span><br><span class="line">              └─────▲─────┘</span><br><span class="line">   Bus              │</span><br><span class="line">────────▲───────────▼───────►</span><br><span class="line">        │</span><br><span class="line">     ┌──▼──┐      ┌────────┐</span><br><span class="line">     │Cache◄──────►CPU core│</span><br><span class="line">     └─────┘      └────────┘</span><br></pre></td></tr></table></figure>
+<p>在CPU中至少要有六类寄存器：指令寄存器（IR）、程序计数器（PC）、<strong>地址寄存器（AR）、数据寄存器（DR）</strong>、累加寄存器（AC）、程序状态字寄存器（PSW）</p>
+<ol type="1">
+<li><p>数据寄存器 数据寄存器（Data Register，DR）又称数据缓冲寄存器，其主要功能是作为CPU和主存、外设之间信息传输的中转站，用以弥补CPU和主存、外设之间操作速度上的差异。<br />
+数据寄存器用来暂时存放由主存储器读出的一条指令或一个数据字；反之，当向主存存入一条指令或一个数据字时，也将它们暂时存放在数据寄存器中。</p>
+<p>数据寄存器的作用是 ：</p>
+<p>（1）作为CPU和主存、外围设备之间信息传送的中转站；</p>
+<p>（2）弥补CPU和主存、外围设备之间在操作速度上的差异；</p>
+<p>（3）在单累加器结构的运算器中，数据寄存器还可兼作操作数寄存器。</p></li>
+<li><p>地址寄存器 地址寄存器（Address Register，AR）用来保存CPU当前所访问的主存单元的地址。</p>
+<p>由于在主存和CPU之间存在操作速度上的差异，所以必须使用地址寄存器来暂时保存主存的地址信息，直到主存的存取操作完成为止。</p>
+<p>当CPU和主存进行信息交换，即CPU向主存存入数据/指令或者从主存读出数据/指令时，都要使用地址寄存器和数据寄存器。</p>
+<p>如果我们把外围设备与主存单元进行统一编址，那么，当CPU和外围设备交换信息时，我们同样要使用地址寄存器和数据寄存器。</p></li>
+<li><p>程序状态字寄存器 程序状态字（Program Status Word，PSW）用来表征当前运算的状态及程序的工作方式。</p>
+<p>程序状态字寄存器用来保存由算术/逻辑指令运行或测试的结果所建立起来的各种条件码内容，如运算结果进/借位标志（C）、运算结果溢出标志（O）、运算结果为零标志（Z）、运算结果为负标志（N）、运算结果符号标志（S）等，这些标志位通常用1位触发器来保存。</p>
+<p>除此之外，程序状态字寄存器还用来保存中断和系统工作状态等信息，以便CPU和系统及时了解机器运行状态和程序运行状态。</p>
+<p>因此，程序状态字寄存器是一个保存各种状态条件标志的寄存器。</p></li>
+<li><p>指令寄存器 指令寄存器（Instruction Register，IR）用来保存当前正在执行的一条指令。</p>
+<p>当执行一条指令时，首先把该指令从主存读取到数据寄存器中，然后再传送至指令寄存器。</p>
+<p>指令包括操作码和地址码两个字段，为了执行指令，必须对操作码进行测试，识别出所要求的操作，指令译码器（Instruction Decoder，ID）就是完成这项工作的。指令译码器对指令寄存器的操作码部分进行译码，以产生指令所要求操作的控制电位，并将其送到微操作控制线路上，在时序部件定时信号的作用下，产生具体的操作控制信号。</p>
+<p>指令寄存器中操作码字段的输出就是指令译码器的输入。操作码一经译码，即可向操作控制器发出具体操作的特定信号。</p></li>
+<li><p>程序计数器 程序计数器（Program Counter，PC）用来指出下一条指令在主存储器中的地址。</p>
+<p>在程序执行之前，首先必须将程序的首地址，即程序第一条指令所在主存单元的地址送入PC，因此PC的内容即是从主存提取的第一条指令的地址。</p>
+<p>当执行指令时，CPU能自动递增PC的内容，使其始终保存将要执行的下一条指令的主存地址，为取下一条指令做好准备。</p>
+<p>但是，当遇到转移指令时，下一条指令的地址将由转移指令的地址码字段来指定，而不是像通常的那样通过顺序递增PC的内容来取得。</p>
+<p>因此，程序计数器的结构应当是具有寄存信息和计数两种功能的结构。</p></li>
+<li><p>累加寄存器 累加寄存器通常简称累加器（Accumulator，AC），是一个通用寄存器。</p>
+<p>累加器的功能是：当运算器的算术逻辑单元ALU执行算术或逻辑运算时，为ALU提供一个工作区，可以为ALU暂时保存一个操作数或运算结果。</p>
+<p>显然，运算器中至少要有一个累加寄存器。</p></li>
+</ol>
 <h4 id="计算机软件">1.2.3 计算机软件</h4>
 <p>分为系统软件: OS, DBMS</p>
 <p>和应用软件: 科学计算</p>
@@ -8499,12 +8531,12 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 </table>
 <h4 id="几个专业术语">1.3.2 几个专业术语</h4>
 <p>系列机: 有基本相同的体系结构(Computer Architecture) , 使用相同基本指令系统的不同计算机组成的产品系列</p>
-<p>体系结构: 机器语言或汇编语言程序员能看到的传统机器的属性, 包括: 指令集, 数据类型, 存储器寻址技术等抽象属性</p>
+<p><strong>体系结构: 机器语言或汇编语言程序员能看到的传统机器的属性, 包括: 指令集, 数据类型, 存储器寻址技术等抽象属性</strong></p>
 <p>计算机组成: 如何实现体系结构所体现的属性, 对大部分程序员是透明的, 如: 如何执行指令周期, 如何实现乘法等</p>
 <p>兼容:</p>
 <ul>
-<li>向前兼容(向上兼容): 现在的版本对未来兼容</li>
-<li>向后兼容(向下兼容): 现在的版本对过去兼容</li>
+<li><strong>向前兼容(向上兼容): 现在的版本对未来兼容</strong></li>
+<li><strong>向后兼容(向下兼容): 现在的版本对过去兼容</strong></li>
 </ul>
 <p>固件: 程序固化在 ROM 中组成的部件称为固件</p>
 <h2 id="第2章-数据的表示和运算">第2章 数据的表示和运算******</h2>
@@ -8536,8 +8568,11 @@ x,\quad &amp;0\le x &lt;1 \\
 0, x,\quad &amp;0\le x &lt;2^n \\
 2^{n+1}+x=2^{n+1}-|x|,\quad &amp;-2^n \le x &lt;0
 \end{cases} (mod2^{n+1}) \]</span></p>
-<p>负真数-&gt;补码: 符号位取 1, 其余位取反末位+1</p>
-<p>负补码-&gt;真数: 各位取反末位+1</p>
+<p><strong>负真数-&gt;补码: 符号位取 1, 其余位取反末位+1</strong></p>
+<p><strong>正真数-&gt;补码: 不变</strong></p>
+<p><strong>负补码-&gt;真数: 各位取反末位+1</strong></p>
+<p><strong>正补码-&gt;真数: 不变</strong></p>
+<p><strong>对于负数, 不看符号位, 补码+原码应该进位</strong></p>
 <h4 id="整数的表示">2.1.4 整数的表示</h4>
 <h3 id="运算方法和运算电路">2.2 运算方法和运算电路</h3>
 <h4 id="基本运算部件">2.2.1 基本运算部件</h4>
@@ -8609,6 +8644,8 @@ x,\quad &amp;0\le x &lt;1 \\
 </figure>
 <h4 id="c语言中的整数类型及类型转换">2.2.5 C语言中的整数类型及类型转换</h4>
 <p>强制类型转换位值不变, 只改变解释方式</p>
+<p><strong>隐式转换优先级</strong>, 从下转换到上</p>
+<figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">long double</span><br><span class="line">double</span><br><span class="line">float</span><br><span class="line">unsigned long long </span><br><span class="line">long long</span><br><span class="line">unsigned long</span><br><span class="line">long</span><br><span class="line">unsigned int</span><br><span class="line">int</span><br><span class="line">char/short/unsigned char/unsigned short</span><br><span class="line"></span><br><span class="line">unsigned int x &#123;20u&#125;;</span><br><span class="line">int y &#123;30&#125;;</span><br><span class="line">x-y // type is unsigned int</span><br></pre></td></tr></table></figure>
 <h4 id="数据的存储和排列">2.2.6 数据的存储和排列</h4>
 <p>按照 byte 编址</p>
 <p>大端: 高位在低地址</p>
@@ -8631,7 +8668,7 @@ x,\quad &amp;0\le x &lt;1 \\
 </figure>
 <h4 id="浮点数的加减运算">2.3.2 浮点数的加减运算</h4>
 <ol type="1">
-<li>对阶, 小阶向大阶看齐</li>
+<li>对阶, <strong>小阶向大阶</strong>看齐</li>
 <li>尾数求和</li>
 <li>规格化</li>
 <li>舍入: 将右移移出的保留两位参与计算
@@ -8832,7 +8869,7 @@ x,\quad &amp;0\le x &lt;1 \\
 </ol>
 <p>磁盘地址 主机向磁盘控制器发送地址 扇区地址可以划分为: 驱动器号, 柱面(磁道)号, 盘面号, 扇区号</p>
 <p>硬盘工作流程: 寻址, 读盘, 写盘; 每个操作对应一个控制字 硬盘的读写是串行的, 不能同时读写, 也不能同时读(写)多组数据</p>
-<p>磁盘调度算法</p>
+<p>磁盘调度算法(针对磁道, 磁道是从 1~N~1 是一个来回)</p>
 <ol type="1">
 <li>FCFS</li>
 <li>最短寻找时间优先 SSTF (shortest seek time first) 可能饥饿</li>
@@ -8887,7 +8924,7 @@ x,\quad &amp;0\le x &lt;1 \\
 </ol></li>
 <li>最不经常用算法 LFU 每行设置一个计数器, 新建行计数器=0, 每访问一次计数器+1, 需要替换时将计数值最小行换出</li>
 </ol>
-<h4 id="cache-写策略">3.5.5 Cache 写策略</h4>
+<h4 id="cache-写策略"><strong>3.5.5 Cache 写策略</strong></h4>
 <p>写命中</p>
 <ol type="1">
 <li>全写法 write through 当 cpu 对 cache 写命中时, 必须把数据同时写入 cache 和 MM
@@ -9116,7 +9153,7 @@ x,\quad &amp;0\le x &lt;1 \\
 <p>特点</p>
 <ol type="1">
 <li>指令数目多(&gt;200)</li>
-<li>指令长度不固定, 格式多, 寻址方法多</li>
+<li><strong>指令长度不固定</strong>, 格式多, 寻址方法多</li>
 <li>可以访存的指令不受限制</li>
 <li>指令使用频率相差大</li>
 <li>指令执行时间相差大, 大多数指令需要多个时钟周期</li>
@@ -9126,13 +9163,19 @@ x,\quad &amp;0\le x &lt;1 \\
 <h4 id="精简指令系统计算机-risc">4.4.2 精简指令系统计算机 (RISC)</h4>
 <p>特点:</p>
 <ol type="1">
-<li>复杂指令由简单指令的组合实现</li>
-<li>指令长度固定, 格式少, 寻址方式少</li>
-<li>只有 load/store 指令访存, 其他指令都在寄存器之间进行</li>
-<li>cpu 中通用寄存器数量多</li>
-<li>risc 一定采用流水线技术, 大部分指令在一个时钟周期内完成</li>
-<li>以硬布线控制为主</li>
-<li>重视编译优化工作</li>
+<li><p>复杂指令由简单指令的组合实现</p></li>
+<li><p>指令长度固定, 格式少, 寻址方式少</p></li>
+<li><p>只有 load/store 指令访存, 其他指令都在寄存器之间进行</p></li>
+<li><p><strong>cpu 中通用寄存器数量多</strong></p>
+<blockquote>
+<p>到底有多少个寄存器，和编译时的寄存器分配关系很大——寄存器太少的话，就要经常把寄存器上的内容倒腾到内存里去，这一来一回用时实在是太大了；寄存器太多的话，根本用不完，白白花了材料钱和制作费。Patterson在他的《<a href="https://www.zhihu.com/search?q=计算机体系结构&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A532791165%7D">计算机体系结构</a>：量化研究方法》这本教材里给出了一个寄存器数目的效用曲线，寄存器数目在16-32个之间，对于目前的编译技术而言是最优的选择。</p>
+<p>所以回过头，我们来看RISCV，五位寄存器编码，刚好32个寄存器。</p>
+<p>最后说一下CISC的寄存器。按照本篇回答的观点，寄存器在16-32个效用最高，再加上x86的历史遗留的寻址问题，导致x86不可能支持过多的通用寄存器——一是成本和收益不对等，二是<a href="https://www.zhihu.com/search?q=通用寄存器&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A532791165%7D">通用寄存器</a>会挤占别的特殊寄存器（比如寻址需要用到的<a href="https://www.zhihu.com/search?q=基地址寄存器&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A532791165%7D">基地址寄存器</a>等）。除此之外，寄存器过多，会使得<a href="https://www.zhihu.com/search?q=指令编码&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A532791165%7D">指令编码</a>难以设计，尤其是<a href="https://www.zhihu.com/search?q=解码器&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A532791165%7D">解码器</a>难以快速解码。</p>
+<p>比如你原来有32个通用寄存器，然后你有一套用在32个寄存器上的CISC指令。现在突然变成64个寄存器，怎么在兼容原有指令的基础之上给新加的32个寄存器编码呢？一种思路是直接在所有指令后面加上几位，用来指示各个寄存器的“新旧”，这样设计的话，本来就复杂的CISC解码器就更复杂了...另外一种思路是在原来的那套指令上就留好冗余，用于扩展，但这样浪费太大，一条指令可能也就32到64位，里面有三到四位留作冗余...</p>
+</blockquote></li>
+<li><p>risc 一定采用流水线技术, 大部分指令在一个时钟周期内完成</p></li>
+<li><p>以硬布线控制为主</p></li>
+<li><p>重视编译优化工作</p></li>
 </ol>
 <h4 id="cisc-和risc-的比较">4.4.3 CiSC 和RISC 的比较</h4>
 <p>risc 的优点:</p>
@@ -9776,7 +9819,7 @@ x,\quad &amp;0\le x &lt;1 \\
 <li>码元传输速率(波特率): 单位时间传输的码元个数</li>
 <li>信息传输速率: 单位时间内传输的二进制码元数(bit)</li>
 </ol>
-<h4 id="奈奎斯特定理与香农定理">2.1.2 奈奎斯特定理与香农定理</h4>
+<h4 id="奈奎斯特定理与香农定理">2.1.2 奈奎斯特定理与香农定理 ?</h4>
 <p>奈奎斯特定理: 高频分量不能通过信道, 否则会在传输中衰减, 导致码间串扰 为了避免码间串扰, 极限码元传输速率为 2W 波特, W 为理想低通信道带宽, 若 V 表示每个码元的离散电平数目, 则极限数据率 <span class="math inline">\(理想低通信道的极限数据率 = 2Wlog_2V\)</span> 它告诉我们</p>
 <ol type="1">
 <li>任何信道中码元传输速率有上限</li>
@@ -10023,30 +10066,34 @@ x,\quad &amp;0\le x &lt;1 \\
 <ol type="1">
 <li><p>ALOHA 协议(additive link on-line hawaii system)</p>
 <ol type="1">
-<li>纯 aloha 协议 任何站点不进行任何检测就可以发送数据, 如果未收到确认说明发生了冲突, 站点等待一段随机时间再发送数据</li>
-<li>时隙 aloha 协议 把时间划分为时间片, 只有时间片开始时才可以发送数据</li>
+<li>纯 aloha 协议 任何站点<strong>不进行任何检测</strong>就可以发送数据, 如果未收到确认说明发生了冲突, 站点<strong>等待一段随机时间</strong>再发送数据</li>
+<li>时隙 aloha 协议 把时间划分为<strong>时间片</strong>, 只有时间片开始时才可以发送数据</li>
 </ol></li>
-<li><p>载波监听多路访问 CSMA 协议(carrier sense multiple access) 监听后再发送数据</p>
+<li><p>载波监听多路访问 CSMA 协议(carrier sense multiple access) <strong>监听后</strong>再发送数据</p>
 <ol type="1">
 <li>1 坚持 CSMA 发送数据时, 先监听, 如果信道忙, 继续监听, 如果冲突, 等待随机时间再监听, 如果空闲, 立即发送数据</li>
 <li>非坚持 CSMA 先监听, 如果信道忙, 等待随机时间再监听</li>
 <li>p 坚持 CSMA 先监听, 如果信道忙, 继续监听, 如果空闲, 以概率 p 发送数据, 1-p 概率下一个时隙发送数据</li>
 </ol></li>
 <li><p>载波监听多路访问/碰撞监听 CSMA/CD (collision detection)</p>
-<p>如以太网 发送前发送中都不停检测信道以及时发现碰撞, 如果发现碰撞停止传输, 等待随机事件再尝试 存在争用期, 即即使检测也无法察觉即将到来的碰撞, 因此以太网规定了最短帧长(争用期发送的数据长度) 退避算法: 截断二进制指数退避算法</p>
+<p>如以太网 发送前发送中都不停<strong>检测</strong>信道以及时发现碰撞, 如果<strong>发现碰撞停止传输, 等待随机时间再尝试</strong> 存在争用期, 即即使检测也无法察觉即将到来的碰撞, 因此以太网规定了<strong>最短帧长</strong>(争用期发送的数据长度)</p>
+<blockquote>
+<p>这里考虑最长的被发现冲突的时间:假设从A到B传播时延是t，那么2t时候才能被A或者B感受到冲撞。 那么小于2t内发送的数据的帧长无法检测，为什么呢？ 因为冲撞信号发回来需要2t，但是发回来时，下一帧已经发送了，所以，你这个碰撞信号是谁的，搞不清。</p>
+</blockquote>
+<p>退避算法: 截断二进制指数退避算法</p>
 <ol type="1">
 <li>确定基本退避时间(一般=争用期)</li>
 <li>定义参数 k = min{重传次数, 10}</li>
 <li>从集合{0, 1, 2, 3 ... 2<sup>k</sup>-1}中随机选数 r, 退避时间 = r * 基本退避时间</li>
 <li>重传次数过多(16 次)说明网络太拥挤, 抛弃此帧并向高层报错</li>
 </ol></li>
-<li><p>CSMA/CA 协议 碰撞避免(collision avoidance) 如无线局域网, 802.11 为避免碰撞, 站发送完成后, 必须等待一段时间(继续监听)才能发送下一帧(帧间间隔 IFS interframe space), IFS 包括</p>
+<li><p>CSMA/CA 协议 碰撞避免(collision avoidance) 如无线局域网, 802.11 为避免碰撞, 站发送完成后, 必须<strong>等待一段时间(继续监听)才能发送下一帧</strong>(帧间间隔 IFS interframe space), IFS 包括</p>
 <ol type="1">
 <li>短帧间间隔 SIFS: 例如 ACK 帧, CTS 帧, 分片后的数据帧, 回答 AP 探询帧之后接 SIFS</li>
 <li>点协调帧间间隔 PIFS: PCF 操作中使用</li>
 <li>分布式协调帧间间隔 DIFS: 用于异步帧竞争访问的时延</li>
 </ol>
-<p>信道从忙态变为空闲态时，站要发送数据帧，不仅都要等待一个时间间隔，而且要进入争用窗口，计算随机退避时间以 便再次试图接入信道。 当且仅当检测到信道空闲且这个数据帧是要 发送的第一个数据帧时，才不使用退避算法。其他所有情况都必须使用退避算法，具体为：①在 发送第一个帧前检测到信道忙；②每次重传；③每次成功发送后要发送下一帧。</p>
+<p>信道从忙态变为空闲态时，站要发送数据帧，不仅都要等待一个时间间隔，而且要进入争用窗口，计算随机退避时间以 便再次试图接入信道。 当且仅当检测到信道空闲且这个数据帧是要 发送的第一个数据帧时，才不使用退避算法。其他所有情况都必须使用退避算法，具体为：①在发送第一个帧前检测到信道忙；②每次重传；③每次成功发送后要发送下一帧。</p>
 <p>隐蔽站问题: AB 互相检测不到对方, 但都发送到同一站点AP导致碰撞 802.11 允许对信道预约 源站发送前先广播请求发送 RTS(request to send)控制帧 <code>源地址, 目标地址, 持续时间</code>, 若信道空闲, AP 广播允许发送 CTS(clear to send)控制帧, 指示源站可以发送, 指示其他站不要发送</p></li>
 </ol>
 <h4 id="轮询访问令牌token传递协议">3.5.3 轮询访问：令牌(token)传递协议</h4>
@@ -10489,6 +10536,7 @@ x,\quad &amp;0\le x &lt;1 \\
 <p>转发表项<code>目的地址, 下一跳 mac 地址</code> <img src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/image-20230622222057591.png" alt="image-20230622222057591" /></p>
 <h2 id="第5章传输层">第5章传输层</h2>
 <h3 id="传输层提供的服务">5.1 传输层提供的服务</h3>
+<p>自下而上第一个端到端服务层</p>
 <h4 id="传输层的功能">5.1.1 传输层的功能</h4>
 <ol type="1">
 <li>进程间的逻辑通信</li>
@@ -10621,7 +10669,7 @@ x,\quad &amp;0\le x &lt;1 \\
 <ul>
 <li><strong>慢开始：</strong>cwnd&lt;ssthresh: 即由小到大逐渐增大发送窗口，也就是由小到大逐渐增大拥塞窗口数值。cwnd初始值为1，每经过一个传播轮次，cwnd加倍。</li>
 <li><strong>拥塞避免：</strong>cwnd&gt;=ssthresh: 拥塞避免算法的思路是让拥塞窗口cwnd缓慢增大，即每经过一个往返时间RTT就把发送放的cwnd加1.</li>
-<li>网络拥塞: 只要出现拥塞, ssthresh = cwnd/2, cwnd=1</li>
+<li><strong>网络拥塞</strong>: 只要出现拥塞, ssthresh = cwnd/2, cwnd=1</li>
 <li><strong>快重传与快恢复：</strong>（fast retransmit and recovery，FRR）没有 FRR，如果数据包丢失了，TCP 将会使用定时器来要求传输暂停。
 <ul>
 <li>快重传: 3 个冗余 ack 立刻重传</li>
@@ -15959,5 +16007,55 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>ram</tag>
         <tag>sram</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>typescript html</title>
+    <url>/2023/07/903167ec2d3e.html</url>
+    <content><![CDATA[<blockquote>
+
+</blockquote>
+<span id="more"></span>
+<h1 id="typescript">typescript</h1>
+<h2 id="关键字">关键字</h2>
+<p>let any: 任意类型 <code>let x: any = 1;</code> string: 字符串 boolean: true false <code>let arr: number[] = [1, 2];</code> <code>let arr: Array&lt;number&gt; = [1, 2];</code> <code>let x: [string, number];//元组, 类型可以不同的数组</code> enum</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="title class_">Color</span> &#123;<span class="title class_">Red</span>, <span class="title class_">Green</span>, <span class="title class_">Blue</span>&#125;;</span><br><span class="line"><span class="keyword">let</span> <span class="attr">c</span>: <span class="title class_">Color</span> = <span class="title class_">Color</span>.<span class="property">Blue</span>;</span><br></pre></td></tr></table></figure>
+<p>空值</p>
+<ul>
+<li><p>null null 在 JavaScript 中 null 表示 "什么都没有"。</p>
+<p>null是一个只有一个值的特殊类型。表示一个空对象引用。</p>
+<p>用 typeof 检测 null 返回是 object。</p></li>
+<li><p>undefined 在 JavaScript 中, undefined 是一个没有设置值的变量。</p>
+<p>typeof 一个没有值的变量会返回 undefined。</p>
+<p>Null 和 Undefined 是其他任何类型（包括 void）的子类型，可以赋值给其它类型，如数字类型，此时，赋值后的类型会变成 null 或 undefined。而在TypeScript中启用严格的空校验（--strictNullChecks）特性，就可以使得null 和 undefined 只能被赋值给 void 或本身对应的类型，示例代码如下： <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">x</span>: <span class="built_in">number</span>;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// 编译正确</span></span><br><span class="line">x = <span class="literal">undefined</span>;    <span class="comment">// 编译错误</span></span><br><span class="line">x = <span class="literal">null</span>;    <span class="comment">// 编译错误</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">x</span>: <span class="built_in">number</span> | <span class="literal">null</span> | <span class="literal">undefined</span>;</span><br><span class="line">x = <span class="number">1</span>; <span class="comment">// 编译正确</span></span><br><span class="line">x = <span class="literal">undefined</span>;    <span class="comment">// 编译正确</span></span><br><span class="line">x = <span class="literal">null</span>;    <span class="comment">// 编译正确</span></span><br></pre></td></tr></table></figure></p></li>
+<li><p>never 是其它类型（包括 null 和 undefined）的子类型，代表从不会出现的值</p></li>
+</ul>
+<p>类型转换 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: typeA;</span><br><span class="line"><span class="keyword">let</span> b = a <span class="keyword">as</span> typeB;</span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> <span class="attr">a</span>: typeA;</span><br><span class="line"><span class="keyword">let</span> b = &lt;typeB&gt;a;</span><br></pre></td></tr></table></figure></p>
+<p>作用域 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> global_num = <span class="number">12</span>          <span class="comment">// 全局变量</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Numbers</span> &#123; </span><br><span class="line">   num_val = <span class="number">13</span>;             <span class="comment">// 实例变量</span></span><br><span class="line">   <span class="keyword">static</span> sval = <span class="number">10</span>;         <span class="comment">// 静态变量</span></span><br><span class="line">   </span><br><span class="line">   <span class="title function_">storeNum</span>():<span class="built_in">void</span> &#123; </span><br><span class="line">      <span class="keyword">var</span> local_num = <span class="number">14</span>;    <span class="comment">// 局部变量</span></span><br><span class="line">   &#125; </span><br><span class="line">&#125; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;全局变量为: &quot;</span>+global_num)  </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title class_">Numbers</span>.<span class="property">sval</span>)   <span class="comment">// 静态变量</span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Numbers</span>(); </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;实例变量: &quot;</span>+obj.<span class="property">num_val</span>)</span><br></pre></td></tr></table></figure></p>
+<p>函数 <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">function</span> <span class="title function_">add</span>(<span class="params">x: <span class="built_in">number</span>, y: <span class="built_in">number</span>, default_val:<span class="built_in">number</span> = <span class="number">0.50</span>, optional_val?:<span class="built_in">number</span></span>): <span class="built_in">number</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> x + y;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">add</span>(<span class="number">1</span>,<span class="number">2</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> msg = <span class="keyword">function</span>(<span class="params"></span>) &#123; </span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello world&quot;</span>;  </span><br><span class="line">&#125; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">msg</span>())</span><br><span class="line"></span><br><span class="line"><span class="comment">//匿名函数自调用</span></span><br><span class="line">(<span class="keyword">function</span> (<span class="params"></span>) &#123; </span><br><span class="line">    <span class="keyword">var</span> x = <span class="string">&quot;Hello!!&quot;</span>;   </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x)     </span><br><span class="line"> &#125;)()</span><br><span class="line"></span><br><span class="line"><span class="comment">//lambda</span></span><br><span class="line"><span class="keyword">var</span> <span class="title function_">foo</span> = (<span class="params">x:<span class="built_in">number</span></span>)=&gt; &#123;    </span><br><span class="line">    x = <span class="number">10</span> + x </span><br><span class="line">    <span class="variable language_">console</span>.<span class="title function_">log</span>(x)  </span><br><span class="line">&#125; </span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="title function_">foo</span>(<span class="number">100</span>))      <span class="comment">//输出结果为 110</span></span><br></pre></td></tr></table></figure></p>
+<p>class <figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">interface</span> <span class="title class_">Person</span>&#123;</span><br><span class="line">  <span class="attr">age</span>:<span class="built_in">number</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">interface</span> <span class="title class_">IPerson</span>:<span class="title class_">Person</span> &#123; </span><br><span class="line">    <span class="attr">firstName</span>:<span class="built_in">string</span>, </span><br><span class="line">    <span class="attr">lastName</span>:<span class="built_in">string</span>, </span><br><span class="line">    <span class="attr">sayHi</span>: <span class="function">()=&gt;</span><span class="built_in">string</span> </span><br><span class="line">&#125; </span><br><span class="line"> </span><br><span class="line"><span class="keyword">var</span> <span class="attr">customer</span>:<span class="title class_">IPerson</span> = &#123; </span><br><span class="line">    <span class="attr">firstName</span>:<span class="string">&quot;Tom&quot;</span>,</span><br><span class="line">    <span class="attr">lastName</span>:<span class="string">&quot;Hanks&quot;</span>, </span><br><span class="line">    <span class="attr">sayHi</span>: ():<span class="function"><span class="params">string</span> =&gt;</span>&#123;<span class="keyword">return</span> <span class="string">&quot;Hi there&quot;</span>&#125; </span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure></p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Car</span> &#123; </span><br><span class="line">    <span class="comment">// 字段 </span></span><br><span class="line">    <span class="attr">engine</span>:<span class="built_in">string</span>;</span><br><span class="line">    <span class="keyword">static</span> <span class="attr">num</span>:<span class="built_in">number</span>; </span><br><span class="line">    <span class="comment">// 构造函数 </span></span><br><span class="line">    <span class="title function_">constructor</span>(<span class="params">engine:<span class="built_in">string</span></span>) &#123; </span><br><span class="line">        <span class="variable language_">this</span>.<span class="property">engine</span> = engine </span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="comment">// 方法 </span></span><br><span class="line">    <span class="title function_">disp</span>():<span class="built_in">void</span> &#123; </span><br><span class="line">        <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;发动机为 :   &quot;</span>+<span class="variable language_">this</span>.<span class="property">engine</span>) </span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MyCar</span> <span class="keyword">extends</span> <span class="title class_ inherited__">Car</span>&#123;&#125;</span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Car</span>(<span class="string">&quot;Engine 1&quot;</span>)</span><br><span class="line"><span class="keyword">var</span> sites = &#123; </span><br><span class="line">   <span class="attr">site1</span>:<span class="string">&quot;Runoob&quot;</span>, </span><br><span class="line">   <span class="attr">site2</span>:<span class="string">&quot;Google&quot;</span> </span><br><span class="line">&#125;; </span><br></pre></td></tr></table></figure>
+<h2 id="模块">模块</h2>
+<p>TypeScript 模块的设计理念是可以更换的组织代码。</p>
+<p>模块是在其自身的作用域里执行，并不是在全局作用域，这意味着定义在模块里面的变量、函数和类等在模块外部是不可见的，除非明确地使用 export 导出它们。类似地，我们必须通过 import 导入其他模块导出的变量、函数、类等。</p>
+<p>两个模块之间的关系是通过在文件级别上使用 import 和 export 建立的。</p>
+<p>模块使用模块加载器去导入其它的模块。 在运行时，模块加载器的作用是在执行此模块代码前去查找并执行这个模块的所有依赖。 大家最熟知的JavaScript模块加载器是服务于 Node.js 的 CommonJS 和服务于 Web 应用的 Require.js。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> shape = <span class="built_in">require</span>(<span class="string">&quot;./IShape&quot;</span>); </span><br><span class="line"><span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">Circle</span> <span class="keyword">implements</span> shape.<span class="property">IShape</span> &#123; </span><br><span class="line">   <span class="keyword">public</span> <span class="title function_">draw</span>(<span class="params"></span>) &#123; </span><br><span class="line">      <span class="variable language_">console</span>.<span class="title function_">log</span>(<span class="string">&quot;Cirlce is drawn (external module)&quot;</span>); </span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="外部文件">外部文件</h2>
+<p>TypeScript 作为 JavaScript 的超集，在开发过程中不可避免要引用其他第三方的 JavaScript 的库。虽然通过直接引用可以调用库的类和方法，但是却无法使用TypeScript 诸如类型检查等特性功能。为了解决这个问题，需要将这些库里的函数和方法体去掉后只保留导出类型声明，而产生了一个描述 JavaScript 库和模块信息的声明文件。通过引用这个声明文件，就可以借用 TypeScript 的各种特性来使用库文件了。</p>
+<figure class="highlight ts"><table><tr><td class="code"><pre><span class="line"><span class="comment">//third party .js</span></span><br><span class="line"><span class="keyword">var</span> <span class="title class_">Runoob</span>;  </span><br><span class="line">(<span class="keyword">function</span>(<span class="params">Runoob</span>) &#123;</span><br><span class="line">    <span class="keyword">var</span> <span class="title class_">Calc</span> = (<span class="keyword">function</span> (<span class="params"></span>) &#123; </span><br><span class="line">        <span class="keyword">function</span> <span class="title function_">Calc</span>(<span class="params"></span>) &#123; </span><br><span class="line">        &#125; </span><br><span class="line">    &#125;)</span><br><span class="line">    <span class="title class_">Calc</span>.<span class="property"><span class="keyword">prototype</span></span>.<span class="property">doSum</span> = <span class="keyword">function</span> (<span class="params">limit</span>) &#123;</span><br><span class="line">        <span class="keyword">var</span> sum = <span class="number">0</span>; </span><br><span class="line"> </span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt;= limit; i++) &#123; </span><br><span class="line">            sum = sum + i; </span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> sum; </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="title class_">Runoob</span>.<span class="property">Calc</span> = <span class="title class_">Calc</span>; </span><br><span class="line">    <span class="keyword">return</span> <span class="title class_">Calc</span>; </span><br><span class="line">&#125;)(<span class="title class_">Runoob</span> || (<span class="title class_">Runoob</span> = &#123;&#125;)); </span><br><span class="line"><span class="keyword">var</span> test = <span class="keyword">new</span> <span class="title class_">Runoob</span>.<span class="title class_">Calc</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//.d.ts</span></span><br><span class="line"><span class="keyword">declare</span> <span class="variable language_">module</span> <span class="title class_">Runoob</span> &#123; </span><br><span class="line">   <span class="keyword">export</span> <span class="keyword">class</span> <span class="title class_">Calc</span> &#123; </span><br><span class="line">      <span class="title function_">doSum</span>(<span class="attr">limit</span>:<span class="built_in">number</span>) : <span class="built_in">number</span>; </span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//.ts</span></span><br><span class="line"><span class="comment">/// &lt;reference path = &quot;Calc.d.ts&quot; /&gt; </span></span><br><span class="line"><span class="keyword">var</span> obj = <span class="keyword">new</span> <span class="title class_">Runoob</span>.<span class="title class_">Calc</span>(); </span><br><span class="line"><span class="comment">// obj.doSum(&quot;Hello&quot;); // 编译错误</span></span><br><span class="line"><span class="variable language_">console</span>.<span class="title function_">log</span>(obj.<span class="title function_">doSum</span>(<span class="number">10</span>));</span><br></pre></td></tr></table></figure>
+<h1 id="html">html</h1>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>My test page<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;images/firefox-icon.png&quot;</span> <span class="attr">alt</span>=<span class="string">&quot;My test image&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>&lt;!DOCTYPE html&gt;</code> — 文档类型。混沌初分，HTML 尚在襁褓（大约是 1991/92 年）之时，<code>DOCTYPE</code> 用来链接一些 HTML 编写守则，比如自动查错之类。<code>DOCTYPE</code> 在当今作用有限，仅用于保证文档正常读取。现在知道这些就足够了。</li>
+<li><code>&lt;html&gt;&lt;/html&gt;</code> — <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/html">``</a> 元素。该元素包含整个页面的内容，也称作根元素。</li>
+<li><code>&lt;head&gt;&lt;/head&gt;</code> — <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/head">``</a> 元素。该元素的内容对用户不可见，其中包含例如面向搜索引擎的搜索关键字（<a href="https://developer.mozilla.org/zh-CN/docs/Glossary/Keyword">keywords</a>）、页面描述、CSS 样式表和字符编码声明等。</li>
+<li><code>&lt;meta charset="utf-8"&gt;</code> — 该元素指定文档使用 UTF-8 字符编码，UTF-8 包括绝大多数人类已知语言的字符。基本上 UTF-8 可以处理任何文本内容，还可以避免以后出现某些问题，没有理由再选用其他编码。</li>
+<li><code>&lt;title&gt;&lt;/title&gt;</code> — <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/title">``</a> 元素。该元素设置页面的标题，显示在浏览器标签页上，也作为收藏网页的描述文字。</li>
+<li><code>&lt;body&gt;&lt;/body&gt;</code> — <a href="https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/body">``</a> 元素。该元素包含期望让用户在访问页面时看到的内容，包括文本、图像、视频、游戏、可播放的音轨或其他内容。</li>
+</ul>
+<h1 id="tips">tips</h1>
+<h2 id="require-vs.-import-in-javascript">Require vs. Import in JavaScript</h2>
+<p>In JavaScript, the <code>require</code> and <code>import</code> keywords are used to import modules. <code>require</code> is a function <a href="https://nodejs.org/dist/latest-v19.x/docs/api/modules.html">used to import modules in Node.js</a>, while <code>import</code> is a new keyword that is <a href="https://github.com/jedrichards/es6#modules">used to import modules in ECMAScript 6</a> (ES6).</p>
+]]></content>
   </entry>
 </search>
