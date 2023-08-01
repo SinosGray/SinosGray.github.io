@@ -88,7 +88,7 @@
         <tag>res</tag>
         <tag>print</tag>
         <tag>import</tag>
-        <tag>array</tag>
+        <tag>view</tag>
       </tags>
   </entry>
   <entry>
@@ -326,7 +326,7 @@ r\gets\rho_{2}r+(1-\rho_{2})g^{2}\\
         <tag>frac</tag>
         <tag>exp</tag>
         <tag>begin</tag>
-        <tag>end</tag>
+        <tag>decoder</tag>
       </tags>
   </entry>
   <entry>
@@ -2381,7 +2381,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>std</tag>
         <tag>function</tag>
         <tag>const</tag>
-        <tag>class</tag>
+        <tag>cppreference</tag>
       </tags>
   </entry>
   <entry>
@@ -2583,9 +2583,9 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
       <tags>
         <tag>git</tag>
         <tag>objects</tag>
-        <tag>txt</tag>
         <tag>file</tag>
         <tag>readme</tag>
+        <tag>branch</tag>
       </tags>
   </entry>
   <entry>
@@ -2967,7 +2967,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>http</tag>
         <tag>html</tag>
         <tag>dns</tag>
-        <tag>css</tag>
+        <tag>dom</tag>
       </tags>
   </entry>
   <entry>
@@ -5081,10 +5081,10 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
       </categories>
       <tags>
         <tag>print</tag>
-        <tag>html</tag>
+        <tag>library</tag>
         <tag>python</tag>
         <tag>docs</tag>
-        <tag>org</tag>
+        <tag>init</tag>
       </tags>
   </entry>
   <entry>
@@ -5206,7 +5206,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>property</tag>
         <tag>doc</tag>
         <tag>prop</tag>
-        <tag>indicates</tag>
+        <tag>cursor</tag>
       </tags>
   </entry>
   <entry>
@@ -5548,7 +5548,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>let</tag>
         <tag>tuple</tag>
         <tag>self</tag>
-        <tag>string</tag>
+        <tag>rust</tag>
       </tags>
   </entry>
   <entry>
@@ -5841,6 +5841,13 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
 <li><code>Object.is()</code> 既不进行类型转换，也不对 <code>NaN</code>、<code>-0</code> 和 <code>+0</code> 进行特殊处理（这使它和 <code>===</code> 在除了那些特殊数字值之外的情况具有相同的表现）。</li>
 </ul>
 ]]></content>
+      <tags>
+        <tag>var</tag>
+        <tag>let</tag>
+        <tag>javascript</tag>
+        <tag>console</tag>
+        <tag>es6</tag>
+      </tags>
   </entry>
   <entry>
     <title>操作系统历史</title>
@@ -6586,7 +6593,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>parallel</tag>
         <tag>discussion</tag>
         <tag>limit</tag>
-        <tag>counter</tag>
+        <tag>counting</tag>
       </tags>
   </entry>
   <entry>
@@ -6608,6 +6615,12 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
       <categories>
         <category>408</category>
       </categories>
+      <tags>
+        <tag>https</tag>
+        <tag>org</tag>
+        <tag>wiki</tag>
+        <tag>wikipedia</tag>
+      </tags>
   </entry>
   <entry>
     <title>数据结构</title>
@@ -7275,10 +7288,10 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
       </categories>
       <tags>
         <tag>frac</tag>
-        <tag>low</tag>
         <tag>int</tag>
         <tag>idx</tag>
         <tag>list</tag>
+        <tag>index</tag>
       </tags>
   </entry>
   <entry>
@@ -8292,7 +8305,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>wiki</tag>
         <tag>ethernet</tag>
         <tag>wikipedia</tag>
-        <tag>network</tag>
+        <tag>abcd</tag>
       </tags>
   </entry>
   <entry>
@@ -9484,7 +9497,7 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
         <tag>ack</tag>
         <tag>mac</tag>
         <tag>crlf</tag>
-        <tag>cookie</tag>
+        <tag>dhcp</tag>
       </tags>
   </entry>
   <entry>
@@ -9601,6 +9614,13 @@ aaaaaaaaaaa是在运行时刻赋值的；<br />
       <categories>
         <category>github</category>
       </categories>
+      <tags>
+        <tag>res</tag>
+        <tag>javascript</tag>
+        <tag>code</tag>
+        <tag>review</tag>
+        <tag>req</tag>
+      </tags>
   </entry>
   <entry>
     <title>计算机组成原理</title>
@@ -11367,6 +11387,16 @@ x,\quad &amp;0\le x &lt;1 \\
 <p><a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh"><img alt="知识共享许可协议" style="border-width: 0" src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/88x31.png"></a><br>本作品采用 <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/deed.zh">署名-非商业性使用-禁止演绎 4.0 国际</a> 进行许可。</p>
 <p><strong><a href="#目录">⬆ 返回顶部</a></strong></p>
 ]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>git</tag>
+        <tag>branch</tag>
+        <tag>的文件</tag>
+        <tag>origin</tag>
+        <tag>checkout</tag>
+      </tags>
   </entry>
   <entry>
     <title>functional-programming</title>
@@ -11532,6 +11562,16 @@ x,\quad &amp;0\le x &lt;1 \\
 <p><sup>7</sup>The opposite isn't always true. While it is sometimes possible to prove that two pieces of code are equivalent, it isn't possible in all situations.</p>
 <p><sup>8</sup>This is actually no slower than storing on the stack because once you introduce a garbage collector, memory allocation becomes an O(1) operation.</p>
 ]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>sup</tag>
+        <tag>function</tag>
+        <tag>java</tag>
+        <tag>functional</tag>
+        <tag>continuation</tag>
+      </tags>
   </entry>
   <entry>
     <title>命令行的艺术</title>
@@ -11885,6 +11925,16 @@ x,\quad &amp;0\le x &lt;1 \\
 <p><a href="http://creativecommons.org/licenses/by-sa/4.0/"><img src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" alt="Creative Commons License" /></a></p>
 <p>本文使用授权协议 <a href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>。</p>
 ]]></content>
+      <categories>
+        <category>github</category>
+      </categories>
+      <tags>
+        <tag>ctrl</tag>
+        <tag>bash</tag>
+        <tag>windows</tag>
+        <tag>unix</tag>
+        <tag>grep</tag>
+      </tags>
   </entry>
   <entry>
     <title>20210114凯卓公司</title>
@@ -11909,7 +11959,7 @@ x,\quad &amp;0\le x &lt;1 \\
         <tag>pnode</tag>
         <tag>cstring</tag>
         <tag>info</tag>
-        <tag>node</tag>
+        <tag>htreeitem</tag>
       </tags>
   </entry>
   <entry>
@@ -12142,7 +12192,7 @@ x,\quad &amp;0\le x &lt;1 \\
         <tag>module</tag>
         <tag>loadstring</tag>
         <tag>ids</tag>
-        <tag>str</tag>
+        <tag>resource</tag>
       </tags>
   </entry>
   <entry>
@@ -12471,8 +12521,8 @@ x,\quad &amp;0\le x &lt;1 \\
         <tag>int</tag>
         <tag>mutex</tag>
         <tag>sem</tag>
-        <tag>node</tag>
         <tag>lock</tag>
+        <tag>key</tag>
       </tags>
   </entry>
   <entry>
@@ -12793,10 +12843,10 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
       </categories>
       <tags>
         <tag>std</tag>
-        <tag>function</tag>
         <tag>cout</tag>
         <tag>move</tag>
         <tag>rvalue</tag>
+        <tag>ptr</tag>
       </tags>
   </entry>
   <entry>
@@ -14657,7 +14707,7 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
         <tag>ipv6</tag>
         <tag>addresses</tag>
         <tag>ipv4</tag>
-        <tag>internet</tag>
+        <tag>attacks</tag>
       </tags>
   </entry>
   <entry>
@@ -16730,10 +16780,10 @@ you have the compiler convert the optional&lt;&gt; to a Boolean for you, you cal
       </categories>
       <tags>
         <tag>network</tag>
-        <tag>internet</tag>
         <tag>networks</tag>
         <tag>server</tag>
         <tag>layer</tag>
+        <tag>protocol</tag>
       </tags>
   </entry>
   <entry>
@@ -23366,6 +23416,13 @@ The length of the array 'arr' has been set to 0, so the array becomes empty.
       <categories>
         <category>github</category>
       </categories>
+      <tags>
+        <tag>javascript</tag>
+        <tag>console</tag>
+        <tag>contents</tag>
+        <tag>log</tag>
+        <tag>top</tag>
+      </tags>
   </entry>
   <entry>
     <title>设计模式读书笔记</title>
