@@ -1,0 +1,337 @@
+<!DOCTYPE html><html lang="en" data-theme="dark"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Category: undefined | Sinos_wei's blog</title><meta name="author" content="Sinos"><meta name="copyright" content="Sinos"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#0d0d0d"><meta property="og:type" content="article">
+<meta property="og:title" content="redis设计与实现读书笔记">
+<meta property="og:url" content="https://sinos_wei.gitee.io/2024/01/c227678fd801.html">
+<meta property="og:site_name" content="Sinos_wei&#39;s blog">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sinos_wei.gitee.io/img/cover/IMG_3226.JPG">
+<meta property="article:published_time" content="2024-01-10T08:45:54.000Z">
+<meta property="article:modified_time" content="2024-01-10T10:06:01.614Z">
+<meta property="article:author" content="Sinos">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sinos_wei.gitee.io/img/cover/IMG_3226.JPG"><link rel="shortcut icon" href="/img/avatar.jpeg"><link rel="canonical" href="https://sinos_wei.gitee.io/2024/01/c227678fd801.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//hm.baidu.com"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?aeddd8219bc5c1e1efdcf5d9cc3218e6";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":true,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: true,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Category: undefined',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2024-01-10 18:06:01'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+    win.getCSS = (url,id = false) => new Promise((resolve, reject) => {
+      const link = document.createElement('link')
+      link.rel = 'stylesheet'
+      link.href = url
+      if (id) link.id = id
+      link.onerror = reject
+      link.onload = link.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        link.onload = link.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(link)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', 'ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 6.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/avatar.jpeg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">207</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/cover/IMG_3226.JPG')"><nav id="nav"><span id="blog-info"><a href="/" title="Sinos_wei's blog"><span class="site-name">Sinos_wei's blog</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> Search</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> Archives</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> Tags</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> List</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page child" href="/movies/"><i class="fa-fw fas fa-video"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">redis设计与实现读书笔记</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon fas fa-history"></i><span class="post-meta-label">Updated</span><time datetime="2024-01-10T10:06:01.614Z" title="Updated 2024-01-10 18:06:01">2024-01-10</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="redis设计与实现读书笔记"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post View:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><blockquote>
+
+</blockquote>
+<span id="more"></span>
+<h1 id="数据结构">数据结构</h1>
+<h2 id="简单动态字符串-simple-dynamic-string-sds">简单动态字符串 simple dynamic string SDS</h2>
+<p>除了字符串外还用做缓冲区, 二进制安全(api 以处理二进制的方式处理 buf 数组)</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">sdshdr</span>&#123;</span></span><br><span class="line">  <span class="comment">//已使用字节数, 获取长度的时间:O(1)</span></span><br><span class="line">  <span class="type">int</span> len;</span><br><span class="line">  <span class="comment">//未使用字节数, 杜绝了缓冲区溢出</span></span><br><span class="line">  <span class="type">int</span> <span class="built_in">free</span>;</span><br><span class="line">  <span class="comment">//字节数组, eg &#x27;h&#x27; &#x27;i&#x27; &#x27;\0&#x27;</span></span><br><span class="line">  <span class="type">char</span> buf[];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>空间预分配:</p>
+<ol type="1">
+<li>修改后 SDS&lt;1MB, 分配 free=len, 且有额外一个字节保存空字符\0</li>
+<li>修改后 SDS&gt;=1MB, 分配 free=1MB</li>
+</ol>
+<p>惰性空间释放: 修改只修改 free 而不释放空间</p>
+<h2 id="链表">链表</h2>
+<p>双向链表有头尾结点, 有链表结点数量</p>
+<h2 id="字典">字典</h2>
+<p>使用哈希表实现</p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dict</span>&#123;</span></span><br><span class="line">  <span class="comment">//类型特定函数集合</span></span><br><span class="line">  dictType* type;</span><br><span class="line">  <span class="comment">//私有数据</span></span><br><span class="line">  <span class="type">void</span>* privatedata;</span><br><span class="line">  <span class="comment">//两个哈希表, ht[1]在 ht[0] rehash 时使用</span></span><br><span class="line">  dicht ht[<span class="number">2</span>];</span><br><span class="line">  <span class="comment">//rehash 索引, 记录 rehash 进度, =-1 时表示不在 rehash</span></span><br><span class="line">  <span class="comment">//渐进式 rehash: 每次对字典增删改查时, 顺带将 rehashidx 所指的键值对转移, 并且 rehashidx++</span></span><br><span class="line">  <span class="type">int</span> rehashidx;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dicht</span>&#123;</span></span><br><span class="line">  <span class="comment">//哈希表数组</span></span><br><span class="line">  dicEntry **table;</span><br><span class="line">  <span class="comment">//哈希表大小</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="type">long</span> size;</span><br><span class="line">  <span class="comment">//哈希表大小掩码, sizemark=size-1, 例如 size=2^3, sizemark=0b111</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="type">long</span> sizemask;</span><br><span class="line">  <span class="comment">//哈希表已有节点数</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="type">long</span> used</span><br><span class="line">&#125; dictht;</span><br><span class="line">  </span><br><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span>&#123;</span></span><br><span class="line">  <span class="comment">//键</span></span><br><span class="line">  <span class="type">void</span>* key;</span><br><span class="line">  <span class="comment">//值</span></span><br><span class="line">  <span class="class"><span class="keyword">union</span>&#123;</span></span><br><span class="line">    <span class="type">void</span>* val;</span><br><span class="line">    uint64_tu64;</span><br><span class="line">    int64_ts64;</span><br><span class="line">  &#125; v;</span><br><span class="line">  <span class="comment">//下一个, 形成链表, 用于哈希冲突链表法, 新的冲突会加到链表头而不是尾</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">dictEntry</span> *<span class="title">next</span>;</span></span><br><span class="line">&#125; dictEntry;</span><br></pre></td></tr></table></figure>
+<p>rehash:</p>
+<ol type="1">
+<li>扩容
+<ol type="1">
+<li>如果是扩展操作, ht[1]大小为第一个 &gt;= ht[0].used * 2 的 2 的 n 次方</li>
+<li>如果是收缩操作, ht[1]大小为第一个 &gt;= ht[0].used 的 2 的 n 次方</li>
+</ol></li>
+<li>将 ht[0] 的键值对转移到 ht[1]</li>
+<li>释放 ht[0], ht[1]取代 ht[0], 新建空白 ht[1]</li>
+</ol>
+<p>扩容条件:</p>
+<ol type="1">
+<li>处于 BGSAVE 或 BGREWRITEAOF 命令中, 且哈希因子&gt;=5</li>
+<li>哈希因子&gt;=1</li>
+</ol>
+<p>收缩条件: 哈希因子&lt;=0.1</p>
+<h2 id="跳跃表">跳跃表</h2>
+<p>是有序集合键和集群节点内部数据结构的实现</p>
+<blockquote>
+<p>原理: 实际上是通过层, 实现了一种类似二分法的索引</p>
+<p>比树更简单, 不需要调整平衡, 更局部</p>
+</blockquote>
+<p><img src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/202401101710875.png" alt="image-20240110171042833" style="zoom: 50%;" /></p>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span>&#123;</span></span><br><span class="line">  <span class="comment">//层, 数组大小随机生成 1~32</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistLevel</span>&#123;</span></span><br><span class="line">    <span class="comment">//前进指针</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span>* <span class="title">forward</span>;</span></span><br><span class="line">    <span class="comment">//跨度, 通过跨度算出排位</span></span><br><span class="line">    <span class="type">unsigned</span> <span class="type">int</span> span;</span><br><span class="line">  &#125;level[];</span><br><span class="line">  <span class="comment">//后退指针</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">zskiplistNode</span>* <span class="title">backward</span>;</span></span><br><span class="line">  <span class="comment">//分值, 用于分层, 分值相同的节点根据成员对象字典序排序</span></span><br><span class="line">  <span class="type">double</span> score;</span><br><span class="line">  <span class="comment">//成员对象</span></span><br><span class="line">  robj* obj;</span><br><span class="line">&#125; zskiplistNode;</span><br></pre></td></tr></table></figure>
+<h2 id="压缩链表">压缩链表</h2>
+<p>是列表键和哈希键的实现之一</p>
+<blockquote>
+<p>减少了内存空间的使用, 连续空间顺序读写</p>
+</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">zlist</span>&#123;</span></span><br><span class="line">  <span class="comment">//整个列表占用的字节数</span></span><br><span class="line">  <span class="type">uint32_t</span> zlbytes;</span><br><span class="line">  <span class="comment">//尾节点到列表起始地址的偏移量</span></span><br><span class="line">  <span class="type">uint32_t</span> zltail;</span><br><span class="line">  <span class="comment">//节点数</span></span><br><span class="line">  <span class="type">uint16_t</span> zllen;</span><br><span class="line">  <span class="comment">//节点</span></span><br><span class="line">  <span class="class"><span class="keyword">struct</span> <span class="title">zlistNode</span> <span class="title">entrys</span>[];</span></span><br><span class="line">  <span class="comment">//特殊值 0xFF, 标记压缩列表结尾</span></span><br><span class="line">  <span class="type">uint8_t</span> zlend;</span><br><span class="line">&#125; zlist;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">zlistNode</span>&#123;</span></span><br><span class="line">  <span class="comment">//前一个节点的字节长度, 可以根据当前节点的起始地址算出前一个节点的起始地址</span></span><br><span class="line">  <span class="comment">//使得表容易从尾到头遍历</span></span><br><span class="line">  <span class="type">unsigned</span> <span class="title function_">int</span> <span class="params">(?)</span> previous_entry_length;</span><br><span class="line">  <span class="comment">//保存数据的类型和长度</span></span><br><span class="line">  <span class="type">int</span> encoding;</span><br><span class="line">  <span class="comment">//数据, 字节数组或整数值</span></span><br><span class="line">  <span class="type">void</span>* content;</span><br><span class="line">  <span class="comment">//内存回收, 可以通过 refcount 实现对象共享</span></span><br><span class="line">  <span class="type">int</span> refcount;</span><br><span class="line">  <span class="comment">//lru 算法</span></span><br><span class="line">  <span class="type">unsigned</span> lru:<span class="number">22</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>连锁更新: 扩展(压缩)一个节点导致后续节点连续更新</p>
+<h2 id="对象">对象</h2>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="class"><span class="keyword">struct</span> <span class="title">redisObject</span>&#123;</span></span><br><span class="line">  <span class="comment">//类型, 有: string, list, hash, set, zset(有序集合)</span></span><br><span class="line">  <span class="type">unsigned</span> type:<span class="number">4</span>;</span><br><span class="line">  <span class="comment">//编码, 指明了使用什么底层数据结构实现, </span></span><br><span class="line">  <span class="comment">//如int, embstr, raw, ht, linkedlist, ziplist, intset, skiplist</span></span><br><span class="line">  <span class="type">unsigned</span> encoding:<span class="number">4</span>;</span><br><span class="line">  <span class="comment">//指向底层实现的指针</span></span><br><span class="line">  <span class="type">void</span>* ptr;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>embstr 是对段字符串的一种优化编码方式, 是只读的, 修改需要转换类型到 raw</p>
+<ul>
+<li>embstr编码将创建字符串对象所需的内存分配次数从raw编码的两次降低为一次。</li>
+<li>释放 embstr编码的字符串对象只需要调用一次内存释放函数，而释放 raw 编码的 字符串对象需要调用两次内存释放函数。</li>
+<li>因为 embstr编码的字符串对象的<strong>所有数据都保存在一块连续的内存</strong>(即 void* ptr 紧跟在 object 后面)里面，所以这 种编码的字符串对多比起raw 编码的字符对象能的重好地利用缓存带来的优势</li>
+</ul>
+<p>列表对象: 短的一般用 ziplist 实现, 如果</p>
+<ol type="1">
+<li>保存的字符串元素有长度超过 64 字节</li>
+<li>或保存字符串元素超过512 个</li>
+</ol>
+<p>改用 linkedlist 实现</p>
+<p>哈希对象</p>
+<p>使用 zlist 实现的哈希对象:</p>
+<figure>
+<img src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/202401101733549.png" alt="image-20240110173359496" /><figcaption aria-hidden="true">image-20240110173359496</figcaption>
+</figure>
+<p>当哈希对象较大时用 hashtable 实现</p>
+<p><img src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/202401101734070.png" alt="image-20240110173409974" style="zoom:50%;" /></p>
+<p>集合对象: 用 intset 或 hashtable(较大) 实现</p>
+<p>有序集合: 用 ziplist 或 skiplist(较大) 实现</p>
+<p>内存回收:</p>
+<h1 id="单机数据库">单机数据库</h1>
+<p>每个数据库有 expires 字典保存数据库中所有键的过期时间</p>
+<p>删除过期键的方式: 惰性删除和定期删除结合 惰性删除: 读写前检查是否过期, 过期则删除 定期删除: 规定时间内分多次遍历数据库的 expires 字典, 从中随机检查一部分过期时间 过期的键: 生成 RDB 时会忽略, AOF 会增加 delete 命令</p>
+<p>复制模式:</p>
+<ul>
+<li>主服务器在删除一个过期键之后，会显式地向所有从服务器发送一个 DEL命令，告知从服务器删除这个过期键。</li>
+<li>从服务器在执行客户端发送的读命令时，即使碰到过期键也不会将过期键删除，而是继续像处理未过期的键一样来处理过期键。</li>
+<li>从服务器只有在接到主服务器发来的 DEL 命令之后，才会删除过期键。</li>
+</ul>
+<p>这样保证由主服务器控制删除过期键, 保证一致性</p>
+<h2 id="rdb-文件-redis-database">RDB 文件 redis database</h2>
+<ul>
+<li>SAVE 阻塞存储</li>
+<li>BGSAVE 开子进程存储</li>
+</ul>
+<p>BGSAVE 自动间隔性保存 有数组记录保存的参数(间隔时间, 读写多少次就开始保存) 有 dirty 计数器记录进行了多少次修改 有 lastsave 记录上一次保存的时间戳</p>
+<p>RDB 文件</p>
+<p><img src="https://raw.githubusercontent.com/SinosGray/picgo/master/test/202401101746707.png" alt="image-20240110174615599" /> 其中 database0 和 database3 分别存放对应数据库中的所有键值对 键值对的形式为: expiretime, type, key, value</p>
+<h2 id="aof-append-only-file">AOF append-only file</h2>
+<p>比 RDB 频率更高</p>
+<p>过程</p>
+<ol type="1">
+<li>命令追加 执行写命令后追加 AOF</li>
+<li>文件写入 服务器每结束一个时间循环前考虑是否要将 aof_buf 缓冲区的内容写入 AOF</li>
+<li>文件同步</li>
+</ol>
+<p>AOF 重写: 减小 AOF 文件大小</p>
+<h1 id="多机数据库">多机数据库</h1>
+<h2 id="复制">复制</h2>
+<p>从服务器 复制 主服务器</p>
+<p>sync 命令非常消耗资源, 过程: 主服务器 BGSAVE 产生 RDB, 将 RDB 传给从服务器, 从服务器载入 RDB 并阻塞直至同步完成</p>
+<ul>
+<li>完整重同步用于处理初次复制情况：完整重同步的执行步骤和SYNC命令的执行步骤基本一样，它们都是通过让主服务器创建并发送 RDB文件，以及向从服务器发送保存在缓冲区里面的写命令来进行同步。</li>
+<li>而部分重同步则用于处理断线后重复制情况：当从服务器在断线后重新连接主服务器时，如果条件允许，主服务器可以将主从服务器连接<strong>断开期间执行的写命令发送给从服务器</strong>，从服务器只要接收并执行这些写命令，就可以将数据库更新至主服务器当前所处的状态。</li>
+</ul>
+<p>复制偏移量: 保持主从服务器复制偏移量一致, 以用于检查从服务器是否同步</p>
+<p>主服务器除了将命令发给从服务器, 还会另外发给 复制积压缓冲区, 其中还记录了每个命令的复制偏移量, 用于部分重同步</p>
+<h2 id="哨兵">哨兵</h2>
+<p>单独的 redis 服务器, 监视主服务器状态, 如果下线寻找对应的从服务器替代, 将其升级为主服务器</p>
+<h2 id="集群">集群</h2>
+<p>槽指派: 一共 2^14 个槽, 分给所有集群服务器, 必须每个槽都有服务器才能上线</p>
+<p>每个服务器自己保存一个二进制数组记录自己管理的槽 每个服务器还保存一个数组记录每个槽都由哪个服务器管理</p>
+<p>有两个数组记录的原因: 当程序需要将某个节点的槽指派信息通过消息发送给其他节点时，程序只需要 将相应节点的 clusterNode.slots 数组整个发送出去就可以了。 另一方面，如果Redis 不使用clusterNode.slots 数组，而单独使用clusterstate.slots 数组的话，那么每次要将节点A的槽指派信息传播给其他节点时，程序必须先遍历整个 clusterstate.slots 数组，记录节点A负责处理哪些槽，然后才能发送节点 A的槽指派信息，这比直接发送 clusterNode.slots数组要麻烦和低效得多。</p>
+<p>计算键属于哪个槽: 将 key 的 crc16 校验和 &amp; 2^14-1</p>
+<h1 id="独立功能的实现">独立功能的实现</h1>
+<p>watch 功能, 如果在 watch 的期间有别的服务器写了该数据, 则打开REDIS DIRTY CAS 标识</p>
+<ul>
+<li>如果客户端的 REDIS DIRTYCAS 标识已经被打开，那么说明客户端所监视的键当中，至少有一个键已经被修改过了，在这种情况下，客户端提交的事务已经不再安全，所以服务器会拒绝执 行客户端提交的事务。</li>
+<li>如果客户端的 REDIS_DIRTY_CAS 没有打开, 则事务安全可以执行</li>
+</ul>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">Author: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io">Sinos</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">Link: </span><span class="post-copyright-info"><a href="https://sinos_wei.gitee.io/2024/01/c227678fd801.html">https://sinos_wei.gitee.io/2024/01/c227678fd801.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">Copyright Notice: </span><span class="post-copyright-info">All articles in this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless stating additionally.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"></div><div class="post_share"><div class="social-share" data-image="/img/cover/IMG_3226.JPG" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2024/01/a5b7e0f39f18.html" title="深入浅出nodejs"><img class="cover" src="/img/cover/00000076.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">Next Post</div><div class="next_info">深入浅出nodejs</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/avatar.jpeg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Sinos</div><div class="author-info__description">己所不欲, 勿施于人</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">65</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">207</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">9</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/SinosGray"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/SinosGray" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:1143474942@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="http://8.130.42.149:5230" target="_blank" title="memo"><i class="fab fa-heart"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Catalog</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">数据结构</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E5%8A%A8%E6%80%81%E5%AD%97%E7%AC%A6%E4%B8%B2-simple-dynamic-string-sds"><span class="toc-number">1.1.</span> <span class="toc-text">简单动态字符串 simple dynamic string SDS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%93%BE%E8%A1%A8"><span class="toc-number">1.2.</span> <span class="toc-text">链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%97%E5%85%B8"><span class="toc-number">1.3.</span> <span class="toc-text">字典</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%B3%E8%B7%83%E8%A1%A8"><span class="toc-number">1.4.</span> <span class="toc-text">跳跃表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E7%BC%A9%E9%93%BE%E8%A1%A8"><span class="toc-number">1.5.</span> <span class="toc-text">压缩链表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.6.</span> <span class="toc-text">对象</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">2.</span> <span class="toc-text">单机数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#rdb-%E6%96%87%E4%BB%B6-redis-database"><span class="toc-number">2.1.</span> <span class="toc-text">RDB 文件 redis database</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#aof-append-only-file"><span class="toc-number">2.2.</span> <span class="toc-text">AOF append-only file</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A4%9A%E6%9C%BA%E6%95%B0%E6%8D%AE%E5%BA%93"><span class="toc-number">3.</span> <span class="toc-text">多机数据库</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%8D%E5%88%B6"><span class="toc-number">3.1.</span> <span class="toc-text">复制</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%93%A8%E5%85%B5"><span class="toc-number">3.2.</span> <span class="toc-text">哨兵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4"><span class="toc-number">3.3.</span> <span class="toc-text">集群</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E5%8A%9F%E8%83%BD%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-number">4.</span> <span class="toc-text">独立功能的实现</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Post</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2024/01/c227678fd801.html" title="redis设计与实现读书笔记"><img src="/img/cover/IMG_3226.JPG" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="redis设计与实现读书笔记"/></a><div class="content"><a class="title" href="/2024/01/c227678fd801.html" title="redis设计与实现读书笔记">redis设计与实现读书笔记</a><time datetime="2024-01-10T10:06:01.614Z" title="Updated 2024-01-10 18:06:01">2024-01-10</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2023/07/a6f2ba33bf73.html" title="ts js html"><img src="/img/cover/00000106.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="ts js html"/></a><div class="content"><a class="title" href="/2023/07/a6f2ba33bf73.html" title="ts js html">ts js html</a><time datetime="2024-01-09T12:30:53.541Z" title="Updated 2024-01-09 20:30:53">2024-01-09</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/a5b7e0f39f18.html" title="深入浅出nodejs"><img src="/img/cover/00000076.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="深入浅出nodejs"/></a><div class="content"><a class="title" href="/2024/01/a5b7e0f39f18.html" title="深入浅出nodejs">深入浅出nodejs</a><time datetime="2024-01-06T11:48:17.075Z" title="Updated 2024-01-06 19:48:17">2024-01-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/a6ef84649f8f.html" title="nodejs-project-structure"><img src="/img/cover/00000197.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="nodejs-project-structure"/></a><div class="content"><a class="title" href="/2024/01/a6ef84649f8f.html" title="nodejs-project-structure">nodejs-project-structure</a><time datetime="2024-01-04T11:41:32.798Z" title="Updated 2024-01-04 19:41:32">2024-01-04</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2024/01/f52915be9043.html" title="webkit技术内幕读书笔记"><img src="/img/cover/00000051.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="webkit技术内幕读书笔记"/></a><div class="content"><a class="title" href="/2024/01/f52915be9043.html" title="webkit技术内幕读书笔记">webkit技术内幕读书笔记</a><time datetime="2024-01-02T08:30:58.253Z" title="Updated 2024-01-02 16:30:58">2024-01-02</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2024 By Sinos</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle between single-column and double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table Of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back To Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>if (!window.MathJax) {
+  window.MathJax = {
+    tex: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"]],
+      tags: 'ams'
+    },
+    chtml: {
+      scale: 1.1
+    },
+    options: {
+      renderActions: {
+        findScript: [10, doc => {
+          for (const node of document.querySelectorAll('script[type^="math/tex"]')) {
+            const display = !!node.type.match(/; *mode=display/)
+            const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display)
+            const text = document.createTextNode('')
+            node.parentNode.replaceChild(text, node)
+            math.start = {node: text, delim: '', n: 0}
+            math.end = {node: text, delim: '', n: 0}
+            doc.math.push(math)
+          }
+        }, ''],
+        insertScript: [200, () => {
+          document.querySelectorAll('mjx-container').forEach(node => {
+            if (node.hasAttribute('display')) {
+              btf.wrap(node, 'div', { class: 'mathjax-overflow' })
+            } else {
+              btf.wrap(node, 'span', { class: 'mathjax-overflow' })
+            }
+          });
+        }, '', false]
+      }
+    }
+  }
+  
+  const script = document.createElement('script')
+  script.src = 'https://cdn.jsdelivr.net/npm/mathjax/es5/tex-mml-chtml.min.js'
+  script.id = 'MathJax-script'
+  script.async = true
+  document.head.appendChild(script)
+} else {
+  MathJax.startup.document.state(0)
+  MathJax.texReset()
+  MathJax.typesetPromise()
+}</script></div><script defer="defer" id="fluttering_ribbon" mobile="false" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/dist/canvas-fluttering-ribbon.min.js"></script><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">Search</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  Loading the Database</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="Search for Posts" type="text"/></div></div><hr/><div class="no-result" id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js"></script></div></div></body></html>
